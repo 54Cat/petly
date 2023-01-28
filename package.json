@@ -1,8 +1,8 @@
 {
-  "name": "react-homework-template",
+  "name": "petly",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/54Cat/petly",
+  "homepage": "https://54Cat.github.io/petly/",
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
