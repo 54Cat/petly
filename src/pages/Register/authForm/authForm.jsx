@@ -35,9 +35,7 @@ export const AuthForm = () => {
         city: '',
     });
     const [currentStep, setCurrentStep] = useState(0);
-    const makeRequest = formData => {
-        console.log('Form submited', formData);
-    };
+    const makeRequest = formData => {};
     const handleNextStep = (newData, final = false) => {
         setData(prev => ({ ...prev, ...newData }));
         if (final) {
@@ -54,7 +52,7 @@ export const AuthForm = () => {
         <StepOne next={handleNextStep} data={data} />,
         <StepTwo next={handleNextStep} prev={handlePrevStep} data={data} />,
     ];
-    console.log('data', data);
+
     return <div>{steps[currentStep]}</div>;
 };
 

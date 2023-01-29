@@ -145,6 +145,11 @@ export const Input = styled(Field)`
     }
 `;
 export const Button = styled.button`
+    &:hover,
+    &:focus {
+        color: #ff6101;
+        border-color: #ff6101;
+    }
     font-style: normal;
     font-weight: 500;
     cursor: pointer;
@@ -183,6 +188,11 @@ export const Button = styled.button`
     } ;
 `;
 export const ButtonTwoReg = styled.button`
+    &:hover,
+    &:focus {
+        color: #ff6101;
+        border-color: #ff6101;
+    }
     font-style: normal;
     font-weight: 500;
     cursor: pointer;
