@@ -1,6 +1,6 @@
+import { NewsPage } from 'pages/News/NewsPage';
 const App = () => {
-  return 
-  
+    return <NewsPage></NewsPage>;
 };
 
 export default App;
