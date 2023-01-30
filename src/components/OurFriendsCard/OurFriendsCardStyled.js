@@ -18,11 +18,16 @@ height: 192px;
 box-shadow:7px 4px 14px rgba(49, 21, 4, 0.07);
 background-color: #FFFFFF;
 border-radius: 40px;
-@media(min-width: 320px){
-    margin: 12px 20px;
-}
+margin: 12px 20px;
 @media(min-width: 768px){
     margin: 16px;
+    width: 336px;
+    height: 246px;
+    padding: 16px 4px;
+}
+@media(min-width: 1280px){
+    width: 395px;
+    height: 287px;
 }
 `
 
@@ -36,11 +41,36 @@ display: flex;
 align-items: center;
 justify-content: center;
 text-decoration-line: underline;
-color: #F59256;`
+margin-bottom: 10px;
+color: #F59256;
+@media(min-width: 768px){
+    font-size: 16px;
+    line-height: 1.37;
+    margin-bottom: 16px;
+}
+@media(min-width: 1280px){
+    font-size: 20px;
+    line-height: 1.35;
+}
+`
 
 const FlexBox = styled.div`
 display:flex;
-align-items: center;`
+align-items: center;
+`
+
+const Image = styled.img`
+width: 110px;
+height: 78px;
+@media(min-width: 768px){
+    width: 120px;
+    height: 85px;
+}
+@media(min-width: 1280px){
+    width: 158px;
+    height: 112px;
+}
+`
 
 const Info = styled.p`
 font-family: 'Manrope';
@@ -48,7 +78,16 @@ font-style: normal;
 font-weight: 500;
 font-size: 12px;
 line-height: 1.33;
-color: #000000;`
+color: #000000;
+@media(min-width: 768px){
+    font-size: 14px;
+    line-height: 1.35;
+}
+@media(min-width: 1280px){
+    font-size: 16px;
+    line-height: 1.37;
+}
+`
 
 const InfoLink = styled.a`
 text-decoration: none;
@@ -58,7 +97,55 @@ font-weight: 500;
 font-size: 12px;
 line-height: 1.33;
 color: #000000;
+@media(min-width: 768px){
+    font-size: 14px;
+    line-height: 1.35;
+}
+@media(min-width: 1280px){
+    font-size: 16px;
+    line-height: 1.37;
+}
 `
+
+const AddressLink = styled.a`
+text-decoration: none;
+font-family: 'Manrope';
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 1.33;
+color: #000000;
+text-decoration-line: underline;`
+
+const SpanInfo = styled.span`
+font-family: 'Manrope';
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 1.33;
+color: #000000;
+@media(min-width: 768px){
+    font-size: 14px;
+    line-height: 1.35;
+}
+@media(min-width: 1280px){
+    font-size: 16px;
+    line-height: 1.37;
+}
+`
+
+const BoxInfo = styled.div`
+
+margin-botom: 4px;
+@media(min-width: 768px){
+    margin-botom: 8px;
+}
+@media(min-width: 1280px){
+    margin-botom: 12px;
+}
+&: last-child{
+   margin-botom: 0px; 
+}`
 
 export {
     List,
@@ -66,5 +153,8 @@ export {
     Title,
     FlexBox,
     Info,
-    InfoLink
+    InfoLink,
+    AddressLink,
+    BoxInfo,
+    SpanInfo,
 }
