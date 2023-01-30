@@ -1,5 +1,7 @@
+import { UserPage } from "pages/User/UserPage";
+
 const App = () => {
-  return 
+  return <UserPage/>
   
 };
 
