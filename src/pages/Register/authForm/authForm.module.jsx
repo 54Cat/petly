@@ -44,7 +44,7 @@ export const DivFormTwo = styled.div`
         position: absolute;
         background: transparent;
 
-        top: 30%;
+        top: 50%;
         left: 50%;
         margin-right: -50%;
         transform: translate(-50%, -50%);
