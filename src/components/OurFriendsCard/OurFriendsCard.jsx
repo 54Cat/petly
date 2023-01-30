@@ -1,16 +1,16 @@
-import {Card, FlexBox, Info, InfoLink} from "./OurFriendsCardStyled"
+import {List, Card, Title, FlexBox, Info, InfoLink} from "./OurFriendsCardStyled"
 
-const OurFriendsCard = ({ items }) => {
+const OurFriendsCard = ({ items, image }) => {
     
     const elements = items.map(({ title, url, imageUrl, addressUrl, address, phone, email }) => {
         return (
             <Card key={title}>
                 <a href={url} target="_blank" rel="noreferrer">
-                    <h3>{title}</h3>
+                    <Title>{title}</Title>
                 </a>
                     <FlexBox>
                         <div>
-                            <img src={imageUrl} alt={title}></img>
+                            <img src={imageUrl? imageUrl : image} alt="logo"></img>
                         </div>
                         <div>
                             <div>
@@ -36,7 +36,7 @@ const OurFriendsCard = ({ items }) => {
         )         
     }  
     )
-    return <ol>{ elements}</ol>    
+    return <List>{ elements}</List>    
 }
 
 export default OurFriendsCard;
