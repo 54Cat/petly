@@ -1,7 +1,8 @@
 import { useState} from 'react'
-import { NewsPageSection, NewsList } from './NewsPageStyled'
+import { NewsPageSection} from './NewsPageStyled'
 import { Title } from 'components/Utils/Styles/basicStyle'
 import { SearchBar } from 'components/SearchBar/SearchBar'
+import { CardsList } from 'components/CardsList/CardsList'
 import lastNews from 'data/news.json'
 
 export const NewsPage = () => {
@@ -22,6 +23,6 @@ export const NewsPage = () => {
     return <NewsPageSection>
         <Title>News</Title>
         <SearchBar handleSubmit={handleSubmit} onFilterChange={onFilterChange} filter={filter} />
-        <NewsList></NewsList>
+        <CardsList cardsArray={news} />
     </NewsPageSection>
 }

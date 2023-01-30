@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 export const SearchForm = styled.form`
 position: relative;
 margin-top: 28px;
-    
+    margin-bottom: 40px;
 `
 export const SearchButton = styled.button`
     border: none;
@@ -12,6 +12,6 @@ export const SearchButton = styled.button`
     height: 40px;
     padding: 0;
     position: absolute;
-    right: 5px;
     top: 0.8px;
+    right: 0;
 `
