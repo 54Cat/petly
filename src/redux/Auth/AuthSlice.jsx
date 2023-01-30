@@ -9,7 +9,10 @@ const initialState = {
 
 export const registerUser = createAsyncThunk(
     'auth/registerUser',
-    async ({ email, password, confirm, phone, city, name }) => {
+    async (
+        { email, password, confirm, phone, city, name },
+        { rejectWithValue }
+    ) => {
         try {
             const { data } = await axios.post('/auth/register', {
                 email,
@@ -24,7 +27,7 @@ export const registerUser = createAsyncThunk(
             }
             return data;
         } catch (error) {
-            console.log(error);
+            return rejectWithValue(error);
         }
     }
 );
@@ -43,7 +46,8 @@ export const authSlice = createSlice({
             state.user = action.payload.user;
         },
         [registerUser.fulfilled]: (state, action) => {
-            state.status = false;
+            state.status = action.payload.message;
+            state.isLoading = false;
         },
     },
 });

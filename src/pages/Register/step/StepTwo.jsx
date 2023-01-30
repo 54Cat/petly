@@ -1,5 +1,5 @@
 import { Formik, Form, ErrorMessage } from 'formik';
-import React, { useState } from 'react';
+import React from 'react';
 import { stepTwoValidationSchema } from '../schemaValidation/SchemaValid';
 import { Link } from 'react-router-dom';
 import {
@@ -11,20 +11,25 @@ import {
     DivFormTwo,
     ButtonTwoReg,
 } from '../authForm/authForm.module';
+import { registerUser } from '../../../redux/Auth/AuthSlice';
+import { useDispatch } from 'react-redux';
 
-export const StepTwo = props => {
-    const handleSubmit = (values, { resetForm }, { data }) => {
+export const StepTwo = ({ data, prev }) => {
+    const dispatch = useDispatch();
+    const handleSubmit = values => {
         try {
+            dispatch(registerUser(values));
         } catch (error) {
             console.log(error);
         }
-        props.next(values, true);
-        resetForm();
+
+        console.log(data);
+        console.log(values);
     };
     return (
         <Formik
             validationSchema={stepTwoValidationSchema}
-            initialValues={props.data}
+            initialValues={data}
             onSubmit={handleSubmit}
         >
             {({ values }) => (
@@ -38,10 +43,7 @@ export const StepTwo = props => {
                         <Input name="city" placeholder="City,region " />
                         <FormErrors name="city" />
                         <ButtonTwoReg type="submit">Register</ButtonTwoReg>
-                        <Button1
-                            type="button"
-                            onClick={() => props.prev(values)}
-                        >
+                        <Button1 type="button" onClick={() => prev(values)}>
                             Back
                         </Button1>
                     </Form>
