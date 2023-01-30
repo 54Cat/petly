@@ -1,5 +1,5 @@
 import { Formik, Form, ErrorMessage } from 'formik';
-import React from 'react';
+import React, { useState } from 'react';
 import { stepTwoValidationSchema } from '../schemaValidation/SchemaValid';
 import { Link } from 'react-router-dom';
 import {
@@ -13,7 +13,7 @@ import {
 } from '../authForm/authForm.module';
 
 export const StepTwo = props => {
-    const handleSubmit = (values, { resetForm }) => {
+    const handleSubmit = (values, { resetForm }, { data }) => {
         try {
         } catch (error) {
             console.log(error);
