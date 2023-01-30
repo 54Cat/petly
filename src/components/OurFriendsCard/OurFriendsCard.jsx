@@ -1,10 +1,23 @@
-import {List, Card, Title, FlexBox, Info, InfoLink, AddressLink, BoxInfo, SpanInfo, Image} from "./OurFriendsCardStyled"
+import { Card, Title, FlexBox, Info, InfoLink, AddressLink, BoxInfo, SpanInfo, Image} from "./OurFriendsCardStyled"
+//import Schedule from "./Schedule/Schedule";
 
-const OurFriendsCard = ({ items, image }) => {
-    
+const OurFriendsCard = ({ items, image, days }) => {
+
     const elements = items.map(({ title, url, imageUrl, workDays, addressUrl, address, phone, email }) => {
+        // let workDaysWithName = [];
+        // let newObject ={}
         const workDaysFrom = workDays?.filter(item => item.isOpen === true).map(item => item.from);
         const workDaysTo = workDays?.filter(item => item.isOpen === true).map(item => item.to);
+        
+        // for (let day of days) {
+        //     const array = workDays?.map((item) => {
+        //         newObject = { day, isOpen: item.isOpen, from: item.from, to: item.to }
+                
+        //     }) 
+        //     workDaysWithName.push(newObject);
+               
+        // };
+        
         return (
             <Card key={title}>
                 <a href={url} target="_blank" rel="noreferrer">
@@ -12,7 +25,10 @@ const OurFriendsCard = ({ items, image }) => {
                 </a>
                     <FlexBox>
                         <div>
-                            <Image src={imageUrl? imageUrl : image} alt="logo"></Image>
+                        <Image src={imageUrl ? imageUrl : image} alt="logo"></Image>
+                        {/* <table>
+                            <Schedule items={ workDaysWithName} />
+                        </table> */}
                         </div>
                         <div>
                             <BoxInfo>
@@ -38,7 +54,8 @@ const OurFriendsCard = ({ items, image }) => {
         )         
     }  
     )
-    return <List>{ elements}</List>    
+    // return <List>{ elements}</List>  
+    return elements;
 }
 
 export default OurFriendsCard;
