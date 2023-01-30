@@ -62,13 +62,16 @@ align-items: center;
 const Image = styled.img`
 width: 110px;
 height: 78px;
+margin-right: 12px;
 @media(min-width: 768px){
     width: 120px;
     height: 85px;
+    margin-right: 14px;
 }
 @media(min-width: 1280px){
     width: 158px;
     height: 112px;
+    margin-right: 16px;
 }
 `
 
@@ -105,6 +108,9 @@ color: #000000;
     font-size: 16px;
     line-height: 1.37;
 }
+    &:hover, :focus{
+        color: #F59256;
+    }  
 `
 
 const AddressLink = styled.a`
@@ -115,7 +121,11 @@ font-weight: 500;
 font-size: 12px;
 line-height: 1.33;
 color: #000000;
-text-decoration-line: underline;`
+text-decoration-line: underline;
+&:hover, :focus{
+        color: #F59256;
+    }
+`
 
 const SpanInfo = styled.span`
 font-family: 'Manrope';
@@ -136,15 +146,15 @@ color: #000000;
 
 const BoxInfo = styled.div`
 
-margin-botom: 4px;
+margin-bottom: 4px;
 @media(min-width: 768px){
-    margin-botom: 8px;
+    margin-bottom: 8px;
 }
 @media(min-width: 1280px){
-    margin-botom: 12px;
+    margin-bottom: 12px;
 }
 &: last-child{
-   margin-botom: 0px; 
+   margin-bottom: 0px; 
 }`
 
 export {
@@ -157,4 +167,5 @@ export {
     AddressLink,
     BoxInfo,
     SpanInfo,
+    Image,
 }
