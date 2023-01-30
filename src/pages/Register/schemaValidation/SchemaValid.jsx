@@ -16,15 +16,15 @@ const phoneRegExp =
     /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 export const stepTwoValidationSchema = yup.object().shape({
     name: yup.string().required(),
-    // phone: yup
-    //     .number()
-    //     .matches(phoneRegExp, 'Phone number is not valid')
+    phone: yup
+        .string()
+        .matches(phoneRegExp, 'Phone number is not valid')
 
-    //     .typeError("That doesn't look like a phone number")
-    //     .positive("A phone number can't start with a minus")
-    //     .integer("A phone number can't include a decimal point")
-    //     .min(8)
-    //     .required('A phone number is required'),
+        .typeError("That doesn't look like a phone number")
+        .positive("A phone number can't start with a minus")
+        .integer("A phone number can't include a decimal point")
+        .min(8)
+        .required('A phone number is required'),
 
     city: yup.string().required().min(7, 'Минимум 7 символов').max(32),
 });

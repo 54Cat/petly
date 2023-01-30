@@ -1,5 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from '../../components/Utils/axios/axios';
+// import axios from '../../components/Utils/axios/axios';
+import axios from 'axios';
+axios.defaults.baseURL = 'http://localhost:4000/api';
 const initialState = {
     user: null,
     token: null,
@@ -9,10 +11,7 @@ const initialState = {
 
 export const registerUser = createAsyncThunk(
     'auth/registerUser',
-    async (
-        { email, password, confirm, phone, city, name },
-        { rejectWithValue }
-    ) => {
+    async ({ email, password, confirm, phone, city, name }) => {
         try {
             const { data } = await axios.post('/auth/register', {
                 email,
@@ -27,7 +26,7 @@ export const registerUser = createAsyncThunk(
             }
             return data;
         } catch (error) {
-            return rejectWithValue(error);
+            console.log(error);
         }
     }
 );
@@ -44,6 +43,7 @@ export const authSlice = createSlice({
             state.isLoading = false;
             state.status = action.payload.message;
             state.user = action.payload.user;
+            state.token = action.payload.token;
         },
         [registerUser.fulfilled]: (state, action) => {
             state.status = action.payload.message;
