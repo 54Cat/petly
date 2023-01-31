@@ -8,10 +8,10 @@ export const stepOneValidationSchema = yup.object().shape({
         .required('Обьязательное поле')
         .email('Не правильно!'),
     password: yup.string().required().min(7, 'Минимум 7 символов').max(32),
-    // confirm: yup
-    //     .string()
+    confirm: yup
+        .string()
 
-    //     .oneOf([yup.ref('password'), null], 'Пароли не совпадают'),
+        .oneOf([yup.ref('password'), null], 'Пароли не совпадают'),
 });
 // const phoneRegExp =
 //     /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
@@ -20,9 +20,10 @@ export const stepTwoValidationSchema = yup.object().shape({
     phone: yup
         .string()
         .typeError("That doesn't look like a phone number")
-
+        .positive("A phone number can't start with a minus")
+        .integer("A phone number can't include a decimal point")
         .min(8)
         .required('A phone number is required'),
 
-    city: yup.string().required().min(2, 'Минимум 7 символов').max(32),
+    city: yup.string().required().min(7, 'Минимум 7 символов').max(32),
 });
