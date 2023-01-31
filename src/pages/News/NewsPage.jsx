@@ -7,7 +7,8 @@ import lastNews from 'data/news.json'
 
 export const NewsPage = () => {
     const [filter, setFilter] = useState('')
-    const [news, setNews] = useState(lastNews)
+    const [news] = useState(lastNews)
+    // const [news, setNews] = useState(lastNews)
     
 
     const onFilterChange = e => {
