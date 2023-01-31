@@ -52,6 +52,9 @@ color: #F59256;
     font-size: 20px;
     line-height: 1.35;
 }
+&:hover, :focus{
+    color: #FF6101;
+}
 `
 
 const FlexBox = styled.div`

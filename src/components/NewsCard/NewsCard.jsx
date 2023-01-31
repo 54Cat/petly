@@ -1,21 +1,21 @@
-import { TitleNews } from "./NewsStyledCard";
-import {List} from "../OurFriendsCard/OurFriendsCardStyled"
+import { TitleNews, DecorLine, NewsInfo, NewsDate, NewsLink, NewsItem, NewsFooter} from "./NewsStyledCard";
+import formatNewsDate from "components/Utils/helpers/formatNewsDate";
 
 const NewsCard = ({items}) => {
     const elements = items?.map(({ title, url, description, date }) => {
         return (
-            <li key={title}>
-                <div></div>
-                <h3>{title}</h3>
-                <p>{description}</p>
-                <div>
-                    <p>{date}</p>
-                    <a href={url} target="_blank" rel="noreferrer">Read more</a>
-                </div>
-        </li>
+            <NewsItem key={title}>
+                <DecorLine></DecorLine>
+                    <TitleNews>{`${title.slice(0, 52)}...,`}</TitleNews>
+                <NewsInfo>{` ${description.slice(0, 100)}...,`}</NewsInfo>
+                <NewsFooter>
+                    <NewsDate>{formatNewsDate(date)}</NewsDate>
+                    <NewsLink href={url} target="_blank" rel="noreferrer">Read more</NewsLink>
+                </NewsFooter>
+        </NewsItem>
     )
     })
-    return <List>{ elements}</List>
+    return elements;
 }
 
 export default NewsCard;

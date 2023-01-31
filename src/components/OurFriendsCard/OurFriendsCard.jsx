@@ -37,7 +37,7 @@ const OurFriendsCard = ({ items, image, days }) => {
                             </BoxInfo>
                             <BoxInfo>
                                 <Info>Adress: </Info>
-                                <AddressLink href={addressUrl}>{address? address.slice(0, 21) : <SpanInfo>------------------</SpanInfo>}</AddressLink>
+                                <AddressLink href={addressUrl}>{address? `${address.slice(0, 25)}...,` : <SpanInfo>------------------</SpanInfo>}</AddressLink>
                             </BoxInfo>
                             <BoxInfo>
                                 <Info>Email:</Info>
@@ -53,8 +53,7 @@ const OurFriendsCard = ({ items, image, days }) => {
             </Card>
         )         
     }  
-    )
-    // return <List>{ elements}</List>  
+    ) 
     return elements;
 }
 
