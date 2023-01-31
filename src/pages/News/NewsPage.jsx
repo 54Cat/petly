@@ -7,8 +7,7 @@ import lastNews from 'data/news.json'
 
 export const NewsPage = () => {
     const [filter, setFilter] = useState('')
-    const [news] = useState(lastNews)
-    // const [news, setNews] = useState(lastNews)
+    const [news, setNews] = useState(lastNews)
     
 
     const onFilterChange = e => {
@@ -16,8 +15,8 @@ export const NewsPage = () => {
     };
 
     const handleSubmit = e => {
-    e.preventDefault();
-        console.log(filter)
+        e.preventDefault();
+        setNews(lastNews);
     };
     
 
