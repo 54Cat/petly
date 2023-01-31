@@ -56,8 +56,9 @@ export const InputSearch = styled.input`
     font-size: 20px;
     line-height: 1.35;
     letter-spacing: 0.04em;
-    width: 244px;
-    height: 44px;
+    width: 236px;
+    height: 40px;
+    padding: 0 32px 0 12px;
     color: #535353;
     background: #ffffff;
     box-shadow: 7px 4px 14px rgba(49, 21, 4, 0.07);
