@@ -4,6 +4,7 @@ import { RegisterPage } from 'pages/Register/RegisterPage';
 import { NewsPage } from 'pages/News/NewsPage';
 
 const App = () => {
+
     return (
         <>
             <Routes>
