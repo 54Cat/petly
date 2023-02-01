@@ -7,7 +7,7 @@ export const AuthForm = () => {
     const [data, setData] = useState({
         email: '',
         password: '',
-
+        confirm: '',
         name: '',
         phone: '',
         city: '',
