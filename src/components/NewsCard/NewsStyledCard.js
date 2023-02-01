@@ -2,16 +2,14 @@ import styled from '@emotion/styled';
 
 const NewsItem = styled.li`
     display: block;
-    width: 280px;
-    height: 286px;
-    margin-bottom: 40px;
+    flex-basis: 100%;
+
     @media (min-width: 768px) {
-        margin: 30px;
-        width: 336px;
+        flex-basis: calc((100% - 32px) / 2);
+        height: 284px;
     }
     @media (min-width: 1280px) {
-        margin: 36px;
-        width: 392px;
+        flex-basis: calc((100% - 64px) / 3);
         height: 266px;
     }
 `;
