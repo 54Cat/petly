@@ -1,0 +1,79 @@
+import axios from "axios";
+import { createAsyncThunk } from "@reduxjs/toolkit";
+// import { wrongLogin, wrongRegistration } from "components/Notifigation/Notification";
+
+export const instanceContact = axios.create({
+  baseURL: 'http://localhost:4000/api',
+});
+
+const token = {
+  set(token) {
+    instanceContact.defaults.headers.common.Authorization = `Bearer ${token}`;
+  },
+  unset() {
+    instanceContact.defaults.headers.common.Authorization = '';
+  }
+}
+
+// export const register = createAsyncThunk('auth/register',
+//     async (newUser, thunkApi) => {
+
+//     try {
+//       const { data } = await instanceContact.post('/users/signup', newUser);
+//       token.set(data.token)
+//       return data;
+//     } catch (error) {
+//       wrongRegistration();
+//       return thunkApi.rejectWithValue(error.message);
+//     }
+//     });
+  
+//     export const loggedIn = createAsyncThunk('auth/login',
+//     async (credentials , thunkApi) => {
+      
+//     try {
+//       const { data } = await instanceContact.post('/users/login', credentials);
+//       token.set(data.token)
+//       return data;
+//     } catch (error) {
+//       wrongLogin();
+//       return thunkApi.rejectWithValue(error.message);
+//     }
+//       });
+  
+//     export const loggedOut = createAsyncThunk('auth/logout',
+//     async (_, thunkApi) => {
+      
+//     try {
+//       const { data } = await instanceContact.post('/users/logout');
+//       token.unset();
+//       return data;
+//     } catch (error) {
+//       return thunkApi.rejectWithValue(error.message);
+//     }
+    //   });
+  
+export const userCurrent = createAsyncThunk('users/current',
+      
+    async (_, { rejectWithValue, getState }) => {
+      
+        const { auth } = getState();
+        console.log(auth)
+    const userToken = auth.token;
+
+    if (auth.userToken === null) {
+      return rejectWithValue();
+
+    }
+    
+    try {
+    token.set(userToken)
+        const {data} = await instanceContact.get('/users/current');
+        return data;
+    } catch (error) {
+      token.unset();
+      return rejectWithValue(error.message);
+    }
+    
+    });
+  

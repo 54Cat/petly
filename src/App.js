@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
-import  SharedLayout  from './components/SharedLayout/SharedLayout';
+import SharedLayout from './components/SharedLayout/SharedLayout';
+import UserPage from 'pages/User/UserPage';
 
 
  const App = () => {
@@ -7,7 +8,8 @@ import  SharedLayout  from './components/SharedLayout/SharedLayout';
   return (
     <>
         <Routes>
-          <Route path="/" element={<SharedLayout />}>
+        <Route path="/" element={<SharedLayout />}>
+          <Route path='/' element={<UserPage />} />
           {/* всі компоненти вставляемо сюда */}
           </Route>
       </Routes>
