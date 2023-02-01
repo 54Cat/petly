@@ -1,7 +1,7 @@
 import { Formik, Form, ErrorMessage } from 'formik';
 import React from 'react';
 import { stepOneValidationSchema } from '../schemaValidation/SchemaValid';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import {
     DivForm,
     Input,
@@ -49,7 +49,7 @@ export const StepOne = props => {
 
                     <Text>
                         Already have an account?
-                        <Link to={'/login'}>Login</Link>
+                        <NavLink to={'/login'}>Login</NavLink>
                     </Text>
                 </DivForm>
             )}

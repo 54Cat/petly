@@ -21,6 +21,6 @@ export const stepTwoValidationSchema = yup.object().shape({
         .string()
         .typeError("That doesn't look like a phone number")
         .min(8)
-        .required('A phone number is required'),
+        .required('+3800000 is valid'),
     city: yup.string().required().min(2, 'Минимум 7 символов').max(32),
 });
