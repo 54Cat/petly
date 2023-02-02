@@ -4,7 +4,7 @@ import { MdCreate } from "react-icons/md";
 // import { BsCheckLg } from "react-icons/bs";
 import { IoIosCamera } from "react-icons/io";
 import { userCurrent } from "../../auth/UserAuth/AuthUser";
-import { Wrapper, Text, Image, ButtonEdit, Span, ButtonCreate, Input, Lable, Form, ButtonLogout } from "./UserDataStyle";
+import { Wrapper, Text, Image, ButtonEdit, Span, ButtonCreate, Input, Lable, Form, ButtonLogout, Conteiner } from "./UserDataStyle";
 
 
 const UserData = () => {
@@ -14,30 +14,41 @@ const UserData = () => {
             <Text>My information:</Text>
             <Wrapper>
                 <Image src={image} alt="my portret" width="233" height="233" />
-                <ButtonEdit> <Span><IoIosCamera size ="15px" viewBox="60 140 385 310" fill="#F59256" margin-right="5px"/></Span> Edit photo</ButtonEdit><br/>
+                <ButtonEdit> <Span><IoIosCamera fill="#F59256" size="22px" /></Span> Edit photo</ButtonEdit><br/>
                 <Form>
-                    <Lable htmlFor="name"> Name:</Lable>
-                    <Input type="text" id="name" name="Name" value={""} />
-                    <ButtonCreate type="submit"> <MdCreate color="#F59256" /></ButtonCreate> <br/>
-                    
-                    {/* <label for="email">Email:</label>
-                    <input type="text" id="email" name="Email" value={""} />
-                    <button type="submit"><BsCheckLg/></button><br/>
-                    
-                    <label for="birthday">Birthday:</label>
-                    <input type="text" id="birthday" name="Birthday" value={""} />
-                    <button type="submit">X</button><br/>
-                    
-                    <label for="phone">Phone:</label>
-                    <input type="text" id="phone" name="Phone" value={""} />
-                    <button type="submit">X</button><br/>
-                    
-                    <label for="city">City:</label>
-                    <input type="text" id="city" name="City" value={""} />
-                    <button type="submit">X</button> */}
+                    <Lable > Name:
+                        <Conteiner>
+                            <Input type="text" id="name" name="Name" value={"Volodymyr"} />
+                            <ButtonCreate type="submit"> <MdCreate color="#F59256" /></ButtonCreate> 
+                        </Conteiner>
+                    </Lable>
+                    <Lable> Email:
+                        <Conteiner>
+                            <Input type="text" id="email" name="Email" value={"anna00@gmail.com"} />
+                            <ButtonCreate type="submit"> <MdCreate color="#F59256" /></ButtonCreate>
+                        </Conteiner>
+                    </Lable>
+                    <Lable> Birthday:
+                        <Conteiner>
+                            <Input type="text" id="birthday" name="Birthday" value={"00.00.0000"} />
+                            <ButtonCreate type="submit"> <MdCreate color="#F59256" /></ButtonCreate>
+                        </Conteiner>
+                    </Lable>
+                    <Lable> Phone:
+                        <Conteiner>
+                            <Input type="text" id="phone" name="Phone" value={"+38000000000"} />
+                            <ButtonCreate type="submit"> <MdCreate color="#F59256" /></ButtonCreate>
+                        </Conteiner>
+                    </Lable>
+                    <Lable> City:
+                        <Conteiner>
+                            <Input type="text" id="city" name="City" value={"Kiev"} />
+                            <ButtonCreate type="submit"> <MdCreate color="#F59256" /></ButtonCreate>
+                        </Conteiner>
+                    </Lable>
                         
                 </Form>
-                <ButtonLogout type="submit"><TbLogout color="#F59256"/>Log Out</ButtonLogout>
+                    <ButtonLogout type="submit"><TbLogout color="#F59256"/>Log Out</ButtonLogout>
             </Wrapper>
         </>
     )
