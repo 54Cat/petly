@@ -1,20 +1,20 @@
 import { Route, Routes } from 'react-router-dom';
 import SharedLayout from './components/SharedLayout/SharedLayout';
-import UserPage from 'pages/User/UserPage';
+import { RegisterPage } from 'pages/Register/RegisterPage';
+import { NewsPage } from 'pages/News/NewsPage';
 
+const App = () => {
 
- const App = () => {
-
-  return (
-    <>
-        <Routes>
-        <Route path="/" element={<SharedLayout />}>
-          <Route path='/' element={<UserPage />} />
-          {/* всі компоненти вставляемо сюда */}
-          </Route>
-      </Routes>
-    </>
-  );
+    return (
+        <>
+            <Routes>
+                <Route path="/" element={<SharedLayout />}>
+                    <Route path="register" element={<RegisterPage />} />
+                    <Route path="news" element={<NewsPage />} />
+                </Route>
+            </Routes>
+        </>
+    );
 };
 
 export default App;
