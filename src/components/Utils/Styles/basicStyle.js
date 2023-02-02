@@ -71,7 +71,6 @@ export const InputSearch = styled.input`
     }
 
     @media (min-width: 480px) {
-        width: 380px;
     }
     @media (min-width: 768px) {
         width: 608px;
