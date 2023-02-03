@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 // import axios from '../../components/Utils/axios/axios';
 import axios from 'axios';
-axios.defaults.baseURL = 'http://localhost:4000/api';
+axios.defaults.baseURL = 'https://petly-backend-23cb.onrender.com/api';
 
 const initialState = {
     user: null,

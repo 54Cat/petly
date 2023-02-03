@@ -1,8 +1,9 @@
 import { Formik, Form, ErrorMessage } from 'formik';
 import React from 'react';
 import { stepTwoValidationSchema } from '../schemaValidation/SchemaValid';
-import { Link } from 'react-router-dom';
+
 import {
+    Link,
     Input,
     Title,
     Text,

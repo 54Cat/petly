@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { Field } from 'formik';
-// import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export const DivForm = styled.div`
     @media (min-width: 320px) {
@@ -148,18 +148,21 @@ export const Button = styled.button`
     transition: all 600ms ease;
     &:hover,
     &:focus {
-        color: #ff6101;
-        border-color: #ff6101;
+        background: #f59256;
+        color: white;
     }
     font-style: normal;
     font-weight: 500;
     cursor: pointer;
     font-family: 'Manrope';
-    background: #f59256;
+
     border-radius: 40px;
-    color: white;
+
     margin: 40px auto;
     border: none;
+    color: black;
+    border: 1px solid rgba(245, 146, 86, 0.5);
+    background: white;
 
     @media (min-width: 320px) {
         width: 280px;
@@ -302,4 +305,12 @@ export const FormError = styled.p`
     margin-left: 90px;
     margin-top: 2px;
 `;
-// export const Link = styled(Link)``;
+export const Link = styled(NavLink)`
+    transition: all 600ms ease;
+    &:hover,
+    &:focus {
+        opacity: 0.5;
+    }
+    color: #3091eb;
+    margin-left: 2px;
+`;
