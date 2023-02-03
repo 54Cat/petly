@@ -10,7 +10,6 @@ export const PetsCard = styled.div`
     background: #ffffff;
     box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
     border-radius: 20px;
-    border: dashed #2a2a2a;
 
     &:not(:last-child) {
         margin-bottom: 20px;
