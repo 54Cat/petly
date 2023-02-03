@@ -1,5 +1,8 @@
 import { Formik, Form, ErrorMessage } from 'formik';
-import React from 'react';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { loginUser } from 'redux/Login/LoginSlice';
+import { loginValidationSchema } from '../Login/schemaValidation/SchemaValid';
 
 import { Link } from 'react-router-dom';
 import {
@@ -11,7 +14,21 @@ import {
     FormError,
 } from './authLogin.module';
 
-export const Login = props => {
+export const Login = () => {
+    const dispatch = useDispatch();
+    const [data, setData] = useState({
+        email: '',
+        password: '',
+    });
+    const handleSubmit = (data, { resetForm }) => {
+        try {
+            dispatch(loginUser(data));
+            setData('');
+            resetForm();
+        } catch (error) {
+            console.log(error);
+        }
+    };
     const FormErrors = ({ name }) => {
         return (
             <ErrorMessage
@@ -21,14 +38,10 @@ export const Login = props => {
         );
     };
 
-    const handleSubmit = data => {
-        props.next(data);
-        console.log(props);
-    };
     return (
         <Formik
-            // validationSchema={}
-            initialValues={props.data}
+            validationSchema={loginValidationSchema}
+            initialValues={data}
             onSubmit={handleSubmit}
         >
             {() => (
@@ -40,9 +53,6 @@ export const Login = props => {
 
                         <Input name="password" placeholder="Password" />
                         <FormErrors name="password" />
-
-                        {/* <Input name="confirm" placeholder="Confirm password" />
-                        <FormErrors name="confirm" /> */}
 
                         <Button type="submit">Login</Button>
                     </Form>

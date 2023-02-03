@@ -1,8 +1,10 @@
+import 'react-toastify/dist/ReactToastify.css';
 import { Route, Routes } from 'react-router-dom';
 import SharedLayout from './components/SharedLayout/SharedLayout';
 import { RegisterPage } from 'pages/Register/RegisterPage';
 import { NewsPage } from 'pages/News/NewsPage';
 import { FriendsPage } from 'pages/Friends/FriendsPage';
+import { LoginPage } from 'pages/Login/LoginPage';
 
 const App = () => {
     return (

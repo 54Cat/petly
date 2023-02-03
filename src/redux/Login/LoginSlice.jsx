@@ -1,7 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-// import axios from '../../components/Utils/axios/axios';
 import axios from 'axios';
-axios.defaults.baseURL = 'https://petly-backend-23cb.onrender.com/api';
+axios.defaults.baseURL = 'http://localhost:4000/api';
 
 const initialState = {
     user: null,
@@ -9,18 +8,14 @@ const initialState = {
     isLoading: false,
     status: null,
 };
-
-export const registerUser = createAsyncThunk(
-    'auth/registerUser',
-    async ({ email, password, phone, city, name }, { rejectWithValue }) => {
-        console.log(email, password, phone, city, name);
+export const loginUser = createAsyncThunk(
+    'auth/loginUser',
+    async ({ email, password }, { rejectWithValue }) => {
+        console.log(email, password);
         try {
-            const { data } = await axios.post('/auth/register', {
+            const { data } = await axios.post('/auth/login', {
                 email,
                 password,
-                phone,
-                city,
-                name,
             });
             if (data.token) {
                 window.localStorage.setItem('token', data.token);
@@ -31,22 +26,22 @@ export const registerUser = createAsyncThunk(
         }
     }
 );
-export const authSlice = createSlice({
-    name: 'auth',
+export const loginSlice = createSlice({
+    name: 'login',
     initialState,
 
     extraReducers: {
         //Register USER
-        [registerUser.pending]: state => {
+        [loginUser.pending]: state => {
             state.isLoading = true;
         },
-        [registerUser.fulfilled]: (state, action) => {
+        [loginUser.fulfilled]: (state, action) => {
+            state.isLoading = false;
             state.status = action.payload.message;
             state.token = action.payload.token;
             state.user = action.payload.user;
-            state.isLoading = false;
         },
-        [registerUser.rejected]: (state, action) => {
+        [loginUser.rejected]: (state, action) => {
             state.isLoading = false;
             state.status = action.payload.message;
         },
@@ -54,4 +49,4 @@ export const authSlice = createSlice({
     },
 });
 
-export const authSlices = authSlice.reducer;
+export const loginSlices = loginSlice.reducer;
