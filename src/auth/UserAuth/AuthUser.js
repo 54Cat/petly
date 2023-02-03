@@ -1,65 +1,28 @@
-import axios from "axios";
+// import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 // import { wrongLogin, wrongRegistration } from "components/Notifigation/Notification";
-
-export const instanceContact = axios.create({
-  baseURL: 'http://localhost:4000/api',
-});
+import instance from "components/Utils/axios/axios";
+// export const instanceContact = axios.create({
+//   baseURL: 'http://localhost:4000/api',
+// });
 
 const token = {
   set(token) {
-    instanceContact.defaults.headers.common.Authorization = `Bearer ${token}`;
+    instance.defaults.headers.common.Authorization = `Bearer ${token}`;
   },
   unset() {
-    instanceContact.defaults.headers.common.Authorization = '';
+    instance.defaults.headers.common.Authorization = '';
   }
 }
-
-// export const register = createAsyncThunk('auth/register',
-//     async (newUser, thunkApi) => {
-
-//     try {
-//       const { data } = await instanceContact.post('/users/signup', newUser);
-//       token.set(data.token)
-//       return data;
-//     } catch (error) {
-//       wrongRegistration();
-//       return thunkApi.rejectWithValue(error.message);
-//     }
-//     });
   
-//     export const loggedIn = createAsyncThunk('auth/login',
-//     async (credentials , thunkApi) => {
-      
-//     try {
-//       const { data } = await instanceContact.post('/users/login', credentials);
-//       token.set(data.token)
-//       return data;
-//     } catch (error) {
-//       wrongLogin();
-//       return thunkApi.rejectWithValue(error.message);
-//     }
-//       });
-  
-//     export const loggedOut = createAsyncThunk('auth/logout',
-//     async (_, thunkApi) => {
-      
-//     try {
-//       const { data } = await instanceContact.post('/users/logout');
-//       token.unset();
-//       return data;
-//     } catch (error) {
-//       return thunkApi.rejectWithValue(error.message);
-//     }
-    //   });
-  
-export const userCurrent = createAsyncThunk('users/current',
+export const userCurrent = createAsyncThunk('user/',
       
     async (_, { rejectWithValue, getState }) => {
-      
         const { auth } = getState();
         console.log(auth)
-    const userToken = auth.token;
+      const userToken = auth.token;
+        console.log(userToken)
+      
 
     if (auth.userToken === null) {
       return rejectWithValue();
@@ -68,12 +31,27 @@ export const userCurrent = createAsyncThunk('users/current',
     
     try {
     token.set(userToken)
-        const {data} = await instanceContact.get('/users/current');
+      const { data } = await instance.get('/user');
+      console.log(data)
         return data;
     } catch (error) {
       token.unset();
       return rejectWithValue(error.message);
     }
     
-    });
+  });
+    
+  export const loggedOut = createAsyncThunk('auth/logout',
+    async (_, thunkApi) => {
+      
+    try {
+      const { data } = await instance.post('/auth/logout');
+      console.log(data)
+      token.unset();
+      return data;
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.message);
+    }
+      });
+  
   

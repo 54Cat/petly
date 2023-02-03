@@ -1,4 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { loggedOut } from 'auth/UserAuth/AuthUser';
+import { userCurrent } from 'auth/UserAuth/AuthUser';
 import axios from '../../components/Utils/axios/axios';
 
 const initialState = {
@@ -24,6 +26,7 @@ export const registerUser = createAsyncThunk(
         }
     }
 );
+
 export const authSlice = createSlice({
     name: 'auth',
     initialState,
@@ -42,6 +45,32 @@ export const authSlice = createSlice({
         [registerUser.fulfilled]: (state, action) => {
             state.status = action.payload.message;
             state.isLoading = false;
+        },
+        [loggedOut.pending](state) {
+            state.isLoading = true;
+        },
+        [loggedOut.fulfilled](state, action) {
+            state.isLoading = false;
+            state.user = null;
+            state.token = '';
+            state.isLoggedIn = false;
+        },
+        [loggedOut.rejected](state, action) {
+            state.isLoading = false;
+            state.error = action.payload;
+        },
+        [userCurrent.pending](state) {
+            state.isLoadingCurrentUser = true;
+        },
+        [userCurrent.fulfilled](state, action) {
+            state.isLoadingCurrentUser = false;
+            state.status = action.payload.message;
+            state.user = action.payload.user;
+            state.isLoggedIn = true;
+        },
+        [userCurrent.rejected](state, action) {
+            state.isLoadingCurrentUser = false;
+            state.error = action.payload;
         },
     },
 });
