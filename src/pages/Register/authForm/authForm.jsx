@@ -20,6 +20,7 @@ export const AuthForm = () => {
         if (final) {
             return;
         }
+
         setCurrentStep(prev => prev + 1);
     };
     const handlePrevStep = newData => {

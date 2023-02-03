@@ -12,8 +12,17 @@ export const registerUser = createAsyncThunk(
     'auth/registerUser',
     async ({ email, password, phone, city, name }, { rejectWithValue }) => {
         // const newData = JSON.stringify({ email, password, phone, city, name });
+
+        console.log(email, password, phone, city, name);
         try {
-            const { data } = await axios.post('/auth/register', { email, password, phone, city, name });
+            const { data } = await axios.post('/auth/register', {
+                email,
+                password,
+                phone,
+
+                city,
+                name,
+            });
             if (data.token) {
                 window.localStorage.setItem('token', data.token);
             }

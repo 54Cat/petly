@@ -145,6 +145,7 @@ export const Input = styled(Field)`
     }
 `;
 export const Button = styled.button`
+    transition: all 600ms ease;
     &:hover,
     &:focus {
         color: #ff6101;
@@ -188,23 +189,27 @@ export const Button = styled.button`
     } ;
 `;
 export const ButtonTwoReg = styled.button`
+    transition: all 600ms ease;
     &:hover,
     &:focus {
-        color: #ff6101;
-        border-color: #ff6101;
+        background: #f59256;
+        color: white;
     }
     font-style: normal;
     font-weight: 500;
     cursor: pointer;
     font-family: 'Manrope';
-    background: #f59256;
+
     border-radius: 40px;
-    color: white;
+
     margin-top: 40px;
     margin-left: auto;
     margin-right: auto;
     display: block;
     border: none;
+    color: black;
+    border: 1px solid rgba(245, 146, 86, 0.5);
+    background: white;
 
     @media (min-width: 320px) {
         width: 280px;
@@ -234,6 +239,7 @@ export const ButtonTwoReg = styled.button`
     } ;
 `;
 export const Button1 = styled.button`
+    transition: all 600ms ease;
     font-style: normal;
     font-weight: 500;
     cursor: pointer;
@@ -244,6 +250,12 @@ export const Button1 = styled.button`
     margin: 16px auto;
     border: none;
     border: 1px solid rgba(245, 146, 86, 0.5);
+    &:hover,
+    &:focus {
+        color: white;
+        border-color: #ff6101;
+        background: #f59256;
+    }
 
     @media (min-width: 320px) {
         width: 280px;
