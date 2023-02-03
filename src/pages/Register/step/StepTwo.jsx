@@ -18,14 +18,6 @@ export const StepTwo = ({ data, prev }) => {
     const dispatch = useDispatch();
     const handleSubmit = (values, { resetForm }) => {
         try {
-            console.log(values);
-            // const request = {
-            //     name: values.name,
-            //     email: values.email,
-            //     password: values.password,
-            //     phone: values.phone,
-            //     city: values.city,
-            // };
             dispatch(registerUser(values));
             resetForm();
         } catch (error) {
