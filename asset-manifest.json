@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/petly/static/css/main.b927c605.css",
-    "main.js": "/petly/static/js/main.97e8f3bd.js",
+    "main.js": "/petly/static/js/main.bf821585.js",
     "static/media/bg-desc.png": "/petly/static/media/bg-desc.58099e6ef296c5b2f4d4.png",
     "static/media/bg-tabl.png": "/petly/static/media/bg-tabl.6f81e11ef2e08692046e.png",
     "static/media/bg-phone.png": "/petly/static/media/bg-phone.2dde37411100d8a1fd16.png",
     "index.html": "/petly/index.html",
     "main.b927c605.css.map": "/petly/static/css/main.b927c605.css.map",
-    "main.97e8f3bd.js.map": "/petly/static/js/main.97e8f3bd.js.map"
+    "main.bf821585.js.map": "/petly/static/js/main.bf821585.js.map"
   },
   "entrypoints": [
     "static/css/main.b927c605.css",
-    "static/js/main.97e8f3bd.js"
+    "static/js/main.bf821585.js"
   ]
 }
