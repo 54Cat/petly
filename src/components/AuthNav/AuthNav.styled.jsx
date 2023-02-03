@@ -30,6 +30,16 @@ export const NavButtonLink = styled(Link)`
         padding: 10px 28px;
     }
 
+    &:hover {
+    background-color: #f59256;
+    color: #FFFFFF;
+    }
+
+    &:focus {
+    background-color: #f59256;
+    color: #000000;
+    }
+
     &.active {
         background-color: #F59256;
         color: #FFFFFF;
