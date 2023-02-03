@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Notiflix from 'notiflix'
 import { fetchNews } from 'components/Utils/axios/fetchNews'
 import { PageSection } from 'components/Utils/Styles/basicStyle'
 import { Title } from 'components/Utils/Styles/basicStyle'
@@ -18,9 +19,14 @@ export const NewsPage = () => {
         e.preventDefault();
         try {
             const results = await fetchNews(filter);
+            if (results.length === 0) {
+                Notiflix.Notify.failure(`No news found for the keyword "${filter}".`)
+                return
+            }
+            Notiflix.Notify.success(`News found`)
             setNews(results);
         } catch (e) {
-            console.log(e.message)
+            Notiflix.Notify.failure(e.message)
         }
         
     };
