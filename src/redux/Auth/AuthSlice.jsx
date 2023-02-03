@@ -2,6 +2,9 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { loggedOut } from 'auth/UserAuth/AuthUser';
 import { userCurrent } from 'auth/UserAuth/AuthUser';
 import axios from '../../components/Utils/axios/axios';
+// import axios from '../../components/Utils/axios/axios';
+import axios from 'axios';
+axios.defaults.baseURL = 'https://petly-backend-23cb.onrender.com/api';
 
 const initialState = {
     user: null,
@@ -13,10 +16,15 @@ const initialState = {
 export const registerUser = createAsyncThunk(
     'auth/registerUser',
     async ({ email, password, phone, city, name }, { rejectWithValue }) => {
-        const a = JSON.stringify({ email, password, phone, city, name });
-        console.log({ email, password, phone, city, name });
+        console.log(email, password, phone, city, name);
         try {
-            const { data } = await axios.post('/auth/register', a);
+            const { data } = await axios.post('/auth/register', {
+                email,
+                password,
+                phone,
+                city,
+                name,
+            });
             if (data.token) {
                 window.localStorage.setItem('token', data.token);
             }

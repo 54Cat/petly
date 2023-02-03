@@ -3,9 +3,9 @@ import SharedLayout from './components/SharedLayout/SharedLayout';
 import { RegisterPage } from 'pages/Register/RegisterPage';
 import { NewsPage } from 'pages/News/NewsPage';
 import UserPage from 'pages/User/UserPage';
+import { FriendsPage } from 'pages/Friends/FriendsPage';
 
 const App = () => {
-
     return (
         <>
             <Routes>
@@ -13,6 +13,7 @@ const App = () => {
                     <Route path="register" element={<RegisterPage />} />
                     <Route path="news" element={<NewsPage />} />
                     <Route path="/user" element={<UserPage />} />
+                    <Route path="friends" element={<FriendsPage />} />
                 </Route>
             </Routes>
         </>

@@ -1,8 +1,9 @@
 import { Formik, Form, ErrorMessage } from 'formik';
 import React from 'react';
 import { stepOneValidationSchema } from '../schemaValidation/SchemaValid';
-import { Link } from 'react-router-dom';
+
 import {
+    Link,
     DivForm,
     Input,
     Title,
@@ -23,6 +24,7 @@ export const StepOne = props => {
 
     const handleSubmit = data => {
         props.next(data);
+
         console.log(props);
     };
     return (
@@ -41,8 +43,8 @@ export const StepOne = props => {
                         <Input name="password" placeholder="Password" />
                         <FormErrors name="password" />
 
-                        {/* <Input name="confirm" placeholder="Confirm password" />
-                        <FormErrors name="confirm" /> */}
+                        <Input name="confirm" placeholder="Confirm password" />
+                        <FormErrors name="confirm" />
 
                         <Button type="submit">Next</Button>
                     </Form>
