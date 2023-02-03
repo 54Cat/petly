@@ -38,6 +38,7 @@ export const NavButtonLink = styled(Link)`
     &:focus {
     background-color: #f59256;
     color: #000000;
+    border: 2px solid #000000;
     }
 
     &.active {
