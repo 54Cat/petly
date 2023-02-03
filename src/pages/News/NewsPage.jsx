@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Notiflix from 'notiflix'
 import { fetchNews } from 'components/Utils/axios/fetchNews'
 import { PageSection } from 'components/Utils/Styles/basicStyle'
@@ -14,6 +14,24 @@ export const NewsPage = () => {
     const onFilterChange = e => {
     setFilter(e.currentTarget.value);
     };
+
+    useEffect(() => {
+    onFirstRender()  
+    }, [])
+    
+
+    const onFirstRender = async () => {
+        try {
+            const results = await fetchNews('pets');
+            if (results.length === 0) {
+                Notiflix.Notify.info(`Please search news.`)
+                return
+            }
+            setNews(results);
+        } catch (e) {
+            Notiflix.Notify.failure(e.message)
+        }
+    }
 
     const handleSubmit = async e => {
         e.preventDefault();
