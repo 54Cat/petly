@@ -1,5 +1,5 @@
 import { useState} from 'react'
-import { NewsPageSection} from './NewsPageStyled'
+import { PageSection } from 'components/Utils/Styles/basicStyle'
 import { Title } from 'components/Utils/Styles/basicStyle'
 import { SearchBar } from 'components/SearchBar/SearchBar'
 import { CardsList } from 'components/CardsList/CardsList'
@@ -24,9 +24,9 @@ export const NewsPage = () => {
     };
     
 
-    return <NewsPageSection>
+    return <PageSection>
         <Title>News</Title>
         <SearchBar handleSubmit={handleSubmit} onFilterChange={onFilterChange} filter={filter} />
         <CardsList cardsArray={news} CardsItem={NewsCard} />
-    </NewsPageSection>
+    </PageSection>
 }

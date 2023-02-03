@@ -2,7 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import SharedLayout from './components/SharedLayout/SharedLayout';
 import { RegisterPage } from 'pages/Register/RegisterPage';
 import { NewsPage } from 'pages/News/NewsPage';
-import { LoginPage } from 'pages/Login/LoginPage';
+import { FriendsPage } from 'pages/Friends/FriendsPage';
 
 const App = () => {
     return (
@@ -12,6 +12,7 @@ const App = () => {
                     <Route path="register" element={<RegisterPage />} />
                     <Route path="login" element={<LoginPage />} />
                     <Route path="news" element={<NewsPage />} />
+                    <Route path="friends" element={<FriendsPage />} />
                 </Route>
             </Routes>
         </>
