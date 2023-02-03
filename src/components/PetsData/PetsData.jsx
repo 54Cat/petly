@@ -1,9 +1,12 @@
-import PetsList from "components/PetsList/PetsList"
+import PetsList from 'components/PetsList/PetsList';
 
 const PetsData = function () {
-    return <>
-    <h1>This is PetsData</h1>
-    <PetsList/></>
-}
+    return (
+        <>
+            <h2>This is PetsData</h2>
+            <PetsList />
+        </>
+    );
+};
 
-export default PetsData
+export default PetsData;
