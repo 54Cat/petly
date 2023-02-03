@@ -1,7 +1,13 @@
+// import axios from 'axios';
+// axios.defaults.baseURL = 'http://localhost:4000/api';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+<<<<<<< Updated upstream
 // import axios from '../../components/Utils/axios/axios';
 import axios from 'axios';
 axios.defaults.baseURL = 'https://petly-backend-23cb.onrender.com/api';
+=======
+import instance from '../../components/Utils/axios/axios';
+>>>>>>> Stashed changes
 
 const initialState = {
     user: null,
@@ -13,9 +19,16 @@ const initialState = {
 export const registerUser = createAsyncThunk(
     'auth/registerUser',
     async ({ email, password, phone, city, name }, { rejectWithValue }) => {
+<<<<<<< Updated upstream
         console.log(email, password, phone, city, name);
         try {
             const { data } = await axios.post('/auth/register', {
+=======
+        // const a = JSON.stringify({ email, password, phone, city, name });
+        console.log({ email, password, phone, city, name });
+        try {
+            const { data } = await instance.post('/auth/register', {
+>>>>>>> Stashed changes
                 email,
                 password,
                 phone,
