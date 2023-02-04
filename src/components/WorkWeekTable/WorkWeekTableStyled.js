@@ -4,10 +4,10 @@ const ScheduleBox = styled.div`
 position: absolute;
 z-index: 2;
 left: 178px;
-top: 112px;
+top: 114px;
 bottom: 20px;
 width: 120px;
-height: 160px;
+height: 140px;
 padding: 12px;
 
 background: #FFFFFF;
