@@ -4,7 +4,7 @@ const ScheduleBox = styled.div`
 position: absolute;
 z-index: 2;
 left: 178px;
-top: 107px;
+top: 112px;
 bottom: 20px;
 width: 120px;
 height: 160px;
