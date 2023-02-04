@@ -7,7 +7,7 @@ left: 178px;
 top: 114px;
 bottom: 20px;
 width: 120px;
-height: 140px;
+height: 144px;
 padding: 12px;
 
 background: #FFFFFF;
