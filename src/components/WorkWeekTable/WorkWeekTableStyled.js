@@ -22,6 +22,7 @@ border-radius: 8px;
 
 const CurrentBoxItem = styled.div`
 display: flex;
+padding: 4px;
 justify-content: space-between;
 text-align: center;
 margin-bottom: 4px;
