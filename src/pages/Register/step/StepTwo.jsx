@@ -1,8 +1,9 @@
 import { Formik, Form, ErrorMessage } from 'formik';
 import React from 'react';
 import { stepTwoValidationSchema } from '../schemaValidation/SchemaValid';
-import { Link } from 'react-router-dom';
+
 import {
+    Link,
     Input,
     Title,
     Text,
@@ -16,15 +17,16 @@ import { useDispatch } from 'react-redux';
 
 export const StepTwo = ({ data, prev }) => {
     const dispatch = useDispatch();
-    const handleSubmit = values => {
+    const handleSubmit = (values, { resetForm }) => {
         try {
             dispatch(registerUser(values));
+            resetForm();
         } catch (error) {
             console.log(error);
         }
 
-        console.log(data);
-        console.log(values);
+        // console.log(data);
+        // console.log(values);
     };
     return (
         <Formik
