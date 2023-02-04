@@ -17,17 +17,34 @@ const NewsItem = styled.li`
 const DecorLine = styled.div`
     background: linear-gradient(90deg, #ff634e 0%, #ffdf48 105.44%);
     border-radius: 40px;
-    width: 200px;
+    display: block;
+    flex-basis: 100%;
+    
     height: 4px;
     margin-bottom: 4px;
     @media (min-width: 768px) {
-        width: 280px;
+        flex-basis: calc((100% - 32px) / 2);
         height: 8px;
     }
     @media (min-width: 1280px) {
-        width: 340px;
+        flex-basis: calc((100% - 64px) / 3);
+        
     }
 `;
+// const DecorLine = styled.div`
+//     background: linear-gradient(90deg, #ff634e 0%, #ffdf48 105.44%);
+//     border-radius: 40px;
+//     width: 200px;
+//     height: 4px;
+//     margin-bottom: 4px;
+//     @media (min-width: 768px) {
+//         width: 280px;
+//         height: 8px;
+//     }
+//     @media (min-width: 1280px) {
+//         width: 340px;
+//     }
+// `;
 
 const NewsFooter = styled.div`
     display: flex;
