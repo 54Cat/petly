@@ -8,6 +8,7 @@ import { LoginPage } from 'pages/Login/LoginPage';
 import { NoticesPage } from 'pages/Notices/NoticesPage';
 import { NoticesCategoriesList } from 'components/NoticesCategoriesList/NoticesCategoriesList';
 
+
 const App = () => {
     return (
         <>
