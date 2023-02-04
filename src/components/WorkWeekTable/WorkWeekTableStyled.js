@@ -18,8 +18,19 @@ background: #FFFFFF;
 border: 1px solid #F59256;
 box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
 border-radius: 8px;
-
 `
+
+const CurrentBoxItem = styled.div`
+display: flex;
+justify-content: space-between;
+text-align: center;
+margin-bottom: 4px;
+border: 1px solid #F59256;
+&:last-child{
+    margin-bottom: 0px;
+}
+`
+
 const ScheduleBoxItem = styled.div`
 
 display: flex;
@@ -43,4 +54,5 @@ export {
     ScheduleBox,
     ScheduleInfo,
     ScheduleBoxItem,
+    CurrentBoxItem
 }

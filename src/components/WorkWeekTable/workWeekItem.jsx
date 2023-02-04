@@ -1,45 +1,30 @@
-import { ScheduleBoxItem, ScheduleInfo } from "./WorkWeekTableStyled";
-//import { nanoid } from "nanoid";
+import { ScheduleBoxItem, ScheduleInfo,CurrentBoxItem } from "./WorkWeekTableStyled";
+import getWeekDay from "components/Utils/helpers/getWeekDay";
+import { useState, useEffect } from "react";
 
-
-const WorkWeekItem = ({scheduleItem}) => {
+const WorkWeekItem = ({ scheduleItem }) => {
+    const [currentDay, setCurrentDay] = useState(false);
     const { day, from, to } = scheduleItem;
     
-    // function getMessage(day, from, to) {
-    //     function getWeekDay(date) {
-    //     let days = ['SU', 'MN', 'TU', 'WE', 'TH', 'FR', 'SA'];
+    useEffect(() => {
+        if (dayName === day) {
+            setCurrentDay(state => state = true)
+        }   
+    }, [])
+    let now = new Date();
 
-    //     return days[date.getDay()];
-    // }
-    // let now = new Date();
-
-    // let weekDay = getWeekDay(now)
-    // let hour = now.getHours()
-    // let message = ''
-    // if (weekDay === day  && from  <= hour && hour >=  to ) {
-    //   return message = 'Open now';
-    // }
-    //     return message
-    // }
-    // const message = getMessage(day, from, to)
-
-
-    // function getOpenClose(now) {
-        
-    //     let weekDay = getWeekDay(now)
-    //     let hour = now.getHours()
-    //     console.log(hour)
-    //     if (weekDay === day && isOpen === true && from <= hour >= to) {
-    //     return console.log("open now")
-    //     }
-    //     return console.log("close now")
-    // }
+    let dayName = getWeekDay(now)
 
     return (
-      <ScheduleBoxItem>
+        currentDay ?
+        <CurrentBoxItem>
             <ScheduleInfo >{day}</ScheduleInfo>
             <ScheduleInfo >{`${from} - ${to}`}</ScheduleInfo>
-        </ScheduleBoxItem>  
+        </CurrentBoxItem>
+        : <ScheduleBoxItem>
+            <ScheduleInfo >{day}</ScheduleInfo>
+            <ScheduleInfo >{`${from} - ${to}`}</ScheduleInfo>
+            </ScheduleBoxItem>    
     )
 }
 export default WorkWeekItem;
