@@ -1,14 +1,16 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { loggedOut } from 'auth/UserAuth/AuthUser';
-import { userCurrent } from 'auth/UserAuth/AuthUser';
-import axios from '../../components/Utils/axios/axios';
-// import axios from '../../components/Utils/axios/axios';
+
 import axios from 'axios';
 axios.defaults.baseURL = 'https://petly-backend-23cb.onrender.com/api';
 
+// const token =
+//     'feyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZGQ2YzkzNGI3ZjM3YjI0YTg2Mjc1YiIsImlhdCI6MTY3NTQ1NTYzNX0.KFE9uckEFLCuIBXPrSiJBnRxGEe4WUbk7wMPVGHfWQw';
+// window.localStorage.setItem('token', token);
+
 const initialState = {
     user: null,
-    token: null,
+    token: '',
     isLoading: false,
     status: null,
 };
@@ -61,23 +63,9 @@ export const authSlice = createSlice({
             state.isLoading = false;
             state.user = null;
             state.token = '';
-            state.isLoggedIn = false;
         },
         [loggedOut.rejected](state, action) {
             state.isLoading = false;
-            state.error = action.payload;
-        },
-        [userCurrent.pending](state) {
-            state.isLoadingCurrentUser = true;
-        },
-        [userCurrent.fulfilled](state, action) {
-            state.isLoadingCurrentUser = false;
-            state.status = action.payload.message;
-            state.user = action.payload.user;
-            state.isLoggedIn = true;
-        },
-        [userCurrent.rejected](state, action) {
-            state.isLoadingCurrentUser = false;
             state.error = action.payload;
         },
     },

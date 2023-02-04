@@ -13,6 +13,8 @@ import storage from 'redux-persist/lib/storage';
 import { configureStore } from '@reduxjs/toolkit';
 
 import { authSlices } from './Auth/AuthSlice';
+import { userReduser } from './User/UserSlice';
+
 const persistConfig = {
     key: 'root',
     version: 1,
@@ -21,7 +23,10 @@ const persistConfig = {
 const persistedReducer = persistReducer(persistConfig, authSlices);
 
 const store = configureStore({
-    reducer: { auth: persistedReducer },
+    reducer: {
+        auth: persistedReducer,
+        user: userReduser,
+    },
     middleware: getDefaultMiddleware =>
         getDefaultMiddleware({
             serializableCheck: {
