@@ -10,9 +10,9 @@ const WorkWeekTable = ({items}) => {
         <ScheduleBox>
             {items && items.map(scheduleItem => {    
                 return <WorkWeekItem key={nanoid()} scheduleItem={scheduleItem} />
-            })}
-
-    </ScheduleBox>)
+            })}    
+        </ScheduleBox>   
+    )   
 }
 
 export default WorkWeekTable;

@@ -183,7 +183,10 @@ const BoxInfo = styled.div`
 `;
 
 const Time = styled.div`
-
+&:hover,
+    :focus {
+        color: #f59256;
+    }
 `;
 
 
@@ -198,4 +201,5 @@ export {
     BoxInfo,
     SpanInfo,
     Image,
+    Time,
 };

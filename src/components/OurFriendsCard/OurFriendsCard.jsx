@@ -1,10 +1,18 @@
-import { Card, Title, FlexBox, Info, InfoLink, AddressLink, BoxInfo, Image } from "./OurFriendsCardStyled"
+import { Card, Title, FlexBox, Info, InfoLink, AddressLink, BoxInfo, Image, Time } from "./OurFriendsCardStyled"
 import ifEmptyString from "components/Utils/helpers/emptyInfoString"
 import image from './defaultImage.jpg'
 import WorkWeekTable from "components/WorkWeekTable/WorkWeekTable"
+import { useState } from "react"
+
 
 
 const OurFriendsCard = ({ card }) => {
+    const [visible, setVisible] = useState(false);
+
+    const toggle = () => {
+        setVisible(prevState => !prevState)
+    }
+    
     const { title, url, imageUrl, workDays, addressUrl, address, phone, email } = card;
       
     const workDaysFrom = workDays?.filter(item => item.isOpen === true).map(item => item.from);
@@ -22,10 +30,11 @@ const OurFriendsCard = ({ card }) => {
                         <div>
                             <BoxInfo>
                                 <Info>Time:</Info>
-                            <div>{workDays ? <>
+                            <Time onClick={toggle}>{workDays ? <>
                                 {workDaysFrom[0]} - {workDaysTo[0]}
-                                <WorkWeekTable items={ workDays} />
-                            </> : ifEmptyString()}</div>
+                                {visible && <WorkWeekTable items={workDays} >
+                                </WorkWeekTable>}
+                            </> : ifEmptyString()}</Time>
                             
                             </BoxInfo>
                             <BoxInfo>

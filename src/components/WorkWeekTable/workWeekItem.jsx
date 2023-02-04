@@ -3,16 +3,43 @@ import { ScheduleBoxItem, ScheduleInfo } from "./WorkWeekTableStyled";
 
 
 const WorkWeekItem = ({scheduleItem}) => {
-    const { day, from, to } = scheduleItem;  
+    const { day, from, to } = scheduleItem;
     
-    return (<>
+    // function getMessage(day, from, to) {
+    //     function getWeekDay(date) {
+    //     let days = ['SU', 'MN', 'TU', 'WE', 'TH', 'FR', 'SA'];
+
+    //     return days[date.getDay()];
+    // }
+    // let now = new Date();
+
+    // let weekDay = getWeekDay(now)
+    // let hour = now.getHours()
+    // let message = ''
+    // if (weekDay === day  && from  <= hour && hour >=  to ) {
+    //   return message = 'Open now';
+    // }
+    //     return message
+    // }
+    // const message = getMessage(day, from, to)
+
+
+    // function getOpenClose(now) {
+        
+    //     let weekDay = getWeekDay(now)
+    //     let hour = now.getHours()
+    //     console.log(hour)
+    //     if (weekDay === day && isOpen === true && from <= hour >= to) {
+    //     return console.log("open now")
+    //     }
+    //     return console.log("close now")
+    // }
+
+    return (
       <ScheduleBoxItem>
             <ScheduleInfo >{day}</ScheduleInfo>
             <ScheduleInfo >{`${from} - ${to}`}</ScheduleInfo>
-        </ScheduleBoxItem>
-        {/* {isOpen? <p>Open now</p> : <p>Close Now</p>} */}
-    </>
-      
+        </ScheduleBoxItem>  
     )
 }
 export default WorkWeekItem;
