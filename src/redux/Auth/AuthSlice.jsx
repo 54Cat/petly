@@ -1,3 +1,5 @@
+// import axios from 'axios';
+// axios.defaults.baseURL = 'http://localhost:4000/api';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { loggedOut } from 'auth/UserAuth/AuthUser';
 
@@ -40,21 +42,21 @@ export const registerUser = createAsyncThunk(
 export const authSlice = createSlice({
     name: 'auth',
     initialState,
-    reducers: {},
+
     extraReducers: {
+        //Register USER
         [registerUser.pending]: state => {
             state.isLoading = true;
-            state.status = null;
+        },
+        [registerUser.fulfilled]: (state, action) => {
+            state.status = action.payload.message;
+            state.token = action.payload.token;
+            state.user = action.payload.user;
+            state.isLoading = false;
         },
         [registerUser.rejected]: (state, action) => {
             state.isLoading = false;
             state.status = action.payload.message;
-            state.user = action.payload.user;
-            state.token = action.payload.token;
-        },
-        [registerUser.fulfilled]: (state, action) => {
-            state.status = action.payload.message;
-            state.isLoading = false;
         },
         [loggedOut.pending](state) {
             state.isLoading = true;
@@ -68,6 +70,7 @@ export const authSlice = createSlice({
             state.isLoading = false;
             state.error = action.payload;
         },
+        //Login User
     },
 });
 
