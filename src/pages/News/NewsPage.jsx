@@ -5,11 +5,12 @@ import { SearchBar } from 'components/SearchBar/SearchBar'
 import { CardsList } from 'components/CardsList/CardsList'
 import NewsCard from 'components/NewsCard/NewsCard'
 import lastNews from 'data/news.json'
-
+import getSortedNews from 'components/Utils/helpers/getSortedNews'
 
 export const NewsPage = () => {
+    const sortedNews = getSortedNews(lastNews)
     const [filter, setFilter] = useState('')
-    const [news, setNews] = useState(lastNews)
+    const [news, setNews] = useState(sortedNews)
 
     
     
@@ -20,7 +21,7 @@ export const NewsPage = () => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        setNews(lastNews);
+        setNews(sortedNews);
     };
     
 
