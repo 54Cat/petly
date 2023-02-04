@@ -5,15 +5,14 @@ import { useState, useEffect } from "react";
 const WorkWeekItem = ({ scheduleItem }) => {
     const [currentDay, setCurrentDay] = useState(false);
     const { day, from, to } = scheduleItem;
-    
+    let now = new Date();
+    let dayName = getWeekDay(now)
+
     useEffect(() => {
         if (dayName === day) {
             setCurrentDay(state => state = true)
         }   
-    }, [])
-    let now = new Date();
-
-    let dayName = getWeekDay(now)
+    }, [day, dayName])
 
     return (
         currentDay ?
@@ -24,7 +23,7 @@ const WorkWeekItem = ({ scheduleItem }) => {
         : <ScheduleBoxItem>
             <ScheduleInfo >{day}</ScheduleInfo>
             <ScheduleInfo >{`${from} - ${to}`}</ScheduleInfo>
-            </ScheduleBoxItem>    
+        </ScheduleBoxItem>    
     )
 }
 export default WorkWeekItem;
