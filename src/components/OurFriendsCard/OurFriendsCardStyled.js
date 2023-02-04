@@ -32,6 +32,7 @@ const List = styled.ol`
 // `;
 
 const Card = styled.li`
+    position: relative;
     display: block;
     flex-basis: 100%;
     box-shadow: 7px 4px 14px rgba(49, 21, 4, 0.07);
@@ -58,6 +59,7 @@ const Title = styled.h3`
     align-items: center;
     justify-content: center;
     text-decoration-line: underline;
+    height: 40px;
     margin-bottom: 10px;
     color: #f59256;
     @media (min-width: 768px) {
@@ -179,6 +181,11 @@ const BoxInfo = styled.div`
         margin-bottom: 0px;
     }
 `;
+
+const Time = styled.div`
+
+`;
+
 
 export {
     List,

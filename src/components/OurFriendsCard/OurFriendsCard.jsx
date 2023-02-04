@@ -1,13 +1,15 @@
 import { Card, Title, FlexBox, Info, InfoLink, AddressLink, BoxInfo, Image } from "./OurFriendsCardStyled"
 import ifEmptyString from "components/Utils/helpers/emptyInfoString"
 import image from './defaultImage.jpg'
+import WorkWeekTable from "components/WorkWeekTable/WorkWeekTable"
+
 
 const OurFriendsCard = ({ card }) => {
-        const { title, url, imageUrl, workDays, addressUrl, address, phone, email } = card
-        const workDaysFrom = workDays?.filter(item => item.isOpen === true).map(item => item.from);
+    const { title, url, imageUrl, workDays, addressUrl, address, phone, email } = card;
+      
+    const workDaysFrom = workDays?.filter(item => item.isOpen === true).map(item => item.from);
     const workDaysTo = workDays?.filter(item => item.isOpen === true).map(item => item.to);  
     
-
         return (
         <Card>
                 <a href={url} target="_blank" rel="noreferrer">
@@ -20,7 +22,11 @@ const OurFriendsCard = ({ card }) => {
                         <div>
                             <BoxInfo>
                                 <Info>Time:</Info>
-                            <p>{workDays? `${workDaysFrom[0]} - ${workDaysTo[0]}` : ifEmptyString()}</p>
+                            <div>{workDays ? <>
+                                {workDaysFrom[0]} - {workDaysTo[0]}
+                                <WorkWeekTable items={ workDays} />
+                            </> : ifEmptyString()}</div>
+                            
                             </BoxInfo>
                             <BoxInfo>
                                 <Info>Adress: </Info>

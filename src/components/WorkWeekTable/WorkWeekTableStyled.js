@@ -2,18 +2,23 @@ import styled from '@emotion/styled';
 
 const ScheduleBox = styled.div`
 position: absolute;
-
-left: 194px;
-top: 362px;
+z-index: 2;
+left: 178px;
+top: 107px;
 bottom: 20px;
 width: 120px;
 height: 160px;
 padding: 12px;
 
 background: #FFFFFF;
+// border: 1px solid #F59256; 
+// box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
+// border-radius: 8px;
+
 border: 1px solid #F59256;
 box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
 border-radius: 8px;
+
 `
 const ScheduleBoxItem = styled.div`
 

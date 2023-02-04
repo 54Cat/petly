@@ -26,6 +26,7 @@ export const FriendsPage = () => {
     };
   });
     
+
     return <PageSection>
         <Title style={onTitleStyles(windowSize)}>Our friend</Title>
         <CardsList styles={onListStyles(windowSize)}  cardsArray={friends} CardsItem={OurFriendsCard} />
