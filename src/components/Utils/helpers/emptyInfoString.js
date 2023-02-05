@@ -1,5 +1,5 @@
 import { SpanInfo, Info } from 'components/OurFriendsCard/OurFriendsCardStyled';
 
-const ifEmptyString = () => <Info>Time:<br></br><SpanInfo>------------------</SpanInfo></Info>;
+const ifEmptyString = () => <SpanInfo>------------------</SpanInfo>;
 
 export default ifEmptyString;

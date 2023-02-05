@@ -33,7 +33,7 @@ const OurFriendsCard = ({ card }) => {
                                 {workDays ? <>
                                         Time:<br></br>
                                         {workDaysFrom[0]} - {workDaysTo[0]}
-                                        {visible && <WorkWeekTable items={workDays} ></WorkWeekTable>}</> : ifEmptyString()}
+                                    {visible && <WorkWeekTable items={workDays} ></WorkWeekTable>}</> : <Info>Time:<br></br>{ifEmptyString()}</Info>}
                                 </InfoTime>
                             </BoxInfo>
                             <BoxInfo>
