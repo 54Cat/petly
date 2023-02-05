@@ -1,6 +1,8 @@
 import { Formik, Form, ErrorMessage } from 'formik';
-import React from 'react';
-import { stepOneValidationSchema } from '../schemaValidation/SchemaValid';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { loginUser } from 'redux/Login/LoginSlice';
+import { loginValidationSchema } from '../Login/schemaValidation/SchemaValid';
 
 import {
     DivForm,
@@ -10,9 +12,23 @@ import {
     Text,
     FormError,
     Link,
-} from '../authForm/authFormStyled';
+} from './authLoginStyled';
 
-export const StepOne = props => {
+export const Login = () => {
+    const dispatch = useDispatch();
+    const [data, setData] = useState({
+        email: '',
+        password: '',
+    });
+    const handleSubmit = (data, { resetForm }) => {
+        try {
+            dispatch(loginUser(data));
+            setData('');
+            resetForm();
+        } catch (error) {
+            console.log(error);
+        }
+    };
     const FormErrors = ({ name }) => {
         return (
             <ErrorMessage
@@ -22,20 +38,15 @@ export const StepOne = props => {
         );
     };
 
-    const handleSubmit = data => {
-        props.next(data);
-
-        console.log(props);
-    };
     return (
         <Formik
-            validationSchema={stepOneValidationSchema}
-            initialValues={props.data}
+            validationSchema={loginValidationSchema}
+            initialValues={data}
             onSubmit={handleSubmit}
         >
             {() => (
                 <DivForm>
-                    <Title>Registration</Title>
+                    <Title>Login</Title>
                     <Form>
                         <Input name="email" placeholder="Email" />
                         <FormErrors name="email" />
@@ -43,15 +54,12 @@ export const StepOne = props => {
                         <Input name="password" placeholder="Password" />
                         <FormErrors name="password" />
 
-                        <Input name="confirm" placeholder="Confirm password" />
-                        <FormErrors name="confirm" />
-
-                        <Button type="submit">Next</Button>
+                        <Button type="submit">Login</Button>
                     </Form>
 
                     <Text>
                         Already have an account?
-                        <Link to={'/login'}>Login</Link>
+                        <Link to={'/register'}>Register</Link>
                     </Text>
                 </DivForm>
             )}
