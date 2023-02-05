@@ -2,6 +2,8 @@ import axios from 'axios';
 
 axios.defaults.baseURL = 'http://localhost:4000/api';
 // baseURL: 'https://petly-backend-23cb.onrender.com/api',
+// axios.defaults.headers.common['Authorization'] =
+//     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZGE2NGNiOWE4NmJjNDI1ODQ4YzgyZSIsImlhdCI6MTY3NTYzMzY0OX0.I-U6ze79hlh9lhchVpmeo_223F6y4Ru0TZxbb68fniI';
 
 export async function getUserInfo() {
     const { data } = await axios.get(`/user`);

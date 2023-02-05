@@ -1,77 +1,75 @@
-import {
-    Pets,
-    PetsCard,
-    PetsImg,
-    TextWrapper,
-    PetsName,
-    CardText,
-    CardTitle,
-    DelBtn,
-    StyledDeleteIcon,
-} from './PetsList.styled';
+// import { useSelector } from 'react-redux';
+// import { getPets } from 'redux/selectors';
+import PetsItem from 'components/PetsItem/PetsItem';
 
 const PetsList = function () {
-    const pets = [
-        {
-            id: 7676,
-            name: 'Johnny',
-            date: Date.now(),
-            breed: 'dog',
-            text: 'jhjhjhj',
-            img: 'jhjh',
-        },
-        {
-            id: 8787,
-            name: 'Jack',
-            date: Date.now(),
-            breed: 'cat',
-            text: 'jhjhhf овр оао овавро оваро овао овао оваро роваора оврао оваро вораорао воаро воар оваро овроав воаров овро овdjh dfhh djfh dhf jhfdh dfj djh djh dhj djh djh dh djh djfh hd dh djh d hdfj djf djh dj djh dfj dfj djh djh djh jdh djh dfh dfh dfh djh djh djh  dаро овро оровар аора варов р ао аорр аоа о  росар о о ао ',
-            img: 'fg',
-        },
-    ];
-    const isLoggedIn = true;
-
-    const onBtnDelete = () => {
-        console.log('click');
-        // dispatch(deleteContact(id));
+    // const pets = useSelector(getPets);
+    const pets = {
+        items: [
+            {
+                id: '1',
+                name: 'Corellos',
+                birthday: '3/4/2012',
+                breed: 'dober',
+                imgUrl: 'https://static-bebeautiful-in.unileverservices.com/1200/900/Why-you-must-eat-an-orange-every-day_mobilehome.jpg',
+                comments:
+                    'hfjh hf dhdkdjdk df khdkhfk h d hh h d hh dh hddh dh h dfh dhd dh hdfh dhdf jh dfh etjydkdu kdf d d',
+            },
+            {
+                id: '2',
+                name: 'Grata',
+                birthday: '3/4/2012',
+                breed: 'dober',
+                imgUrl: 'https://static-bebeautiful-in.unileverservices.com/1200/900/Why-you-must-eat-an-orange-every-day_mobilehome.jpg',
+                comments:
+                    'hfjh hf dhdkdjdk df khdkhfk h d hh h d hh dh hddh dh h dfh dhd dh hdfh dhdf jh dfh etjydkdu kdf d d',
+            },
+            {
+                id: '3',
+                name: 'Moko',
+                birthday: '3/4/2012',
+                breed: 'dober',
+                imgUrl: 'https://static-bebeautiful-in.unileverservices.com/1200/900/Why-you-must-eat-an-orange-every-day_mobilehome.jpg',
+                comments:
+                    'hfjh hf dhdkdjdk df khdkhfk h d hh h d hh dh hddh dh h dfh dhd dh hdfh dhdf jh dfh etjydkdu kdf d d',
+            },
+            {
+                id: '4',
+                name: 'Tutina',
+                birthday: '3/4/2012',
+                breed: 'dober',
+                imgUrl: 'https://static-bebeautiful-in.unileverservices.com/1200/900/Why-you-must-eat-an-orange-every-day_mobilehome.jpg',
+                comments:
+                    'hfjh hf dhdkdjdk df khdkhfk h d hh h d hh dh hddh dh h dfh dhd dh hdfh dhdf jh dfh etjydkdu kdf d d',
+            },
+            {
+                id: '5',
+                name: 'Kritsu',
+                birthday: '3/4/2012',
+                breed: 'dober',
+                imgUrl: 'https://static-bebeautiful-in.unileverservices.com/1200/900/Why-you-must-eat-an-orange-every-day_mobilehome.jpg',
+                comments:
+                    'hfjh hf dhdkdjdk df khdkhfk h d hh h d hh dh hddh dh h dfh dhd dh hdfh dhdf jh dfh etjydkdu kdf d d',
+            },
+        ],
     };
 
     return (
         <>
-            {isLoggedIn && (
-                <Pets>
-                    {pets.map(({ id, name, date, breed, text, img }) => {
-                        return (
-                            <PetsCard>
-                                <PetsImg
-                                    src="https://upload.wikimedia.org/wikipedia/commons/4/43/Ambersweet_oranges.jpg"
-                                    alt=""
-                                />
-                                <TextWrapper>
-                                    <PetsName>
-                                        <CardTitle>Name:</CardTitle> {name}{' '}
-                                        <DelBtn
-                                            type="button"
-                                            onClick={onBtnDelete}
-                                        >
-                                            <StyledDeleteIcon sx={{}} />
-                                        </DelBtn>
-                                    </PetsName>
-                                    <CardText>
-                                        <CardTitle>Date of birth:</CardTitle>{' '}
-                                        {date}
-                                    </CardText>
-                                    <CardText>
-                                        <CardTitle>Breed:</CardTitle> {breed}
-                                    </CardText>
-                                    <CardText>
-                                        <CardTitle>Comments:</CardTitle> {text}
-                                    </CardText>
-                                </TextWrapper>
-                            </PetsCard>
-                        );
-                    })}
-                </Pets>
+            {pets.items.map(
+                ({ id, name, birthday, breed, comments, imgUrl }) => {
+                    return (
+                        <PetsItem
+                            key={id}
+                            id={id}
+                            name={name}
+                            birthday={birthday}
+                            breed={breed}
+                            comments={comments}
+                            imgUrl={imgUrl}
+                        ></PetsItem>
+                    );
+                }
             )}
 
             {pets.length === 0 && <p>There`s no pets yet</p>}
