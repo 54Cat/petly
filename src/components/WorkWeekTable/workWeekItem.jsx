@@ -1,4 +1,4 @@
-import { ScheduleBoxItem, ScheduleInfo,CurrentBoxItem } from "./WorkWeekTableStyled";
+import { ScheduleBoxItem, ScheduleInfo,CurrentBoxItem, CurrentInfo } from "./WorkWeekTableStyled";
 import getWeekDay from "components/Utils/helpers/getWeekDay";
 import { useState, useEffect } from "react";
 
@@ -17,8 +17,8 @@ const WorkWeekItem = ({ scheduleItem }) => {
     return (
         currentDay ?
         <CurrentBoxItem>
-            <ScheduleInfo >{day}</ScheduleInfo>
-            <ScheduleInfo >{`${from} - ${to}`}</ScheduleInfo>
+            <CurrentInfo >{day}</CurrentInfo>
+            <CurrentInfo >{`${from} - ${to}`}</CurrentInfo>
         </CurrentBoxItem>
         : <ScheduleBoxItem>
             <ScheduleInfo >{day}</ScheduleInfo>
