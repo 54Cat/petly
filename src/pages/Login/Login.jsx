@@ -4,7 +4,6 @@ import { useDispatch } from 'react-redux';
 import { loginUser } from 'redux/Login/LoginSlice';
 import { loginValidationSchema } from '../Login/schemaValidation/SchemaValid';
 
-import { Link } from 'react-router-dom';
 import {
     DivForm,
     Input,
@@ -12,7 +11,8 @@ import {
     Button,
     Text,
     FormError,
-} from './authLogin.module';
+    Link,
+} from './authLoginStyled';
 
 export const Login = () => {
     const dispatch = useDispatch();
