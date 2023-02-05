@@ -7,16 +7,16 @@ font-weight: 700;
 font-size: 32px;
 line-height: 1.5;
 letter-spacing: 0.07em;
-
+padding: 20px 16px;
 `;
 
 export const Span = styled.span`
 color:#F59256;
 `;
 
-export const Main = styled.main`
-min-height:100vh;
-`
+// export const Main = styled.main`
+// min-height:100vh;
+// `;
 
 export const Text = styled.p`
 font-family: 'Poppins';

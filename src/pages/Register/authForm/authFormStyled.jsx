@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { Field } from 'formik';
-// import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export const DivForm = styled.div`
     @media (min-width: 320px) {
@@ -138,27 +138,31 @@ export const Input = styled(Field)`
         margin-top: 16px;
     }
     @media (min-width: 1280px) {
-        margin-top: 16px;
+        margin-top: 18px;
         padding-left: 20px;
         width: 434px;
         height: 48px;
     }
 `;
 export const Button = styled.button`
+    transition: all 600ms ease;
     &:hover,
     &:focus {
-        color: #ff6101;
-        border-color: #ff6101;
+        background: #f59256;
+        color: white;
     }
     font-style: normal;
     font-weight: 500;
     cursor: pointer;
     font-family: 'Manrope';
-    background: #f59256;
+
     border-radius: 40px;
-    color: white;
+
     margin: 40px auto;
     border: none;
+    color: black;
+    border: 1px solid rgba(245, 146, 86, 0.5);
+    background: white;
 
     @media (min-width: 320px) {
         width: 280px;
@@ -188,23 +192,27 @@ export const Button = styled.button`
     } ;
 `;
 export const ButtonTwoReg = styled.button`
+    transition: all 600ms ease;
     &:hover,
     &:focus {
-        color: #ff6101;
-        border-color: #ff6101;
+        background: #f59256;
+        color: white;
     }
     font-style: normal;
     font-weight: 500;
     cursor: pointer;
     font-family: 'Manrope';
-    background: #f59256;
+
     border-radius: 40px;
-    color: white;
+
     margin-top: 40px;
     margin-left: auto;
     margin-right: auto;
     display: block;
     border: none;
+    color: black;
+    border: 1px solid rgba(245, 146, 86, 0.5);
+    background: white;
 
     @media (min-width: 320px) {
         width: 280px;
@@ -234,6 +242,7 @@ export const ButtonTwoReg = styled.button`
     } ;
 `;
 export const Button1 = styled.button`
+    transition: all 600ms ease;
     font-style: normal;
     font-weight: 500;
     cursor: pointer;
@@ -244,6 +253,12 @@ export const Button1 = styled.button`
     margin: 16px auto;
     border: none;
     border: 1px solid rgba(245, 146, 86, 0.5);
+    &:hover,
+    &:focus {
+        color: white;
+        border-color: #ff6101;
+        background: #f59256;
+    }
 
     @media (min-width: 320px) {
         width: 280px;
@@ -286,8 +301,24 @@ export const Text = styled.p`
     text-align: center;
 `;
 export const FormError = styled.p`
+    @media (min-width: 320px) {
+        margin-left: 10px;
+    }
+    @media (min-width: 768px) {
+        margin-left: 90px;
+    }
     color: #f59256;
     margin-left: 90px;
-    margin-top: 2px;
+    margin-top: -2px;
+    position: absolute;
+    font-size: 14px;
 `;
-// export const Link = styled(Link)``;
+export const Link = styled(NavLink)`
+    transition: all 600ms ease;
+    &:hover,
+    &:focus {
+        opacity: 0.5;
+    }
+    color: #3091eb;
+    margin-left: 3px;
+`;
