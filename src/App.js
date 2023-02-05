@@ -1,6 +1,7 @@
 import 'react-toastify/dist/ReactToastify.css';
 import { Route, Routes } from 'react-router-dom';
 import SharedLayout from './components/SharedLayout/SharedLayout';
+import { HomePage } from 'pages/Home/HomePage';
 import { RegisterPage } from 'pages/Register/RegisterPage';
 import { NewsPage } from 'pages/News/NewsPage';
 import { FriendsPage } from 'pages/Friends/FriendsPage';
@@ -14,6 +15,7 @@ const App = () => {
         <>
             <Routes>
                 <Route path="/" element={<SharedLayout />}>
+                    <Route path="/" element={<HomePage />} />
                     <Route path="register" element={<RegisterPage />} />
                     <Route path="login" element={<LoginPage />} />
                     <Route path="news" element={<NewsPage />} />

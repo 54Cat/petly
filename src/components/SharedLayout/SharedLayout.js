@@ -1,7 +1,6 @@
 import { Suspense } from 'react'; 
 import { Outlet } from 'react-router-dom';
-import {Logo,Span, Main, Text} from './SharedLayoutStyle'
-
+import { Logo, Span, Text } from './SharedLayoutStyle'
 
 const SharedLayout = () => {
    
@@ -11,11 +10,11 @@ const SharedLayout = () => {
             <nav>
                     {/* <Navigation/> */}
             </nav>
-            <Main>
+            <main>
                 <Suspense fallback={null}>
                     <Outlet />
                 </Suspense>
-            </Main>
+            </main>
             <footer>
                 <Text>Copyrigh<Span>t</Span> &copy; by Bes<Span>t</Span> <Span>T</Span>eam </Text>
             </footer>
