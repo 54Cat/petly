@@ -27,8 +27,8 @@ export const Container = styled.div`
       
   @media (min-width: 1280px) {
     background-image: url(${hero_desktop}), url(${bg_inside_desktop}), url(${bg_outside_desktop}), url(${bg_heart_desktop}), url(${bg_point_desktop});
-    background-position: bottom right 16px, bottom left -10px, bottom right -50px, top 250px center, bottom 250px left 500px;    
-    background-size: 50%, 96%, 100%, 10%, 7%;
+    background-position: bottom right 16px, bottom left -10px, bottom right -50px, top 80px left 680px, bottom 250px left 500px;    
+    background-size: auto, 96% 350px, 100% 410px, auto, auto;
   }
 `;
 
@@ -46,7 +46,7 @@ export const Hero = styled.div`
       
   @media (min-width: 1280px) {
     background-image: none;
-    height: 680px;
+    height: 420px;
   }
 `;
 
