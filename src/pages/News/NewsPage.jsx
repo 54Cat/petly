@@ -6,11 +6,13 @@ import { Title } from 'components/Utils/Styles/basicStyle'
 import { SearchBar } from 'components/SearchBar/SearchBar'
 import { CardsList } from 'components/CardsList/CardsList'
 import NewsCard from 'components/NewsCard/NewsCard'
-
+import lastNews from 'data/news.json'
+import getSortedNews from 'components/Utils/helpers/getSortedNews'
 
 export const NewsPage = () => {
+    const sortedNews = getSortedNews(lastNews)
     const [filter, setFilter] = useState('')
-    const [news, setNews] = useState([])
+    const [news, setNews] = useState(sortedNews)
     const onFilterChange = e => {
     setFilter(e.currentTarget.value);
     };
@@ -35,6 +37,7 @@ export const NewsPage = () => {
 
     const handleSubmit = async e => {
         e.preventDefault();
+        setNews(sortedNews);
         try {
             const results = await fetchNews(filter);
             if (results.length === 0) {
@@ -46,7 +49,6 @@ export const NewsPage = () => {
         } catch (e) {
             Notiflix.Notify.failure(e.message)
         }
-        
     };
     
 

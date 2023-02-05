@@ -1,16 +1,16 @@
 import { Formik, Form, ErrorMessage } from 'formik';
 import React from 'react';
 import { stepOneValidationSchema } from '../schemaValidation/SchemaValid';
-import { NavLink } from 'react-router-dom';
+
 import {
-    Link,
     DivForm,
     Input,
     Title,
     Button,
     Text,
     FormError,
-} from '../authForm/authForm.module';
+    Link,
+} from '../authForm/authFormStyled';
 
 export const StepOne = props => {
     const FormErrors = ({ name }) => {
@@ -51,7 +51,7 @@ export const StepOne = props => {
 
                     <Text>
                         Already have an account?
-                        <NavLink to={'/login'}>Login</NavLink>
+                        <Link to={'/login'}>Login</Link>
                     </Text>
                 </DivForm>
             )}
