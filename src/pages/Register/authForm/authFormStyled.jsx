@@ -138,7 +138,7 @@ export const Input = styled(Field)`
         margin-top: 16px;
     }
     @media (min-width: 1280px) {
-        margin-top: 16px;
+        margin-top: 18px;
         padding-left: 20px;
         width: 434px;
         height: 48px;
@@ -301,9 +301,17 @@ export const Text = styled.p`
     text-align: center;
 `;
 export const FormError = styled.p`
+    @media (min-width: 320px) {
+        margin-left: 10px;
+    }
+    @media (min-width: 768px) {
+        margin-left: 90px;
+    }
     color: #f59256;
     margin-left: 90px;
-    margin-top: 2px;
+    margin-top: -2px;
+    position: absolute;
+    font-size: 14px;
 `;
 export const Link = styled(NavLink)`
     transition: all 600ms ease;
@@ -312,5 +320,5 @@ export const Link = styled(NavLink)`
         opacity: 0.5;
     }
     color: #3091eb;
-    margin-left: 2px;
+    margin-left: 3px;
 `;

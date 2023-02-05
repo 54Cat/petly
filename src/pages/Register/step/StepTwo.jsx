@@ -11,7 +11,7 @@ import {
     Button1,
     DivFormTwo,
     ButtonTwoReg,
-} from '../authForm/authForm.module';
+} from '../authForm/authFormStyled';
 import { registerUser } from '../../../redux/Auth/AuthSlice';
 import { useDispatch } from 'react-redux';
 
