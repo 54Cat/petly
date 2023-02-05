@@ -6,15 +6,13 @@ import { loggedOut } from 'auth/UserAuth/AuthUser';
 import axios from 'axios';
 axios.defaults.baseURL = 'https://petly-backend-23cb.onrender.com/api';
 
-// const token =
-//     'feyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZGQ2YzkzNGI3ZjM3YjI0YTg2Mjc1YiIsImlhdCI6MTY3NTQ1NTYzNX0.KFE9uckEFLCuIBXPrSiJBnRxGEe4WUbk7wMPVGHfWQw';
-// window.localStorage.setItem('token', token);
-
-const initialState = {
-    user: null,
-    token: '',
-    isLoading: false,
-    status: null,
+const token = {
+    set(token) {
+        axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+    },
+    unset() {
+        axios.defaults.headers.common.Authorization = '';
+    },
 };
 
 export const registerUser = createAsyncThunk(
@@ -29,6 +27,7 @@ export const registerUser = createAsyncThunk(
                 city,
                 name,
             });
+            token.set(data.token);
             if (data.token) {
                 window.localStorage.setItem('token', data.token);
             }
@@ -38,6 +37,13 @@ export const registerUser = createAsyncThunk(
         }
     }
 );
+
+const initialState = {
+    user: null,
+    token: '',
+    isLoading: false,
+    status: null,
+};
 
 export const authSlice = createSlice({
     name: 'auth',

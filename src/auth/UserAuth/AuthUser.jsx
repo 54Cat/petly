@@ -41,10 +41,30 @@ export const loggedOut = createAsyncThunk(
         try {
             const { data } = await axios.post('/auth/logout');
             // console.log(data);
-            // token.unset();
+            token.unset();
             return data;
         } catch (error) {
             return thunkApi.rejectWithValue(error.message);
+        }
+    }
+);
+
+export const updateUser = createAsyncThunk(
+    'user/update',
+    async (userId, { rejectWithValue }) => {
+        console.log(userId);
+        const result = {
+            email: userId.newEmail,
+            name: userId.newName,
+            birthday: userId.newBirthday,
+            city: userId.nweCity,
+            phone: userId.newPhone,
+        };
+        try {
+            const { data } = await axios.patch(`user/${userId}`, result);
+            return data;
+        } catch (error) {
+            return rejectWithValue(error.message);
         }
     }
 );

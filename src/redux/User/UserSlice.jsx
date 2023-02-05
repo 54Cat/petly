@@ -1,9 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { userCurrent } from 'auth/UserAuth/AuthUser';
+import { userCurrent, updateUser } from 'auth/UserAuth/AuthUser';
 
 const initialState = {
     user: null,
-    token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZGQ2YzkzNGI3ZjM3YjI0YTg2Mjc1YiIsImlhdCI6MTY3NTUxMzI2MH0.txKxefUHk0IBiuhn2JVLrMW_RwhyG81sKDCsyM36iPg',
+    token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZGQ2YzkzNGI3ZjM3YjI0YTg2Mjc1YiIsImlhdCI6MTY3NTU5NTI3M30.v-XySl8Ex-8Vf9yqqwp5vgycaGzWIfsWm6WTW372mu0',
     isLoading: false,
 };
 
@@ -20,6 +20,17 @@ export const userSlice = createSlice({
             state.user = action.payload;
         },
         [userCurrent.rejected](state, action) {
+            state.isLoading = false;
+            state.error = action.payload;
+        },
+        [updateUser.pending](state) {
+            state.isLoading = true;
+        },
+        [updateUser.fulfilled](state, action) {
+            state.isLoading = false;
+            state.user = action.payload;
+        },
+        [updateUser.rejected](state, action) {
             state.isLoading = false;
             state.error = action.payload;
         },

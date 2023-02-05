@@ -56,3 +56,32 @@ li {
 a {
   text-decoration: none;
 }
+
+.loading {
+  justify-content: center;
+  align-items: center;
+}
+.icon-edit {
+  width: 2em;
+  height: 2em;
+  margin-right: 5px;
+}
+
+  @media only screen and (min-width: 768px) {
+    .icon {
+         width: 2em;
+        height: 2em;
+    }
+        .icon-logout {
+          width: 1.5em;
+          height: 1.5em;
+    
+        }
+      .icon-edit{
+          width: 2.5em;
+           height: 2.5em;  
+      }
+            
+    }
+
+    
