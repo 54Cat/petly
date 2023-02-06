@@ -7,8 +7,6 @@ import { NewsPage } from 'pages/News/NewsPage';
 import { FriendsPage } from 'pages/Friends/FriendsPage';
 import { LoginPage } from 'pages/Login/LoginPage';
 import { NoticesPage } from 'pages/Notices/NoticesPage';
-import { NoticesCategoriesList } from 'components/NoticesCategoriesList/NoticesCategoriesList';
-
 
 const App = () => {
     return (
@@ -20,12 +18,10 @@ const App = () => {
                     <Route path="login" element={<LoginPage />} />
                     <Route path="news" element={<NewsPage />} />
                     <Route path="friends" element={<FriendsPage />} />
-                    <Route path="notices" element={<NoticesPage />}>
-                        <Route
-                            path=":categoryName"
-                            element={<NoticesCategoriesList />}
-                        />
-                    </Route>
+                    <Route
+                        path="notices/:categoryName"
+                        element={<NoticesPage />}
+                    ></Route>
                 </Route>
             </Routes>
         </>
