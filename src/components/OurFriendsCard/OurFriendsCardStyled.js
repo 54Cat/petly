@@ -183,16 +183,24 @@ const SpanInfo = styled.span`
 `;
 
 const BoxInfo = styled.div`
-    margin-bottom: 4px;
+    // margin-bottom: 4px;
+    :not(:last-child) {
+        margin-bottom: 4px;
+    }
     @media (min-width: 768px) {
+        :not(:last-child) {
         margin-bottom: 8px;
     }
+    }
     @media (min-width: 1280px) {
+        :not(:last-child) {
         margin-bottom: 12px;
+    }
     }
     // &:last-child {
     //     margin-bottom: 0px;
     // }
+    
 `;
 
 
