@@ -23,7 +23,7 @@ const Modal = ({children, onClose}) => {
   return createPortal(
       <Overlay onClick={closeModal}>
         <ModalItem >
-          {/* <span  onClick={closeModal}>X</span> */}
+          <span  onClick={closeModal}>X</span>
           {children}
         </ModalItem>
       </Overlay>,

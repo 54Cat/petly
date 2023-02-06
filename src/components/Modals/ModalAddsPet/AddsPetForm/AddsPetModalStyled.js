@@ -98,7 +98,14 @@ const FlexBox = styled.div`
     margin-left: auto;
     margin-right: auto;
 `
-
+const ErrorText = styled.p`
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.6;
+    color: red;
+`
 export {
     Title,
     Input,
@@ -106,5 +113,6 @@ export {
     ModalItem,
     FormDiv,
     FormsAdds,
-    FlexBox
+    FlexBox,
+    ErrorText,
 }

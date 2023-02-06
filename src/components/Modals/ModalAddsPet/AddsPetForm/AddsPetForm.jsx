@@ -1,10 +1,43 @@
 import StepOne from "../steps/StepOne";
 import StepTwo from "../steps/stepTwo";
+import { useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
+import React, { useEffect, useState } from 'react';
 
 const AddsPetForm = () => {
-    return (
-    <StepOne></StepOne>
-)
+    const [data, setData] = useState({
+        name: '',
+        birthday: '',
+        breed: '',
+        myPetsPhoto: '',
+        comments: '',
+    });
+    const { status } = useSelector(state => state.auth);
+    const [currentStep, setCurrentStep] = useState(0);
+    useEffect(() => {
+        if (status) {
+            toast(status);
+        }
+    }, [status]);
+
+    const handleNextStep = (newData, final = false) => {
+        setData(prev => ({ ...prev, ...newData }));
+        if (final) {
+            return;
+        }
+
+        setCurrentStep(prev => prev + 1);
+    };
+    const handlePrevStep = newData => {
+        setData(prev => ({ ...prev, ...newData }));
+        setCurrentStep(prev => prev - 1);
+    };
+    const steps = [
+        <StepOne next={handleNextStep} data={data} />,
+        <StepTwo prev={handlePrevStep} data={data} />,
+    ];
+    
+    return <div>{steps[currentStep]}</div>;
 }
 
 export default AddsPetForm

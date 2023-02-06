@@ -1,41 +1,94 @@
-import { Formik, Form, ErrorMessage } from 'formik';
-import { Title, Input, FormDiv, FormsAdds, FlexBox } from '../AddsPetForm/AddsPetModalStyled';
-const StepOne = () => {
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Title, ErrorText, FlexBox } from '../AddsPetForm/AddsPetModalStyled';
+import * as yup from 'yup';
+
+// const initialValues = {
+//     name: "",
+//     birthday: "",
+//     breed: "",        
+// }
+
+const validationSchema = yup.object({
+    name: yup.string().min(2).max(16).required(),
+    birthday: yup.string().required(),
+    breed: yup.string().min(2).max(16).required(),
+})
+
+const StepOne = (props) => {
     
+
+    const FormError = ({ name }) => {
+        return (
+            <ErrorMessage
+                name={name}
+                render={message => <ErrorText>{message}</ErrorText>}
+            />
+    )
+    }
+    
+    const handleSubmit = data => {
+        props.next(data);
+
+        console.log(props);
+    };
+   
+//     const handleSubmit = (values, { resetForm }) => {
+//         stepOneValues = {
+//             ...values
+//         };
+//         console.log(stepOneValues);
+//         resetForm()       
+// }
+
     
 return (
-    <Formik>
-         {() => (
-            <FormDiv>
-                <Title>Add pet</Title>
-                <Form>
-                    <label>
-                        Name pet
-                        <Input type="text" name="name" placeholder="Type name pet"/>
-                    </label>
-                    
-                    <label>
-                        Date of birth
-                        <Input type="text" name="date of birth" placeholder="Type date of birth"/>
-                    </label>
+    <Formik
+        initialValues={props.data}
+        onSubmit={handleSubmit}
+        validationSchema={validationSchema}
+    >
+        {() => (
+          <div>
+            <Title>Add pet</Title>
+            <Form>
+            <div>
+                <label htmlFor='name'>
+                Name pet
+                    <div>
+                        <Field type="text" name="name" placeholder="Type name pet" />
+                        <FormError name="name" />
+                    </div>
+                </label>
+            </div>
 
-                    <label>
-                        Breed
-                        <Input type="text" name="breed" placeholder="Type breed"/>
-                    </label>
+            <div>
+                <label htmlFor='birthday'>
+                Date of birth
+                    <div>
+                        <Field type="text" name="birthday" placeholder="Type date of birth" />
+                        <FormError name="birthday" />
+                    </div>
+                </label>
+            </div>
 
-                    <FlexBox>
-                        <button type="button">Cancel</button>
-                        <button type="submit">Next</button>
-                    </FlexBox>
-                </Form>
+            <div>
+                <label htmlFor='breed'>
+                Breed
+                    <div>
+                        <Field type="text" name="breed" placeholder="Type breed" />
+                        <FormError name="breed" />
+                    </div>
+                </label>
+            </div>
 
-                    {/* <Text>
-                        Already have an account?
-                        <NavLink to={'/login'}>Login</NavLink>
-                    </Text> */}
-                </FormDiv>
-        )}
+            <FlexBox>
+                <button type="button">Cancel</button>
+                <button type="submit">Next</button>
+            </FlexBox>
+           
+        </Form>
+        </div>  
+    )}                
     </Formik>
     )
 }
