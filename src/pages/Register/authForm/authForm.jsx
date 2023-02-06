@@ -15,7 +15,7 @@ export const AuthForm = () => {
 
     const [currentStep, setCurrentStep] = useState(0);
 
-    const handleNextStep = async (newData, final = false) => {
+    const handleNextStep = (newData, final = false) => {
         setData(prev => ({ ...prev, ...newData }));
         if (final) {
             return;

@@ -1,3 +1,4 @@
+import { MainContainer } from 'components/Utils/Styles/ContainterAllStyled';
 import React from 'react';
 import { Container } from '../../components/Utils/Styles/Container-auth-login/ContainerAuth';
 
@@ -7,7 +8,9 @@ export const LoginPage = () => {
     return (
         <>
             <Container>
-                <AuthLogin />
+                <MainContainer>
+                    <AuthLogin />
+                </MainContainer>
             </Container>
         </>
     );
