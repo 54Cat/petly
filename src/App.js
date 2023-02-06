@@ -4,11 +4,11 @@ import { lazy } from 'react';
 import { useDispatch} from 'react-redux';
 import { useEffect } from 'react';
 
-// ------------------------------------------
-// это не роуты, нужно перенести
 import { userCurrent } from './auth/UserAuth/AuthUser';
 import { NoticesCategoriesList } from 'components/NoticesCategoriesList/NoticesCategoriesList';
-// ------------------------------------------
+
+import PublicRoute from './components/Routes/PublicRoute';
+import PrivateRoute from './components/Routes/PrivateRoute';
 
 import SharedLayout from './components/SharedLayout/SharedLayout';
 const HomePage = lazy(() => import('pages/Home/HomePage'));
@@ -31,20 +31,25 @@ const App = () => {
         <>
             <Routes>
                 <Route path="/" element={<SharedLayout />}>
+
                     <Route path="/" element={<HomePage />} />
-                    <Route path="register" element={<RegisterPage />} />
-                    <Route path="login" element={<LoginPage />} />
-                    <Route path="news" element={<NewsPage />} />
-                    <Route path="user" element={<UserPage /> } />
-                    <Route path="friends" element={<FriendsPage />} />
-                    <Route path="user" element={<UserPage />} />
-                    <Route path="notices" element={<NoticesPage />}>
-                        <Route
-                            path=":categoryName"
-                            element={<NoticesCategoriesList />}
-                        />
+
+                    <Route element={<PublicRoute />}>
+                        <Route path="register" element={<RegisterPage />} />
+                        <Route path="login" element={<LoginPage />} />
+                        <Route path="news" element={<NewsPage />} />
+                        <Route path="friends" element={<FriendsPage />} />
+                        <Route path="notices" element={<NoticesPage />}>
+                            <Route path=":categoryName" element={<NoticesCategoriesList />} />
+                        </Route>
                     </Route>
+
+                    <Route element={<PrivateRoute />}> 
+                        <Route path="user" element={<UserPage />} />
+                    </Route>
+                    
                 </Route>
+
                 <Route path="*" element={<Navigate to="/" />} />
             </Routes>
         </>
