@@ -61,7 +61,7 @@ export const updateUser = createAsyncThunk(
             phone: userId.newPhone,
         };
         try {
-            const { data } = await axios.put(`user/${userId}`, result);
+            const { data } = await axios.patch(`user/${userId}`, result);
             return data;
         } catch (error) {
             return rejectWithValue(error.message);
