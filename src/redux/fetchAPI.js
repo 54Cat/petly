@@ -1,7 +1,6 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = 'http://localhost:4000/api';
-// baseURL: 'https://petly-backend-23cb.onrender.com/api',
+axios.defaults.baseURL = 'https://petly-backend-23cb.onrender.com/api';
 
 export async function getUserInfo() {
     const { data } = await axios.get(`/user`);
