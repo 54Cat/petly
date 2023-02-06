@@ -11,7 +11,7 @@ export const DivForm = styled.div`
     }
     @media (min-width: 768px) {
         width: 568px;
-        height: 477px;
+        height: 409px;
         background: #ffffff;
 
         box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
