@@ -16,7 +16,6 @@ const validationSchema = yup.object({
 
 const StepOne = (props) => {
     
-
     const FormError = ({ name }) => {
         return (
             <ErrorMessage
@@ -31,16 +30,7 @@ const StepOne = (props) => {
 
         console.log(props);
     };
-   
-//     const handleSubmit = (values, { resetForm }) => {
-//         stepOneValues = {
-//             ...values
-//         };
-//         console.log(stepOneValues);
-//         resetForm()       
-// }
-
-    
+      
 return (
     <Formik
         initialValues={props.data}

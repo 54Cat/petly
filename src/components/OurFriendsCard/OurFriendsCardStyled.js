@@ -143,8 +143,9 @@ const AddressLink = styled.a`
     font-family: 'Manrope';
     font-style: normal;
     font-weight: 500;
-    font-size: 12px;
-    line-height: 1.33;
+    font-size: 16px;
+    line-height: 22px;
+    //line-height: 1.33;
     color: #000000;
     text-decoration-line: underline;
     &:hover,

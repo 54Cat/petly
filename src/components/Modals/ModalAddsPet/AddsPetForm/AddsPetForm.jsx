@@ -12,14 +12,9 @@ const AddsPetForm = () => {
         myPetsPhoto: '',
         comments: '',
     });
-    const { status } = useSelector(state => state.auth);
+    
     const [currentStep, setCurrentStep] = useState(0);
-    useEffect(() => {
-        if (status) {
-            toast(status);
-        }
-    }, [status]);
-
+    
     const handleNextStep = (newData, final = false) => {
         setData(prev => ({ ...prev, ...newData }));
         if (final) {
