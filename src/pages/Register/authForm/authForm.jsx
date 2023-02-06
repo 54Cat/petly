@@ -7,7 +7,7 @@ export const AuthForm = () => {
     const [data, setData] = useState({
         email: '',
         password: '',
-
+        confirm: '',
         name: '',
         phone: '',
         city: '',
@@ -20,6 +20,7 @@ export const AuthForm = () => {
         if (final) {
             return;
         }
+
         setCurrentStep(prev => prev + 1);
     };
     const handlePrevStep = newData => {
@@ -31,5 +32,5 @@ export const AuthForm = () => {
         <StepTwo prev={handlePrevStep} data={data} />,
     ];
 
-    return <div>{steps[currentStep]}</div>;
+    return <>{steps[currentStep]}</>;
 };

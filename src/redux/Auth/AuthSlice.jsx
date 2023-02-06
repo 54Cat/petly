@@ -1,5 +1,13 @@
+// import axios from 'axios';
+// axios.defaults.baseURL = 'http://localhost:4000/api';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from '../../components/Utils/axios/axios';
+// import axios from '../../components/Utils/axios/axios';
+import { loginUser } from 'redux/Login/LoginSlice';
+import axios from 'axios';
+axios.defaults.baseURL = 'https://petly-backend-23cb.onrender.com/api';
+const setAuthToken = token => {
+    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+};
 
 const initialState = {
     user: null,
@@ -11,12 +19,19 @@ const initialState = {
 export const registerUser = createAsyncThunk(
     'auth/registerUser',
     async ({ email, password, phone, city, name }, { rejectWithValue }) => {
-        // const newData = JSON.stringify({ email, password, phone, city, name });
+        console.log(email, password, phone, city, name);
         try {
-            const { data } = await axios.post('/auth/register', { email, password, phone, city, name });
+            const { data } = await axios.post('/auth/register', {
+                email,
+                password,
+                phone,
+                city,
+                name,
+            });
             if (data.token) {
                 window.localStorage.setItem('token', data.token);
             }
+            setAuthToken(data.token);
             return data;
         } catch (error) {
             return rejectWithValue(error);
@@ -26,21 +41,35 @@ export const registerUser = createAsyncThunk(
 export const authSlice = createSlice({
     name: 'auth',
     initialState,
-    reducers: {},
+
     extraReducers: {
+        //Register USER
         [registerUser.pending]: state => {
             state.isLoading = true;
-            state.status = null;
+        },
+        [registerUser.fulfilled]: (state, action) => {
+            state.status = action.payload.message;
+            state.token = action.payload.token;
+            state.user = action.payload.user;
+            state.isLoading = false;
         },
         [registerUser.rejected]: (state, action) => {
             state.isLoading = false;
             state.status = action.payload.message;
-            state.user = action.payload.user;
-            state.token = action.payload.token;
         },
-        [registerUser.fulfilled]: (state, action) => {
-            state.status = action.payload.message;
+        //Login User
+        [loginUser.pending]: state => {
+            state.isLoading = true;
+        },
+        [loginUser.fulfilled]: (state, action) => {
             state.isLoading = false;
+            state.status = action.payload.message;
+            state.token = action.payload.token;
+            state.user = action.payload.user;
+        },
+        [loginUser.rejected]: (state, action) => {
+            state.isLoading = false;
+            state.status = action.payload.message;
         },
     },
 });
