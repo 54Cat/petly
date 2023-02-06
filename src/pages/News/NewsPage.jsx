@@ -9,7 +9,7 @@ import NewsCard from 'components/NewsCard/NewsCard'
 import lastNews from 'data/news.json'
 import getSortedNews from 'components/Utils/helpers/getSortedNews'
 
-export const NewsPage = () => {
+const NewsPage = () => {
     const sortedNews = getSortedNews(lastNews)
     const [filter, setFilter] = useState('')
     const [news, setNews] = useState(sortedNews)
@@ -58,3 +58,5 @@ export const NewsPage = () => {
         <CardsList cardsArray={news} CardsItem={NewsCard} />
     </PageSection>
 }
+
+export default NewsPage;

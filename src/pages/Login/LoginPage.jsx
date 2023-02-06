@@ -1,18 +1,21 @@
+import { MainContainer } from 'components/Utils/Styles/ContainterAllStyled';
 import React from 'react';
-import {
-    Container,
-    BgPhoto,
-} from '../../components/Utils/Styles/Container-auth-login/ContainerAuth';
+import { ToastContainer } from 'react-toastify';
+import { Container } from '../../components/Utils/Styles/Container-auth-login/ContainerAuth';
 
 import { AuthLogin } from './authLogin';
 
-export const LoginPage = () => {
+const LoginPage = () => {
     return (
         <>
             <Container>
-                <BgPhoto />
-                <AuthLogin />
+                <MainContainer>
+                    <AuthLogin />
+                </MainContainer>
+                <ToastContainer />
             </Container>
         </>
     );
 };
+
+export default LoginPage;

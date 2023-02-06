@@ -53,7 +53,7 @@ export const InputSearch = styled.input`
     font-family: Inter;
     font-style: normal;
     font-weight: 500;
-    font-size: 20px;
+    font-size: 16px;
     line-height: 1.35;
     letter-spacing: 0.04em;
     width: 236px;

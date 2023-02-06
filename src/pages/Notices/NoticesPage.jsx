@@ -8,7 +8,7 @@ import { NoticesCategoriesNav } from 'components/NoticesCategoriesNav/NoticesCat
 import { fetchAllNotices } from 'components/Utils/axios/fetchNotices';
 import { NoticesCategoriesList } from 'components/NoticesCategoriesList/NoticesCategoriesList';
 
-export const NoticesPage = () => {
+const NoticesPage = () => {
     const [filter, setFilter] = useState('');
     const [notices, setNotices] = useState([]);
     // const { categoryName } = useParams();
@@ -30,7 +30,6 @@ export const NoticesPage = () => {
         }
     }
     
-
     const onFilterChange = e => {
         setFilter(e.currentTarget.value);
     };
@@ -53,3 +52,5 @@ export const NoticesPage = () => {
         </PageSection>
     );
 };
+
+export default NoticesPage;
