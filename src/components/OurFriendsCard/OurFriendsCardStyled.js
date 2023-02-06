@@ -101,6 +101,7 @@ const InfoTime = styled.p`
     font-weight: 500;
     font-size: 12px;
     line-height: 1.33;
+    //margin-bottom: 4px;
     color: #000000;
     @media (min-width: 768px) {
         font-size: 14px;
@@ -143,11 +144,19 @@ const AddressLink = styled.a`
     font-family: 'Manrope';
     font-style: normal;
     font-weight: 500;
-    font-size: 16px;
-    line-height: 22px;
-    //line-height: 1.33;
+    font-size: 12px;
+    //line-height: 16px;
+    line-height: 1.33;
     color: #000000;
     text-decoration-line: underline;
+    @media (min-width: 768px) {
+        font-size: 14px;
+        line-height: 19px;
+    }
+    @media (min-width: 1280px) {
+        font-size: 16px;
+        line-height: 22px;
+    }
     &:hover,
     :focus {
         color: #f59256;
@@ -181,9 +190,9 @@ const BoxInfo = styled.div`
     @media (min-width: 1280px) {
         margin-bottom: 12px;
     }
-    &:last-child {
-        margin-bottom: 0px;
-    }
+    // &:last-child {
+    //     margin-bottom: 0px;
+    // }
 `;
 
 
