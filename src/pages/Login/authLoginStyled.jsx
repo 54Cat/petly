@@ -96,6 +96,7 @@ export const Input = styled(Field)`
     }
 `;
 export const Button = styled.button`
+    transition: 0.3s;
     &:hover,
     &:focus {
         color: #ff6101;
@@ -138,91 +139,7 @@ export const Button = styled.button`
         display: block;
     } ;
 `;
-export const ButtonTwoReg = styled.button`
-    &:hover,
-    &:focus {
-        color: #ff6101;
-        border-color: #ff6101;
-    }
-    font-style: normal;
-    font-weight: 500;
-    cursor: pointer;
-    font-family: 'Manrope';
-    background: #f59256;
-    border-radius: 40px;
-    color: white;
-    margin-top: 40px;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    border: none;
 
-    @media (min-width: 320px) {
-        width: 280px;
-        height: 44px;
-    }
-    @media (min-width: 768px) and (max-width: 1199px) {
-        width: 448px;
-        line-height: 25px;
-        letter-spacing: 0.04em;
-        height: 44px;
-        font-size: 20px;
-        display: flex;
-        align-items: center;
-        display: block;
-    }
-    @media (min-width: 1280px) {
-        font-size: 20px;
-        line-height: 25px;
-
-        display: flex;
-        align-items: center;
-        letter-spacing: 0.04em;
-        width: 458px;
-        height: 48px;
-
-        display: block;
-    } ;
-`;
-export const Button1 = styled.button`
-    font-style: normal;
-    font-weight: 500;
-    cursor: pointer;
-    font-family: 'Manrope';
-    background: white;
-    border-radius: 40px;
-    color: black;
-    margin: 16px auto;
-    border: none;
-    border: 1px solid rgba(245, 146, 86, 0.5);
-
-    @media (min-width: 320px) {
-        width: 280px;
-        height: 44px;
-    }
-    @media (min-width: 768px) and (max-width: 1199px) {
-        width: 448px;
-        height: 44px;
-        font-size: 20px;
-        line-height: 25px;
-
-        display: flex;
-        align-items: center;
-        display: block;
-    }
-    @media (min-width: 1280px) {
-        font-size: 20px;
-        line-height: 25px;
-
-        display: flex;
-        align-items: center;
-        letter-spacing: 0.04em;
-        width: 458px;
-        height: 48px;
-
-        display: block;
-    } ;
-`;
 export const Text = styled.p`
     @media (min-width: 320px) {
     }

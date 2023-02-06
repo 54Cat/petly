@@ -160,7 +160,7 @@ export const Button = styled.button`
         width: 260px;
         height: 44px;
     }
-    @media (min-width: 768px) and (max-width: 1199px) {
+    @media (min-width: 768px) {
         width: 448px;
         line-height: 25px;
         letter-spacing: 0.04em;
@@ -177,7 +177,7 @@ export const Button = styled.button`
         display: flex;
         align-items: center;
         letter-spacing: 0.04em;
-        width: 458px;
+        width: 438px;
         height: 48px;
 
         display: block;
