@@ -3,7 +3,7 @@ import { userCurrent, updateUser } from 'auth/UserAuth/AuthUser';
 
 const initialState = {
     user: null,
-    token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZGQ2YzkzNGI3ZjM3YjI0YTg2Mjc1YiIsImlhdCI6MTY3NTU5NTI3M30.v-XySl8Ex-8Vf9yqqwp5vgycaGzWIfsWm6WTW372mu0',
+    token: '',
     isLoading: false,
 };
 

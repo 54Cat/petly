@@ -9,7 +9,10 @@ export const Text = styled.p`
     margin-top: 60px;
     @media (min-width: 768px) {
         font-size: 28px;
+        margin-top: 88px;
         line-height: 1.35;
+        padding-left: 15px;
+        margin-bottom: 40px;
     }
 `;
 
@@ -31,12 +34,22 @@ export const Wrapper = styled.div`
         padding: 0;
         margin-left: 0;
     }
+    @media (min-width: 1280px) {
+        flex-direction: column;
+        width: 411px;
+        margin-right: 32px;
+    }
 `;
 
 export const Container = styled.div`
     margin-bottom: 32px;
     @media (min-width: 768px) {
         margin: 24px 40px 24px 52px;
+    }
+    @media (min-width: 1280px) {
+        width: 100%;
+        margin: 0;
+        margin-bottom: 36px;
     }
 `;
 
@@ -47,6 +60,9 @@ export const Image = styled.img`
     object-fit: contain;
     @media (min-width: 768px) {
         margin-bottom: 8px;
+    }
+    @media (min-width: 1280px) {
+        margin: 20px auto 0 auto;
     }
 `;
 
@@ -60,13 +76,16 @@ export const Label = styled.label`
     line-height: 1.83;
     letter-spacing: 0.04em;
     background-color: inherit;
-
     margin-left: auto;
     margin-right: 24px;
     padding: 0;
     cursor: pointer;
     @media (min-width: 768px) {
         margin-right: 0;
+    }
+    @media (min-width: 1280px) {
+        margin-right: 16px;
+        margin-top: -24px;
     }
 `;
 
@@ -84,11 +103,15 @@ export const ButtonLogout = styled.button`
     line-height: 1.37;
     letter-spacing: 0.04em;
     color: rgba(17, 17, 17, 0.6);
-
     border: none;
     margin-left: auto;
+    padding: 0;
     margin-right: 12px;
     @media (min-width: 768px) {
         margin-left: 32px;
+    }
+    @media (min-width: 768px) {
+        margin-bottom: 18px;
+        margin-left: 15px;
     }
 `;

@@ -17,12 +17,21 @@ export const Form = styled.form`
         margin: 44px 0 33px 32px;
         padding: 0;
     }
+    /* @media (min-width: 768px) {
+        margin: 0 0 0 15px;
+        padding-left: 15px;
+    } */
+    @media (min-width: 1280px) {
+        padding-left: 15px;
+        margin: 0;
+        margin-bottom: 24px;
+    }
 `;
 export const Lable = styled.label`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
+    /* width: 100%; */
     :not(:last-child) {
         margin-bottom: 4px;
     }
@@ -59,6 +68,10 @@ export const Input = styled.input`
         line-height: 1.39;
         letter-spacing: 0.04em;
     }
+    @media (min-width: 1280px) {
+        margin-right: 24px;
+        margin-left: 4px;
+    }
 `;
 
 export const ButtonCreate = styled.button`
@@ -76,5 +89,8 @@ export const ButtonCreate = styled.button`
         justify-content: center;
         width: 32px;
         height: 32px;
+    }
+    @media (min-width: 1280px) {
+        margin-right: 14px;
     }
 `;
