@@ -1,4 +1,4 @@
-import { SpanInfo, Info } from 'components/OurFriendsCard/OurFriendsCardStyled';
+import { SpanInfo } from 'components/OurFriendsCard/OurFriendsCardStyled';
 
 const ifEmptyString = () => <SpanInfo>------------------</SpanInfo>;
 

@@ -29,12 +29,12 @@ const OurFriendsCard = ({ card }) => {
                         </div>
                         <div>
                             <BoxInfo onClick={toggle}>
-                                <InfoTime>
-                                {workDays ? <>
-                                        Time:<br></br>
-                                        {workDaysFrom[0]} - {workDaysTo[0]}
-                                    {visible && <WorkWeekTable items={workDays} ></WorkWeekTable>}</> : <Info>Time:<br></br>{ifEmptyString()}</Info>}
-                                </InfoTime>
+                            <InfoTime>
+                            {workDays ? <>
+                                Time:<br></br>
+                                {workDaysFrom[0]} - {workDaysTo[0]}
+                                {visible && <WorkWeekTable items={workDays} ></WorkWeekTable>}</> : <Info>Time:<br></br>{ifEmptyString()}</Info>}
+                            </InfoTime>
                             </BoxInfo>
                             <BoxInfo>
                             <Info>Adress: </Info>
