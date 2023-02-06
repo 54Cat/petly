@@ -12,8 +12,9 @@ export const Container = styled.section`
     background-image: url(${imgPhone});
     background-position: center 100%;
     background-repeat: no-repeat;
-    height: calc(100vh - 54px);
+
     background-size: contain;
+
     @media (min-device-pixel-ratio: 2),
         (-webkit-min-device-pixel-ratio: 2),
         (min-resolution: 192dpi),
