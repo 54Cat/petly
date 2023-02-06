@@ -12,7 +12,6 @@ import storage from 'redux-persist/lib/storage';
 import { combineReducers } from 'redux';
 
 import { configureStore } from '@reduxjs/toolkit';
-
 import { authSlices } from './Auth/AuthSlice';
 import { userReducer } from './User/userSlice';
 import { petsReducer } from './Pets/petsSlice';
@@ -20,6 +19,7 @@ const persistConfig = {
     key: 'root',
     version: 1,
     storage,
+    whitelist: ['token'],
 };
 const persistedReducer = persistReducer(persistConfig, authSlices);
 
@@ -30,7 +30,9 @@ const rootReducer = combineReducers({
 });
 
 const store = configureStore({
+
     reducer: rootReducer,
+
     middleware: getDefaultMiddleware =>
         getDefaultMiddleware({
             serializableCheck: {
