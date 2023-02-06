@@ -1,10 +1,11 @@
 import { Formik, Form, ErrorMessage } from 'formik';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+
 import { loginUser } from 'redux/Login/LoginSlice';
 import { loginValidationSchema } from '../Login/schemaValidation/SchemaValid';
 
-import { Link } from 'react-router-dom';
+import 'react-toastify/dist/ReactToastify.css';
 import {
     DivForm,
     Input,
@@ -12,7 +13,8 @@ import {
     Button,
     Text,
     FormError,
-} from './authLogin.module';
+    Link,
+} from './authLoginStyled';
 
 export const Login = () => {
     const dispatch = useDispatch();
@@ -20,13 +22,16 @@ export const Login = () => {
         email: '',
         password: '',
     });
+
     const handleSubmit = (data, { resetForm }) => {
         try {
             dispatch(loginUser(data));
             setData('');
             resetForm();
-        } catch (error) {
-            console.log(error);
+
+            // navigate('/user');
+        } catch (errors) {
+            console.log(errors);
         }
     };
     const FormErrors = ({ name }) => {
@@ -49,7 +54,6 @@ export const Login = () => {
                     <Title>Login</Title>
                     <Form>
                         <Input name="email" placeholder="Email" />
-                        <FormErrors name="email" />
 
                         <Input name="password" placeholder="Password" />
                         <FormErrors name="password" />

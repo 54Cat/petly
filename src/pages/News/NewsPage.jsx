@@ -12,7 +12,7 @@ import AddsPetForm from 'components/Modals/ModalAddsPet/AddsPetForm/AddsPetForm'
 import ButtonAddsPet from 'components/ButtonAddsPet/ButtonAddsPet'
 import Modal from 'components/Modals/ModalAddsPet/AddsPetForm/Modal'
 
-export const NewsPage = () => {
+const NewsPage = () => {
     const sortedNews = getSortedNews(lastNews)
     const [filter, setFilter] = useState('')
     const [news, setNews] = useState(sortedNews)
@@ -71,3 +71,5 @@ export const NewsPage = () => {
         <CardsList cardsArray={news} CardsItem={NewsCard} />
     </PageSection>
 }
+
+export default NewsPage;

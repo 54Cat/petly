@@ -6,9 +6,7 @@ import OurFriendsCard from 'components/OurFriendsCard/OurFriendsCard'
 import friends from 'data/sponsors.json'
 import { onTitleStyles, onListStyles } from 'components/Utils/helpers/friendsResizeStyles';
 
-
-
-export const FriendsPage = () => {
+const FriendsPage = () => {
   const [windowSize, setWindowSize] = useState([
     window.innerWidth,
     window.innerHeight,
@@ -26,9 +24,10 @@ export const FriendsPage = () => {
     };
   });
     
-
     return <PageSection>
         <Title style={onTitleStyles(windowSize)}>Our friend</Title>
         <CardsList styles={onListStyles(windowSize)}  cardsArray={friends} CardsItem={OurFriendsCard} />
     </PageSection>
 }
+
+export default FriendsPage;

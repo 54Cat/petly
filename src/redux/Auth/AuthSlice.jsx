@@ -1,15 +1,23 @@
 // import axios from 'axios';
 // axios.defaults.baseURL = 'http://localhost:4000/api';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { loggedOut } from 'auth/UserAuth/AuthUser';
 // import axios from '../../components/Utils/axios/axios';
+import { loginUser } from 'redux/Login/LoginSlice';
+
 import axios from 'axios';
 axios.defaults.baseURL = 'https://petly-backend-23cb.onrender.com/api';
+const setAuthToken = token => {
+    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+};
 
-const initialState = {
-    user: null,
-    token: null,
-    isLoading: false,
-    status: null,
+const token = {
+    set(token) {
+        axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+    },
+    unset() {
+        axios.defaults.headers.common.Authorization = '';
+    },
 };
 
 export const registerUser = createAsyncThunk(
@@ -24,15 +32,25 @@ export const registerUser = createAsyncThunk(
                 city,
                 name,
             });
+            token.set(data.token);
             if (data.token) {
                 window.localStorage.setItem('token', data.token);
             }
+            setAuthToken(data.token);
             return data;
         } catch (error) {
             return rejectWithValue(error);
         }
     }
 );
+
+const initialState = {
+    user: null,
+    token: '',
+    isLoading: false,
+    status: null,
+};
+
 export const authSlice = createSlice({
     name: 'auth',
     initialState,
@@ -52,7 +70,32 @@ export const authSlice = createSlice({
             state.isLoading = false;
             state.status = action.payload.message;
         },
+        [loggedOut.pending](state) {
+            state.isLoading = true;
+        },
+        [loggedOut.fulfilled](state, action) {
+            state.isLoading = false;
+            state.user = null;
+            state.token = '';
+        },
+        [loggedOut.rejected](state, action) {
+            state.isLoading = false;
+            state.error = action.payload;
+        },
         //Login User
+        [loginUser.pending]: state => {
+            state.isLoading = true;
+        },
+        [loginUser.fulfilled]: (state, action) => {
+            state.isLoading = false;
+            state.status = action.payload.message;
+            state.token = action.payload.token;
+            state.user = action.payload.user;
+        },
+        [loginUser.rejected]: (state, action) => {
+            state.isLoading = false;
+            state.status = action.payload.message;
+        },
     },
 });
 
