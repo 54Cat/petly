@@ -4,21 +4,17 @@ import { PageSection } from 'components/Utils/Styles/basicStyle';
 import { Title } from 'components/Utils/Styles/basicStyle';
 import { SearchBar } from 'components/SearchBar/SearchBar';
 import { NoticesCategoriesNav } from 'components/NoticesCategoriesNav/NoticesCategoriesNav';
-export const NoticesPage = () => {
+
+const NoticesPage = () => {
     const [filter, setFilter] = useState('');
     
-
     const onFilterChange = e => {
         setFilter(e.currentTarget.value);
     };
 
     const handleSubmit = e => {
         e.preventDefault();
-    };
-
-
- 
-    
+    }; 
 
     return (
         <PageSection>
@@ -34,3 +30,5 @@ export const NoticesPage = () => {
         </PageSection>
     );
 };
+
+export default NoticesPage;

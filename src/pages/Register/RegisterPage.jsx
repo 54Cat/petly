@@ -1,9 +1,9 @@
 import React from 'react';
 import { MainContainer } from 'components/Utils/Styles/ContainterAllStyled';
-
 import { Container } from '../../components/Utils/Styles/Container-auth-login/ContainerAuth';
 import { AuthForm } from './authForm/authForm';
-export const RegisterPage = () => {
+
+const RegisterPage = () => {
     return (
         <>
             <Container>
@@ -14,3 +14,5 @@ export const RegisterPage = () => {
         </>
     );
 };
+
+export default RegisterPage;

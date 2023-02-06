@@ -5,7 +5,7 @@ import { Container } from '../../components/Utils/Styles/Container-auth-login/Co
 
 import { AuthLogin } from './authLogin';
 
-export const LoginPage = () => {
+const LoginPage = () => {
     return (
         <>
             <Container>
@@ -17,3 +17,5 @@ export const LoginPage = () => {
         </>
     );
 };
+
+export default LoginPage;
