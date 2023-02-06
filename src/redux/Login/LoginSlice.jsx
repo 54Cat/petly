@@ -1,13 +1,8 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import axios from '../../components/Utils/axios/axios';
+
 axios.defaults.baseURL = 'https://petly-backend-23cb.onrender.com/api';
 
-const initialState = {
-    user: null,
-    token: null,
-    isLoading: false,
-    status: null,
-};
 export const loginUser = createAsyncThunk(
     'auth/loginUser',
     async ({ email, password }, { rejectWithValue }) => {

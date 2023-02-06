@@ -32,5 +32,5 @@ export const AuthForm = () => {
         <StepTwo prev={handlePrevStep} data={data} />,
     ];
 
-    return <div>{steps[currentStep]}</div>;
+    return <>{steps[currentStep]}</>;
 };
