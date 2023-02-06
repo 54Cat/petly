@@ -10,6 +10,7 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { combineReducers } from 'redux';
+
 import { configureStore } from '@reduxjs/toolkit';
 import { authSlices } from './Auth/AuthSlice';
 import { userReducer } from './User/userSlice';
@@ -29,10 +30,9 @@ const rootReducer = combineReducers({
 });
 
 const store = configureStore({
-    reducer: {
-        auth: persistedReducer,
-        user: rootReducer,
-    },
+
+    reducer: rootReducer,
+
     middleware: getDefaultMiddleware =>
         getDefaultMiddleware({
             serializableCheck: {

@@ -6,12 +6,14 @@ import SharedLayout from './components/SharedLayout/SharedLayout';
 import { HomePage } from 'pages/Home/HomePage';
 import { RegisterPage } from 'pages/Register/RegisterPage';
 import { NewsPage } from 'pages/News/NewsPage';
-import UserPage from 'pages/User/UserPage';
 import { FriendsPage } from 'pages/Friends/FriendsPage';
 import { userCurrent } from './auth/UserAuth/AuthUser';
 import { LoginPage } from 'pages/Login/LoginPage';
 import { NoticesPage } from 'pages/Notices/NoticesPage';
 import { NoticesCategoriesList } from 'components/NoticesCategoriesList/NoticesCategoriesList';
+
+import { UserPage } from 'pages/User/UserPage';
+
 
 const App = () => {
 

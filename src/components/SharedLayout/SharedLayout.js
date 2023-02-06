@@ -1,15 +1,19 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-import { Logo, Span, Text } from './SharedLayoutStyle'
+
+import { Logo, Span, Main, Text } from './SharedLayoutStyle';
+
 
 const SharedLayout = () => {
     return (
         <>
-            <Logo to="/">pe<Span>t</Span>ly</Logo>
-            <nav>
-                    {/* <Navigation/> */}
-            </nav>
-            <main>
+
+            <Logo to="/">
+                pe<Span>t</Span>ly
+            </Logo>
+            <nav>{/* <Navigation/> */}</nav>
+            <Main>
+
                 <Suspense fallback={null}>
                     <Outlet />
                 </Suspense>

@@ -1,29 +1,26 @@
-import UserData from 'components/User/UserData';
-import { useSelector } from 'react-redux';
 
-import { Loader } from '../../components/Utils/Loader/Loader';
-import { getLoader } from '../../redux/User/selectors';
-// import { getUser } from 'redux/User/selectors';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { getUserOperation } from 'redux/User/userOperations';
 
-const UserPage = () => {
-    const loading = useSelector(getLoader);
+import UserData from 'components/UserData/UserData';
+import PetsData from 'components/PetsData/PetsData';
+import Logout from 'components/Logout/Logout';
+import { Container } from './UserPage.styled';
 
-    return <>{loading ? <Loader /> : <UserData />}</>;
+export const UserPage = () => {
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getUserOperation());
+    }, [dispatch]);
+    return (
+        <Container>
+            <UserData />
+            <Logout />
+            <PetsData />
+        </Container>
+    );
 };
 
-export default UserPage;
 
- // import UserData from 'components/UserData/UserData';
- // import PetsData from 'components/PetsData/PetsData';
- // import Logout from 'components/Logout/Logout';
- // import { Container } from './UserPage.styled';
-
- // export const UserPage = () => {
- //     return (
- //         <Container>
- //             <UserData />
- //             <Logout />
- //             <PetsData />
- //         </Container>
- //     );
- // };
