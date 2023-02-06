@@ -1,16 +1,15 @@
 import React from 'react';
+import { MainContainer } from 'components/Utils/Styles/ContainterAllStyled';
 
-import {
-    BgPhoto,
-    Container,
-} from '../../components/Utils/Styles/Container-auth-login/ContainerAuth';
+import { Container } from '../../components/Utils/Styles/Container-auth-login/ContainerAuth';
 import { AuthForm } from './authForm/authForm';
 export const RegisterPage = () => {
     return (
         <>
             <Container>
-                <BgPhoto />
-                <AuthForm />
+                <MainContainer>
+                    <AuthForm />
+                </MainContainer>
             </Container>
         </>
     );

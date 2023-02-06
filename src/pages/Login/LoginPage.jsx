@@ -1,8 +1,6 @@
+import { MainContainer } from 'components/Utils/Styles/ContainterAllStyled';
 import React from 'react';
-import {
-    Container,
-    BgPhoto,
-} from '../../components/Utils/Styles/Container-auth-login/ContainerAuth';
+import { Container } from '../../components/Utils/Styles/Container-auth-login/ContainerAuth';
 
 import { AuthLogin } from './authLogin';
 
@@ -10,8 +8,9 @@ export const LoginPage = () => {
     return (
         <>
             <Container>
-                <BgPhoto />
-                <AuthLogin />
+                <MainContainer>
+                    <AuthLogin />
+                </MainContainer>
             </Container>
         </>
     );

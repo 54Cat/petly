@@ -3,79 +3,30 @@ import { Field } from 'formik';
 import { NavLink } from 'react-router-dom';
 
 export const DivForm = styled.div`
+    padding: 20px;
     @media (min-width: 320px) {
-        position: absolute;
         background: transparent;
-
-        top: 30%;
-        left: 50%;
-        margin-right: -50%;
-        transform: translate(-50%, -50%);
+        margin-right: auto;
+        margin-left: auto;
     }
     @media (min-width: 768px) {
-        width: 608px;
-        height: 517px;
+        width: 568px;
+        height: 477px;
         background: #ffffff;
-
-        top: 50%;
-        left: 50%;
-        margin-right: -50%;
-        transform: translate(-50%, -50%);
 
         box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
         border-radius: 40px;
     }
     @media (min-width: 1280px) {
-        width: 618px;
-        height: 473px;
+        width: 578px;
+        height: 433px;
         background: #ffffff;
-
-        top: 50%;
-        left: 50%;
-        margin-right: -50%;
-        transform: translate(-50%, -50%);
 
         box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
         border-radius: 40px;
     }
 `;
-export const DivFormTwo = styled.div`
-    @media (min-width: 320px) {
-        position: absolute;
-        background: transparent;
 
-        top: 50%;
-        left: 50%;
-        margin-right: -50%;
-        transform: translate(-50%, -50%);
-    }
-    @media (min-width: 768px) {
-        width: 608px;
-        height: 517px;
-        background: #ffffff;
-
-        top: 50%;
-        left: 50%;
-        margin-right: -50%;
-        transform: translate(-50%, -50%);
-
-        box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
-        border-radius: 40px;
-    }
-    @media (min-width: 1280px) {
-        width: 618px;
-        height: 605px;
-        background: #ffffff;
-
-        top: 50%;
-        left: 50%;
-        margin-right: -50%;
-        transform: translate(-50%, -50%);
-
-        box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
-        border-radius: 40px;
-    }
-`;
 export const Forms = styled.form`
     display: flex;
     flex-wrap: wrap;

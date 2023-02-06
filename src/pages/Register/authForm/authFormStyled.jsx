@@ -3,37 +3,29 @@ import { Field } from 'formik';
 import { NavLink } from 'react-router-dom';
 
 export const DivForm = styled.div`
+    padding: 20px;
     @media (min-width: 320px) {
-        position: absolute;
         background: transparent;
-
-        top: 30%;
-        left: 50%;
-        margin-right: -50%;
-        transform: translate(-50%, -50%);
+        margin-right: auto;
+        margin-left: auto;
     }
     @media (min-width: 768px) {
-        width: 608px;
-        height: 517px;
+        width: 568px;
+        height: 477px;
         background: #ffffff;
-
-        top: 50%;
-        left: 50%;
-        margin-right: -50%;
-        transform: translate(-50%, -50%);
+        margin-right: auto;
+        margin-left: auto;
 
         box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
         border-radius: 40px;
     }
     @media (min-width: 1280px) {
-        width: 618px;
-        height: 541px;
+        width: 578px;
+        height: 501px;
         background: #ffffff;
 
-        top: 50%;
-        left: 50%;
-        margin-right: -50%;
-        transform: translate(-50%, -50%);
+        margin-right: auto;
+        margin-left: auto;
 
         box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
         border-radius: 40px;
@@ -127,12 +119,12 @@ export const Input = styled(Field)`
     margin: 0 auto;
     @media (min-width: 320px) {
         margin-top: 15px;
-        width: 256px;
+        width: 236px;
         height: 36px;
         padding-left: 20px;
     }
     @media (min-width: 768px) {
-        width: 424px;
+        width: 404px;
         height: 48px;
         padding-left: 20px;
         margin-top: 16px;
@@ -140,7 +132,7 @@ export const Input = styled(Field)`
     @media (min-width: 1280px) {
         margin-top: 18px;
         padding-left: 20px;
-        width: 434px;
+        width: 414px;
         height: 48px;
     }
 `;
@@ -165,7 +157,7 @@ export const Button = styled.button`
     background: white;
 
     @media (min-width: 320px) {
-        width: 280px;
+        width: 260px;
         height: 44px;
     }
     @media (min-width: 768px) and (max-width: 1199px) {
