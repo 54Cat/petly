@@ -3,6 +3,8 @@ import * as yup from 'yup';
 import { Title } from '../AddsPetForm/AddsPetModalStyled';
 import { ErrorText } from '../AddsPetForm/AddsPetModalStyled';
 
+import { addMyPet } from 'components/Utils/axios/fetchAddsMyPet';
+
 const validationSchema = yup.object({
     comments: yup.string().min(8).max(120).required(),
 })
@@ -17,9 +19,10 @@ const StepTwo = ({ data, prev }) => {
             />
     )
     }
-
+    
     const handleSubmit = (values, { resetForm }) => {
-        console.log(values);
+        addMyPet(values);
+        console.log(values)
         resetForm()       
     }
     

@@ -17,38 +17,37 @@ line-height: 1.36;
 }
 `;
 
-const Input = styled.input`
-font-family: 'Manrope';
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-line-height: 1.6;
+// const Input = styled.input`
+// font-family: 'Manrope';
+// font-style: normal;
+// font-weight: 400;
+// font-size: 16px;
+// line-height: 1.6;
 
-width: 448px;
-height: 48px;
+// width: 448px;
+// height: 48px;
 
-:active,
-    :hover,
-    :focus {
-        outline: 0;
-        outline-offset: 0;
-    }
-background: #fdf7f2;
-border: 1px solid rgba(245, 146, 86, 0.5);
-border-radius: 40px;
-display: block;
-    ::placeholder {
-        padding: 10px 16px;
-        color: rgba(17, 17, 17, 0.6);
-    }
-    margin: 0 auto;
-    margin-top: 12px;
-    margin-bottom: 28px;
+// :active,
+//     :hover,
+//     :focus {
+//         outline: 0;
+//         outline-offset: 0;
+//     }
+// background: #fdf7f2;
+// border: 1px solid rgba(245, 146, 86, 0.5);
+// border-radius: 40px;
+// display: block;
+//     ::placeholder {
+//         padding: 10px 16px;
+//         color: rgba(17, 17, 17, 0.6);
+//     }
+//     margin: 0 auto;
+//     margin-top: 12px;
+//     margin-bottom: 28px;
 // :last-child {
-//     margin-bottom: 40px;
-// }
-    
-`;
+//      margin-bottom: 40px;
+//  }   
+// `;
 
 const Overlay = styled.div`
     position: fixed;
@@ -81,13 +80,6 @@ border-radius: 40px;
 }
 `;
 
-const FormDiv = styled.div`
-padding: 40px 80px;
-`;
-
-const FormsAdds = styled.form`
-    
-`;
 
 const FlexBox = styled.div`
     display: flex;
