@@ -78,20 +78,20 @@ export const Input = styled(Field)`
     margin: 0 auto;
     @media (min-width: 320px) {
         margin-top: 15px;
-        width: 256px;
+        width: 236px;
         height: 36px;
         padding-left: 20px;
     }
     @media (min-width: 768px) {
-        width: 424px;
+        width: 404px;
         height: 48px;
         padding-left: 20px;
         margin-top: 16px;
     }
     @media (min-width: 1280px) {
-        margin-top: 16px;
+        margin-top: 18px;
         padding-left: 20px;
-        width: 434px;
+        width: 414px;
         height: 48px;
     }
 `;
@@ -113,10 +113,10 @@ export const Button = styled.button`
     border: none;
 
     @media (min-width: 320px) {
-        width: 280px;
+        width: 260px;
         height: 44px;
     }
-    @media (min-width: 768px) and (max-width: 1199px) {
+    @media (min-width: 768px) {
         width: 448px;
         line-height: 25px;
         letter-spacing: 0.04em;
@@ -133,7 +133,7 @@ export const Button = styled.button`
         display: flex;
         align-items: center;
         letter-spacing: 0.04em;
-        width: 458px;
+        width: 438px;
         height: 48px;
 
         display: block;
@@ -154,9 +154,17 @@ export const Text = styled.p`
     text-align: center;
 `;
 export const FormError = styled.p`
+    @media (min-width: 320px) {
+        margin-left: 10px;
+    }
+    @media (min-width: 768px) {
+        margin-left: 90px;
+    }
     color: #f59256;
     margin-left: 90px;
-    margin-top: 2px;
+    margin-top: -2px;
+    position: absolute;
+    font-size: 14px;
 `;
 export const Link = styled(NavLink)`
     transition: all 600ms ease;

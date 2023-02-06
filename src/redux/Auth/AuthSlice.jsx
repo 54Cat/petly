@@ -2,14 +2,9 @@
 // axios.defaults.baseURL = 'http://localhost:4000/api';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { loggedOut } from 'auth/UserAuth/AuthUser';
-// import axios from '../../components/Utils/axios/axios';
-import { loginUser } from 'redux/Login/LoginSlice';
 
 import axios from 'axios';
 axios.defaults.baseURL = 'https://petly-backend-23cb.onrender.com/api';
-const setAuthToken = token => {
-    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-};
 
 const token = {
     set(token) {
@@ -36,7 +31,26 @@ export const registerUser = createAsyncThunk(
             if (data.token) {
                 window.localStorage.setItem('token', data.token);
             }
-            setAuthToken(data.token);
+
+            return data;
+        } catch (error) {
+            return rejectWithValue(error);
+        }
+    }
+);
+
+export const loginUser = createAsyncThunk(
+    'auth/loginUser',
+    async ({ email, password }, { rejectWithValue }) => {
+        console.log(email, password);
+        try {
+            const { data } = await axios.post('/auth/login', {
+                email,
+                password,
+            });
+            if (data.token) {
+                window.localStorage.setItem('token', data.token);
+            }
             return data;
         } catch (error) {
             return rejectWithValue(error);

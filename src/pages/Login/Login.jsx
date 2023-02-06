@@ -2,7 +2,7 @@ import { Formik, Form, ErrorMessage } from 'formik';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { loginUser } from 'redux/Login/LoginSlice';
+import { loginUser } from 'redux/Auth/AuthSlice';
 import { loginValidationSchema } from '../Login/schemaValidation/SchemaValid';
 
 import 'react-toastify/dist/ReactToastify.css';
@@ -54,7 +54,7 @@ export const Login = () => {
                     <Title>Login</Title>
                     <Form>
                         <Input name="email" placeholder="Email" />
-
+                        <FormErrors name="email" />
                         <Input name="password" placeholder="Password" />
                         <FormErrors name="password" />
 
