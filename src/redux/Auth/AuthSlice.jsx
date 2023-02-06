@@ -2,6 +2,7 @@
 // axios.defaults.baseURL = 'http://localhost:4000/api';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 // import axios from '../../components/Utils/axios/axios';
+import { loginUser } from 'redux/Login/LoginSlice';
 import axios from 'axios';
 axios.defaults.baseURL = 'https://petly-backend-23cb.onrender.com/api';
 
@@ -53,6 +54,19 @@ export const authSlice = createSlice({
             state.status = action.payload.message;
         },
         //Login User
+        [loginUser.pending]: state => {
+            state.isLoading = true;
+        },
+        [loginUser.fulfilled]: (state, action) => {
+            state.isLoading = false;
+            state.status = action.payload.message;
+            state.token = action.payload.token;
+            state.user = action.payload.user;
+        },
+        [loginUser.rejected]: (state, action) => {
+            state.isLoading = false;
+            state.status = action.payload.message;
+        },
     },
 });
 

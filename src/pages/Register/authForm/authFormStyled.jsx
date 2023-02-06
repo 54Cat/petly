@@ -3,6 +3,7 @@ import { Field } from 'formik';
 import { NavLink } from 'react-router-dom';
 
 export const DivForm = styled.div`
+    padding: 20px;
     @media (min-width: 320px) {
         position: absolute;
         background: transparent;
@@ -13,8 +14,8 @@ export const DivForm = styled.div`
         transform: translate(-50%, -50%);
     }
     @media (min-width: 768px) {
-        width: 608px;
-        height: 517px;
+        width: 568px;
+        height: 477px;
         background: #ffffff;
 
         top: 50%;
@@ -26,8 +27,8 @@ export const DivForm = styled.div`
         border-radius: 40px;
     }
     @media (min-width: 1280px) {
-        width: 618px;
-        height: 541px;
+        width: 578px;
+        height: 501px;
         background: #ffffff;
 
         top: 50%;
