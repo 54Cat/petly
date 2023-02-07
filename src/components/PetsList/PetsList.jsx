@@ -17,7 +17,7 @@ const PetsList = function () {
     return (
         <>
             {pets.items.map(
-                ({ _id, name, birthday, breed, comments, imgUrl }) => {
+                ({ _id, name, birthday, breed, comments, photoURL }) => {
                     return (
                         <PetsItem
                             key={_id}
@@ -26,7 +26,7 @@ const PetsList = function () {
                             birthday={birthday}
                             breed={breed}
                             comments={comments}
-                            imgUrl={imgUrl}
+                            photoURL={photoURL}
                         ></PetsItem>
                     );
                 }

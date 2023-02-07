@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { getUserOperation } from 'redux/User/userOperations';
 
-// import UserData from 'components/UserData/UserData';
+import UserData from 'components/UserData/UserData';
 import PetsData from 'components/PetsData/PetsData';
 import { Container } from './UserPage.styled';
 
@@ -15,7 +15,7 @@ const UserPage = () => {
     }, [dispatch]);
     return (
         <Container>
-            {/* <UserData /> */}
+            <UserData />
             <PetsData />
         </Container>
     );

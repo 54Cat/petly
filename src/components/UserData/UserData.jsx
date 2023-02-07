@@ -1,13 +1,13 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
-// import { useDispatch } from 'react-redux';
+
 import { getUserInfo } from 'redux/selectors';
 import { useRef } from 'react';
 // import UserDataItem from './UserDataItem';
 import { updateUser } from 'auth/UserAuth/AuthUser';
 import { IoIosCamera } from 'react-icons/io';
 
-// import { UserLogout } from './UserLogOut';
+import { UserLogout } from './UserLogOut';
 import { Wrapper, Text, Image, Label, Input, Container } from './UserDataStyle';
 
 const UserData = () => {
@@ -63,10 +63,10 @@ const UserData = () => {
                         />
                     </Label>
                 </Container>
-                {/* <div>
-                    <UserDataItem />
+                <div>
+                    {/* <UserDataItem /> */}
                     <UserLogout />
-                </div> */}
+                </div>
             </Wrapper>
         </>
     );

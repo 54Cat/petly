@@ -16,15 +16,16 @@ import {
     Conteiner,
 } from './UserDataItemStyle';
 
-const iconCreate = <MdCreate color="#F59256" className="icon" />;
-const iconCriateBlack = <MdCreate color="#111111" className="icon" />;
-const iconConfirm = <BsCheckLg color="#F59256" className="icon" />;
-
 const UserDataItem = () => {
     const dispatch = useDispatch();
     const user = useSelector(getUserInfo);
-    const { name, city, email, phone, birthday } = user.user;
-    const id = user.user._id;
+    console.log('UsDaIt', user);
+    const { name, city, email, phone, birthday } = user;
+    const id = user._id;
+
+    const iconCreate = <MdCreate color="#F59256" className="icon" />;
+    const iconCriateBlack = <MdCreate color="#111111" className="icon" />;
+    const iconConfirm = <BsCheckLg color="#F59256" className="icon" />;
 
     const [newName, setNewName] = useState(name);
     const [newEmail, setNewEmail] = useState(email);
