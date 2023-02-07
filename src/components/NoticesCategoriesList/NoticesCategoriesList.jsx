@@ -1,16 +1,23 @@
-import { NoticesList, NoticesTestItem } from "./NoticesCategoriesListStyled"
+import { NoticesList, NoticesItem } from "./NoticesCategoriesListStyled"
+import { NoticesCategoriesItem } from '../NoticesCaregoriesItem/NoticesCaregoriesItem'
 import { nanoid } from "nanoid"
 
 export const NoticesCategoriesList = () => {
     return <NoticesList>
-        <NoticesTestItem key={nanoid()}>AAA</NoticesTestItem>
-        <NoticesTestItem key={nanoid()}>AAA</NoticesTestItem>
-        <NoticesTestItem key={nanoid()}>AAA</NoticesTestItem>
-        <NoticesTestItem key={nanoid()}>AAA</NoticesTestItem>
-        <NoticesTestItem key={nanoid()}>AAA</NoticesTestItem>
-        <NoticesTestItem key={nanoid()}>AAA</NoticesTestItem>
-        <NoticesTestItem key={nanoid()}>AAA</NoticesTestItem>
-        <NoticesTestItem key={nanoid()}>AAA</NoticesTestItem>
-        <NoticesTestItem key={nanoid()}>AAA</NoticesTestItem>
+        {/* {
+            noticesFromBackEnd.map(notice => (<NoticesCategoriesItem notice={notice} />))
+        } */}
+        {/* // <NoticesItem key={nanoid()}></NoticesItem>
+        //     <NoticesItem key={nanoid()}></NoticesItem>
+        //     <NoticesItem key={nanoid()}></NoticesItem>
+        //     <NoticesItem key={nanoid()}></NoticesItem>
+        //     <NoticesItem key={nanoid()}></NoticesItem>
+        //     <NoticesItem key={nanoid()}></NoticesItem>
+        //     <NoticesItem key={nanoid()}></NoticesItem>
+        //     <NoticesItem key={nanoid()}></NoticesItem>
+        //     <NoticesItem key={nanoid()}></NoticesItem>
+        //     <NoticesItem key={nanoid()}></NoticesItem> */}
+            {/* </NoticesItem> */}
+                {/* // ))} */}
     </NoticesList>
 }
