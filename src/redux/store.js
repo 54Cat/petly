@@ -13,7 +13,7 @@ import { combineReducers } from 'redux';
 
 import { configureStore } from '@reduxjs/toolkit';
 import { authSlices } from './Auth/AuthSlice';
-import { userReducer } from './User/userSlice';
+import  {userReducer} from './User/usersSlice';
 import { petsReducer } from './Pets/petsSlice';
 const persistConfig = {
     key: 'root',

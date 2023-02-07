@@ -1,30 +1,23 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 
-import { getUserInfo } from 'redux/selectors';
+// import { getUserInfo } from 'redux/selectors';
 import { useRef } from 'react';
-// import UserDataItem from './UserDataItem';
-import { updateUser } from 'auth/UserAuth/AuthUser';
+import UserDataItem from './UserDataItem';
+// import { updateUser } from 'auth/UserAuth/AuthUser';
 import { IoIosCamera } from 'react-icons/io';
+import { getUser } from 'redux/User/selectors';
 
 import { UserLogout } from './UserLogOut';
-import {
-    UserCard,
-    Wrapper,
-    Text,
-    Image,
-    Label,
-    Input,
-    Container,
-} from './UserDataStyle';
+import { Wrapper, Text, Image, Label, Input, Container } from './UserDataStyle';
 
 const UserData = () => {
     const [image, setImage] = useState();
-    const dispatch = useDispatch();
-    const userInState = useSelector(getUserInfo);
+    // const dispatch = useDispatch();
+    const userInState = useSelector(getUser);
     const { avatarURL } = userInState.user;
     console.log('avatarURL inUserData:', avatarURL);
-    const ref = useRef(avatarURL);
+    const ref = useRef();
 
     const onChange = e => {
         const [file] = e.target.files;
@@ -40,16 +33,16 @@ const UserData = () => {
 
             formData.set('imageURL', reader);
             setImage(reader);
-            dispatch(
-                updateUser({
-                    image,
-                })
-            );
+            // dispatch(
+            //     updateUser({
+            //         image,
+            //     })
+            // );
         }
     };
 
     return (
-        <UserCard>
+        <>
             <Text>My information:</Text>
             <Wrapper>
                 <Container>
@@ -73,11 +66,11 @@ const UserData = () => {
                     </Label>
                 </Container>
                 <div>
-                    {/* <UserDataItem /> */}
+                    <UserDataItem />
                     <UserLogout />
                 </div>
             </Wrapper>
-        </UserCard>
+        </>
     );
 };
 

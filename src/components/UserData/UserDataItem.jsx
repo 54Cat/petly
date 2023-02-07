@@ -1,9 +1,9 @@
 import { useState } from 'react';
 // import { useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getUserInfo } from 'redux/selectors';
 // import { getUserInfo } from 'redux/selectors';
-import { updateUser } from 'auth/UserAuth/AuthUser';
+import { getUser } from '../../redux/User/selectors';
+import { updateUser } from '../../redux/User/userOperations';
 // import onFocus from 'components/Utils/helpers/changeIcons';
 // import { IconButton } from '@mui/material';
 import { MdCreate } from 'react-icons/md';
@@ -19,9 +19,9 @@ import {
 
 const UserDataItem = () => {
     const dispatch = useDispatch();
-    const userInState = useSelector(getUserInfo);
+    const userInState = useSelector(getUser);
     console.log('UsDaIt', userInState);
-    const { _id, name, city, email, phone, birthday } = userInState.user;
+    const { name, city, email, phone, birthday } = userInState.user;
     // const id = user._id;
 
     const iconCreate = <MdCreate color="#F59256" className="icon" />;
@@ -112,7 +112,6 @@ const UserDataItem = () => {
         e.preventDefault();
         dispatch(
             updateUser({
-                _id,
                 newName,
                 newEmail,
                 newBirthday,

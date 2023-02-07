@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { addPetOperation, deletePetOperation } from './petsOperations';
-import { getUserOperation } from 'redux/User/userOperations';
+import { fetchUser } from 'redux/User/userOperations';
 
 const petsSlice = createSlice({
     name: 'pets',
@@ -11,7 +11,7 @@ const petsSlice = createSlice({
         error: null,
     },
     extraReducers: {
-        [getUserOperation.fulfilled]: (state, { payload }) => {
+        [fetchUser.fulfilled]: (state, { payload }) => {
             return {
                 ...state,
 
@@ -21,10 +21,10 @@ const petsSlice = createSlice({
                 error: null,
             };
         },
-        [getUserOperation.pending]: state => {
+        [fetchUser.pending]: state => {
             return { ...state, isLoading: true };
         },
-        [getUserOperation.rejected]: (state, { payload }) => {
+        [fetchUser.rejected]: (state, { payload }) => {
             return { ...state, error: payload.name, isLoading: false };
         },
 

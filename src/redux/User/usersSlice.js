@@ -1,25 +1,22 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { userCurrent, updateUser } from 'auth/UserAuth/AuthUser';
+import { fetchUser, updateUser } from './userOperations';
 
-const initialState = {
-    user: null,
-    token: '',
-    isLoading: false,
-};
-
-export const userSlice = createSlice({
+const userSlice = createSlice({
     name: 'user',
-    initialState,
-    reducers: {},
+    initialState: {
+        user: null,
+        isLoading: false,
+    },
     extraReducers: {
-        [userCurrent.pending](state, _) {
+        [fetchUser.pending](state, _) {
             state.isLoading = true;
         },
-        [userCurrent.fulfilled](state, action) {
+        [fetchUser.fulfilled](state, action) {
             state.isLoading = false;
             state.user = action.payload;
+            console.log(state.user);
         },
-        [userCurrent.rejected](state, action) {
+        [fetchUser.rejected](state, action) {
             state.isLoading = false;
             state.error = action.payload;
         },
@@ -37,4 +34,4 @@ export const userSlice = createSlice({
     },
 });
 
-export const userReduser = userSlice.reducer;
+export const userReducer = userSlice.reducer;

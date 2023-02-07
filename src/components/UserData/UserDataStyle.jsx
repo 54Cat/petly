@@ -1,15 +1,5 @@
 import styled from '@emotion/styled';
 
-export const UserCard = styled.div`
-    margin-bottom: 46px;
-    @media (min-width: 320px) {
-    }
-    @media (min-width: 768px) {
-    }
-    @media (min-width: 1200px) {
-    }
-`;
-
 export const Text = styled.p`
     font-style: normal;
     font-weight: 500;
