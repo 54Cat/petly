@@ -15,8 +15,10 @@ import {
     FormError,
     Link,
 } from './authLoginStyled';
+import { useNavigate } from 'react-router-dom';
 
 export const Login = () => {
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     const [data, setData] = useState({
         email: '',
@@ -29,7 +31,7 @@ export const Login = () => {
             setData('');
             resetForm();
 
-            // navigate('/user');
+            navigate('/user');
         } catch (errors) {
             console.log(errors);
         }

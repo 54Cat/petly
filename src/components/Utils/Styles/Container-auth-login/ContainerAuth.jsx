@@ -11,6 +11,7 @@ export const Container = styled.section`
     background: #fdf7f2;
     background-image: url(${imgPhone});
     background-position: center 100%;
+    height: calc(100vh - 147px);
     background-repeat: no-repeat;
 
     background-size: contain;
@@ -25,6 +26,9 @@ export const Container = styled.section`
     @media (min-width: 768px) {
         padding-top: 100px;
         padding-bottom: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
         background-image: url(${imgTable});
         @media (min-device-pixel-ratio: 2),
@@ -34,6 +38,8 @@ export const Container = styled.section`
             background-image: url('${imgTablex2}');
         }
         @media (min-width: 1280px) {
+            display: block;
+            height: calc(100vh - 208px);
             background-image: url(${imgDesc});
             padding-top: 70px;
             padding-bottom: 70px;
