@@ -1,26 +1,24 @@
-
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { getUserOperation } from 'redux/User/userOperations';
 
-import UserData from 'components/UserData/UserData';
+// import UserData from 'components/UserData/UserData';
 import PetsData from 'components/PetsData/PetsData';
-import Logout from 'components/Logout/Logout';
 import { Container } from './UserPage.styled';
 
-export const UserPage = () => {
+const UserPage = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
+        console.log('start us');
         dispatch(getUserOperation());
     }, [dispatch]);
     return (
         <Container>
-            <UserData />
-            <Logout />
+            {/* <UserData /> */}
             <PetsData />
         </Container>
     );
 };
 
-
+export default UserPage;

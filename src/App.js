@@ -17,7 +17,7 @@ const LoginPage = lazy(() => import('pages/Login/LoginPage'));
 const FriendsPage = lazy(() => import('pages/Friends/FriendsPage'));
 const NewsPage = lazy(() => import('pages/News/NewsPage'));
 const NoticesPage = lazy(() => import('pages/Notices/NoticesPage'));
-const UserPage = lazy(() => import('pages/User/UserPage'));
+const UserPage = lazy(() => import('./pages/User/UserPage'));
 
 const App = () => {
     // const dispatch = useDispatch();

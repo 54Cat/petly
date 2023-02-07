@@ -12,11 +12,11 @@ import {
     StyledDeleteIcon,
 } from './PetsItem.styled';
 
-const PetsItem = ({ id, name, birthday, breed, comments, imgUrl }) => {
+const PetsItem = ({ _id, name, birthday, breed, comments, imgUrl }) => {
     const dispatch = useDispatch();
 
     const onBtnDelete = () => {
-        dispatch(deletePetOperation(id));
+        dispatch(deletePetOperation(_id));
     };
 
     return (

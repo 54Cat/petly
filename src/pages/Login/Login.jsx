@@ -1,6 +1,7 @@
 import { Formik, Form, ErrorMessage } from 'formik';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 import { loginUser } from 'redux/Auth/AuthSlice';
 import { loginValidationSchema } from '../Login/schemaValidation/SchemaValid';
@@ -18,6 +19,7 @@ import {
 
 export const Login = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const [data, setData] = useState({
         email: '',
         password: '',
@@ -29,7 +31,7 @@ export const Login = () => {
             setData('');
             resetForm();
 
-            // navigate('/user');
+            navigate('/user');
         } catch (errors) {
             console.log(errors);
         }

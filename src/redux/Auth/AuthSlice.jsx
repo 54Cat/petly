@@ -4,7 +4,8 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { loggedOut } from 'auth/UserAuth/AuthUser';
 
 import axios from 'axios';
-axios.defaults.baseURL = 'https://petly-backend-23cb.onrender.com/api';
+axios.defaults.baseURL = 'http://localhost:4000/api';
+// 'https://petly-backend-23cb.onrender.com/api';
 
 const token = {
     set(token) {
@@ -48,9 +49,7 @@ export const loginUser = createAsyncThunk(
                 email,
                 password,
             });
-            if (data.token) {
-                window.localStorage.setItem('token', data.token);
-            }
+            token.set(data.token);
             return data;
         } catch (error) {
             return rejectWithValue(error);
@@ -61,8 +60,8 @@ export const loginUser = createAsyncThunk(
 const initialState = {
     user: null,
     token: '',
-    isLoading: false, 
-    isLoggedIn: false,    
+    isLoading: false,
+    isLoggedIn: false,
     status: null,
 };
 
