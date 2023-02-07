@@ -2,12 +2,12 @@ import { MainContainer } from 'components/Utils/Styles/ContainterAllStyled';
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Logo, Span, Text } from './SharedLayoutStyle';
-import Header from 'components/Header/Header';
+// import Header from 'components/Header/Header';
 
 const SharedLayout = () => {
     return (
         <>
-        <Header />
+        {/* <Header /> */}
             <main>
                 <MainContainer>
                     <Logo to="/">
