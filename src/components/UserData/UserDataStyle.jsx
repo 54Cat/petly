@@ -1,18 +1,32 @@
 import styled from '@emotion/styled';
 
+export const UserCard = styled.div`
+    margin-bottom: 46px;
+    @media (min-width: 320px) {
+    }
+    @media (min-width: 768px) {
+    }
+    @media (min-width: 1200px) {
+    }
+`;
+
 export const Text = styled.p`
     font-style: normal;
     font-weight: 500;
     font-size: 20px;
     letter-spacing: 0.04em;
     margin-bottom: 18px;
-    margin-top: 60px;
+
     @media (min-width: 768px) {
         font-size: 28px;
-        margin-top: 88px;
+
         line-height: 1.35;
         padding-left: 15px;
         margin-bottom: 40px;
+    }
+
+    @media (min-width: 1280px) {
+        margin-bottom: 24px;
     }
 `;
 
@@ -36,7 +50,7 @@ export const Wrapper = styled.div`
         padding: 0;
         margin-left: 0;
     }
-    @media (min-width: 1200px) {
+    @media (min-width: 1280px) {
         flex-direction: column;
         width: 411px;
         margin-right: 32px;
@@ -48,7 +62,7 @@ export const Container = styled.div`
     @media (min-width: 768px) {
         margin: 24px 40px 24px 52px;
     }
-    @media (min-width: 1200px) {
+    @media (min-width: 1280px) {
         width: 100%;
         margin: 0;
         margin-bottom: 36px;
@@ -85,7 +99,7 @@ export const Label = styled.label`
     @media (min-width: 768px) {
         margin-right: 0;
     }
-    @media (min-width: 1200px) {
+    @media (min-width: 1280px) {
         margin-right: 16px;
         margin-top: -24px;
     }

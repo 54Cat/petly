@@ -10,7 +10,7 @@ const UserPage = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        console.log('start us');
+        console.log('useEffect start us');
         dispatch(getUserOperation());
     }, [dispatch]);
     return (

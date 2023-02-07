@@ -1,10 +1,7 @@
 import 'react-toastify/dist/ReactToastify.css';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { lazy } from 'react';
-// import { useDispatch} from 'react-redux';
-// import { useEffect } from 'react';
 
-// import { userCurrent } from './auth/UserAuth/AuthUser';
 import { NoticesCategoriesList } from 'components/NoticesCategoriesList/NoticesCategoriesList';
 
 import PublicRoute from './components/Routes/PublicRoute';
@@ -20,12 +17,6 @@ const NoticesPage = lazy(() => import('pages/Notices/NoticesPage'));
 const UserPage = lazy(() => import('./pages/User/UserPage'));
 
 const App = () => {
-    // const dispatch = useDispatch();
-
-    // useEffect(() => {
-    //     dispatch(userCurrent());
-    // }, [dispatch]);
-
     return (
         <>
             <Routes>

@@ -8,13 +8,22 @@ import { updateUser } from 'auth/UserAuth/AuthUser';
 import { IoIosCamera } from 'react-icons/io';
 
 import { UserLogout } from './UserLogOut';
-import { Wrapper, Text, Image, Label, Input, Container } from './UserDataStyle';
+import {
+    UserCard,
+    Wrapper,
+    Text,
+    Image,
+    Label,
+    Input,
+    Container,
+} from './UserDataStyle';
 
 const UserData = () => {
     const [image, setImage] = useState();
     const dispatch = useDispatch();
     const user = useSelector(getUserInfo);
     const { avatarURL } = user;
+    console.log('avatarURL inUserData:', avatarURL);
     const ref = useRef(avatarURL);
 
     const onChange = e => {
@@ -40,7 +49,7 @@ const UserData = () => {
     };
 
     return (
-        <>
+        <UserCard>
             <Text>My information:</Text>
             <Wrapper>
                 <Container>
@@ -68,7 +77,7 @@ const UserData = () => {
                     <UserLogout />
                 </div>
             </Wrapper>
-        </>
+        </UserCard>
     );
 };
 
