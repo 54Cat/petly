@@ -28,7 +28,7 @@ export const NoticesPage = () => {
                 handleSubmit={handleSubmit}
                 onFilterChange={onFilterChange}
                 filter={filter}
-            />
+            />            
             <NoticesCategoriesNav />
             <Outlet />
         </PageSection>

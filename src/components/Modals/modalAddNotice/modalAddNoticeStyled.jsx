@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-// import styled from 'styled-components';
 
 export const AddNoticeForm = styled.form`
 flex-direction: column;
@@ -17,6 +16,16 @@ export const AddNoticeWrapper = styled.div`
   background-color: #FFFFFF;
 `;
 
+export const CloseBtn = styled.button`
+    border: none;
+    background-color: transparent;
+    width: 32px;
+    height: 40px;
+    padding: 0;
+    position: absolute;
+    top: 3px;
+    right: 0;
+`;
 export const AddNoticeTitle = styled.h1`
   margin-bottom: 20px;
   font-size: 36px;

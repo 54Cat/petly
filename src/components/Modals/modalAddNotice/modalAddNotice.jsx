@@ -1,10 +1,11 @@
 import { useState, useMemo } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { nanoid } from 'nanoid';
-import { register } from 'redux/operations';
+import CloseIcon from '@mui/icons-material/Close';
+
 import {
   AddNoticeWrapper,
-  
+  CloseBtn,
   AddNoticeTitle,
   Text,
   AddNoticeForm,
@@ -50,7 +51,7 @@ export const modalAddNotice = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    dispatch(register({ title, namePet, birth, breed }));      
+    dispatch({ title, namePet, birth, breed });      
       setTitle('');
       setNamePet('');
       setBirth('');
@@ -65,6 +66,8 @@ export const modalAddNotice = () => {
 
   return (
     <AddNoticeWrapper>
+      <CloseBtn type="submit" aria-label="close"><CloseIcon /></CloseBtn>
+      {/* <CloseBtn type="submit" ><CloseIcon  sx={{ fontSize: 20 }} /></CloseBtn> */}
           <AddNoticeTitle>Add pet</AddNoticeTitle>
           <Text>Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur</Text>
           <Button type="submit">lost/found</Button>
