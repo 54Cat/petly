@@ -10,7 +10,7 @@ const userSlice = createSlice({
     },
     extraReducers: {
         [getUserOperation.fulfilled]: (state, { payload }) => {
-            console.log('Aaron', payload);
+            console.log('це операція getUserOperation і пейлод', payload);
             return {
                 ...state,
                 user: { ...payload.user },

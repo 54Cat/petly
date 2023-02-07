@@ -6,13 +6,8 @@ import PetsItem from 'components/PetsItem/PetsItem';
 
 const PetsList = function () {
     const pets = useSelector(getPets);
-    // const dispatch = useDispatch();
 
-    // useEffect(() => {
-    //     dispatch(getUserOperation());
-    // }, [dispatch]);
-
-    console.log(pets);
+    console.log('Pets Obj in PetsList', pets);
 
     return (
         <>
@@ -32,7 +27,7 @@ const PetsList = function () {
                 }
             )}
 
-            {pets.length === 0 && <p>There`s no pets yet</p>}
+            {pets.items.length === 0 && <p>There`s no pets yet</p>}
         </>
     );
 };

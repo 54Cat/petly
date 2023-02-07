@@ -5,6 +5,7 @@ axios.defaults.baseURL = 'http://localhost:4000/api';
 
 export async function getUserInfo() {
     const { data } = await axios.get(`/user`);
+    console.log('робимо фетч за даними юзера, отримуємо:', data);
     return data;
 }
 

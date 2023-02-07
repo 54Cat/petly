@@ -21,8 +21,8 @@ import {
 const UserData = () => {
     const [image, setImage] = useState();
     const dispatch = useDispatch();
-    const user = useSelector(getUserInfo);
-    const { avatarURL } = user;
+    const userInState = useSelector(getUserInfo);
+    const { avatarURL } = userInState.user;
     console.log('avatarURL inUserData:', avatarURL);
     const ref = useRef(avatarURL);
 
