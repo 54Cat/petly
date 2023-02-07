@@ -43,15 +43,15 @@ const NoticesPage = () => {
         try {
             const results = await fetchNoticesByCategory(category);
             if (results.length === 0) {
-                Notiflix.Notify.info(`Please choose category.`)
-                return
+                Notiflix.Notify.info(`Please choose category.`);
+                return;
             }
             setNotices(results);
         } catch (e) {
-            Notiflix.Notify.failure(e.message)
+            Notiflix.Notify.failure(e.message);
         }
-    }
-    
+    };
+
     const onFilterChange = e => {
         setFilter(e.currentTarget.value);
     };
@@ -70,7 +70,7 @@ const NoticesPage = () => {
                 filter={filter}
             />
             <NoticesCategoriesNav />
-           <NoticesCategoriesList notices={notices} />
+            <NoticesCategoriesList notices={notices} />
         </PageSection>
     );
 };

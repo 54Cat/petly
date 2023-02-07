@@ -5,6 +5,7 @@ import { loggedOut } from 'auth/UserAuth/AuthUser';
 
 import axios from 'axios';
 axios.defaults.baseURL = 'https://petly-backend-23cb.onrender.com/api';
+// 'https://petly-backend-23cb.onrender.com/api';
 
 const token = {
     set(token) {
@@ -42,15 +43,12 @@ export const registerUser = createAsyncThunk(
 export const loginUser = createAsyncThunk(
     'auth/loginUser',
     async ({ email, password }, { rejectWithValue }) => {
-        console.log(email, password);
         try {
             const { data } = await axios.post('/auth/login', {
                 email,
                 password,
             });
-            if (data.token) {
-                window.localStorage.setItem('token', data.token);
-            }
+            token.set(data.token);
             return data;
         } catch (error) {
             return rejectWithValue(error);
@@ -61,8 +59,8 @@ export const loginUser = createAsyncThunk(
 const initialState = {
     user: null,
     token: '',
-    isLoading: false, 
-    isLoggedIn: false,    
+    isLoading: false,
+    isLoggedIn: false,
     status: null,
 };
 
