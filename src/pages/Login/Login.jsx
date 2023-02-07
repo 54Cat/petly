@@ -16,12 +16,10 @@ import {
     FormError,
     Link,
 } from './authLoginStyled';
-import { useNavigate } from 'react-router-dom';
 
 export const Login = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const navigate = useNavigate();
     const [data, setData] = useState({
         email: '',
         password: '',
