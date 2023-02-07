@@ -1,26 +1,30 @@
-import { Suspense } from 'react'; 
+import { MainContainer } from 'components/Utils/Styles/ContainterAllStyled';
+import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-import {Logo,Span, Main, Text} from './SharedLayoutStyle'
-
+import { Logo, Span, Text } from './SharedLayoutStyle';
 
 const SharedLayout = () => {
-   
     return (
         <>
-            <Logo to="/">pe<Span>t</Span>ly</Logo>
-            <nav>
-                    {/* <Navigation/> */}
-            </nav>
-            <Main>
+            <main>
+                <MainContainer>
+                    <Logo to="/">
+                        pe<Span>t</Span>ly
+                    </Logo>
+                    <nav>{/* <Navigation/> */}</nav>
+                </MainContainer>
                 <Suspense fallback={null}>
                     <Outlet />
                 </Suspense>
-            </Main>
+            </main>
             <footer>
-                <Text>Copyrigh<Span>t</Span> &copy; by Bes<Span>t</Span> <Span>T</Span>eam </Text>
+                <Text>
+                    Copyrigh<Span>t</Span> &copy; by Bes<Span>t</Span>{' '}
+                    <Span>T</Span>eam{' '}
+                </Text>
             </footer>
-    </>
-    )
+        </>
+    );
 };
 
 export default SharedLayout;
