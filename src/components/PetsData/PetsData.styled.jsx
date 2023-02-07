@@ -9,7 +9,7 @@ export const PetsWrapper = styled.div`
         width: 704px;
     }
 
-    @media (min-width: 1200px) {
+    @media (min-width: 1280px) {
         width: 821px;
     }
 `;

@@ -1,33 +1,35 @@
 import { useSelector } from 'react-redux';
+// import { useEffect } from 'react';
+// import { getUserOperation } from 'redux/User/userOperations';
 import { getPets } from 'redux/selectors';
 import PetsItem from 'components/PetsItem/PetsItem';
 
 const PetsList = function () {
-   const pets = useSelector(getPets);
-    
+    const pets = useSelector(getPets);
+
+    console.log('Pets Obj in PetsList', pets);
 
     return (
         <>
             {pets.items.map(
-                ({ id, name, birthday, breed, comments, imgUrl }) => {
+                ({ _id, name, birthday, breed, comments, photoURL }) => {
                     return (
                         <PetsItem
-                            key={id}
-                            id={id}
+                            key={_id}
+                            _id={_id}
                             name={name}
                             birthday={birthday}
                             breed={breed}
                             comments={comments}
-                            imgUrl={imgUrl}
+                            photoURL={photoURL}
                         ></PetsItem>
                     );
                 }
             )}
 
-            {pets.length === 0 && <p>There`s no pets yet</p>}
+            {pets.items.length === 0 && <p>There`s no pets yet</p>}
         </>
     );
 };
 
 export default PetsList;
-

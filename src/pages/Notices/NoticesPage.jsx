@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 // import { useParams } from "react-router-dom"
-import Notiflix from 'notiflix'
+import Notiflix from 'notiflix';
 import { PageSection } from 'components/Utils/Styles/basicStyle';
 import { Title } from 'components/Utils/Styles/basicStyle';
 import { SearchBar } from 'components/SearchBar/SearchBar';
@@ -14,22 +14,22 @@ const NoticesPage = () => {
     // const { categoryName } = useParams();
 
     useEffect(() => {
-    onFirstRender()  
-    }, [])
+        onFirstRender();
+    }, []);
 
     const onFirstRender = async () => {
         try {
             const results = await fetchAllNotices();
             if (results.length === 0) {
-                Notiflix.Notify.info(`Please choose category.`)
-                return
+                Notiflix.Notify.info(`Please choose category.`);
+                return;
             }
             setNotices(results);
         } catch (e) {
-            Notiflix.Notify.failure(e.message)
+            Notiflix.Notify.failure(e.message);
         }
-    }
-    
+    };
+
     const onFilterChange = e => {
         setFilter(e.currentTarget.value);
     };
@@ -48,7 +48,7 @@ const NoticesPage = () => {
                 filter={filter}
             />
             <NoticesCategoriesNav />
-           <NoticesCategoriesList notices={notices} />
+            <NoticesCategoriesList notices={notices} />
         </PageSection>
     );
 };
