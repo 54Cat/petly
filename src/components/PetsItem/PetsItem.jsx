@@ -12,16 +12,19 @@ import {
     StyledDeleteIcon,
 } from './PetsItem.styled';
 
-const PetsItem = ({ id, name, birthday, breed, comments, imgUrl }) => {
+const PetsItem = ({ _id, name, birthday, breed, comments, photoURL }) => {
     const dispatch = useDispatch();
 
     const onBtnDelete = () => {
-        dispatch(deletePetOperation(id));
+        dispatch(deletePetOperation(_id));
     };
 
     return (
         <PetsCard>
-            <PetsImg src={imgUrl} alt="" />
+            <PetsImg
+                src="https://www.bangaloreagrico.in/wp-content/uploads/2018/11/ORANGE.jpg"
+                alt=""
+            />
             <TextWrapper>
                 <PetsName>
                     <CardTitle>Name:</CardTitle> {name}{' '}

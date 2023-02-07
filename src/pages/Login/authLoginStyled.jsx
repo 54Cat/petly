@@ -8,20 +8,24 @@ export const DivForm = styled.div`
         background: transparent;
         margin-right: auto;
         margin-left: auto;
+        padding: 0px;
     }
     @media (min-width: 768px) {
         width: 568px;
         height: 409px;
         background: #ffffff;
-
+        margin-right: auto;
+        margin-left: auto;
         box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
         border-radius: 40px;
+        padding: 20px;
     }
     @media (min-width: 1280px) {
         width: 578px;
         height: 433px;
         background: #ffffff;
-
+        margin-right: auto;
+        margin-left: auto;
         box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
         border-radius: 40px;
     }
@@ -43,19 +47,18 @@ export const Title = styled.h2`
         margin-bottom: 40px;
     }
     @media (min-width: 768px) {
-        margin-top: 60px;
         font-style: normal;
         font-weight: 500;
         font-size: 36px;
         line-height: 49px;
         margin-bottom: 40px;
+        margin-top: 40px;
     }
     @media (min-width: 1280px) {
         font-style: normal;
         font-weight: 500;
         font-size: 36px;
         line-height: 49px;
-        margin-top: 60px;
 
         margin-bottom: 40px;
     }
@@ -78,7 +81,7 @@ export const Input = styled(Field)`
     margin: 0 auto;
     @media (min-width: 320px) {
         margin-top: 15px;
-        width: 236px;
+        width: 256px;
         height: 36px;
         padding-left: 20px;
     }
@@ -96,24 +99,26 @@ export const Input = styled(Field)`
     }
 `;
 export const Button = styled.button`
-    transition: 0.3s;
+    transition: all 600ms ease;
     &:hover,
     &:focus {
-        color: #ff6101;
-        border-color: #ff6101;
+        background: white;
+        color: #f59256;
     }
+    background: #f59256;
+    color: white;
     font-style: normal;
     font-weight: 500;
     cursor: pointer;
     font-family: 'Manrope';
-    background: #f59256;
+    border: 1px solid rgba(245, 146, 86, 0.5);
     border-radius: 40px;
-    color: white;
+    display: block;
     margin: 40px auto;
     border: none;
 
     @media (min-width: 320px) {
-        width: 260px;
+        width: 280px;
         height: 44px;
     }
     @media (min-width: 768px) {

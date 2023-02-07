@@ -5,7 +5,6 @@ import { getUserOperation } from 'redux/User/userOperations';
 const petsSlice = createSlice({
     name: 'pets',
     initialState: {
-
         items: [],
 
         isLoading: false,
@@ -47,9 +46,14 @@ const petsSlice = createSlice({
         },
 
         [deletePetOperation.fulfilled]: (state, { payload }) => {
+            console.log('delete me! oper');
             return {
                 ...state,
-                items: [...state.items.filter(({ id }) => id !== payload.id)],
+                items: [
+                    ...state.items.filter(
+                        ({ _id }) => _id !== payload.data._id
+                    ),
+                ],
                 isLoading: false,
             };
         },

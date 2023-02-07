@@ -1,35 +1,57 @@
 import { useState, useEffect } from 'react';
-// import { useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 import Notiflix from 'notiflix'
 import { PageSection } from 'components/Utils/Styles/basicStyle';
 import { Title } from 'components/Utils/Styles/basicStyle';
 import { SearchBar } from 'components/SearchBar/SearchBar';
 import { NoticesCategoriesNav } from 'components/NoticesCategoriesNav/NoticesCategoriesNav';
-import { fetchAllNotices } from 'components/Utils/axios/fetchNotices';
+import { fetchNoticesByCategory } from 'components/Utils/axios/fetchNotices';
 import { NoticesCategoriesList } from 'components/NoticesCategoriesList/NoticesCategoriesList';
 
 const NoticesPage = () => {
     const [filter, setFilter] = useState('');
     const [notices, setNotices] = useState([]);
-    // const { categoryName } = useParams();
+    const { categoryName } = useParams();
+    const navigate = useNavigate();
 
     useEffect(() => {
-    onFirstRender()  
-    }, [])
+        switch (categoryName) {
+            case "lostFound":
+                fetchNotices('lost')
+                break;
 
-    const onFirstRender = async () => {
+            case "inGoodHands":
+                fetchNotices("in_good_hands")
+                break;
+
+            case "sell":
+                fetchNotices("sell")
+                break;
+        
+            case "favoriteAds":
+                break;
+        
+            case "myAds":
+                break;
+
+            default:
+                navigate('/notices/lostFound')
+} 
+    }, [categoryName, navigate])
+
+    const fetchNotices = async (category) => {
         try {
-            const results = await fetchAllNotices();
+            const results = await fetchNoticesByCategory(category);
             if (results.length === 0) {
-                Notiflix.Notify.info(`Please choose category.`)
-                return
+                Notiflix.Notify.info(`Please choose category.`);
+                return;
             }
             setNotices(results);
         } catch (e) {
-            Notiflix.Notify.failure(e.message)
+            Notiflix.Notify.failure(e.message);
         }
-    }
-    
+    };
+
     const onFilterChange = e => {
         setFilter(e.currentTarget.value);
     };
@@ -48,7 +70,7 @@ const NoticesPage = () => {
                 filter={filter}
             />
             <NoticesCategoriesNav />
-           <NoticesCategoriesList notices={notices} />
+            <NoticesCategoriesList notices={notices} />
         </PageSection>
     );
 };
