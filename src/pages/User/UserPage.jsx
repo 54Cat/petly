@@ -14,9 +14,7 @@ const UserPage = () => {
     const loading = useSelector(getLoader);
     const error = useSelector(getError);
 
-    useEffect(() => {
-        dispatch(fetchUser());
-    }, [dispatch]);
+    dispatch(fetchUser());
 
     return (
         <>
