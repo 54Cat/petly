@@ -7,30 +7,26 @@ left: 178px;
 top: 114px;
 bottom: 20px;
 width: 120px;
-height: 144px;
+height: 140px;
 padding: 12px;
 
 background: #FFFFFF;
-// border: 1px solid #F59256; 
-// box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
-// border-radius: 8px;
-
 border: 1px solid #F59256;
 box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
 border-radius: 8px;
 `
 
-const CurrentBoxItem = styled.div`
-display: flex;
-padding: 4px;
-justify-content: space-between;
-text-align: center;
-margin-bottom: 4px;
-border: 1px solid #F59256;
-&:last-child{
-    margin-bottom: 0px;
-}
-`
+// const CurrentBoxItem = styled.div`
+// display: flex;
+// //padding: 4px;
+// justify-content: space-between;
+// text-align: center;
+// margin-bottom: 4px;
+// //border: 1px solid #F59256;
+// &:last-child{
+//     margin-bottom: 0px;
+// }
+// `
 
 const ScheduleBoxItem = styled.div`
 
@@ -51,9 +47,17 @@ font-size: 12px;
 line-height: 1.33;
 color: #000000;
 `
+const CurrentInfo = styled.p`
+font-family: 'Manrope';
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 1.33;
+color: #F59256;
+`
 export {
     ScheduleBox,
     ScheduleInfo,
     ScheduleBoxItem,
-    CurrentBoxItem
+    CurrentInfo
 }

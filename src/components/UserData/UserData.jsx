@@ -5,8 +5,8 @@ import { Wrapper, Text } from './UserDataStyle';
 
 const UserData = () => {
     return (
-        <>
-            <Text>My information:</Text>
+        <UserCard>
+                <Text>My information:</Text>     
             <Wrapper>
                 <UserAvatar />
                 <div>

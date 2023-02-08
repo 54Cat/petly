@@ -1,4 +1,4 @@
-import { Card, Title, FlexBox, Info, InfoLink, AddressLink, BoxInfo, Image, Time } from "./OurFriendsCardStyled"
+import { Card, Title, FlexBox, Info, InfoLink, AddressLink, BoxInfo, Image, InfoTime } from "./OurFriendsCardStyled"
 import ifEmptyString from "components/Utils/helpers/emptyInfoString"
 import image from './defaultImage.jpg'
 import WorkWeekTable from "components/WorkWeekTable/WorkWeekTable"
@@ -28,18 +28,17 @@ const OurFriendsCard = ({ card }) => {
                         <Image src={imageUrl ? imageUrl : image} alt="logo"></Image>
                         </div>
                         <div>
-                            <BoxInfo>
-                                <Info>Time:</Info>
-                            <Time onClick={toggle}>{workDays ? <>
+                            <BoxInfo onClick={toggle}>
+                            <InfoTime>
+                            {workDays ? <>
+                                Time:<br></br>
                                 {workDaysFrom[0]} - {workDaysTo[0]}
-                                {visible && <WorkWeekTable items={workDays} >
-                                </WorkWeekTable>}
-                            </> : ifEmptyString()}</Time>
-                            
+                                {visible && <WorkWeekTable items={workDays} ></WorkWeekTable>}</> : <Info>Time:<br></br>{ifEmptyString()}</Info>}
+                            </InfoTime>
                             </BoxInfo>
                             <BoxInfo>
-                                <Info>Adress: </Info>
-                                <AddressLink href={addressUrl}>{address? `${address.slice(0, 25)}...,` : ifEmptyString()}</AddressLink>
+                            <Info>Adress: </Info>
+                            {address ? <AddressLink href={addressUrl}>{`${address.slice(0, 20)}...,`}</AddressLink> : ifEmptyString()}
                             </BoxInfo>
                             <BoxInfo>
                                 <Info>Email:</Info>
