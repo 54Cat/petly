@@ -8,9 +8,7 @@ import { CardsList } from 'components/CardsList/CardsList'
 import NewsCard from 'components/NewsCard/NewsCard'
 import lastNews from 'data/news.json'
 import getSortedNews from 'components/Utils/helpers/getSortedNews'
-import AddsPetForm from 'components/Modals/ModalAddsPet/AddsPetForm/AddsPetForm'
-import ButtonAddsPet from 'components/ButtonAddsPet/ButtonAddsPet'
-import Modal from 'components/Modals/ModalAddsPet/AddsPetForm/Modal'
+
 
 const NewsPage = () => {
     const sortedNews = getSortedNews(lastNews)
@@ -53,20 +51,10 @@ const NewsPage = () => {
             Notiflix.Notify.failure(e.message)
         }
     };
-
-    //modal
-    const [modalOpen, setModalOpen] = useState(false)
-    const openModal = () => {
-        setModalOpen(true);
-    }
-    const closeModal = () => {
-        setModalOpen(false);
-    }    
+   
 
     return <PageSection>
         <Title>News</Title>
-        <ButtonAddsPet onClick={openModal}></ButtonAddsPet>
-        {modalOpen && <Modal onClose={closeModal}><AddsPetForm></AddsPetForm></Modal>}
         <SearchBar handleSubmit={handleSubmit} onFilterChange={onFilterChange} filter={filter} />
         <CardsList cardsArray={news} CardsItem={NewsCard} />
     </PageSection>

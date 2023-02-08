@@ -4,7 +4,7 @@ import StepTwo from "../steps/stepTwo";
 // import { toast } from 'react-toastify';
 import React, { useState } from 'react';
 
-const AddsPetForm = () => {
+const AddsPetForm = ({onClose}) => {
     const [data, setData] = useState({
         name: '',
         birthday: '',
@@ -12,7 +12,8 @@ const AddsPetForm = () => {
         myPetsPhoto: '',
         comments: '',
     });
-    
+
+
     const [currentStep, setCurrentStep] = useState(0);
     
     const handleNextStep = (newData, final = false) => {
@@ -28,8 +29,8 @@ const AddsPetForm = () => {
         setCurrentStep(prev => prev - 1);
     };
     const steps = [
-        <StepOne next={handleNextStep} data={data} />,
-        <StepTwo prev={handlePrevStep} data={data} />,
+        <StepOne next={handleNextStep} data={data} onClose={onClose} />,
+        <StepTwo prev={handlePrevStep} data={data} onClose={onClose} />,
     ];
     
     return <div>{steps[currentStep]}</div>;

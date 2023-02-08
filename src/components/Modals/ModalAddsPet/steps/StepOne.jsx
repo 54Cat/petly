@@ -1,5 +1,5 @@
 import { Formik, ErrorMessage } from 'formik';
-import { Title, ErrorText, ModalItem, FlexBox, StyledLabel, FormStyled, FieldStyled, CancelBtn, NextBtn, LabelBox } from '../AddsPetForm/AddsPetModalStyled';
+import { ButtonCloseModal, ButtonCloseIcon, Title, ErrorText, ModalItem, FlexBox, StyledLabel, FormStyled, FieldStyled, CancelBtn, NextBtn, LabelBox } from '../AddsPetForm/AddsPetModalStyled';
 import * as yup from 'yup';
 
 
@@ -16,9 +16,8 @@ const validationSchema = yup.object({
 })
 
 const StepOne = (props) => {
-    
-
-    const FormError = ({ name }) => {
+   
+ const FormError = ({ name }) => {
         return (
             <ErrorMessage
                 name={name}
@@ -31,8 +30,10 @@ const StepOne = (props) => {
         props.next(data);
         console.log(props);
     };
-      
-return (
+    
+    const { onClose } = props; 
+    return (
+    
     <Formik
         initialValues={props.data}
         onSubmit={handleSubmit}
@@ -40,41 +41,38 @@ return (
     >
         {() => (
             <ModalItem>
+                <ButtonCloseModal type='button' onClick={() => onClose()}>
+                    <ButtonCloseIcon />
+                </ButtonCloseModal>
             <FormStyled>
              <Title>Add pet</Title>       
             <LabelBox>
                 <StyledLabel htmlFor='name'>
-                Name pet
-                    <div>
-                        <FieldStyled type="text" name="name" placeholder="Type name pet" />
-                        <FormError name="name" />
-                    </div>
+                Name pet 
+                    <FieldStyled type="text" name="name" placeholder="Type name pet" /> 
+                    <FormError name="name" />
                 </StyledLabel>
             </LabelBox>
 
             <LabelBox>
                 <StyledLabel htmlFor='birthday'>
                 Date of birth
-                    <div>
-                        <FieldStyled type="text" name="birthday" placeholder="Type date of birth" />
-                        <FormError name="birthday" />
-                    </div>
+                    <FieldStyled type="text" name="birthday" placeholder="Type date of birth" />
+                    <FormError name="birthday" />
                 </StyledLabel>
             </LabelBox>
 
             <div>
                 <StyledLabel htmlFor='breed'>
-                Breed
-                    <div>
-                        <FieldStyled type="text" name="breed" placeholder="Type breed" />
-                        <FormError name="breed" />
-                    </div>
+                Breed    
+                    <FieldStyled type="text" name="breed" placeholder="Type breed" />
+                    <FormError name="breed" />
                 </StyledLabel>
             </div>
 
             <FlexBox>
                 <NextBtn type="submit">Next</NextBtn>
-                <CancelBtn type="button">Cancel</CancelBtn>
+                <CancelBtn type="button" onClick={() => onClose()} >Cancel</CancelBtn>
             </FlexBox>  
                 </FormStyled>
                 </ModalItem> 

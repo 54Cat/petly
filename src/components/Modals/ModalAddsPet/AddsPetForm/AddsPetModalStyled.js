@@ -1,8 +1,10 @@
 import styled from '@emotion/styled';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+import AddIcon from '@mui/icons-material/Add';
 import { Form, Field} from 'formik';
 
 const Overlay = styled.div`
+    overflow-y: scroll;
     position: fixed;
     top: 0;
     left: 0;
@@ -20,16 +22,17 @@ const Overlay = styled.div`
 const ModalItem = styled.div`
 position: relative;
 display: block;
-
-width: 280px;
-height: 550px;
+padding: 40px 20px;
+width: 240px;
+height: 510px;
 
 background: #FFFFFF;
 box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
 border-radius: 40px;
 @media(min-width: 768px) {
-    width: 608px;
-    height: 590px;
+    padding: 40px 80px;
+    width: 448px;
+    height: 510px;
 }
 `;
 
@@ -37,19 +40,21 @@ const ModalItemTwo = styled.div`
 position: relative;
 display: flex;
 justify-content: center;
-
-width: 280px;
-height: 670px;
+padding: 40px 20px;
+width: 240px;
+height: 610px;
 
 background: #FFFFFF;
 box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
 border-radius: 40px;
 @media(min-width: 768px) {
+    padding: 40px auto;
     width: 608px;
-    height: 662px;
+    height: 612px;
 }
-`
-const TitleTwo = styled.h4`
+`;
+
+const TitleItemTwo = styled.h4`
 font-family: 'Inter';
 font-style: normal;
 font-weight: 500;
@@ -62,10 +67,26 @@ margin-bottom: 20px;
     line-height: 1.2;
     letter-spacing: -0.01em;
 }
+color: #111111;
+`;
+
+const TitleTwo = styled.h3`
+margin-bottom: 20px;
+
+text-align: center;
+font-family: 'Manrope';
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 1.37;
 
 color: #111111;
 
-`
+@media(min-width: 768px) {
+font-size: 36px;
+line-height: 1.36;
+}
+`;
 
 const ButtonCloseIcon = styled(HighlightOffIcon)`
 
@@ -80,7 +101,12 @@ fill: rgba(17, 17, 17, 0.6);
      width: 36px;
     height: 36px;
 }
+`;
 
+const BtnAddFileIcon = styled(AddIcon)`
+fill: rgba(17, 17, 17, 0.6);
+width: 48px;
+height: 48px;
 `;
 
 const ButtonCloseModal = styled.button`
@@ -111,13 +137,12 @@ background: #FDF7F2;
 border-radius: 50%;
 //border: rgba(0,0,0,0);
 //outline: rgba(0,0,0,0);
-z-index: 9999;
+//z-index: 99999;
 `;
-
 
 const Title = styled.h3`
 margin-bottom: 40px;
-margin-top: 40px;
+
 text-align: center;
 font-family: 'Manrope';
 font-style: normal;
@@ -134,24 +159,25 @@ line-height: 1.36;
 `;
 
 const FormStyled = styled(Form)`
-position: absolute;
-top: 0px;
-right: 0px;
+// position: absolute;
+// top: 0px;
+// right: 0px;
 
-margin: 0px 20px;
+//margin: 0px 20px;
 display: block;
 @media(min-width: 768px) {
-    margin: 0px 80px;
+    //margin: 0px 80px;
 }
  `;
 
 const FieldStyled = styled(Field)`
 display: block;
-width: 234px;
-height: 40px; 
+
+width: 196px;
+height: 18px; 
 color: rgba(17, 17, 17, 0.6);
 margin-top: 8px;
-padding: 10px;  
+padding: 11px 14px;  
 background: #FDF7F2;
 border: 1px solid rgba(245, 146, 86, 0.5);
 border-radius: 40px;
@@ -162,7 +188,7 @@ border-radius: 40px;
     border: 2px solid #FF6101;
 }
     ::placeholder {
-        padding: 11px 14px;
+        //padding: 11px 14px;
         font-weight: 400;
         font-size: 14px;
         line-height: 1.35;
@@ -175,37 +201,42 @@ border-radius: 40px;
         }
     }
 @media(min-width: 768px) {
-    width: 442px;
-    height: 48px; 
+    padding: 16px 10px; 
+    width: 416px;
+    height: 22px; 
     margin-top: 12px;
 }
 `;
 
 const FieldPhoto = styled(Field)`
 display: none;
-display: flex;
-justify-content: center;
-align-items: center;
-text-align: center;
-margin-left: auto;
-margin-right: auto;
-width: 208px;
-height: 208px;
-background: #FDF7F2;
-border-radius: 20px;
-margin-bottom: 20px;
-@media(min-width: 768px) {
-    margin-bottom: 40px;
-    width: 184px;
-    height: 184px;
-} 
+`;
 
-`
+const AddFile = styled.label`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 208px;
+    height: 208px;
+    background: #FDF7F2;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    @media(min-width: 768px) {
+        margin-bottom: 40px;
+        width: 184px;
+        height: 184px;
+    } 
+`;
 
 const FieldTextarea = styled(Field)`
 display: block;
-width: 240px;
-height: 100px;
+margin-top: 8px;
+padding: 14px 12px;
+width: 212px;
+height: 76px;
 background: #FDF7F2;
 border: 1px solid rgba(245, 146, 86, 0.5);
 border-radius: 20px;
@@ -223,8 +254,10 @@ border-radius: 20px;
     }
 
 @media(min-width: 768px) {
-    width: 394px;
-    height: 116px;
+    margin-top: 20px;
+    padding: 16px;
+    width: 362px;
+    height: 84px;
 }
 `;
 
@@ -248,19 +281,19 @@ color: #111111;
     font-size: 24px;
     line-height: 1.1;
 }
-`
+`;
 
 const FlexBox = styled.div`
-
+    
     justify-content: center;
     text-align: center;
     
     margin-top: 40px;
-    margin-bottom: 40px;
     margin-left: auto;
     margin-right: auto;
     @media(min-width: 768px) {
-    display: flex;    
+        flex-direction: row-reverse;
+        display: flex;    
 }
 `;
 
@@ -300,15 +333,28 @@ border-radius: 40px;
 }
 `;
 
-
 const ErrorText = styled.p`
     font-family: 'Manrope';
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 1.6;
-    color: red;
-`
+    
+    @media (min-width: 320px) {
+        margin-left: 10px;
+    }
+    @media (min-width: 768px) {
+        margin-left: 90px;
+    }
+    color: #f59256;
+    margin-left: 90px;
+    margin-top: -25px;
+
+    position: absolute;
+    
+`;
+
+
 export {
     Title,
     Overlay,
@@ -326,5 +372,8 @@ export {
     ModalItemTwo,
     TitleTwo,
     FieldPhoto,
-    FieldTextarea
+    FieldTextarea,
+    AddFile,
+    BtnAddFileIcon,
+    TitleItemTwo
 }
