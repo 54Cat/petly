@@ -1,17 +1,28 @@
 import styled from '@emotion/styled';
 
+// export const Modal = styled.modal`
+//  width: 608px;
+//   height: 885px; 
+//   top: 50%;
+//   left: 50%;
+//   right: auto;
+//   bottom: auto;
+//   margin-right: -50%;
+//   transform: translate(-50%, -50%);        
+// `;
+
 export const AddNoticeForm = styled.form`
-flex-direction: column;
- height: 120px;
+ display: flex;
+ flex-direction: column;
+ 
  padding: 10px;
  margin-bottom: 40px;
- display: flex;
+
 `;
 
 export const AddNoticeWrapper = styled.div`
   width: 608px;
-  height: 885px; 
-  padding: 20px; 
+  height: 885px;   
   border-radius: 40px;
   background-color: #FFFFFF;
 `;
