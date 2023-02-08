@@ -15,6 +15,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import { authSlices } from './Auth/AuthSlice';
 import { userReducer } from './User/userSlice';
 import { petsReducer } from './Pets/petsSlice';
+import { noticesReducer } from './Notices/noticesSlice';
 const persistConfig = {
     key: 'root',
     version: 1,
@@ -27,10 +28,10 @@ const rootReducer = combineReducers({
     auth: persistedReducer,
     user: userReducer,
     pets: petsReducer,
+    notices: noticesReducer,
 });
 
 const store = configureStore({
-
     reducer: rootReducer,
 
     middleware: getDefaultMiddleware =>

@@ -3,11 +3,11 @@ import { HeaderLogo, Span } from 'components/Header/HeaderLogoStyled';
 const Logo = () => {
     return (
         <>
-            <Logo to="/">
+            <HeaderLogo to="/">
                 pe<Span>t</Span>ly
-            </Logo>
+            </HeaderLogo>
         </>
     );
 };
 
-export default HeaderLogo;
+export default Logo;

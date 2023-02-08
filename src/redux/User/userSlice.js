@@ -4,7 +4,7 @@ import { getUserOperation, updateUserOperation } from './userOperations';
 const userSlice = createSlice({
     name: 'user',
     initialState: {
-        user: null,
+        user: { avatarURL: '' },
         isLoading: false,
         error: null,
     },
