@@ -11,7 +11,7 @@ import { Loader } from 'components/Utils/Loader/Loader';
 
 const UserPage = () => {
     const dispatch = useDispatch();
-    const Loading = useSelector(getLoader);
+    const loading = useSelector(getLoader);
     const error = useSelector(getError);
 
     useEffect(() => {
@@ -20,7 +20,7 @@ const UserPage = () => {
 
     return (
         <>
-            {Loading ? (
+            {loading ? (
                 <Loader />
             ) : error ? (
                 <ErrorMessage> Please try again later :( </ErrorMessage>

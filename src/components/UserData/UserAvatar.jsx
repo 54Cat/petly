@@ -5,12 +5,14 @@ import { IoIosCamera } from 'react-icons/io';
 import { getUser } from 'redux/User/selectors';
 import { Image, Label, Container, Input } from './UserAvatarStyle';
 
+// const noImage =
+//     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxrGcz-CAJweJ_YbvY8Sb2bPsCNQwsSJ2jng&usqp=CAU';
+
 export const UserAvatar = () => {
     const userInState = useSelector(getUser);
     const dispatch = useDispatch();
 
     const ref = useRef();
-    const { avatarURL } = userInState.user;
 
     const onChange = e => {
         const [file] = e.target.files;
@@ -34,6 +36,8 @@ export const UserAvatar = () => {
             })
         );
     };
+    const { avatarURL } = userInState.user;
+
     return (
         <Container>
             <Image

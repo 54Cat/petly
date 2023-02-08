@@ -17,15 +17,9 @@ export const fetchUser = createAsyncThunk(
 
 export const updateUser = createAsyncThunk(
     'user/update',
-    async (userId, { rejectWithValue }) => {
+    async (userId, { rejectWithValue }, credentials) => {
         console.log(userId);
-        const result = {
-            email: userId.newEmail,
-            name: userId.newName,
-            birthday: userId.newBirthday,
-            city: userId.newCity,
-            phone: userId.newPhone,
-        };
+        const result = {...credentials};
         try {
             const { data } = await axios.patch(`user/${userId}`, result);
             return data;
