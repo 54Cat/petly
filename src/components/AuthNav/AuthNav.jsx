@@ -1,9 +1,9 @@
 import React from 'react';
-import { AuthNavItem, NavButtonLink } from './AuthNav.styled';
+import { AuthNavContainer, AuthNavItem, NavButtonLink } from './AuthNav.styled';
 
 const AuthNav = () => {
     return (
-        <>
+        <AuthNavContainer>
             <AuthNavItem>
                 <NavButtonLink
                     to="/login"
@@ -20,7 +20,7 @@ const AuthNav = () => {
                     Registration
                 </NavButtonLink>
             </AuthNavItem>
-        </>
+        </AuthNavContainer>
     );
 };
 
