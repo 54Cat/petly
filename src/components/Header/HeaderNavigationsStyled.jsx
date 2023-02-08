@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 
-export const HeaderNavLink = styled.p`
+export const HeaderNavLink = styled.a`
+cursor: pointer;
 font-family: 'Poppins';
 font-style: normal;
 font-weight: 700;

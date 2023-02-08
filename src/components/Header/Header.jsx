@@ -1,16 +1,17 @@
+import { HeaderNav } from './HeaderStyled';
 import Logo from './HeaderLogo';
 import Navigations from './HeaderNavigations';
-// import HeaderAuthNav from './HeaderAuthNav';
-// import MenuBurger from './MenuMobile/MenuBurger';
+import HeaderAuthNav from './HeaderAuthNav';
+import MenuBurger from './MenuMobile/MenuBurger';
 
 const Header = () => {
   return (
-    <header>
+    <HeaderNav>
       <Logo />
       <Navigations />
-      {/* <HeaderAuthNav /> */}
-      {/* <MenuBurger /> */}
-  </ header>
+      <HeaderAuthNav />
+      <MenuBurger />
+  </ HeaderNav>
   );
 };
 

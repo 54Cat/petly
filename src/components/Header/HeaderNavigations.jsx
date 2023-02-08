@@ -1,20 +1,20 @@
-import HeaderNavLink from './HeaderNavigationsStyled';
+import { HeaderNavLink } from './HeaderNavigationsStyled';
 
   const Navigations = () => {
     return (
       <nav>
         <HeaderNavLink
-          to="./pages/news"
+          to="/news"
         >
           News
         </HeaderNavLink>
         <HeaderNavLink
-          to="./pages/findpet"
+          to="/notices"
         >
           Find pet
         </HeaderNavLink>
         <HeaderNavLink
-          to="./pages/ourfriend"
+          to="/friends"
         >
           Our friend
         </HeaderNavLink>
