@@ -11,9 +11,9 @@ import { NoticesCategoriesList } from 'components/NoticesCategoriesList/NoticesC
 
 const NoticesPage = () => {
     const dispatch = useDispatch();
-    const notices = useSelector(getNotices);
+    const allNoticesByCategory = useSelector(getNotices).items;
     const [filter, setFilter] = useState('');
-    // const [notices, setNotices] = useState([]);
+    const [notices, setNotices] = useState([]);
     const { categoryName } = useParams();
     const navigate = useNavigate();
 
@@ -49,6 +49,19 @@ const NoticesPage = () => {
 
     const handleSubmit = e => {
         e.preventDefault();
+        const filtredNotices = allNoticesByCategory.filter(notice => {
+            let areSimilarWords = false;
+
+            for (const word of filter.split(' ')) {
+                if (notice.title.toLowerCase().includes(word.toLowerCase())) {
+                    areSimilarWords = true;
+                    break
+                }
+            }
+            
+            return areSimilarWords;
+        })
+        setNotices(filtredNotices);
     };
 
     return (
@@ -61,7 +74,7 @@ const NoticesPage = () => {
                 filter={filter}
             />
             <NoticesCategoriesNav />
-            <NoticesCategoriesList notices={notices.items} />
+            <NoticesCategoriesList notices={notices} />
         </PageSection>
     );
 };
