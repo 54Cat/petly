@@ -1,6 +1,6 @@
-import { NoticesList, NoticesItem } from "./NoticesCategoriesListStyled"
-import { NoticesCategoriesItem } from '../NoticesCaregoriesItem/NoticesCaregoriesItem'
-import { nanoid } from "nanoid"
+import { NoticesList } from "./NoticesCategoriesListStyled"
+// import { NoticesCategoriesItem } from '../NoticesCaregoriesItem/NoticesCaregoriesItem'
+// import { nanoid } from "nanoid"
 
 export const NoticesCategoriesList = () => {
     return <NoticesList>
