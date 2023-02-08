@@ -5,7 +5,7 @@ import { PetsWrapper, PetsTitle } from './PetsData.styled';
 const PetsData = function () {
     return (
         <PetsWrapper>
-            <PetsTitle>My pets:</PetsTitle>
+                <PetsTitle>My pets:</PetsTitle>
             <PetsList />
         </PetsWrapper>
     );
