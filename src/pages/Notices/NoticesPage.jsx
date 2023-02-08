@@ -14,16 +14,16 @@ const NoticesPage = () => {
     const allNoticesByCategory = useSelector(getNotices).items;
     const [filter, setFilter] = useState('');
     const [notices, setNotices] = useState([]);
-    const { categoryName } = useParams();
+    const { category } = useParams();
     const navigate = useNavigate();
 
     useEffect(() => {
-        switch (categoryName) {
-            case "lostFound":
+        switch (category) {
+            case "lost-found":
                 dispatch(fetchNotices('lost'))
                 break;
 
-            case "inGoodHands":
+            case "for-free":
               dispatch(fetchNotices("in_good_hands"))  
                 break;
 
@@ -31,16 +31,16 @@ const NoticesPage = () => {
               dispatch( fetchNotices("sell")) 
                 break;
         
-            case "favoriteAds":
+            case "favorite":
                 break;
         
-            case "myAds":
+            case "own":
                 break;
 
             default:
-                navigate('/notices/lostFound')
+                navigate('/notices/lost-found')
 } 
-    }, [categoryName, dispatch, navigate])
+    }, [category, dispatch, navigate])
 
 
     const onFilterChange = e => {
