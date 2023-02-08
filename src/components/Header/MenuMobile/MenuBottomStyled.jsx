@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const MenuBottomNavLink = styled.a`
+export const MenuBottom = styled.a`
 cursor: pointer;
 font-family: 'Poppins';
 font-style: normal;
