@@ -1,31 +1,34 @@
 import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useNavigate } from "react-router-dom"
-import Notiflix from 'notiflix'
+import { getNotices } from 'redux/selectors';
+import { fetchNotices } from 'redux/Notices/noticesOperations';
 import { PageSection } from 'components/Utils/Styles/basicStyle';
 import { Title } from 'components/Utils/Styles/basicStyle';
 import { SearchBar } from 'components/SearchBar/SearchBar';
 import { NoticesCategoriesNav } from 'components/NoticesCategoriesNav/NoticesCategoriesNav';
-import { fetchNoticesByCategory } from 'components/Utils/axios/fetchNotices';
 import { NoticesCategoriesList } from 'components/NoticesCategoriesList/NoticesCategoriesList';
 
 const NoticesPage = () => {
+    const dispatch = useDispatch();
+    const notices = useSelector(getNotices);
     const [filter, setFilter] = useState('');
-    const [notices, setNotices] = useState([]);
+    // const [notices, setNotices] = useState([]);
     const { categoryName } = useParams();
     const navigate = useNavigate();
 
     useEffect(() => {
         switch (categoryName) {
             case "lostFound":
-                fetchNotices('lost')
+                dispatch(fetchNotices('lost'))
                 break;
 
             case "inGoodHands":
-                fetchNotices("in_good_hands")
+              dispatch(fetchNotices("in_good_hands"))  
                 break;
 
             case "sell":
-                fetchNotices("sell")
+              dispatch( fetchNotices("sell")) 
                 break;
         
             case "favoriteAds":
@@ -37,20 +40,8 @@ const NoticesPage = () => {
             default:
                 navigate('/notices/lostFound')
 } 
-    }, [categoryName, navigate])
+    }, [categoryName, dispatch, navigate])
 
-    const fetchNotices = async (category) => {
-        try {
-            const results = await fetchNoticesByCategory(category);
-            if (results.length === 0) {
-                Notiflix.Notify.info(`Please choose category.`);
-                return;
-            }
-            setNotices(results);
-        } catch (e) {
-            Notiflix.Notify.failure(e.message);
-        }
-    };
 
     const onFilterChange = e => {
         setFilter(e.currentTarget.value);
@@ -70,7 +61,7 @@ const NoticesPage = () => {
                 filter={filter}
             />
             <NoticesCategoriesNav />
-            <NoticesCategoriesList notices={notices} />
+            <NoticesCategoriesList notices={notices.items} />
         </PageSection>
     );
 };
