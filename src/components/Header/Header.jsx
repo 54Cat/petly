@@ -1,4 +1,4 @@
-import { HeaderContainer } from './HeaderStyled';
+import { HeaderContainer, NavDesktop } from './HeaderStyled';
 import Logo from './HeaderLogo';
 import Navigations from './HeaderNavigations';
 import AuthNav from '../AuthNav/AuthNav';
@@ -8,8 +8,11 @@ const Header = () => {
   return (
     <HeaderContainer>
       <Logo />
-      <Navigations />
-      <AuthNav />
+      <NavDesktop>
+        <Navigations />
+        <AuthNav />
+      </NavDesktop>
+      
       {/* <MenuBurger /> */}
   </ HeaderContainer>
   );

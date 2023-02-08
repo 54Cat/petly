@@ -5,3 +5,7 @@ export const HeaderContainer = styled.header`
     align-items: center;
     padding: 20px 16px;
 `
+export const NavDesktop = styled.div`
+    display: flex;
+    align-items: center;
+`

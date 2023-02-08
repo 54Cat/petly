@@ -1,8 +1,15 @@
 import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 
-export const Nav = styled.nav`
+export const NavContainer = styled.div`
   display: flex;
+`;
+
+export const NavItem = styled.li`
+margin-right: 80px; 
+&:not::last-child {
+        margin-right: 0;
+    }
 `;
 
 export const HeaderNavLink = styled(NavLink)`
@@ -12,7 +19,7 @@ font-size: 20px;
 line-height: 1.4;
 letter-spacing: 0.04em;
 color: #181C27;
-margin-right: 80px; 
+
 
 &.active {
     color: #F59256;

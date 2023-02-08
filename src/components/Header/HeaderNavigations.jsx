@@ -1,25 +1,33 @@
-import { Nav, HeaderNavLink } from './HeaderNavigationsStyled';
+import { NavContainer, NavItem, HeaderNavLink } from './HeaderNavigationsStyled';
 
   const Navigations = () => {
     return (
-      <Nav>
-        <HeaderNavLink
-          to="/news"
-        >
-          News
-        </HeaderNavLink>
-        <HeaderNavLink
-          to="/notices"
-        >
-          Find pet
-        </HeaderNavLink>
-        <HeaderNavLink
-          to="/friends"
-        >
-          Our friend
-        </HeaderNavLink>
-      </Nav>
+      <NavContainer>
+          <NavItem>
+            <HeaderNavLink
+              to="/news"
+            >
+              News
+            </HeaderNavLink>
+          </NavItem>
+
+          <NavItem>
+            <HeaderNavLink
+              to="/notices"
+            >
+              Find pet
+            </HeaderNavLink>
+          </NavItem>
+          
+          <NavItem>
+            <HeaderNavLink
+              to="/friends"
+            >
+              Our friend
+            </HeaderNavLink>
+          </NavItem>
+      </NavContainer>
     );
-  };
+};
 
   export default Navigations;
