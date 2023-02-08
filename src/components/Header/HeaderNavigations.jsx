@@ -1,8 +1,8 @@
-import { HeaderNavLink } from './HeaderNavigationsStyled';
+import { Nav, HeaderNavLink } from './HeaderNavigationsStyled';
 
   const Navigations = () => {
     return (
-      <nav>
+      <Nav>
         <HeaderNavLink
           to="/news"
         >
@@ -18,7 +18,7 @@ import { HeaderNavLink } from './HeaderNavigationsStyled';
         >
           Our friend
         </HeaderNavLink>
-      </nav>
+      </Nav>
     );
   };
 

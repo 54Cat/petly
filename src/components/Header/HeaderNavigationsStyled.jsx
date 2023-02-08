@@ -1,12 +1,25 @@
 import styled from '@emotion/styled';
+import { NavLink } from 'react-router-dom';
 
-export const HeaderNavLink = styled.a`
+export const Nav = styled.nav`
+  display: flex;
+`;
+
+export const HeaderNavLink = styled(NavLink)`
 cursor: pointer;
-font-family: 'Poppins';
-font-style: normal;
-font-weight: 700;
-font-size: 32px;
-line-height: 1.5;
-letter-spacing: 0.07em;
-padding: 20px 16px;
+font-weight: 500;
+font-size: 20px;
+line-height: 1.4;
+letter-spacing: 0.04em;
+color: #181C27;
+margin-right: 80px; 
+
+&.active {
+    color: #F59256;
+    text-decoration: underline;
+}
+
+&:hover{
+  color: #F59256;
+}
 `;
