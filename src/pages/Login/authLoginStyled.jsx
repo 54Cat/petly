@@ -3,79 +3,34 @@ import { Field } from 'formik';
 import { NavLink } from 'react-router-dom';
 
 export const DivForm = styled.div`
+    padding: 20px;
     @media (min-width: 320px) {
-        position: absolute;
         background: transparent;
-
-        top: 30%;
-        left: 50%;
-        margin-right: -50%;
-        transform: translate(-50%, -50%);
+        margin-right: auto;
+        margin-left: auto;
+        padding: 0px;
     }
     @media (min-width: 768px) {
-        width: 608px;
-        height: 517px;
+        width: 568px;
+        height: 409px;
         background: #ffffff;
-
-        top: 50%;
-        left: 50%;
-        margin-right: -50%;
-        transform: translate(-50%, -50%);
-
+        margin-right: auto;
+        margin-left: auto;
         box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
         border-radius: 40px;
+        padding: 20px;
     }
     @media (min-width: 1280px) {
-        width: 618px;
-        height: 473px;
+        width: 578px;
+        height: 433px;
         background: #ffffff;
-
-        top: 50%;
-        left: 50%;
-        margin-right: -50%;
-        transform: translate(-50%, -50%);
-
+        margin-right: auto;
+        margin-left: auto;
         box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
         border-radius: 40px;
     }
 `;
-export const DivFormTwo = styled.div`
-    @media (min-width: 320px) {
-        position: absolute;
-        background: transparent;
 
-        top: 50%;
-        left: 50%;
-        margin-right: -50%;
-        transform: translate(-50%, -50%);
-    }
-    @media (min-width: 768px) {
-        width: 608px;
-        height: 517px;
-        background: #ffffff;
-
-        top: 50%;
-        left: 50%;
-        margin-right: -50%;
-        transform: translate(-50%, -50%);
-
-        box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
-        border-radius: 40px;
-    }
-    @media (min-width: 1280px) {
-        width: 618px;
-        height: 605px;
-        background: #ffffff;
-
-        top: 50%;
-        left: 50%;
-        margin-right: -50%;
-        transform: translate(-50%, -50%);
-
-        box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
-        border-radius: 40px;
-    }
-`;
 export const Forms = styled.form`
     display: flex;
     flex-wrap: wrap;
@@ -92,19 +47,18 @@ export const Title = styled.h2`
         margin-bottom: 40px;
     }
     @media (min-width: 768px) {
-        margin-top: 60px;
         font-style: normal;
         font-weight: 500;
         font-size: 36px;
         line-height: 49px;
         margin-bottom: 40px;
+        margin-top: 40px;
     }
     @media (min-width: 1280px) {
         font-style: normal;
         font-weight: 500;
         font-size: 36px;
         line-height: 49px;
-        margin-top: 60px;
 
         margin-bottom: 40px;
     }
@@ -132,31 +86,34 @@ export const Input = styled(Field)`
         padding-left: 20px;
     }
     @media (min-width: 768px) {
-        width: 424px;
+        width: 404px;
         height: 48px;
         padding-left: 20px;
         margin-top: 16px;
     }
     @media (min-width: 1280px) {
-        margin-top: 16px;
+        margin-top: 18px;
         padding-left: 20px;
-        width: 434px;
+        width: 414px;
         height: 48px;
     }
 `;
 export const Button = styled.button`
+    transition: all 600ms ease;
     &:hover,
     &:focus {
-        color: #ff6101;
-        border-color: #ff6101;
+        background: white;
+        color: #f59256;
     }
+    background: #f59256;
+    color: white;
     font-style: normal;
     font-weight: 500;
     cursor: pointer;
     font-family: 'Manrope';
-    background: #f59256;
+    border: 1px solid rgba(245, 146, 86, 0.5);
     border-radius: 40px;
-    color: white;
+    display: block;
     margin: 40px auto;
     border: none;
 
@@ -164,7 +121,7 @@ export const Button = styled.button`
         width: 280px;
         height: 44px;
     }
-    @media (min-width: 768px) and (max-width: 1199px) {
+    @media (min-width: 768px) {
         width: 448px;
         line-height: 25px;
         letter-spacing: 0.04em;
@@ -181,97 +138,13 @@ export const Button = styled.button`
         display: flex;
         align-items: center;
         letter-spacing: 0.04em;
-        width: 458px;
+        width: 438px;
         height: 48px;
 
         display: block;
     } ;
 `;
-export const ButtonTwoReg = styled.button`
-    &:hover,
-    &:focus {
-        color: #ff6101;
-        border-color: #ff6101;
-    }
-    font-style: normal;
-    font-weight: 500;
-    cursor: pointer;
-    font-family: 'Manrope';
-    background: #f59256;
-    border-radius: 40px;
-    color: white;
-    margin-top: 40px;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    border: none;
 
-    @media (min-width: 320px) {
-        width: 280px;
-        height: 44px;
-    }
-    @media (min-width: 768px) and (max-width: 1199px) {
-        width: 448px;
-        line-height: 25px;
-        letter-spacing: 0.04em;
-        height: 44px;
-        font-size: 20px;
-        display: flex;
-        align-items: center;
-        display: block;
-    }
-    @media (min-width: 1280px) {
-        font-size: 20px;
-        line-height: 25px;
-
-        display: flex;
-        align-items: center;
-        letter-spacing: 0.04em;
-        width: 458px;
-        height: 48px;
-
-        display: block;
-    } ;
-`;
-export const Button1 = styled.button`
-    font-style: normal;
-    font-weight: 500;
-    cursor: pointer;
-    font-family: 'Manrope';
-    background: white;
-    border-radius: 40px;
-    color: black;
-    margin: 16px auto;
-    border: none;
-    border: 1px solid rgba(245, 146, 86, 0.5);
-
-    @media (min-width: 320px) {
-        width: 280px;
-        height: 44px;
-    }
-    @media (min-width: 768px) and (max-width: 1199px) {
-        width: 448px;
-        height: 44px;
-        font-size: 20px;
-        line-height: 25px;
-
-        display: flex;
-        align-items: center;
-        display: block;
-    }
-    @media (min-width: 1280px) {
-        font-size: 20px;
-        line-height: 25px;
-
-        display: flex;
-        align-items: center;
-        letter-spacing: 0.04em;
-        width: 458px;
-        height: 48px;
-
-        display: block;
-    } ;
-`;
 export const Text = styled.p`
     @media (min-width: 320px) {
     }
@@ -286,9 +159,17 @@ export const Text = styled.p`
     text-align: center;
 `;
 export const FormError = styled.p`
+    @media (min-width: 320px) {
+        margin-left: 10px;
+    }
+    @media (min-width: 768px) {
+        margin-left: 90px;
+    }
     color: #f59256;
     margin-left: 90px;
-    margin-top: 2px;
+    margin-top: -2px;
+    position: absolute;
+    font-size: 14px;
 `;
 export const Link = styled(NavLink)`
     transition: all 600ms ease;

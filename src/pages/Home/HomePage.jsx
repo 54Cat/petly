@@ -1,6 +1,6 @@
 import { Container, Title, Hero } from './HomePageStyled';
 
-export const HomePage = () => {
+const HomePage = () => {
   return (
       <Container>
         <Title>Take good care of your small pets</Title>
@@ -8,3 +8,5 @@ export const HomePage = () => {
       </Container>
   );
 };
+
+export default HomePage;
