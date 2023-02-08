@@ -8,6 +8,7 @@ export const fetchUser = createAsyncThunk(
     async (_, { rejectWithValue }) => {
         try {
             const { data } = await axios.get('/user');
+            console.log(data)
             return data;
         } catch (error) {
             return rejectWithValue(error.message);

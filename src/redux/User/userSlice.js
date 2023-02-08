@@ -4,7 +4,7 @@ import { fetchUser, updateUser } from './userOperations';
 const userSlice = createSlice({
     name: 'user',
     initialState: {
-        user: {},
+        user: null,
         isLoading: false,
         error: false,
     },
@@ -15,6 +15,7 @@ const userSlice = createSlice({
         [fetchUser.fulfilled](state, action) {
             state.isLoading = false;
             state.user = action.payload;
+            console.log(state.user)
         },
         [fetchUser.rejected](state, action) {
             state.isLoading = false;

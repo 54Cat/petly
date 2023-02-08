@@ -1,6 +1,6 @@
 import UserDataItem from './UserDataItem';
 import { UserAvatar } from './UserAvatar';
-import { UserLogout } from '../Logout/LogOut';
+import { UserLogout } from '../Logout/Logout';
 import { Wrapper, Text } from './UserDataStyle';
 
 const UserData = () => {

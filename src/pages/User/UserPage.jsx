@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchUser } from '../../redux/User/userOperations';
 
@@ -13,8 +13,10 @@ const UserPage = () => {
     const dispatch = useDispatch();
     const loading = useSelector(getLoader);
     const error = useSelector(getError);
-
     dispatch(fetchUser());
+    // useEffect(() => {
+    //     dispatch(fetchUser());
+    // }, [dispatch]);
 
     return (
         <>
