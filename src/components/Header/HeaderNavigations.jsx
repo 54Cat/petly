@@ -1,23 +1,23 @@
-import NavLink from './HeaderLogo';
+import HeaderNavLink from './HeaderNavigationsStyled';
 
   const Navigations = () => {
     return (
       <nav>
-        <NavLink
-          to="/pages/news"
+        <HeaderNavLink
+          to="./pages/news"
         >
           News
-        </NavLink>
-        <NavLink
-          to="/pages/findpet"
+        </HeaderNavLink>
+        <HeaderNavLink
+          to="./pages/findpet"
         >
           Find Pet
-        </NavLink>
-        <NavLink
-          to="/pages/ourfriend"
+        </HeaderNavLink>
+        <HeaderNavLink
+          to="./pages/ourfriend"
         >
           Our Friend
-        </NavLink>
+        </HeaderNavLink>
       </nav>
     );
   };
