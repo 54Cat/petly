@@ -1,6 +1,6 @@
 import { Formik, ErrorMessage } from 'formik';
 import * as yup from 'yup';
-import {TitleItemTwo, BtnAddFileIcon, ErrorText, AddFile, ButtonCloseModal, ButtonCloseIcon, Title, ModalItemTwo, FlexBox, FormStyled, TitleTwo, FieldPhoto, StyledLabel, FieldTextarea, NextBtn, CancelBtn } from '../AddsPetForm/AddsPetModalStyled';
+import {TitleItemTwo, BtnAddFileIcon, ErrorText, AddFile, ButtonCloseModal, ButtonCloseIcon, ModalItemTwo, FlexBox, FormStyled, TitleTwo, FieldPhoto, StyledLabel, FieldTextarea, NextBtn, CancelBtn } from '../AddsPetForm/AddsPetModalStyled';
 
 
 //import AddIcon from '@mui/icons-material/Add';
