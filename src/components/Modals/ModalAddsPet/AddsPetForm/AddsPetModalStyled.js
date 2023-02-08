@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
-import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+//import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+import CloseIcon from '@mui/icons-material/Close';
 import AddIcon from '@mui/icons-material/Add';
 import { Form, Field} from 'formik';
 
@@ -88,7 +89,7 @@ line-height: 1.36;
 }
 `;
 
-const ButtonCloseIcon = styled(HighlightOffIcon)`
+const ButtonCloseIcon = styled(CloseIcon)`
 
 width: 28px;
 height: 28px;
@@ -317,6 +318,7 @@ border: none;
 `;
 
 const CancelBtn = styled.button`
+margin-right: 15px;
 display: block;
 width: 240px;
 height: 40px;
