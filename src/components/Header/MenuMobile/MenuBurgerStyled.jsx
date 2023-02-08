@@ -1,10 +1,11 @@
 import styled from '@emotion/styled';
 import MenuIcon from '@mui/icons-material/Menu';
 
-export const MenuBurger = styled.button`
-cursor: pointer;
+export const MobileMenu = styled.div`
+display: flex;
+flex-direction: column;
 `
 
-export const MenuIcon = styled.button`
+export const MenuBurger = styled(MenuIcon)`
 cursor: pointer;
 `
