@@ -1,14 +1,13 @@
+// import { MainContainer } from 'components/Utils/Styles/ContainterAllStyled';
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-import { Logo, Span, Text } from './SharedLayoutStyle';
+import { Span, Text } from './SharedLayoutStyle';
+import Header from 'components/Header/Header';
 
 const SharedLayout = () => {
     return (
         <>
-            <Logo to="/">
-                pe<Span>t</Span>ly
-            </Logo>
-            <nav>{/* <Navigation/> */}</nav>
+        <Header />
             <main>
                 <Suspense fallback={null}>
                     <Outlet />

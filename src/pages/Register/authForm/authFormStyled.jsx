@@ -15,6 +15,7 @@ export const DivForm = styled.div`
         background: #ffffff;
         margin-right: auto;
         margin-left: auto;
+        padding: 20px;
 
         box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
         border-radius: 40px;
@@ -84,19 +85,18 @@ export const Title = styled.h2`
         margin-bottom: 40px;
     }
     @media (min-width: 768px) {
-        margin-top: 60px;
         font-style: normal;
         font-weight: 500;
         font-size: 36px;
         line-height: 49px;
         margin-bottom: 40px;
+        margin-top: 40px;
     }
     @media (min-width: 1280px) {
         font-style: normal;
         font-weight: 500;
         font-size: 36px;
         line-height: 49px;
-        margin-top: 60px;
 
         margin-bottom: 40px;
     }
@@ -118,8 +118,8 @@ export const Input = styled(Field)`
     }
     margin: 0 auto;
     @media (min-width: 320px) {
-        margin-top: 15px;
-        width: 236px;
+        margin-bottom: 15px;
+        width: 216px;
         height: 36px;
         padding-left: 20px;
     }
@@ -128,6 +128,9 @@ export const Input = styled(Field)`
         height: 48px;
         padding-left: 20px;
         margin-top: 16px;
+        :not(:last-child) {
+            margin-top: 0px;
+        }
     }
     @media (min-width: 1280px) {
         margin-top: 18px;
@@ -140,9 +143,11 @@ export const Button = styled.button`
     transition: all 600ms ease;
     &:hover,
     &:focus {
-        background: #f59256;
-        color: white;
+        background: white;
+        color: #f59256;
     }
+    background: #f59256;
+    color: white;
     font-style: normal;
     font-weight: 500;
     cursor: pointer;
@@ -152,12 +157,10 @@ export const Button = styled.button`
 
     margin: 40px auto;
     border: none;
-    color: black;
     border: 1px solid rgba(245, 146, 86, 0.5);
-    background: white;
 
     @media (min-width: 320px) {
-        width: 260px;
+        width: 240px;
         height: 44px;
     }
     @media (min-width: 768px) {
@@ -187,9 +190,11 @@ export const ButtonTwoReg = styled.button`
     transition: all 600ms ease;
     &:hover,
     &:focus {
-        background: #f59256;
-        color: white;
+        background: white;
+        color: #f59256;
     }
+    background: #f59256;
+    color: white;
     font-style: normal;
     font-weight: 500;
     cursor: pointer;
@@ -202,15 +207,14 @@ export const ButtonTwoReg = styled.button`
     margin-right: auto;
     display: block;
     border: none;
-    color: black;
+
     border: 1px solid rgba(245, 146, 86, 0.5);
-    background: white;
 
     @media (min-width: 320px) {
         width: 280px;
         height: 44px;
     }
-    @media (min-width: 768px) and (max-width: 1199px) {
+    @media (min-width: 768px) {
         width: 448px;
         line-height: 25px;
         letter-spacing: 0.04em;
@@ -239,24 +243,25 @@ export const Button1 = styled.button`
     font-weight: 500;
     cursor: pointer;
     font-family: 'Manrope';
-    background: white;
+
     border-radius: 40px;
-    color: black;
+
     margin: 16px auto;
     border: none;
     border: 1px solid rgba(245, 146, 86, 0.5);
     &:hover,
     &:focus {
-        color: white;
-        border-color: #ff6101;
-        background: #f59256;
+        background: white;
+        color: #f59256;
     }
+    background: #f59256;
+    color: white;
 
     @media (min-width: 320px) {
         width: 280px;
         height: 44px;
     }
-    @media (min-width: 768px) and (max-width: 1199px) {
+    @media (min-width: 768px) {
         width: 448px;
         height: 44px;
         font-size: 20px;
@@ -301,7 +306,8 @@ export const FormError = styled.p`
     }
     color: #f59256;
     margin-left: 90px;
-    margin-top: -2px;
+    margin-top: -18px;
+
     position: absolute;
     font-size: 14px;
 `;

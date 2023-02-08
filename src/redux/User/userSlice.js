@@ -4,12 +4,13 @@ import { getUserOperation, updateUserOperation } from './userOperations';
 const userSlice = createSlice({
     name: 'user',
     initialState: {
-        user: null,
+        user: { avatarURL: '' },
         isLoading: false,
         error: null,
     },
     extraReducers: {
         [getUserOperation.fulfilled]: (state, { payload }) => {
+            console.log('це операція getUserOperation і пейлод', payload);
             return {
                 ...state,
                 user: { ...payload.user },
@@ -21,6 +22,7 @@ const userSlice = createSlice({
             return { ...state, isLoading: true };
         },
         [getUserOperation.rejected]: (state, { payload }) => {
+            console.log('AaronErr', payload);
             return { ...state, error: payload.name, isLoading: false };
         },
 

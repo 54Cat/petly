@@ -24,7 +24,7 @@ export const PetsCard = styled.div`
         border-radius: 40px;
     }
 
-    @media (min-width: 1200px) {
+    @media (min-width: 1280px) {
         width: 821px;
         &:not(:last-child) {
             margin-bottom: 22px;
@@ -55,7 +55,7 @@ export const TextWrapper = styled.div`
         width: 471px;
     }
 
-    @media (min-width: 1200px) {
+    @media (min-width: 1280px) {
         width: 588px;
     }
 `;

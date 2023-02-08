@@ -1,8 +1,9 @@
 import { Formik, Form, ErrorMessage } from 'formik';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
-import { loginUser } from 'redux/Login/LoginSlice';
+import { loginUser } from 'redux/Auth/AuthSlice';
 import { loginValidationSchema } from '../Login/schemaValidation/SchemaValid';
 
 import 'react-toastify/dist/ReactToastify.css';
@@ -17,6 +18,7 @@ import {
 } from './authLoginStyled';
 
 export const Login = () => {
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     const [data, setData] = useState({
         email: '',
@@ -29,7 +31,7 @@ export const Login = () => {
             setData('');
             resetForm();
 
-            // navigate('/user');
+            navigate('/user');
         } catch (errors) {
             console.log(errors);
         }
@@ -54,7 +56,7 @@ export const Login = () => {
                     <Title>Login</Title>
                     <Form>
                         <Input name="email" placeholder="Email" />
-
+                        <FormErrors name="email" />
                         <Input name="password" placeholder="Password" />
                         <FormErrors name="password" />
 

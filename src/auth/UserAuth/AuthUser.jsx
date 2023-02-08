@@ -18,7 +18,7 @@ export const userCurrent = createAsyncThunk(
     async (_, { rejectWithValue, getState }) => {
         const { user } = getState();
         const userToken = user.token;
-        console.log(userToken);
+        // console.log(userToken);
 
         token.set(userToken);
 
