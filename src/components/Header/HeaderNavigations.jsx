@@ -11,12 +11,12 @@ import HeaderNavLink from './HeaderNavigationsStyled';
         <HeaderNavLink
           to="./pages/findpet"
         >
-          Find Pet
+          Find pet
         </HeaderNavLink>
         <HeaderNavLink
           to="./pages/ourfriend"
         >
-          Our Friend
+          Our friend
         </HeaderNavLink>
       </nav>
     );
