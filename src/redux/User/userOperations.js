@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-// import { getUserInfo, updateUserInfo } from 'redux/fetchAPI';
+
 
 export const fetchUser = createAsyncThunk(
     'user',
@@ -23,7 +23,7 @@ export const updateUser = createAsyncThunk(
             email: userId.newEmail,
             name: userId.newName,
             birthday: userId.newBirthday,
-            city: userId.nweCity,
+            city: userId.newCity,
             phone: userId.newPhone,
         };
         try {

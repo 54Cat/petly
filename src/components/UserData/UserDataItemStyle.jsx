@@ -17,10 +17,7 @@ export const Form = styled.form`
         margin: 44px 0 33px 32px;
         padding: 0;
     }
-    /* @media (min-width: 768px) {
-        margin: 0 0 0 15px;
-        padding-left: 15px;
-    } */
+   
     @media (min-width: 1280px) {
         padding-left: 15px;
         margin: 0;

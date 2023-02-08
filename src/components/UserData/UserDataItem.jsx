@@ -20,9 +20,7 @@ import {
 const UserDataItem = () => {
     const dispatch = useDispatch();
     const userInState = useSelector(getUser);
-    console.log('UsDaIt', userInState);
     const { name, city, email, phone, birthday } = userInState.user;
-    // const id = user._id;
 
     const iconCreate = <MdCreate color="#F59256" className="icon" />;
     const iconCriateBlack = <MdCreate color="#111111" className="icon" />;

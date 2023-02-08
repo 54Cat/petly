@@ -1,7 +1,7 @@
 // import axios from 'axios';
 // axios.defaults.baseURL = 'http://localhost:4000/api';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { loggedOut } from 'auth/UserAuth/AuthUser';
+import loggedOut from '../../components/Utils/axios/fetchLogout';
 
 import axios from 'axios';
 axios.defaults.baseURL = 'https://petly-backend-23cb.onrender.com/api';

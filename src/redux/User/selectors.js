@@ -1,3 +1,3 @@
 export const getUser = ({ user }) => user.user; 
-console.log(getUser)
 export const getLoader = ({ user }) => user.isLoading;
+export const getError = ({ user }) => user.error;

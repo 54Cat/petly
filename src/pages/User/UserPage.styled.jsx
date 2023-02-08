@@ -17,3 +17,8 @@ export const Container = styled.div`
         margin-top: 38px;
     }
 `;
+
+export const ErrorMessage = styled.p`
+    color: #ff0505;
+    font-size: 30px;
+`;
