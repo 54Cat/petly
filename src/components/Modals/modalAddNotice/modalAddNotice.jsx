@@ -8,27 +8,16 @@ import {
     AddNoticeWrapper,
     CloseBtn,
     AddNoticeTitle,
-    Text,
+  Text,
+  ModalStyle,
+    CategorierList,
+    CategoriesBtn,
     AddNoticeForm,
     FormInput,
     FormLabel,
     SubmitBtn,
 } from './modalAddNoticeStyled';
-import { Button } from '@mui/material';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
-
-const customStyles = {
-  content: {
-        width: '608px',
-        height: '885px',
-        top: '50%',
-        left: '50%',
-        right: 'auto',
-        bottom: 'auto',
-        marginRight: '-50%',
-        transform: 'translate(-50%, -30%)',
-    },
-};
 
 export const ModalAddNotice = () => {
     const dispatch = useDispatch();
@@ -94,86 +83,89 @@ export const ModalAddNotice = () => {
     const breedInputId = useMemo(() => nanoid(), []);
 
     return (
-        <>
-            <div onClick={openModal} id="button">
-                <AddCircleIcon />
-            </div>
-            <Modal
-                isOpen={modalIsOpen}
-                // onAfterOpen={afterOpenModal}
-                onRequestClose={closeModal}
-                contentLabel="Modal add notice"
-                style={customStyles}
+      <AddNoticeWrapper>
+          <div onClick={openModal} id="button">
+              <AddCircleIcon />
+          </div>
+          <ModalStyle
+            isOpen={modalIsOpen}
+            // onAfterOpen={afterOpenModal}
+          onRequestClose={closeModal}
+           center styles={{ overlay: { background: "#FFFF00" } }}
+          
+            contentLabel="Modal add notice"
+            // style={customStyles}
+          >              
+            <CloseBtn
+                type="submit"
+                onClick={closeModal}
+                aria-label="close"
             >
-                <AddNoticeWrapper>
-                    <CloseBtn
-                        type="submit"
-                        onClick={closeModal}
-                        aria-label="close"
-                    >
-                        <CloseIcon />
-                    </CloseBtn>
-                    {/* <CloseBtn type="submit" ><CloseIcon  sx={{ fontSize: 20 }} /></CloseBtn> */}
-                    <AddNoticeTitle>Add pet</AddNoticeTitle>
-                    <Text>
-                        Lorem ipsum dolor sit amet, consectetur Lorem ipsum
-                        dolor sit amet, consectetur
-                    </Text>
-                    <Button type="submit">lost/found</Button>
-                    <Button type="submit">In good hands</Button>
-                    <Button type="submit">sell</Button>
+                <CloseIcon />
+            </CloseBtn>
+                  {/* <CloseBtn type="submit" ><CloseIcon  sx={{ fontSize: 20 }} /></CloseBtn> */}
+                  <AddNoticeTitle>Add pet</AddNoticeTitle>
+                  <Text>
+                      Lorem ipsum dolor sit amet, consectetur Lorem ipsum
+                      dolor sit amet, consectetur
+                  </Text>
+          <CategorierList>
+            <CategoriesBtn type="submit">lost/found</CategoriesBtn>
+                  <CategoriesBtn type="submit">In good hands</CategoriesBtn>
+                  <CategoriesBtn type="submit">sell</CategoriesBtn>
+                  </CategorierList>
 
-                    <AddNoticeForm onSubmit={handleSubmit}>
-                        <FormLabel htmlFor="titleInputId">
-                            Tittle of ad*
-                        </FormLabel>
-                        <FormInput
-                            type="text"
-                            name="inputTitle"
-                            placeholder="Type name"
-                            value={title}
-                            onChange={handleChange}
-                            id={titleInputId}
-              />
-              <FormLabel htmlFor="namePetInputId">Name pet</FormLabel>
-                        <FormInput
-                            type="text"
-                            name="inputNamePet"
-                            placeholder="Type name pet"
-                            value={namePet}
-                            onChange={handleChange}
-                            id={namePetInputId}
-                        />
+                  <AddNoticeForm onSubmit={handleSubmit}>
+                      <FormLabel htmlFor="titleInputId">
+                          Tittle of ad <span>*</span>
+                      </FormLabel>
+                      <FormInput
+                          type="text"
+                          name="inputTitle"
+                          placeholder="Type name"
+                          value={title}
+                          onChange={handleChange}
+                          id={titleInputId}
+            />
+            <FormLabel htmlFor="namePetInputId">Name pet</FormLabel>
+                      <FormInput
+                          type="text"
+                          name="inputNamePet"
+                          placeholder="Type name pet"
+                          value={namePet}
+                          onChange={handleChange}
+                          id={namePetInputId}
+                      />
 
-                        <FormLabel htmlFor="birthPetInputId">
-                            Date of birth
-                        </FormLabel>
-                        <FormInput
-                            type="data"
-                            name="inputBirth"
-                            placeholder="Type date of birth"
-                            value={birth}
-                            onChange={handleChange}
-                            id={birthPetInputId}
-                        />
+                      <FormLabel htmlFor="birthPetInputId">
+                          Date of birth
+                      </FormLabel>
+                      <FormInput
+                          type="data"
+                          name="inputBirth"
+                          placeholder="Type date of birth"
+                          value={birth}
+                          onChange={handleChange}
+                          id={birthPetInputId}
+                      />
 
-                        <FormLabel htmlFor="breedInputId">Breed</FormLabel>
-                        <FormInput
-                            type="text"
-                            name="inputBreed"
-                            placeholder="Type breed"
-                            value={breed}
-                            onChange={handleChange}
-                            id={breedInputId}
-                        />
-                        <SubmitBtn onClick={closeModal} type="submit">
-                            Cancel
-                        </SubmitBtn>
-                        <SubmitBtn type="submit">Next</SubmitBtn>
-                    </AddNoticeForm>
-                </AddNoticeWrapper>
-            </Modal>
-        </>
+                      <FormLabel htmlFor="breedInputId">Breed</FormLabel>
+                      <FormInput
+                          type="text"
+                          name="inputBreed"
+                          placeholder="Type breed"
+                          value={breed}
+                          onChange={handleChange}
+                          id={breedInputId}
+                      />
+                      <SubmitBtn onClick={closeModal} type="submit">
+                          Cancel
+                      </SubmitBtn>
+                      <SubmitBtn type="submit">Next</SubmitBtn>
+                  </AddNoticeForm>
+              
+          </ModalStyle>
+      </AddNoticeWrapper>
     );
 };
 
