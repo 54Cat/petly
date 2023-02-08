@@ -1,6 +1,7 @@
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { Title, ErrorText, FlexBox } from '../AddsPetForm/AddsPetModalStyled';
+import { Formik, ErrorMessage } from 'formik';
+import { Title, ErrorText, ModalItem, FlexBox, StyledLabel, FormStyled, FieldStyled, CancelBtn, NextBtn, LabelBox } from '../AddsPetForm/AddsPetModalStyled';
 import * as yup from 'yup';
+
 
 // const initialValues = {
 //     name: "",
@@ -16,6 +17,7 @@ const validationSchema = yup.object({
 
 const StepOne = (props) => {
     
+
     const FormError = ({ name }) => {
         return (
             <ErrorMessage
@@ -27,7 +29,6 @@ const StepOne = (props) => {
     
     const handleSubmit = data => {
         props.next(data);
-
         console.log(props);
     };
       
@@ -38,47 +39,47 @@ return (
         validationSchema={validationSchema}
     >
         {() => (
-          <div>
-            <Title>Add pet</Title>
-            <Form>
-            <div>
-                <label htmlFor='name'>
+            <ModalItem>
+            <FormStyled>
+             <Title>Add pet</Title>       
+            <LabelBox>
+                <StyledLabel htmlFor='name'>
                 Name pet
                     <div>
-                        <Field type="text" name="name" placeholder="Type name pet" />
+                        <FieldStyled type="text" name="name" placeholder="Type name pet" />
                         <FormError name="name" />
                     </div>
-                </label>
-            </div>
+                </StyledLabel>
+            </LabelBox>
 
-            <div>
-                <label htmlFor='birthday'>
+            <LabelBox>
+                <StyledLabel htmlFor='birthday'>
                 Date of birth
                     <div>
-                        <Field type="text" name="birthday" placeholder="Type date of birth" />
+                        <FieldStyled type="text" name="birthday" placeholder="Type date of birth" />
                         <FormError name="birthday" />
                     </div>
-                </label>
-            </div>
+                </StyledLabel>
+            </LabelBox>
 
             <div>
-                <label htmlFor='breed'>
+                <StyledLabel htmlFor='breed'>
                 Breed
                     <div>
-                        <Field type="text" name="breed" placeholder="Type breed" />
+                        <FieldStyled type="text" name="breed" placeholder="Type breed" />
                         <FormError name="breed" />
                     </div>
-                </label>
+                </StyledLabel>
             </div>
 
             <FlexBox>
-                <button type="button">Cancel</button>
-                <button type="submit">Next</button>
-            </FlexBox>
-           
-        </Form>
-        </div>  
-    )}                
+                <NextBtn type="submit">Next</NextBtn>
+                <CancelBtn type="button">Cancel</CancelBtn>
+            </FlexBox>  
+                </FormStyled>
+                </ModalItem> 
+    )}
+               
     </Formik>
     )
 }

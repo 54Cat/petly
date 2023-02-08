@@ -1,8 +1,8 @@
 import StepOne from "../steps/StepOne";
 import StepTwo from "../steps/stepTwo";
-import { useSelector } from 'react-redux';
-import { toast } from 'react-toastify';
-import React, { useEffect, useState } from 'react';
+// import { useSelector } from 'react-redux';
+// import { toast } from 'react-toastify';
+import React, { useState } from 'react';
 
 const AddsPetForm = () => {
     const [data, setData] = useState({

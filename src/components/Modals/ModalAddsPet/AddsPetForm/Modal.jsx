@@ -1,8 +1,6 @@
 import { useEffect } from "react";
 import { createPortal } from "react-dom";
-import { Overlay, ModalItem } from "./AddsPetModalStyled";
-
-
+import { Overlay, ButtonCloseModal, ButtonCloseIcon } from "./AddsPetModalStyled";
 
 const modalRoot = document.getElementById("modal-root");
 
@@ -22,10 +20,16 @@ const Modal = ({children, onClose}) => {
   }
   return createPortal(
       <Overlay onClick={closeModal}>
-        <ModalItem >
-          <span  onClick={closeModal}>X</span>
+        {/* <ModalItem >
+        <ButtonCloseModal type="button" onClick={closeModal}>
+          <ButtonCloseIcon />
+        </ButtonCloseModal>
           {children}
-        </ModalItem>
+        </ModalItem> */}
+      <ButtonCloseModal type="button" onClick={closeModal}>
+          <ButtonCloseIcon />
+        </ButtonCloseModal>
+          {children}
       </Overlay>,
       modalRoot
     )

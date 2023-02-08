@@ -1,9 +1,10 @@
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, ErrorMessage } from 'formik';
 import * as yup from 'yup';
-import { Title } from '../AddsPetForm/AddsPetModalStyled';
+import { Title, ModalItemTwo, FlexBox, FormStyled, TitleTwo, FieldPhoto, StyledLabel, FieldTextarea, NextBtn, CancelBtn } from '../AddsPetForm/AddsPetModalStyled';
 import { ErrorText } from '../AddsPetForm/AddsPetModalStyled';
 
-import { addMyPet } from 'components/Utils/axios/fetchAddsMyPet';
+//import AddIcon from '@mui/icons-material/Add';
+
 
 const validationSchema = yup.object({
     comments: yup.string().min(8).max(120).required(),
@@ -21,7 +22,7 @@ const StepTwo = ({ data, prev }) => {
     }
     
     const handleSubmit = (values, { resetForm }) => {
-        addMyPet(values);
+        //addMyPet(values);
         console.log(values)
         resetForm()       
     }
@@ -33,30 +34,30 @@ const StepTwo = ({ data, prev }) => {
             validationSchema={validationSchema}
         >
             {({values}) => (
-                <div>
-                    <Title>Add pet</Title>
-                    <Form>
-                        <h4>Add photo and some comments</h4>
+                <ModalItemTwo>    
+                    <FormStyled>
+                        <Title>Add pet</Title>
+                        <TitleTwo>Add photo and some comments</TitleTwo>
                         <div>
-                            <Field type="file" name="myPetsPhoto" placeholder="+" />
+                            <FieldPhoto type="file" name="myPetsPhoto" />
                             <FormError name="myPetsPhoto" />
                         </div>
                         
                         <div>
-                            <label htmlFor='comments'>
+                            <StyledLabel htmlFor='comments'>
                                 Comments
-                                <div>
-                                    <Field type="text" name="comments" placeholder="Type comments" />
+                                
+                                    <FieldTextarea type="text" name="comments" placeholder="Type comments" />
                                     <FormError name="comments" />
-                                </div>
-                            </label>
+                            
+                            </StyledLabel>
                         </div>
-                        <button type="submit">Done</button>
-                        <button type="button" onClick={() => 
-                            prev(values)
-                            }>Back</button>
-                    </Form>
-                </div>    
+                        <FlexBox>
+                        <NextBtn type="submit">Done</NextBtn>
+                        <CancelBtn type="button" onClick={() => prev(values)}>Back</CancelBtn>
+                        </FlexBox>
+                    </FormStyled>
+                </ModalItemTwo>    
             )}
         </Formik>
     )
