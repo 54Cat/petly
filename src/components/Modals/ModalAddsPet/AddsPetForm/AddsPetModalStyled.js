@@ -260,6 +260,7 @@ border-radius: 20px;
     width: 362px;
     height: 84px;
 }
+
 `;
 
 const LabelBox = styled.div`
