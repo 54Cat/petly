@@ -1,12 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useState } from 'react';
-
+import { useRef, useState } from 'react';
 import { getUserInfo } from 'redux/selectors';
-import { useRef } from 'react';
 import UserDataItem from './UserDataItem';
 import { updateUser } from 'auth/UserAuth/AuthUser';
 import { IoIosCamera } from 'react-icons/io';
-
 import { UserLogout } from './UserLogOut';
 import {
     UserCard,
