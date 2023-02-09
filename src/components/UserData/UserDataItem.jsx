@@ -106,13 +106,18 @@ const UserDataItem = () => {
         e.preventDefault();
         dispatch(
             updateUserOperation({
-                newName,
-                newEmail,
-                newBirthday,
-                newPhone,
-                newCity,
+                name: newName,
+                email: newEmail,
+                birthday: newBirthday,
+                phone: newPhone,
+                city: newCity,
             })
         );
+        setIconName(iconCreate);
+        setIconEmail(iconCreate);
+        setIconBirthday(iconCreate);
+        setIconPhone(iconCreate);
+        setIconCity(iconCreate);
     };
 
     return (

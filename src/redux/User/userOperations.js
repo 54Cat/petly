@@ -15,10 +15,9 @@ export const getUserOperation = createAsyncThunk(
 
 export const updateUserOperation = createAsyncThunk(
     'user/updateInfo',
-    async ({ _, credentials }, { rejectWithValue }) => {
+    async ({ userId, credentials }, { rejectWithValue }) => {
         try {
-            const user = await updateUserInfo(_, credentials);
-            console.log(user);
+            const user = await updateUserInfo(userId, credentials);
             return user;
         } catch (error) {
             return rejectWithValue(error);

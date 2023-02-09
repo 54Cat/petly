@@ -11,14 +11,16 @@ const UserData = () => {
 
     return (
         <>
-            <Text>My information:</Text>
-            <Wrapper>
-                <UserAvatar />
-                <div>
-                    <UserDataItem />
-                    <UserLogout />
-                </div>
-            </Wrapper>
+            <>
+                <Text>My information:</Text>
+                <Wrapper>
+                    <UserAvatar />
+                    <div>
+                        <UserDataItem />
+                        <UserLogout />
+                    </div>
+                </Wrapper>
+            </>
         </>
     );
 };

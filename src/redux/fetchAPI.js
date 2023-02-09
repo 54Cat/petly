@@ -9,9 +9,10 @@ export async function getUserInfo() {
     return data;
 }
 
-export async function updateUserInfo(userId, credentials) {
+export async function updateUserInfo( credentials) {
     const userUpdates = { ...credentials };
-    const { data } = await axios.patch(`/user/${userId}`, userUpdates);
+    const { data } = await axios.patch('/user', userUpdates);
+    console.log(data)
     return data;
 }
 

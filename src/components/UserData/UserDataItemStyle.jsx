@@ -17,7 +17,7 @@ export const Form = styled.form`
         margin: 44px 0 33px 32px;
         padding: 0;
     }
-   
+
     @media (min-width: 1280px) {
         padding-left: 15px;
         margin: 0;
@@ -29,7 +29,7 @@ export const Lable = styled.label`
     align-items: center;
     justify-content: space-between;
     /* width: 100%; */
-    :not(:last-child) {
+    :not(:last-of-type) {
         margin-bottom: 4px;
     }
     @media (min-width: 768px) {
