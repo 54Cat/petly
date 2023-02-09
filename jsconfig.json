@@ -1,6 +1,6 @@
-{
-  "compilerOptions": {
-    "baseUrl": "src"
-  },
-  "include": ["src", "src/App.js"]
-}
+// {
+//   "compilerOptions": {
+//     "baseUrl": "src"
+//   },
+//   "include": ["src", "src/App.js"]
+// }
