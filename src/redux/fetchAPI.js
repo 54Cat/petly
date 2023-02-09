@@ -25,3 +25,9 @@ export async function deletePetById(petId) {
     const { data } = await axios.delete(`user/pets/${petId}`);
     return data;
 }
+
+
+export async function updateFavoriteNotice(noticeId) {
+    const { data } = await axios.get(`/favorite/${noticeId}`);
+    return data;
+}

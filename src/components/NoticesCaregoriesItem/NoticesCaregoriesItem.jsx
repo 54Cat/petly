@@ -14,12 +14,28 @@ import {
     BtnLearnMore
 } from "./NoticesCategoriesItemStyled"
 import heart from '../../data/icons/heart.svg'
+import heartActive from '../../data/icons/heartActive.svg'
 
-export const NoticesCategoriesItem = ({ notice }) => {
+import { updateFavoriteNotice } from '../../redux/fetchAPI'
+import { useSelector } from "react-redux";
+import { getAuth } from "../../redux/selectors"
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+    import * as dayjs from 'dayjs';
+
+
+export const NoticesCategoriesItem = ({ notice, favorite }) => {
+    const authSelector = useSelector(getAuth);
     const { _id, imageURL, category, title, breed, location, birthday } = notice;
-    const date = new Date();
-    const age = Math.floor((date.getTime() - birthday.getTime()) / 31536000000);
+    let isFavorite = false;
+    
+    if (favorite) {
+        isFavorite = favorite.includes(_id);
+    } 
 
+    const date1 = dayjs()
+    const date2 = dayjs(birthday)
+    const age = Math.floor(date1.diff(date2) / 31536000000);
+console.log(age)
     return    <NoticesItem key={_id}>
         <NoticesImageThumb>
             <NoticesImage src={imageURL} alt="Photo_notices" />
@@ -27,8 +43,14 @@ export const NoticesCategoriesItem = ({ notice }) => {
         <NoticesCategoryNameContainer>
             <NoticesCategoryName>{category}</NoticesCategoryName>
         </NoticesCategoryNameContainer>
-        <NoticesFavoriteBtn type="button">
-                <Favorite src={heart} alt="Favorite" />
+        <NoticesFavoriteBtn type="button"
+            onClick={authSelector.isLoggedIn ? updateFavoriteNotice : 
+            Notify.failure('Oops... please login or register')}>
+            { (!isFavorite)
+                ? <Favorite src={heart} alt="Favorite" />
+                : <Favorite src={heartActive} alt="Favorite" />
+            }
+                
         </NoticesFavoriteBtn>
         <NoticesCardThumb>
         <NoticesCardTitle>{title}</NoticesCardTitle>
@@ -41,7 +63,10 @@ export const NoticesCategoriesItem = ({ notice }) => {
                 <NoticesCardInfoList>
                     <NoticesCardInfoItem>{breed}</NoticesCardInfoItem>
                     <NoticesCardInfoItem>{location}</NoticesCardInfoItem>
+                    {(age === 0) ? 
+                        <NoticesCardInfoItem>up to a year</NoticesCardInfoItem>:
                     <NoticesCardInfoItem>{age} year</NoticesCardInfoItem>
+                    }
                 </NoticesCardInfoList>
 
             </NoticesCardInfoThumb>
