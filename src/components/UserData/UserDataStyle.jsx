@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 
-
 export const UserCard = styled.div`
     margin-bottom: 46px;
     @media (min-width: 320px) {
@@ -23,11 +22,11 @@ export const Text = styled.p`
 
         line-height: 1.35;
         padding-left: 15px;
-        //margin-bottom: 40px;
+        margin-bottom: 40px;
     }
 
     @media (min-width: 1280px) {
-        //margin-bottom: 24px;
+        margin-bottom: 24px;
     }
 `;
 
@@ -78,7 +77,7 @@ export const Image = styled.img`
     @media (min-width: 768px) {
         margin-bottom: 8px;
     }
-    @media (min-width: 1200px) {
+    @media (min-width: 1280px) {
         margin: 20px auto 0 auto;
     }
 `;

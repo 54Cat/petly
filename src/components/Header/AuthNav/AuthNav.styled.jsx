@@ -41,7 +41,7 @@ export const NavButtonLink = styled(Link)`
     border-radius: 40px;
     color: #111111;
     letter-spacing: 0.04em;
-    font-family: Manrope, sans-serif';
+    font-family: Manrope, sans-serif;
     font-size: 14px;
     line-height: 1.35;
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
