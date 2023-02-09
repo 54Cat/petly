@@ -1,36 +1,44 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchUser, updateUser } from './userOperations';
+import { getUserOperation, updateUserOperation } from './userOperations';
 
 const userSlice = createSlice({
     name: 'user',
     initialState: {
-        user: null,
+        user: { avatarURL: '' },
         isLoading: false,
-        error: false,
+        error: null,
     },
     extraReducers: {
-        [fetchUser.pending](state, _) {
-            state.isLoading = true;
+        [getUserOperation.fulfilled]: (state, { payload }) => {
+            console.log('це операція getUserOperation і пейлод', payload);
+            return {
+                ...state,
+                user: { ...payload.user },
+                isLoading: false,
+                error: null,
+            };
         },
-        [fetchUser.fulfilled](state, action) {
-            state.isLoading = false;
-            state.user = action.payload;
-            console.log(state.user)
+        [getUserOperation.pending]: state => {
+            return { ...state, isLoading: true };
         },
-        [fetchUser.rejected](state, action) {
-            state.isLoading = false;
-            state.error = action.payload;
+        [getUserOperation.rejected]: (state, { payload }) => {
+            console.log('AaronErr', payload);
+            return { ...state, error: payload.name, isLoading: false };
         },
-        [updateUser.pending](state) {
-            state.isLoading = true;
+
+        [updateUserOperation.fulfilled]: (state, { payload }) => {
+            return {
+                ...state,
+                user: { ...payload.user },
+                isLoading: false,
+                error: null,
+            };
         },
-        [updateUser.fulfilled](state, action) {
-            state.isLoading = false;
-            state.user = action.payload;
+        [updateUserOperation.pending]: state => {
+            return { ...state, isLoading: true };
         },
-        [updateUser.rejected](state, action) {
-            state.isLoading = false;
-            state.error = action.payload;
+        [updateUserOperation.rejected]: (state, { payload }) => {
+            return { ...state, error: payload, isLoading: false };
         },
     },
 });

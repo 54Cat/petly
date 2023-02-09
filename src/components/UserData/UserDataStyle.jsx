@@ -15,18 +15,18 @@ export const Text = styled.p`
     font-weight: 500;
     font-size: 20px;
     letter-spacing: 0.04em;
-    //margin-bottom: 18px;
+    margin-bottom: 18px;
 
     @media (min-width: 768px) {
         font-size: 28px;
 
         line-height: 1.35;
         padding-left: 15px;
-        //margin-bottom: 40px;
+        margin-bottom: 40px;
     }
 
     @media (min-width: 1280px) {
-        //margin-bottom: 24px;
+        margin-bottom: 24px;
     }
 `;
 

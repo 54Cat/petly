@@ -1,17 +1,13 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { updateUser } from '../../redux/User/userOperations';
+import { updateUserOperation } from '../../redux/User/userOperations';
 import { useRef } from 'react';
 import { IoIosCamera } from 'react-icons/io';
-import { getUser } from 'redux/User/selectors';
+import { getUserInfo } from '../../redux/selectors';
 import { Image, Label, Container, Input } from './UserAvatarStyle';
 
-// const noImage =
-//     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxrGcz-CAJweJ_YbvY8Sb2bPsCNQwsSJ2jng&usqp=CAU';
-
 export const UserAvatar = () => {
-    const userInState = useSelector(getUser);
+    const userInState = useSelector(getUserInfo);
     const dispatch = useDispatch();
-
     const ref = useRef();
 
     const onChange = e => {
@@ -31,7 +27,7 @@ export const UserAvatar = () => {
         // console.log(formData);
 
         dispatch(
-            updateUser({
+            updateUserOperation({
                 avatarURL: file.name,
             })
         );

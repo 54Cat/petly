@@ -1,31 +1,27 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { getUserInfo, updateUserInfo } from 'redux/fetchAPI';
 
-
-export const fetchUser = createAsyncThunk(
-    'user',
-
+export const getUserOperation = createAsyncThunk(
+    'user/getInfo',
     async (_, { rejectWithValue }) => {
         try {
-            const { data } = await axios.get('/user');
-            console.log(data)
-            return data;
+            const userData = await getUserInfo();
+            return userData;
         } catch (error) {
-            return rejectWithValue(error.message);
+            return rejectWithValue(error);
         }
     }
 );
 
-export const updateUser = createAsyncThunk(
-    'user/update',
-    async (userId, { rejectWithValue }, credentials) => {
-        console.log(userId);
-        const result = {...credentials};
+export const updateUserOperation = createAsyncThunk(
+    'user/updateInfo',
+    async ({ _, credentials }, { rejectWithValue }) => {
         try {
-            const { data } = await axios.patch(`user/${userId}`, result);
-            return data;
+            const user = await updateUserInfo(_, credentials);
+            console.log(user);
+            return user;
         } catch (error) {
-            return rejectWithValue(error.message);
+            return rejectWithValue(error);
         }
     }
 );
