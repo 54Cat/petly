@@ -9,7 +9,7 @@ export const AuthNavContainer = styled.div`
     
     @media (min-width: 768px) {
 	// background-color: #147;
-    
+        padding: 0;
     }
         
     @media (min-width: 1280px) {

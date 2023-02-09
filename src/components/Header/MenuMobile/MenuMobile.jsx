@@ -1,3 +1,4 @@
+import React from 'react';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { getAuth } from "redux/selectors";
@@ -21,18 +22,15 @@ const MenuMobile = () => {
 	
 	const toggleBodyHidden = menuActive => {
 		if (menuActive) {
-			console.log(" toggleBodyHiddenisOpen", menuActive)
 			document.body.style.overflow = 'hidden';
 		}
 		else {
-			console.log(" else {", menuActive)
 			document.body.style.overflow = 'auto';
 		}
 	};
 	
 	useEffect(() => {
 		toggleBodyHidden(menuActive);
-		console.log("useEffect")
 	}, [menuActive]);
 
 	return (
@@ -71,15 +69,15 @@ const MenuMobile = () => {
 				</WrapperBtn> 
 			</WrapperTop>
 
-				<WrapperNav
-					className={menuActive ? 'active' : ''} >
-					{isLoggedIn ? (
-						<UserNav />
-					) : (
-						<AuthNav />
-					)}
-					<Navigations />
-				</WrapperNav>
+			<WrapperNav
+				className={menuActive ? 'active' : ''} >
+				{isLoggedIn ? (
+					<UserNav />
+				) : (
+					<AuthNav />
+				)}
+				<Navigations />
+			</WrapperNav>
 
 		</Wrapper>
 	);

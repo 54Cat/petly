@@ -1,8 +1,9 @@
 import { NavContainer, NavList, NavItem, HeaderNavLink } from './HeaderNavigationsStyled';
 
-  const Navigations = () => {
-    return (
-      <NavContainer>
+  const Navigations = ({active, setActive}) => {
+    return ( 
+        
+      <NavContainer className = { active? 'active': '' }>
         <NavList>
           <NavItem>
             <HeaderNavLink

@@ -1,3 +1,4 @@
+import React from 'react';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { getAuth } from "redux/selectors";
@@ -10,40 +11,44 @@ import { ReactComponent as CloseBurger } from '../../../data/icons/closeBurger.s
 import { Wrapper, WrapperTop, WrapperBtn, WrapperNav, Btn } from './MenuTabletStyled';
 
 const MenuTablet = () => {
-  const authSelector = useSelector(getAuth);
+  	const authSelector = useSelector(getAuth);
 	const isLoggedIn = authSelector.isLoggedIn;
-	console.log("isLoggedIn", isLoggedIn)
   
-	const [isOpen, setIsOpen] = useState(false);
-	// console.log("isOpen", isOpen)
+	const [menuActive, setMenuActive] = useState(false);
 
 	const toggleBurger = () => {
-		setIsOpen(isOpen => !isOpen);
+		setMenuActive(menuActive => !menuActive);
 	};
 	
-	const toggleBodyHidden = isOpen => {
-		if (isOpen) {
-			console.log(" toggleBodyHiddenisOpen", isOpen)
+	const toggleBodyHidden = menuActive => {
+		if (menuActive) {
 			document.body.style.overflow = 'hidden';
 		}
 		else {
-			console.log(" else {", isOpen)
 			document.body.style.overflow = 'auto';
 		}
 	};
 	
 	useEffect(() => {
-		toggleBodyHidden(isOpen);
-		console.log("useEffect")
-	}, [isOpen]);
+		toggleBodyHidden(menuActive);
+	}, [menuActive]);
 
 	return (
-		<Wrapper>
+		<Wrapper className={menuActive ? 'active' : ''} >
 			<WrapperTop>
 				<Logo />
-
+				
+				<WrapperNav
+				className={menuActive ? 'active' : ''} >
+				{isLoggedIn ? (
+					<UserNav />
+				) : (
+					<AuthNav />
+				)}
+				</WrapperNav>
+				
 				<WrapperBtn>
-					{isOpen ? (
+					{menuActive ? (
 						<>
 							<Btn
 								type="button"
@@ -70,17 +75,10 @@ const MenuTablet = () => {
 							</Btn>
 						</>
 					)}
-				</WrapperBtn> 
+				</WrapperBtn>
 			</WrapperTop>
-
-			<WrapperNav >
-				{isLoggedIn ? (
-					<UserNav />
-				) : (
-					<AuthNav />
-				)}
-				<Navigations />
-			</WrapperNav>
+			
+			<Navigations active={menuActive} setActive={setMenuActive} />
 
 		</Wrapper>
 	);

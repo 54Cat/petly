@@ -1,17 +1,28 @@
+import { useMediaQuery } from 'react-responsive';
+import Logo from './HeaderLogo';
+
 import { HeaderContainer } from './HeaderStyled';
-// import Navigations from './HeaderNavigations';
-// import AuthNav from './AuthNav/AuthNav';
 import MenuMobile from './MenuMobile/MenuMobile';
-// import MenuTablet from './MenuMobile/MenuTablet';
+import MenuTablet from './MenuTablet/MenuTablet';
 // import MenuDesktop from './MenuMobile/MenuDesktop';
 
 const Header = () => {
+  
+	const isTablet = useMediaQuery({ query: '(min-width: 768px)' });
+  const isDesktop = useMediaQuery({ query: '(min-width: 1280px)' });
+  console.log("isTablet", isTablet)
+  console.log("isDesktop", isDesktop)
   return (
     <HeaderContainer>
 
-      <MenuMobile/>
-      {/* <MenuTablet/> */}
-      {/* <MenuDesktop/> */}
+      {isDesktop ? (
+				<Logo />
+			) : isTablet ? (
+				<MenuTablet />
+			) : (
+				<MenuMobile />
+			)}
+      
       
       {/* <NavDesktop>
         <WrapperDesktop>

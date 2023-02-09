@@ -5,9 +5,17 @@ export const NavContainer = styled.div`
   display: flex;
   justify-content: center;
   
-	// background-color: #095;
-  
   @media (min-width: 768px) {
+    padding-top: 64px;
+
+    transform: translateX(100%);
+
+    &.active {
+      z-index: 99999;      
+      transform: translateX(0);
+      transition: all 0.3s;
+      display: flex;
+    }
   }
       
   @media (min-width: 1280px) {
@@ -27,6 +35,14 @@ margin-bottom: 40px;
   margin-bottom: 0;
 }
 
+@media (min-width: 768px) {
+  margin-bottom: 60px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
 @media (min-width: 1280px) {
   margin-right: 80px; 
 
@@ -43,6 +59,10 @@ font-weight: 500;
 font-size: 32px;
 line-height: 1.4;
 letter-spacing: 0.04em;
+
+@media (min-width: 768px) {
+  font-size: 48px;
+}
 
 @media (min-width: 1280px) {
   font-size: 20px;
