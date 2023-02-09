@@ -4,12 +4,13 @@ export const Wrapper = styled.div`
 @media (max-width: 1279px) {	
     position: fixed;
     width: 100%;
-    height: 100%;
     top: 0;
     left: 0;
+    height: 88px;
 
     &.active {
-        z-index: 99999;
+        height: 100%;
+        z-index: 1;
 	    background-color: #FDF7F2;
     }
 }

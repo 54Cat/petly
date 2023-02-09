@@ -11,7 +11,7 @@ export const NavContainer = styled.div`
     transform: translateX(100%);
 
     &.active {
-      z-index: 99999;      
+      z-iddex: 1;      
       transform: translateX(0);
       transition: all 0.3s;
       display: flex;
