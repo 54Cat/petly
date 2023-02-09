@@ -50,7 +50,7 @@ const UserData = () => {
 
     return (
         <UserCard>
-                <Text>My information:</Text>     
+            <Text>My information:</Text>
             <Wrapper>
                 <Container>
                     <Image
