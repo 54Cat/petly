@@ -16,13 +16,19 @@ export async function updateUserInfo( credentials) {
     return data;
 }
 
-export async function addPet(name, birthday, breed, text) {
-    const newPet = { name, birthday, breed, comments: text };
-    const { data } = await axios.post(`user/pets`, newPet);
+export async function addPet(name, birthday, breed, text, myPetsPhoto) {
+    const newPet = { name, birthday, breed, comments: text, myPetsPhoto };
+    const { data } = await axios.post(`user/pet`, newPet);
     return data;
 }
 
 export async function deletePetById(petId) {
     const { data } = await axios.delete(`user/pets/${petId}`);
+    return data;
+}
+
+
+export async function updateFavoriteNotice(noticeId) {
+    const { data } = await axios.get(`/favorite/${noticeId}`);
     return data;
 }

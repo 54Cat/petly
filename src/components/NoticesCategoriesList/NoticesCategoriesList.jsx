@@ -1,23 +1,11 @@
 import { NoticesList } from "./NoticesCategoriesListStyled"
-// import { NoticesCategoriesItem } from '../NoticesCaregoriesItem/NoticesCaregoriesItem'
-// import { nanoid } from "nanoid"
+import { NoticesCategoriesItem } from '../NoticesCaregoriesItem/NoticesCaregoriesItem'
 
-export const NoticesCategoriesList = () => {
+
+export const NoticesCategoriesList = ({notices, favorite}) => {
     return <NoticesList>
-        {/* {
-            noticesFromBackEnd.map(notice => (<NoticesCategoriesItem notice={notice} />))
-        } */}
-        {/* // <NoticesItem key={nanoid()}></NoticesItem>
-        //     <NoticesItem key={nanoid()}></NoticesItem>
-        //     <NoticesItem key={nanoid()}></NoticesItem>
-        //     <NoticesItem key={nanoid()}></NoticesItem>
-        //     <NoticesItem key={nanoid()}></NoticesItem>
-        //     <NoticesItem key={nanoid()}></NoticesItem>
-        //     <NoticesItem key={nanoid()}></NoticesItem>
-        //     <NoticesItem key={nanoid()}></NoticesItem>
-        //     <NoticesItem key={nanoid()}></NoticesItem>
-        //     <NoticesItem key={nanoid()}></NoticesItem> */}
-            {/* </NoticesItem> */}
-                {/* // ))} */}
+        { 
+            notices.map(notice => <NoticesCategoriesItem key={notice._id} notice={notice} favorite={favorite} />)
+        }
     </NoticesList>
 }

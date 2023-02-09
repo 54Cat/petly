@@ -1,9 +1,9 @@
 import React from 'react';
 import { AuthNavContainer, AuthNavItem, NavButtonLink } from './AuthNav.styled';
 
-const AuthNav = () => {
+const AuthNav = ({active, setActive}) => {
     return (
-        <AuthNavContainer>
+        <AuthNavContainer  className={active ? 'active' : ''} onClick={() => setActive(false)}>
             <AuthNavItem>
                 <NavButtonLink
                     to="/login"

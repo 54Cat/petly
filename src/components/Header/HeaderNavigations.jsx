@@ -1,8 +1,11 @@
-import { NavContainer, NavItem, HeaderNavLink } from './HeaderNavigationsStyled';
+import { NavContainer, NavList, NavItem, HeaderNavLink } from './HeaderNavigationsStyled';
 
-  const Navigations = () => {
-    return (
-      <NavContainer>
+  const Navigations = ({active, setActive}) => {
+    return ( 
+        
+      <NavContainer className={active ? 'active' : ''} onClick={() => setActive(false)}>
+      
+        <NavList>
           <NavItem>
             <HeaderNavLink
               to="/news"
@@ -26,6 +29,7 @@ import { NavContainer, NavItem, HeaderNavLink } from './HeaderNavigationsStyled'
               Our friend
             </HeaderNavLink>
           </NavItem>
+        </NavList>
       </NavContainer>
     );
 };
