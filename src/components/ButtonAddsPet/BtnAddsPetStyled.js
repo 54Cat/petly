@@ -39,4 +39,5 @@ export const BtnAddPet = styled.button`
     outline: none;
     border-radius: 50%;
     font-size: 50px;
+    cursor: pointer;
 `;
