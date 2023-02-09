@@ -36,7 +36,7 @@ const MenuTablet = () => {
 	return (
 		<Wrapper className={menuActive ? 'active' : ''} >
 			<WrapperTop>
-				<Logo />
+				<Logo  active={menuActive} setActive={setMenuActive} />
 
 				<Container >
 					<WrapperNav

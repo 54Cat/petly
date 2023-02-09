@@ -36,7 +36,7 @@ const MenuMobile = () => {
 	return (
 		<Wrapper className={menuActive ? 'active' : ''} >
 			<WrapperTop>
-				<Logo />
+				<Logo active={menuActive} setActive={setMenuActive}  />
 
 				<WrapperBtn>
 					{menuActive ? (
