@@ -9,6 +9,8 @@ import { SearchBar } from 'components/SearchBar/SearchBar';
 import { NoticesCategoriesNav } from 'components/NoticesCategoriesNav/NoticesCategoriesNav';
 import { NoticesCategoriesList } from 'components/NoticesCategoriesList/NoticesCategoriesList';
 
+
+
 const NoticesPage = () => {
     const dispatch = useDispatch();
     const allNoticesByCategory = useSelector(getNotices).items;
@@ -72,8 +74,9 @@ const NoticesPage = () => {
                 handleSubmit={handleSubmit}
                 onFilterChange={onFilterChange}
                 filter={filter}
-            />
+            />            
             <NoticesCategoriesNav />
+           
             <NoticesCategoriesList notices={notices} />
         </PageSection>
     );
