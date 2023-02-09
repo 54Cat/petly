@@ -29,6 +29,7 @@ const Card = styled.li`
 `;
 
 const Title = styled.h3`
+    text-align: center;
     font-family: 'Manrope';
     font-style: normal;
     font-weight: 700;
