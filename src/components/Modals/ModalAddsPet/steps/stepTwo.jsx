@@ -24,7 +24,8 @@ const StepTwo = ({ data, prev, onClose }) => {
     const handleSubmit = (values, { resetForm }) => {
         //addMyPet(values);
         console.log(values)
-        resetForm()       
+        resetForm();
+        onClose();
     }
     
     return (

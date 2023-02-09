@@ -90,7 +90,7 @@ line-height: 1.36;
 `;
 
 const ButtonCloseIcon = styled(CloseIcon)`
-
+cursor: pointer;
 width: 28px;
 height: 28px;
 fill: rgba(17, 17, 17, 0.6);
@@ -105,6 +105,7 @@ fill: rgba(17, 17, 17, 0.6);
 `;
 
 const BtnAddFileIcon = styled(AddIcon)`
+cursor: pointer;
 fill: rgba(17, 17, 17, 0.6);
 width: 48px;
 height: 48px;
@@ -112,7 +113,7 @@ height: 48px;
 
 const ButtonCloseModal = styled.button`
 position: absolute;
-
+cursor: pointer;
 top: 20px;
 right: 20px;
 
@@ -173,7 +174,7 @@ display: block;
 
 const FieldStyled = styled(Field)`
 display: block;
-
+cursor: pointer;
 width: 196px;
 height: 18px; 
 color: rgba(17, 17, 17, 0.6);
@@ -211,9 +212,11 @@ border-radius: 40px;
 
 const FieldPhoto = styled(Field)`
 display: none;
+cursor: pointer;
 `;
 
 const AddFile = styled.label`
+    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -233,6 +236,7 @@ const AddFile = styled.label`
 `;
 
 const FieldTextarea = styled(Field)`
+cursor: pointer;
 display: block;
 margin-top: 8px;
 padding: 14px 12px;
@@ -286,7 +290,7 @@ color: #111111;
 `;
 
 const FlexBox = styled.div`
-    
+    cursor: pointer;
     justify-content: center;
     text-align: center;
     
@@ -300,6 +304,7 @@ const FlexBox = styled.div`
 `;
 
 const NextBtn = styled.button`
+cursor: pointer;
 display: block;
 width: 240px;
 height: 40px;
@@ -319,6 +324,7 @@ border: none;
 `;
 
 const CancelBtn = styled.button`
+cursor: pointer;
 margin-right: 15px;
 display: block;
 width: 240px;
