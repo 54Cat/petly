@@ -10,6 +10,8 @@ import { SearchBar } from 'components/SearchBar/SearchBar';
 import { NoticesCategoriesNav } from 'components/NoticesCategoriesNav/NoticesCategoriesNav';
 import { NoticesCategoriesList } from 'components/NoticesCategoriesList/NoticesCategoriesList';
 
+
+
 const NoticesPage = () => {
     const auth = useSelector(getAuth);
     const dispatch = useDispatch();
@@ -105,9 +107,11 @@ const NoticesPage = () => {
                 handleSubmit={handleSubmit}
                 onFilterChange={onFilterChange}
                 filter={filter}
-            />
+            />            
             <NoticesCategoriesNav />
+
             <NoticesCategoriesList notices={notices} favorite={favorite} />
+
         </PageSection>
     );
 };

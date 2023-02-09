@@ -14,7 +14,24 @@ export const PetsWrapper = styled.div`
     }
 `;
 
+export const InfoWrapper = styled.div`
+    position: relative;
+    @media (min-width: 320px) {
+        height: 40px;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+    }
+
+    @media (min-width: 768px) {
+    }
+
+    @media (min-width: 1280px) {
+    }
+`;
+
 export const PetsTitle = styled.h2`
+    position: relative;
     margin-bottom: 32px;
     font-weight: 500;
     font-size: 20px;
