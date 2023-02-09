@@ -5,7 +5,7 @@ import { NoticesCategoriesItem } from '../NoticesCaregoriesItem/NoticesCaregorie
 export const NoticesCategoriesList = ({notices, favorite}) => {
     return <NoticesList>
         { 
-            notices.map(notice => <NoticesCategoriesItem key={notice._id} notice={notice} />)
+            notices.map(notice => <NoticesCategoriesItem key={notice._id} notice={notice} favorite={favorite} />)
         }
     </NoticesList>
 }
