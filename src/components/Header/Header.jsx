@@ -1,16 +1,20 @@
+import { HeaderContainer, NavDesktop } from './HeaderStyled';
 import Logo from './HeaderLogo';
-// import Navigations from './HeaderNavigations';
-// import HeaderAuthNav from './HeaderAuthNav';
+import Navigations from './HeaderNavigations';
+import AuthNav from '../AuthNav/AuthNav';
 // import MenuBurger from './MenuMobile/MenuBurger';
 
 const Header = () => {
   return (
-    <header>
+    <HeaderContainer>
       <Logo />
-      {/* <Navigations /> */}
-      {/* <HeaderAuthNav /> */}
+      <NavDesktop>
+        <Navigations />
+        <AuthNav />
+      </NavDesktop>
+      
       {/* <MenuBurger /> */}
-  </ header>
+  </ HeaderContainer>
   );
 };
 
