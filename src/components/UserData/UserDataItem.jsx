@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getUserInfo } from '../../redux/selectors';
 import { updateUserOperation } from '../../redux/User/userOperations';
+// import { updateUserInfo } from '../../redux/fetchAPI';
 import { MdCreate } from 'react-icons/md';
 import { BsCheckLg } from 'react-icons/bs';
 
