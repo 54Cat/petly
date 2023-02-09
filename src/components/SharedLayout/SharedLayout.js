@@ -2,12 +2,12 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Span, Text } from './SharedLayoutStyle';
-// import Header from 'components/Header/Header';
+import Header from 'components/Header/Header';
 
 const SharedLayout = () => {
     return (
         <>
-            {/* <Header /> */}
+            <Header />
             <main>
                 <Suspense fallback={null}>
                     <Outlet />

@@ -3,11 +3,28 @@ import { NavLink as Link } from 'react-router-dom';
 
 export const AuthNavContainer = styled.div`
     display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 0 60px 0;
+    
+    @media (min-width: 768px) {
+        padding: 0;
+    }
+        
+    @media (min-width: 1280px) {
+        
+    }
 `;
 
 export const AuthNavItem = styled.li`
-    &:first-child {
-        margin-right: 20px;
+    margin-right: 12px;
+
+    &:last-child {
+    margin-right: 0;
+    }
+      
+    @media (min-width: 1280px) {
+        margin-right: 20px; 
     }
 `;
 
