@@ -7,8 +7,6 @@ import PetsItem from 'components/PetsItem/PetsItem';
 const PetsList = function () {
     const pets = useSelector(getPets);
 
-    console.log('Pets Obj in PetsList', pets);
-
     return (
         <>
             {pets.items.map(

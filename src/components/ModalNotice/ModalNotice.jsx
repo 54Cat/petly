@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { ModalNoticeStyled } from './ModalNotice.styled';
+import { ModalNoticeStyled, CloseBtn, StyledIcon } from './ModalNotice.styled';
 import NoticeContent from './ModalNoticeContent';
 
-const ModalNotice = () => {
+const ModalNotice = id => {
     const [modalIsOpen, setIsOpen] = useState(false);
 
     function openModal() {
@@ -20,10 +20,17 @@ const ModalNotice = () => {
                 isOpen={modalIsOpen}
                 onRequestClose={closeModal}
                 contentLabel="Example Modal"
+                shouldCloseOnOverlayClick={true}
+                style={{
+                    overlay: {
+                        backgroundColor: 'rgba(17, 17, 17, 0.6)',
+                    },
+                }}
             >
-                <button onClick={closeModal}>close</button>
-                <div>I am a modal</div>
-                <NoticeContent></NoticeContent>
+                <CloseBtn onClick={closeModal}>
+                    <StyledIcon />
+                </CloseBtn>
+                <NoticeContent id={id}></NoticeContent>
             </ModalNoticeStyled>
         </div>
     );
