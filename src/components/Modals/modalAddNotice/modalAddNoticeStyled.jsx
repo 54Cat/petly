@@ -1,6 +1,10 @@
 import styled from '@emotion/styled';
 import Modal from 'react-modal';
 import { Button } from 'components/Utils/Styles/basicStyle';
+import { FieldTextarea, AddFile } from 'components/Modals/ModalAddsPet/AddsPetForm/AddsPetModalStyled';
+import { FormLabel } from './modalAddNoticeStyled';
+
+
 
 export const CategoriesBtn = styled(Button)`
  
@@ -11,14 +15,11 @@ export const CategoriesBtn = styled(Button)`
  
 `;
 
-
 export const AddNoticeForm = styled.form`
  display: flex;
- flex-direction: column;
- 
+ flex-direction: column; 
  padding: 10px;
  margin-bottom: 40px;
-
 `;
 
 export const AddNoticeWrapper = styled.div` 
@@ -40,7 +41,6 @@ export const CloseBtn = styled.button`
     border: none;
     background-color: transparent;
     transition: transform .25s cubic-bezier(.4,0,.2,1);
-
 `;
 export const AddNoticeTitle = styled.h1`
   margin-bottom: 20px;
@@ -57,15 +57,13 @@ export const Text = styled.p`
 `;
 
 export const CategorierList = styled.ul`
-
 display: flex;
 flex-wrap: wrap;
 row-gap: 32px;
 margin-top: 30px;
 @media (min-width: 768px) {
     margin-top: 60px;
-        column-gap: 32px;
-        
+    column-gap: 32px;        
     }
 `;
 
@@ -124,3 +122,19 @@ export const ModalStyle = styled(Modal)`
     padding: 40px;
     }
   `;
+
+export const Textarea = styled(FieldTextarea)`
+   width:fit-content; 
+   
+`;
+
+export const AddFoto = styled(AddFile)` 
+  margin-right: auto;
+  width: 140px;
+  height: 140px;
+   @media(min-width: 768px) {
+        margin-bottom: 28px;
+        width: 140px;
+        height: 140px;
+    }  
+`;
