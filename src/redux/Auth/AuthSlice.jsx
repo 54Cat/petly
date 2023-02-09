@@ -53,6 +53,27 @@ export const loginUser = createAsyncThunk(
     }
 );
 
+export const fetchCurrentUser = createAsyncThunk(
+  "auth/refresh",
+  async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const refreshToken = state.auth.token;
+    
+    if (token === null) {
+      return thunkAPI.rejectWithValue();
+    }
+    
+    try {
+      token.set(refreshToken);        
+      const { data } = await axios.get("/users");
+      return data;
+    } catch (error) {
+      token.unset();
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
 const initialState = {
     user: null,
     token: '',
@@ -92,6 +113,22 @@ export const authSlice = createSlice({
             state.user = action.payload.user;
         },
         [loginUser.rejected]: (state, action) => {
+            state.isLoading = false;
+            state.status = action.payload.message;
+        },
+        
+
+        [fetchCurrentUser.pending]: state => {
+            state.isLoading = true;
+        },
+        [fetchCurrentUser.fulfilled]: (state, action) => {
+            state.isLoading = false;
+            state.isLoggedIn = true;
+            state.status = action.payload.message;
+            state.token = action.payload.token;
+            state.user = action.payload.user;
+        },
+        [fetchCurrentUser.rejected]: (state, action) => {
             state.isLoading = false;
             state.status = action.payload.message;
         },

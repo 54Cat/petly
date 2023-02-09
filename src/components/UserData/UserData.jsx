@@ -23,7 +23,6 @@ const UserData = () => {
     const dispatch = useDispatch();
     const userInState = useSelector(getUserInfo);
     const { avatarURL } = userInState.user;
-    console.log('avatarURL inUserData:', avatarURL);
     const ref = useRef(avatarURL);
 
     const onChange = e => {
