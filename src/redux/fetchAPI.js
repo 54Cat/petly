@@ -15,9 +15,9 @@ export async function updateUserInfo(userId, credentials) {
     return data;
 }
 
-export async function addPet(name, birthday, breed, text) {
-    const newPet = { name, birthday, breed, comments: text };
-    const { data } = await axios.post(`user/pets`, newPet);
+export async function addPet(name, birthday, breed, text, myPetsPhoto) {
+    const newPet = { name, birthday, breed, comments: text, myPetsPhoto };
+    const { data } = await axios.post(`user/pet`, newPet);
     return data;
 }
 

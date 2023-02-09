@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-export const fetchNoticesByCategory = async category => {
+export const fetchFavoriteNotices = async () => {
     const response = await axios.get(
-        `https://petly-backend-23cb.onrender.com/api/notices/${category}`
+        `https://petly-backend-23cb.onrender.com/api/notices/myFavorite`
     );
     return response.data;
 };
