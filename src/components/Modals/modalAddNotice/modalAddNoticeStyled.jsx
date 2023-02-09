@@ -3,14 +3,13 @@ import Modal from 'react-modal';
 import { Button } from 'components/Utils/Styles/basicStyle';
 
 export const CategoriesBtn = styled(Button)`
+ 
+  width:fit-content; 
   display: flex;
   flex-direction: row;
-  bottom: 16px;
-  padding: 28px 10px;
-  align-items: flex-start;
-  padding: 10px 28px;
-  border: 2px solid #F59256;
- border-radius: 40px;
+  
+  
+ 
 `;
 
 
@@ -59,6 +58,7 @@ export const Text = styled.p`
 `;
 
 export const CategorierList = styled.ul`
+
 display: flex;
 flex-wrap: wrap;
 row-gap: 32px;
@@ -95,15 +95,16 @@ export const FormInput = styled.input`
     }
 `;
 
-export const SubmitBtn = styled.button`
-  display: block;
+export const SubmitBtn = styled(Button)` 
   margin-left: auto;
   margin-right: auto;
   margin-top: 40px;
   width: 180px; 
+  height: 44px;
+/* padding: 8px;
   background-color: #F59256;
   border-radius: 40px;
-  color: white;
+  color: white; */
 `;
 
 export const ModalStyle = styled(Modal)`

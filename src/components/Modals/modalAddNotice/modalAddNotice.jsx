@@ -110,59 +110,59 @@ export const ModalAddNotice = () => {
                       dolor sit amet, consectetur
                   </Text>
           <CategorierList>
+            <CategoriesBtn type="submit">In good hands</CategoriesBtn>
             <CategoriesBtn type="submit">lost/found</CategoriesBtn>
-                  <CategoriesBtn type="submit">In good hands</CategoriesBtn>
-                  <CategoriesBtn type="submit">sell</CategoriesBtn>
-                  </CategorierList>
+            <CategoriesBtn type="submit">sell</CategoriesBtn>
+          </CategorierList>
 
-                  <AddNoticeForm onSubmit={handleSubmit}>
-                      <FormLabel htmlFor="titleInputId">
-                          Tittle of ad <span>*</span>
-                      </FormLabel>
-                      <FormInput
-                          type="text"
-                          name="inputTitle"
-                          placeholder="Type name"
-                          value={title}
-                          onChange={handleChange}
-                          id={titleInputId}
-            />
-            <FormLabel htmlFor="namePetInputId">Name pet</FormLabel>
-                      <FormInput
-                          type="text"
-                          name="inputNamePet"
-                          placeholder="Type name pet"
-                          value={namePet}
-                          onChange={handleChange}
-                          id={namePetInputId}
-                      />
+          <AddNoticeForm onSubmit={handleSubmit}>
+              <FormLabel htmlFor="titleInputId">
+                  Tittle of ad <span>*</span>
+              </FormLabel>
+              <FormInput
+                  type="text"
+                  name="inputTitle"
+                  placeholder="Type name"
+                  value={title}
+                  onChange={handleChange}
+                  id={titleInputId}
+              />
+              <FormLabel htmlFor="namePetInputId">Name pet</FormLabel>
+              <FormInput
+                  type="text"
+                  name="inputNamePet"
+                  placeholder="Type name pet"
+                  value={namePet}
+                  onChange={handleChange}
+                  id={namePetInputId}
+              />
 
-                      <FormLabel htmlFor="birthPetInputId">
-                          Date of birth
-                      </FormLabel>
-                      <FormInput
-                          type="data"
-                          name="inputBirth"
-                          placeholder="Type date of birth"
-                          value={birth}
-                          onChange={handleChange}
-                          id={birthPetInputId}
-                      />
+              <FormLabel htmlFor="birthPetInputId">
+                  Date of birth
+              </FormLabel>
+              <FormInput
+                  type="data"
+                  name="inputBirth"
+                  placeholder="Type date of birth"
+                  value={birth}
+                  onChange={handleChange}
+                  id={birthPetInputId}
+              />
 
-                      <FormLabel htmlFor="breedInputId">Breed</FormLabel>
-                      <FormInput
-                          type="text"
-                          name="inputBreed"
-                          placeholder="Type breed"
-                          value={breed}
-                          onChange={handleChange}
-                          id={breedInputId}
-                      />
-                      <SubmitBtn onClick={closeModal} type="submit">
-                          Cancel
-                      </SubmitBtn>
-                      <SubmitBtn type="submit">Next</SubmitBtn>
-                  </AddNoticeForm>
+              <FormLabel htmlFor="breedInputId">Breed</FormLabel>
+              <FormInput
+                  type="text"
+                  name="inputBreed"
+                  placeholder="Type breed"
+                  value={breed}
+                  onChange={handleChange}
+                  id={breedInputId}
+              />
+              <SubmitBtn onClick={closeModal} type="submit">
+                  Cancel
+              </SubmitBtn>
+              <SubmitBtn type="submit">Next</SubmitBtn>
+          </AddNoticeForm>
               
           </ModalStyle>
       </AddNoticeWrapper>
