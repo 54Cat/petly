@@ -53,26 +53,27 @@ export const loginUser = createAsyncThunk(
     }
 );
 
-export const fetchCurrentUser = createAsyncThunk(
-  "auth/refresh",
-  async (_, thunkAPI) => {
-    const state = thunkAPI.getState();
-    const refreshToken = state.auth.token;
+// export const fetchCurrentUser = createAsyncThunk(
+//   "auth/refresh",
+//   async (_, thunkAPI) => {
+//     const state = thunkAPI.getState();
+//     const persistedToken = state.auth.token;
     
-    if (token === null) {
-      return thunkAPI.rejectWithValue();
-    }
+//     if (persistedToken === null) {
+//       return thunkAPI.rejectWithValue();
+//     }
     
-    try {
-      token.set(refreshToken);        
-      const { data } = await axios.get("/user");
-      return data;
-    } catch (error) {
-      token.unset();
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
+//     try {
+//       token.set(persistedToken);
+//         const { data } = await axios.get("/user");
+//         console.log()
+//       return data;
+//     } catch (error) {
+//       token.unset();
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
+//   }
+// );
 
 const initialState = {
     user: null,
@@ -117,21 +118,18 @@ export const authSlice = createSlice({
             state.status = action.payload.message;
         },
         
-
-        [fetchCurrentUser.pending]: state => {
-            state.isLoading = true;
-        },
-        [fetchCurrentUser.fulfilled]: (state, action) => {
-            state.isLoading = false;
-            state.isLoggedIn = true;
-            state.status = action.payload.message;
-            state.token = action.payload.token;
-            state.user = action.payload.user;
-        },
-        [fetchCurrentUser.rejected]: (state, action) => {
-            state.isLoading = false;
-            state.status = action.payload.message;
-        },
+        // [fetchCurrentUser.pending](state) {
+        //     state.isLoadingCurrentUser = true;
+        // },
+        // [fetchCurrentUser.fulfilled](state, action) {
+        //     state.isLoadingCurrentUser = false;
+        //     state.user = action.payload;
+        //     state.isLoggedIn = true;
+        // },
+        // [fetchCurrentUser.rejected](state, action) {
+        //     state.isLoadingCurrentUser = false;
+        //     state.error = action.payload;
+        // },
 
         [loggedOut.pending](state) {
             state.isLoading = true;
