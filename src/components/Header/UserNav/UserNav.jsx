@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { selectUser } from '../../redux/auth/authSelectors';
+import { selectUser } from '../../../redux/auth/authSelectors';
 import { AccountButton, CircleIcon } from './UserNav.styled';
 
 export const UserNav = ({ onClose }) => {

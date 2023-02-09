@@ -7,7 +7,6 @@ font-weight: 700;
 font-size: 32px;
 line-height: 1.5;
 letter-spacing: 0.07em;
-margin-right: 80px;
 color: #111111;
 `;
 

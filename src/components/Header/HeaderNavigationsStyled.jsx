@@ -5,9 +5,13 @@ export const NavContainer = styled.div`
   display: flex;
 `;
 
+export const NavList = styled.ul`
+  display: flex;
+`;
+
 export const NavItem = styled.li`
 margin-right: 80px; 
-&:not::last-child {
+&:last-child {
         margin-right: 0;
     }
 `;

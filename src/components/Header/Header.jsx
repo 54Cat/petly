@@ -1,15 +1,18 @@
-import { HeaderContainer, NavDesktop } from './HeaderStyled';
+import { HeaderContainer, WrapperDesktop, NavDesktop } from './HeaderStyled';
 import Logo from './HeaderLogo';
 import Navigations from './HeaderNavigations';
-import AuthNav from '../AuthNav/AuthNav';
+import AuthNav from './AuthNav/AuthNav';
 // import MenuBurger from './MenuMobile/MenuBurger';
 
 const Header = () => {
   return (
     <HeaderContainer>
-      <Logo />
+      
       <NavDesktop>
-        <Navigations />
+        <WrapperDesktop>
+          <Logo />
+          <Navigations />
+        </WrapperDesktop>
         <AuthNav />
       </NavDesktop>
       
