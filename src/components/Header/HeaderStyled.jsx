@@ -5,6 +5,15 @@ export const HeaderContainer = styled.header`
     align-items: center;
     padding: 20px 16px;
 `
+
+export const NavMobile = styled.div`
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 80px;
+    justify-content: space-between;
+`
+
 export const WrapperDesktop = styled.div`
     display: flex;
     align-items: center;

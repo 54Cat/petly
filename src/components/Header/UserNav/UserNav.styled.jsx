@@ -2,6 +2,22 @@ import styled from 'styled-components';
 import { NavLink as Link } from 'react-router-dom';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
+export const UserNavContainer = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 0 60px 0;
+    
+    @media (min-width: 768px) {
+	// background-color: #147;
+    
+    }
+        
+    @media (min-width: 1280px) {
+        
+    }
+`;
+
 export const AccountButton = styled(Link)`
     padding: 8px 37px;
     display: flex;

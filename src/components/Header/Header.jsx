@@ -1,22 +1,26 @@
-import { HeaderContainer, WrapperDesktop, NavDesktop } from './HeaderStyled';
-import Logo from './HeaderLogo';
-import Navigations from './HeaderNavigations';
-import AuthNav from './AuthNav/AuthNav';
-// import MenuBurger from './MenuMobile/MenuBurger';
+import { HeaderContainer } from './HeaderStyled';
+// import Navigations from './HeaderNavigations';
+// import AuthNav from './AuthNav/AuthNav';
+import MenuMobile from './MenuMobile/MenuMobile';
+// import MenuTablet from './MenuMobile/MenuTablet';
+// import MenuDesktop from './MenuMobile/MenuDesktop';
 
 const Header = () => {
   return (
     <HeaderContainer>
+
+      <MenuMobile/>
+      {/* <MenuTablet/> */}
+      {/* <MenuDesktop/> */}
       
-      <NavDesktop>
+      {/* <NavDesktop>
         <WrapperDesktop>
           <Logo />
           <Navigations />
         </WrapperDesktop>
         <AuthNav />
-      </NavDesktop>
-      
-      {/* <MenuBurger /> */}
+      </NavDesktop> */}
+
   </ HeaderContainer>
   );
 };
