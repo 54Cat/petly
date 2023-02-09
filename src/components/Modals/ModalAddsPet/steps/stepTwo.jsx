@@ -11,7 +11,7 @@ const validationSchema = yup.object({
 
 
 const StepTwo = ({ data, prev, onClose }) => {
-    const [file, setFile] = useState(null);
+    
     const FormError = ({ name }) => {
         return (
             <ErrorMessage
@@ -21,24 +21,24 @@ const StepTwo = ({ data, prev, onClose }) => {
     )
     }
     
+    //FormData
+    const [file, setFile] = useState(null);
     const handleChange = (event) => {
         console.log(event.target.files);
         setFile(event.target.files[0]);
     }
      
+   
     const handleSubmit = (values, { resetForm }) => {
         const formData = new FormData();
-
         formData.append("myPetsPhoto", file);
         formData.append("name", values.name);
         formData.append("birthday", values.birthday);
         formData.append("breed", values.breed);
         formData.append("comments", values.comments);
-        console.log(values.comments);
-
-        resetForm();
-        onClose();
         
+        resetForm();
+        onClose();    
     }
     
     return (
