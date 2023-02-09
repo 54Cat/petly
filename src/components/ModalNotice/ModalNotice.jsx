@@ -1,5 +1,10 @@
 import { useState } from 'react';
-import { ModalNoticeStyled, CloseBtn, StyledIcon } from './ModalNotice.styled';
+import {
+    ModalNoticeStyled,
+    CloseBtn,
+    StyledIcon,
+    OpenBtn,
+} from './ModalNotice.styled';
 import NoticeContent from './ModalNoticeContent';
 
 const ModalNotice = id => {
@@ -15,7 +20,7 @@ const ModalNotice = id => {
 
     return (
         <div>
-            <button onClick={openModal}>Open Modal</button>
+            <OpenBtn onClick={openModal}>Learn more</OpenBtn>
             <ModalNoticeStyled
                 isOpen={modalIsOpen}
                 onRequestClose={closeModal}
@@ -30,7 +35,7 @@ const ModalNotice = id => {
                 <CloseBtn onClick={closeModal}>
                     <StyledIcon />
                 </CloseBtn>
-                <NoticeContent id={id}></NoticeContent>
+                <NoticeContent id={id} closeModal={closeModal}></NoticeContent>
             </ModalNoticeStyled>
         </div>
     );

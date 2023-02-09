@@ -1,8 +1,9 @@
-// import { getNotice } from './fetchSingleNotice';
-// import { useParams } from 'react-router-dom';
-// import { useEffect, useState } from 'react';
-// import { useSelector } from 'react-redux';
-// import { getAuth } from 'redux/selectors';
+import Notiflix from 'notiflix';
+
+import { getNotice, getOwner, changeFavorite } from './fetchSingleNotice';
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { getAuth } from 'redux/selectors';
 import {
     NoticeCard,
     PetInfo,
@@ -24,43 +25,64 @@ import {
     ActionBtn,
 } from './ModalNoticeContent.styled';
 
-const NoticeContent = id => {
-    // const [error, setError] = useState(null);
-    // const [notice, setNotice] = useState(null);
-    // const { noticeId } = useParams();
+const NoticeContent = (id, closeModal) => {
+    const [error, setError] = useState(null);
+    const [notice, setNotice] = useState('');
+    const [creator, setCreator] = useState(null);
+    const [favorite, setFavorite] = useState();
 
-    // useEffect(() => {
-    //     getNotice(noticeId, setNotice, setError);
-    // }, [noticeId]);
+    useEffect(() => {
+        getNotice(id, setNotice, setError);
+    }, [id]);
 
-    // const { isLoggedIn, user } = useSelector(getAuth);
+    useEffect(() => {
+        getOwner(notice.owner, setCreator, setError);
+    }, [notice.owner]);
 
-    const isLoggedIm = true;
+    const { isLoggedIn, user } = useSelector(getAuth);
 
-    const creator = {
-        email: 'user@mail.com',
-        phone: '+380971234567',
+    const onBtnChangeFav = () => {
+        if (!isLoggedIn) {
+            Notiflix.Notify.failure('Please, login');
+            return;
+        }
+        changeFavorite(id, setFavorite, setError).then(
+            Notiflix.Notify.success(favorite)
+        );
     };
 
-    const notice = {
-        title: 'Сute dog looking for a home',
-        name: 'Matto',
-        birthday: '12/02/2023',
-        breed: 'dog',
-        location: 'Lviv, Lviv',
-        comments:
-            'Comments:  Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur  Lorem ipsum dolor sit amet, consectetur Lorem',
-        price: '500',
-        sex: 'male',
-        category: 'cell',
-        owner: '25',
-        imageURL:
-            'https://sobakovod.club/uploads/posts/2021-11/1638064014_3-sobakovod-club-p-sobaki-morda-dovolna-3.jpg',
+    const onBtnDelete = () => {
+        if (user.id !== notice.owner) {
+            Notiflix.Notify.failure('You can`t do, it`s not your own notice');
+            return;
+        }
+        closeModal();
     };
+
+    // const creator = {
+    //     email: 'user@mail.com',
+    //     phone: '+380971234567',
+    // };
+
+    // const notice = {
+    //     title: 'Сute dog looking for a home',
+    //     name: 'Matto',
+    //     birthday: '12/02/2023',
+    //     breed: 'dog',
+    //     location: 'Lviv, Lviv',
+    //     comments:
+    //         'Comments:  Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur  Lorem ipsum dolor sit amet, consectetur Lorem',
+    //     price: '500',
+    //     sex: 'male',
+    //     category: 'cell',
+    //     owner: '25',
+    //     imageURL:
+    //         'https://sobakovod.club/uploads/posts/2021-11/1638064014_3-sobakovod-club-p-sobaki-morda-dovolna-3.jpg',
+    // };
 
     return (
         <>
-            {/* {error && <h1>Все погано!</h1>} */}
+            {error && <h1>Все погано!</h1>}
             <NoticeCard>
                 <PetInfo>
                     <ImgWrapper>
@@ -136,13 +158,11 @@ const NoticeContent = id => {
                     {notice.comments}
                 </Comments>
                 <Buttons>
-                    {/* {isLoggedIn &&
-                        (user.id === notice.owner)(
-                            <ActionBtn>Delete notice</ActionBtn>
-                        )} */}
-                    {isLoggedIm && <ActionBtn>Delete</ActionBtn>}
+                    {isLoggedIn && (
+                        <ActionBtn onClick={onBtnDelete}>Delete</ActionBtn>
+                    )}
                     <ActionBtn>Contact</ActionBtn>
-                    <ActionBtn>Add to </ActionBtn>
+                    <ActionBtn onClick={onBtnChangeFav}>Add to </ActionBtn>
                 </Buttons>
             </NoticeCard>
         </>

@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import Modal from 'react-modal';
+import { Button } from 'components/Utils/Styles/basicStyle';
 import CloseIcon from '@mui/icons-material/Close';
 
 export const ModalNoticeStyled = styled(Modal)`
@@ -18,6 +19,11 @@ export const ModalNoticeStyled = styled(Modal)`
     @media (min-width: 768px) {
         width: 704px;
     }
+`;
+
+export const OpenBtn = styled(Button)`
+    line-height: 22px;
+    letter-spacing: 0.04em;
 `;
 
 export const CloseBtn = styled.button`
