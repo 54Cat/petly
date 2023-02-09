@@ -6,10 +6,11 @@ export const Wrapper = styled.div`
     height: 100%;
     top: 0;
     left: 0;
-    z-index: 99999;
-    
-	background-color: #FDF7F2;
 
+    &.active {
+        z-index: 99999;
+	    background-color: #FDF7F2;
+    }
 `;
 
 export const WrapperTop = styled.div`
@@ -28,8 +29,13 @@ export const WrapperBtn = styled.div`
 export const WrapperNav = styled.div`
     display: flex;
     flex-direction: column;
-    transfotm: translateX(-100%);
+    
+    transform: translateX(100%);
+    transition: all 0.3s;
 
+    &.active {
+        transform: translateX(0);
+    }
 `;
 
 export const Btn = styled.button`

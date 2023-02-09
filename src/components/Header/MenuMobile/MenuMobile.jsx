@@ -14,7 +14,6 @@ const MenuMobile = () => {
 	const isLoggedIn = authSelector.isLoggedIn;
   
 	const [menuActive, setMenuActive] = useState(false);
-	// console.log("isOpen", isOpen)
 
 	const toggleBurger = () => {
 		setMenuActive(menuActive => !menuActive);
@@ -37,7 +36,7 @@ const MenuMobile = () => {
 	}, [menuActive]);
 
 	return (
-		<Wrapper>
+		<Wrapper className={menuActive ? 'active' : ''} >
 			<WrapperTop>
 				<Logo />
 
@@ -72,14 +71,15 @@ const MenuMobile = () => {
 				</WrapperBtn> 
 			</WrapperTop>
 
-			<WrapperNav  >
-				{isLoggedIn ? (
-					<UserNav />
-				) : (
-					<AuthNav />
-				)}
-				<Navigations />
-			</WrapperNav>
+				<WrapperNav
+					className={menuActive ? 'active' : ''} >
+					{isLoggedIn ? (
+						<UserNav />
+					) : (
+						<AuthNav />
+					)}
+					<Navigations />
+				</WrapperNav>
 
 		</Wrapper>
 	);

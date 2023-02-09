@@ -5,7 +5,7 @@ export const NavContainer = styled.div`
   display: flex;
   justify-content: center;
   
-	background-color: #095;
+	// background-color: #095;
   
   @media (min-width: 768px) {
   }
