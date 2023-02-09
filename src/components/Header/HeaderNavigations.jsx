@@ -3,7 +3,8 @@ import { NavContainer, NavList, NavItem, HeaderNavLink } from './HeaderNavigatio
   const Navigations = ({active, setActive}) => {
     return ( 
         
-      <NavContainer className = { active? 'active': '' }>
+      <NavContainer className={active ? 'active' : ''} onClick={() => setActive(false)}>
+      
         <NavList>
           <NavItem>
             <HeaderNavLink

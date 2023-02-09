@@ -72,11 +72,11 @@ const MenuMobile = () => {
 			<WrapperNav
 				className={menuActive ? 'active' : ''} >
 				{isLoggedIn ? (
-					<UserNav />
+					<UserNav  active={menuActive} setActive={setMenuActive} />
 				) : (
-					<AuthNav />
+					<AuthNav  active={menuActive} setActive={setMenuActive} />
 				)}
-				<Navigations />
+				<Navigations active={menuActive} setActive={setMenuActive} />
 			</WrapperNav>
 
 		</Wrapper>

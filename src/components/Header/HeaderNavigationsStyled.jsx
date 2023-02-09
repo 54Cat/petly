@@ -20,6 +20,10 @@ export const NavContainer = styled.div`
       
   @media (min-width: 1280px) {
     
+    transform: translateX(0);
+    align-items: center;
+    padding-top: 0;
+    
   }
 `;
 
@@ -27,6 +31,14 @@ export const NavList = styled.ul`
   display: flex;
   flex-direction: column;
   align-items: center;
+  
+  @media (min-width: 1280px) {
+    display: flex;
+
+    flex-direction: row;
+    align-items: center;
+  }
+
 `;
 
 export const NavItem = styled.li`
@@ -44,6 +56,7 @@ margin-bottom: 40px;
 }
 
 @media (min-width: 1280px) {
+  margin-bottom: 0;
   margin-right: 80px; 
 
   &:last-child {

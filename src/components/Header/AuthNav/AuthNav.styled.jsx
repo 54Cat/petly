@@ -8,7 +8,6 @@ export const AuthNavContainer = styled.div`
     padding: 30px 0 60px 0;
     
     @media (min-width: 768px) {
-	// background-color: #147;
         padding: 0;
     }
         
@@ -18,18 +17,15 @@ export const AuthNavContainer = styled.div`
 `;
 
 export const AuthNavItem = styled.li`
-margin-right: 20px; 
+    margin-right: 12px;
 
-&:last-child {
-  margin-right: 0;
-}
-@media (min-width: 768px) {
-    
-  }
+    &:last-child {
+    margin-right: 0;
+    }
       
-  @media (min-width: 1280px) {
-    
-  }
+    @media (min-width: 1280px) {
+        margin-right: 20px; 
+    }
 `;
 
 export const NavButtonLink = styled(Link)`

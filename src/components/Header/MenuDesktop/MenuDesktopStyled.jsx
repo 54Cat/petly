@@ -1,7 +1,8 @@
 import styled from '@emotion/styled';
 
 export const Wrapper = styled.div`
-	position: fixed;
+@media (max-width: 1279px) {	
+    position: fixed;
     width: 100%;
     height: 100%;
     top: 0;
@@ -10,6 +11,14 @@ export const Wrapper = styled.div`
     &.active {
         z-index: 99999;
 	    background-color: #FDF7F2;
+    }
+}
+
+    @media (min-width: 1280px) {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
 `;
 
@@ -23,6 +32,9 @@ export const WrapperTop = styled.div`
         padding: 24px 32px;
     }
 
+    @media (min-width: 1280px) {
+        
+    }
 `;
 
 export const Container = styled.div`
@@ -48,12 +60,20 @@ export const WrapperNav = styled.div`
     
     @media (min-width: 768px) {
         padding: 0;
-        
         transform: translateX(0);
 
         &.active {
             display: none;
         }
+    }
+
+    @media (min-width: 1280px) {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 80px;
+        
     }
 `;
 
