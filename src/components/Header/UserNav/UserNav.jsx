@@ -4,11 +4,14 @@ import { UserNavContainer, AccountButton, CircleIcon } from './UserNav.styled';
 
 export const UserNav = ({ active, setActive }) => {
     const user = useSelector(getUserInfo);
-    console.log("UserNav user", user)
+    console.log('UserNav user', user);
     const { name, avatarURL } = user;
 
     return (
-        <UserNavContainer  className={active ? 'active' : ''} onClick={() => setActive(false)}>
+        <UserNavContainer
+            className={active ? 'active' : ''}
+            onClick={() => setActive(false)}
+        >
             <AccountButton to="/user" size="164px">
                 <div>
                     {avatarURL ? (
