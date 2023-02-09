@@ -1,0 +1,24 @@
+import { useSelector } from 'react-redux';
+import { getUserInfo } from 'redux/selectors';
+import { UserNavContainer, AccountButton, CircleIcon } from './UserNav.styled';
+
+export const UserNav = ({ active, setActive }) => {
+    const user = useSelector(getUserInfo);
+    console.log("UserNav user", user)
+    const { name, avatarURL } = user;
+
+    return (
+        <UserNavContainer  className={active ? 'active' : ''} onClick={() => setActive(false)}>
+            <AccountButton to="/user" size="164px">
+                <div>
+                    {avatarURL ? (
+                        <img src={avatarURL} alt="Account" />
+                    ) : (
+                        <CircleIcon />
+                    )}
+                </div>
+                {name ? name : 'Account'}
+            </AccountButton>
+        </UserNavContainer>
+    );
+};

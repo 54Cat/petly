@@ -23,6 +23,7 @@ background: #FFFFFF;
 border: 2px solid #F59256;
 border-radius: 40px;
 padding: 8px 28px;
+cursor: pointer;
 @media (min-width: 768px) {
        font-size: 20px;
        padding: 10px 28px;

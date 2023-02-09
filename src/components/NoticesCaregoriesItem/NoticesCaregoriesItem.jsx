@@ -35,8 +35,6 @@ export const NoticesCategoriesItem = ({ notice, favorite }) => {
     // const addToFavorite = async() => 
     //     authSelector.isLoggedIn ? updateFavoriteNotice :
     //         Notify.failure('Oops... please login or register')
-        
-    
 
     const date1 = dayjs()
     const date2 = dayjs(birthday)
