@@ -8,6 +8,7 @@ const AuthNav = ({active, setActive}) => {
                 <NavButtonLink
                     to="/login"
                     className={({ isActive }) => (isActive ? 'active' : '')}
+                    onClick={() => setActive(false)}
                 >
                     Login
                 </NavButtonLink>
@@ -16,6 +17,7 @@ const AuthNav = ({active, setActive}) => {
                 <NavButtonLink
                     to="/register"
                     className={({ isActive }) => (isActive ? 'active' : '')}
+                    onClick={() => setActive(false)}
                 >
                     Registration
                 </NavButtonLink>

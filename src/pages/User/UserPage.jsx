@@ -4,6 +4,7 @@ import { getUserOperation } from 'redux/User/userOperations';
 import UserData from 'components/UserData/UserData';
 import PetsData from 'components/PetsData/PetsData';
 import { Container } from './UserPage.styled';
+// import { useEffect } from 'react';
 
 const UserPage = () => {
     const dispatch = useDispatch();
@@ -11,8 +12,7 @@ const UserPage = () => {
     dispatch(getUserOperation());
 
     // useEffect(() => {
-    //     console.log('useEffect start us');
-    //     dispatch(getUserOperation());
+	// 	dispatch(getUserOperation());
     // }, [dispatch]);
 
     return (
