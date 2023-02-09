@@ -30,7 +30,7 @@ const App = () => {
                         <Route path="friends" element={<FriendsPage />} />
                         <Route path="notices" element={<NoticesPage />}>
                             <Route
-                                path=":categoryName"
+                                path=":category"
                                 element={<NoticesCategoriesList />}
                             />
                         </Route>

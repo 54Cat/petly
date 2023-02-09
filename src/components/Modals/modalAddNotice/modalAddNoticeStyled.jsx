@@ -6,8 +6,7 @@ export const CategoriesBtn = styled(Button)`
  
   width:fit-content; 
   display: flex;
-  flex-direction: row;
-  
+  flex-direction: row; 
   
  
 `;
@@ -70,20 +69,18 @@ margin-top: 30px;
     }
 `;
 
-
-
 export const FormLabel = styled.label`
+  margin-top: 38px;
   margin-bottom: 12px;  
   font-weight: 500px;
   font-size: 24px;
   line-height: 1.08;   
 `;
 
-
 export const FormInput = styled.input`
   display:block;
   margin: 0;
-  padding: 10px 42px;
+  padding: 16px 10px;
   font: inherit;
   font-size: 18px;
   outline: none;
@@ -95,29 +92,28 @@ export const FormInput = styled.input`
     }
 `;
 
+export const SubmitBtnList = styled.div`  
+  display: flex;  
+`;
+
 export const SubmitBtn = styled(Button)` 
   margin-left: auto;
   margin-right: auto;
   margin-top: 40px;
   width: 180px; 
   height: 44px;
-/* padding: 8px;
-  background-color: #F59256;
-  border-radius: 40px;
-  color: white; */
 `;
 
 export const ModalStyle = styled(Modal)`
   position: absolute;
-  width: 280px;
-  height: 813px;
+  width: 280px; 
   top: 50%;
   left: 50%;
   right: auto;
   bottom: auto;
   padding: 20px;
   border-radius: 20px;
-  background-color: red;
+  background-color: #FFFFFF;
   margin-right: -50%;
   transform: translate(-50%, -50%);
   @media (min-width: 768px) {

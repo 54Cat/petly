@@ -5,17 +5,18 @@ import Modal from 'react-modal';
 import CloseIcon from '@mui/icons-material/Close';
 
 import {
-    AddNoticeWrapper,
-    CloseBtn,
-    AddNoticeTitle,
+  AddNoticeWrapper,
+  CloseBtn,
+  AddNoticeTitle,
   Text,
   ModalStyle,
-    CategorierList,
-    CategoriesBtn,
-    AddNoticeForm,
-    FormInput,
-    FormLabel,
-    SubmitBtn,
+  CategorierList,
+  CategoriesBtn,
+  AddNoticeForm,
+  FormInput,
+  FormLabel,
+  SubmitBtnList,
+  SubmitBtn,
 } from './modalAddNoticeStyled';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 
@@ -91,10 +92,8 @@ export const ModalAddNotice = () => {
             isOpen={modalIsOpen}
             // onAfterOpen={afterOpenModal}
           onRequestClose={closeModal}
-           center styles={{ overlay: { background: "#FFFF00" } }}
-          
-            contentLabel="Modal add notice"
-            // style={customStyles}
+          style={{ overlay: { background: 'rgba(17, 17, 17, 0.6' } }}
+          contentLabel="Modal add notice"          
           >              
             <CloseBtn
                 type="submit"
@@ -158,10 +157,12 @@ export const ModalAddNotice = () => {
                   onChange={handleChange}
                   id={breedInputId}
               />
+            <SubmitBtnList>
               <SubmitBtn onClick={closeModal} type="submit">
                   Cancel
               </SubmitBtn>
               <SubmitBtn type="submit">Next</SubmitBtn>
+            </SubmitBtnList>
           </AddNoticeForm>
               
           </ModalStyle>

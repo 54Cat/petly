@@ -9,6 +9,7 @@ import NewsCard from 'components/NewsCard/NewsCard'
 import lastNews from 'data/news.json'
 import getSortedNews from 'components/Utils/helpers/getSortedNews'
 
+
 const NewsPage = () => {
     const sortedNews = getSortedNews(lastNews)
     const [filter, setFilter] = useState('')
@@ -50,7 +51,7 @@ const NewsPage = () => {
             Notiflix.Notify.failure(e.message)
         }
     };
-    
+   
 
     return <PageSection>
         <Title>News</Title>

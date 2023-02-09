@@ -1,11 +1,16 @@
 import styled from '@emotion/styled';
 import { NavLink as Link } from 'react-router-dom';
 
+export const AuthNavContainer = styled.div`
+    display: flex;
+`;
+
 export const AuthNavItem = styled.li`
     &:first-child {
         margin-right: 20px;
     }
 `;
+
 export const NavButtonLink = styled(Link)`
     display: inline-block;
     cursor: pointer;
@@ -20,15 +25,6 @@ export const NavButtonLink = styled(Link)`
     line-height: 1.35;
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
-    @media (min-width: 768px) {
-        padding: 8.5px 28px;
-        font-size: 20px;
-    }
-
-    @media (min-width: 1280px) {
-        padding: 10px 28px;
-    }
 
     &:hover {
     background-color: #f59256;
@@ -46,5 +42,14 @@ export const NavButtonLink = styled(Link)`
         color: #FFFFFF;
         transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
         transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    @media (min-width: 768px) {
+        padding: 8.5px 28px;
+        font-size: 20px;
+    }
+
+    @media (min-width: 1280px) {
+        padding: 10px 28px;
     }
 `;
