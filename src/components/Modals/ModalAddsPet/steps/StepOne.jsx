@@ -35,6 +35,7 @@ const StepOne = (props) => {
     return (
     
     <Formik
+        enctype="multipart/form-data"
         initialValues={props.data}
         onSubmit={handleSubmit}
         validationSchema={validationSchema}

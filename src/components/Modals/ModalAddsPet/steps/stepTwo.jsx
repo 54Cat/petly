@@ -1,17 +1,17 @@
 import { Formik, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import {TitleItemTwo, BtnAddFileIcon, ErrorText, AddFile, ButtonCloseModal, ButtonCloseIcon, ModalItemTwo, FlexBox, FormStyled, TitleTwo, FieldPhoto, StyledLabel, FieldTextarea, NextBtn, CancelBtn } from '../AddsPetForm/AddsPetModalStyled';
-
+import { useState } from 'react';
 
 //import AddIcon from '@mui/icons-material/Add';
-
 
 const validationSchema = yup.object({
     comments: yup.string().min(8).max(120).required(),
 })
 
-const StepTwo = ({ data, prev, onClose }) => {
 
+const StepTwo = ({ data, prev, onClose }) => {
+    const [file, setFile] = useState(null);
     const FormError = ({ name }) => {
         return (
             <ErrorMessage
@@ -21,15 +21,29 @@ const StepTwo = ({ data, prev, onClose }) => {
     )
     }
     
+    const handleChange = (event) => {
+        console.log(event.target.files);
+        setFile(event.target.files[0]);
+    }
+     
     const handleSubmit = (values, { resetForm }) => {
-        //addMyPet(values);
-        console.log(values)
+        const formData = new FormData();
+
+        formData.append("myPetsPhoto", file);
+        formData.append("name", values.name);
+        formData.append("birthday", values.birthday);
+        formData.append("breed", values.breed);
+        formData.append("comments", values.comments);
+        console.log(values.comments);
+
         resetForm();
         onClose();
+        
     }
     
     return (
         <Formik
+            enctype="multipart/form-data"
             initialValues={data}
             onSubmit={handleSubmit}
             validationSchema={validationSchema}
@@ -45,7 +59,7 @@ const StepTwo = ({ data, prev, onClose }) => {
                         
                         <AddFile htmlFor="myPetsPhoto">
                             <BtnAddFileIcon />
-                            <FieldPhoto id="myPetsPhoto" type="file" name="myPetsPhoto" />
+                            <FieldPhoto id="myPetsPhoto" type="file" onChange={handleChange} name="myPetsPhoto" />
                             <FormError name="myPetsPhoto" />
                         </AddFile>
                         
