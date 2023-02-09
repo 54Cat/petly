@@ -6,10 +6,5 @@ export default function PublicRoute() {
     const authSelector = useSelector(getAuth);
     const token = authSelector.token;
 
-    if (!token) {
-        return <Navigate to="/user" />;
-    }
-    else {
-        return <Outlet />;
-    }
+    return !token ? <Outlet /> : <Navigate to="/user" />;
 }
