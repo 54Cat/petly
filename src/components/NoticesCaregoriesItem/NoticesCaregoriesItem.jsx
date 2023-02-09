@@ -17,8 +17,10 @@ import heart from '../../data/icons/heart.svg'
 
 export const NoticesCategoriesItem = ({ notice }) => {
     const { _id, imageURL, category, title, breed, location, birthday } = notice;
-    const date = new Date();
-    const age = Math.floor((date.getTime() - birthday.getTime()) / 31536000000);
+    console.log("birthday", birthday);
+    // const today = new Date();
+    // const age = Math.floor((date.getTime() - birthday.getTime()) / 31536000000);
+    const age = 5;
 
     return    <NoticesItem key={_id}>
         <NoticesImageThumb>

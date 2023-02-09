@@ -8,7 +8,7 @@ import {UserNav} from '../UserNav/UserNav';
 import AuthNav from '../AuthNav/AuthNav';
 import { ReactComponent as Burger } from '../../../data/icons/burger.svg';
 import { ReactComponent as CloseBurger } from '../../../data/icons/closeBurger.svg';
-import { Wrapper, Container, WrapperTop, WrapperBtn, WrapperNav, Btn } from './MenuTabletStyled';
+import { Wrapper, Container, WrapperTop, WrapperBtn, WrapperNav, Btn } from '../MenuStyled';
 
 const MenuTablet = () => {
   	const authSelector = useSelector(getAuth);

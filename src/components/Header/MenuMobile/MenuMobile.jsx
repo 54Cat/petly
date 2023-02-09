@@ -8,7 +8,7 @@ import {UserNav} from '../UserNav/UserNav';
 import AuthNav from '../AuthNav/AuthNav';
 import { ReactComponent as Burger } from '../../../data/icons/burger.svg';
 import { ReactComponent as CloseBurger } from '../../../data/icons/closeBurger.svg';
-import { Wrapper, WrapperTop, WrapperBtn, WrapperNav, Btn } from './MenuMobileStyled';
+import { Wrapper, WrapperTop, WrapperBtn, WrapperNav, Btn } from '../MenuStyled';
 
 const MenuMobile = () => {
   	const authSelector = useSelector(getAuth);

@@ -5,23 +5,12 @@ import Logo from '../HeaderLogo';
 import Navigations  from '../HeaderNavigations';
 import {UserNav} from '../UserNav/UserNav';
 import AuthNav from '../AuthNav/AuthNav';
-import { Wrapper,  WrapperNav } from './MenuDesktopStyled';
+import { Wrapper,  WrapperNav } from '../MenuStyled';
 
 const MenuDesktop = () => {
   	const authSelector = useSelector(getAuth);
 	const isLoggedIn = authSelector.isLoggedIn;
-  
-
-      
-      
-    //   <NavDesktop>
-    //     <WrapperDesktop>
-    //       <Logo />
-    //       <Navigations />
-    //     </WrapperDesktop>
-    //     <AuthNav />
-    //   </NavDesktop> 
-
+   
 	return (
 		<Wrapper>
 
@@ -30,13 +19,11 @@ const MenuDesktop = () => {
 				<Navigations/>
 			</WrapperNav>
 
-			{/* <WrapperNav> */}
 			{isLoggedIn ? (
 				<UserNav />
 			) : (
 				<AuthNav />
 			)}
-			{/* </WrapperNav> */}
 					
 		</Wrapper>
 	);
