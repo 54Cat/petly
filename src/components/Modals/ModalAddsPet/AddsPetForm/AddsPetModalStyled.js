@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 //import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import CloseIcon from '@mui/icons-material/Close';
-import AddIcon from '@mui/icons-material/Add';
+import AddIcon from '@mui/icons-material/sAdd';
 import { Form, Field} from 'formik';
 
 const Overlay = styled.div`

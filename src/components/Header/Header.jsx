@@ -2,7 +2,7 @@ import { HeaderContainer, NavDesktop } from './HeaderStyled';
 import Logo from './HeaderLogo';
 import Navigations from './HeaderNavigations';
 import AuthNav from '../AuthNav/AuthNav';
-// import MenuBurger from './MenuMobile/MenuBurger';
+import MenuBurgerIcon from './MenuMobile/MenuBurgerStyled';
 
 const Header = () => {
   return (
@@ -13,7 +13,7 @@ const Header = () => {
         <AuthNav />
       </NavDesktop>
       
-      {/* <MenuBurger /> */}
+      <MenuBurgerIcon />
   </ HeaderContainer>
   );
 };
