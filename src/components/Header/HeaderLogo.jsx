@@ -1,12 +1,10 @@
 import { HeaderLogo, Span } from 'components/Header/HeaderLogoStyled';
 
-const Logo = () => {
+const Logo = ({ active, setActive }) => {
     return (
-        <>
-            <HeaderLogo to="/">
-                pe<Span>t</Span>ly
-            </HeaderLogo>
-        </>
+        <HeaderLogo to="/" onClick={() => setActive(false)}>
+            pe<Span>t</Span>ly
+        </HeaderLogo>
     );
 };
 

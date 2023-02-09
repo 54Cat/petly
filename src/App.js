@@ -1,6 +1,6 @@
 import 'react-toastify/dist/ReactToastify.css';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { lazy } from 'react';
+import { lazy, Suspense } from 'react';
 
 import { NoticesCategoriesList } from 'components/NoticesCategoriesList/NoticesCategoriesList';
 
@@ -19,30 +19,32 @@ const UserPage = lazy(() => import('./pages/User/UserPage'));
 const App = () => {
     return (
         <>
-            <Routes>
-                <Route path="/" element={<SharedLayout />}>
-                    <Route path="/" element={<HomePage />} />
+            <Suspense>
+                <Routes>
+                    <Route path="/" element={<SharedLayout />}>
+                        <Route path="/" element={<HomePage />} />
 
-                    <Route element={<PublicRoute />}>
-                        <Route path="register" element={<RegisterPage />} />
-                        <Route path="login" element={<LoginPage />} />
-                        <Route path="news" element={<NewsPage />} />
-                        <Route path="friends" element={<FriendsPage />} />
-                        <Route path="notices" element={<NoticesPage />}>
-                            <Route
-                                path=":category"
-                                element={<NoticesCategoriesList />}
-                            />
+                        <Route element={<PublicRoute />}>
+                            <Route path="register" element={<RegisterPage />} />
+                            <Route path="login" element={<LoginPage />} />
+                            <Route path="news" element={<NewsPage />} />
+                            <Route path="friends" element={<FriendsPage />} />
+                            <Route path="notices" element={<NoticesPage />}>
+                                <Route
+                                    path=":category"
+                                    element={<NoticesCategoriesList />}
+                                />
+                            </Route>
+                        </Route>
+
+                        <Route element={<PrivateRoute />}>
+                            <Route path="user" element={<UserPage />} />
                         </Route>
                     </Route>
 
-                    <Route element={<PrivateRoute />}>
-                        <Route path="user" element={<UserPage />} />
-                    </Route>
-                </Route>
-
-                <Route path="*" element={<Navigate to="/" />} />
-            </Routes>
+                    <Route path="*" element={<Navigate to="/" />} />
+                </Routes>
+            </Suspense>
         </>
     );
 };

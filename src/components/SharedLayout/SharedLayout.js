@@ -7,7 +7,7 @@ import Header from 'components/Header/Header';
 const SharedLayout = () => {
     return (
         <>
-        <Header />
+            <Header />
             <main>
                 <Suspense fallback={null}>
                     <Outlet />
