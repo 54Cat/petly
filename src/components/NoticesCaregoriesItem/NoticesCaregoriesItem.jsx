@@ -67,7 +67,7 @@ export const NoticesCategoriesItem = ({ notice, favorite }) => {
                 <NoticesCardInfoList>
                     <NoticesCardInfoItem>{breed}</NoticesCardInfoItem>
                     <NoticesCardInfoItem>{location}</NoticesCardInfoItem>
-                    {(age === 0) ? 
+                    {(age <= 0) ? 
                         <NoticesCardInfoItem>under 1 year old</NoticesCardInfoItem>:
                     <NoticesCardInfoItem>{age} year</NoticesCardInfoItem>
                     }
