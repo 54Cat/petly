@@ -17,6 +17,7 @@ const NoticesPage = lazy(() => import('pages/Notices/NoticesPage'));
 const UserPage = lazy(() => import('./pages/User/UserPage'));
 
 const App = () => {
+    
     return (
         <>
             <Suspense>
@@ -24,22 +25,27 @@ const App = () => {
                     <Route path="/" element={<SharedLayout />}>
                         <Route path="/" element={<HomePage />} />
 
-                        <Route element={<PublicRoute />}>
-                            <Route path="register" element={<RegisterPage />} />
-                            <Route path="login" element={<LoginPage />} />
-                            <Route path="news" element={<NewsPage />} />
-                            <Route path="friends" element={<FriendsPage />} />
-                            <Route path="notices" element={<NoticesPage />}>
-                                <Route
-                                    path=":category"
-                                    element={<NoticesCategoriesList />}
-                                />
-                            </Route>
+                        <Route path="register" element={<PublicRoute />}>
+                            <Route index element={<RegisterPage />} />
+                        </Route>
+                        
+                        <Route path="login" element={<PublicRoute />}>
+                            <Route index element={<LoginPage />} />
+                        </Route>
+                        
+                        <Route path="news" element={<NewsPage />} />
+                        <Route path="friends" element={<FriendsPage />} />
+                        <Route path="notices" element={<NoticesPage />}>
+                            <Route
+                                path=":category"
+                                element={<NoticesCategoriesList />}
+                            />
                         </Route>
 
-                        <Route element={<PrivateRoute />}>
-                            <Route path="user" element={<UserPage />} />
+                        <Route path="user" element={<PrivateRoute />}>
+                            <Route index element={<UserPage />} />
                         </Route>
+                        
                     </Route>
 
                     <Route path="*" element={<Navigate to="/" />} />
