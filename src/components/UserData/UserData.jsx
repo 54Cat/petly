@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 import { getUserInfo } from 'redux/selectors';
 import { useRef } from 'react';
-// import UserDataItem from './UserDataItem';
+import UserDataItem from './UserDataItem';
 import { updateUser } from 'auth/UserAuth/AuthUser';
 import { IoIosCamera } from 'react-icons/io';
 
@@ -73,7 +73,7 @@ const UserData = () => {
                     </Label>
                 </Container>
                 <div>
-                    {/* <UserDataItem /> */}
+                    <UserDataItem />
                     <UserLogout />
                 </div>
             </Wrapper>
