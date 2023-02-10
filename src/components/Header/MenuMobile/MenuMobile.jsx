@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { getAuth } from "redux/selectors";
+import { selectUser } from "redux/Auth/AuthSelectors";
 import Logo from '../HeaderLogo';
 import Navigations  from '../HeaderNavigations';
 import {UserNav} from '../UserNav/UserNav';
@@ -11,8 +11,8 @@ import { ReactComponent as CloseBurger } from '../../../data/icons/closeBurger.s
 import { Wrapper, WrapperTop, WrapperBtn, WrapperNav, Btn } from '../MenuStyled';
 
 const MenuMobile = () => {
-  	const authSelector = useSelector(getAuth);
-	const isLoggedIn = authSelector.isLoggedIn;
+	const userSelector = useSelector(selectUser);
+	const token = userSelector.token;
   
 	const [menuActive, setMenuActive] = useState(false);
 
@@ -71,7 +71,7 @@ const MenuMobile = () => {
 
 			<WrapperNav
 				className={menuActive ? 'active' : ''} >
-				{isLoggedIn ? (
+				{token ? (
 					<UserNav  active={menuActive} setActive={setMenuActive} />
 				) : (
 					<AuthNav  active={menuActive} setActive={setMenuActive} />

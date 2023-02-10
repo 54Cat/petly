@@ -1,5 +1,4 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { loggedOut } from 'auth/UserAuth/AuthUser';
 
 import axios from 'axios';
 axios.defaults.baseURL = 'https://petly-backend-23cb.onrender.com/api';
@@ -15,8 +14,7 @@ const token = {
 
 export const registerUser = createAsyncThunk(
     'auth/registerUser',
-    async ({ email, password, phone, city, name }, { rejectWithValue }) => {
-        console.log(email, password, phone, city, name);
+    async ({ email, password, phone, city, name }, { rejectWithValue, dispatch }) => {
         try {
             const { data } = await axios.post('/auth/register', {
                 email,
@@ -25,11 +23,8 @@ export const registerUser = createAsyncThunk(
                 city,
                 name,
             });
-            token.set(data.token);
-            if (data.token) {
-                window.localStorage.setItem('token', data.token);
-            }
-
+            dispatch(loginUser({ email, password }));
+            // token.set(data.token);
             return data;
         } catch (error) {
             return rejectWithValue(error);
@@ -45,7 +40,7 @@ export const loginUser = createAsyncThunk(
                 email,
                 password,
             });
-            token.set(data.token);
+            // token.set(data.token);
             return data;
         } catch (error) {
             return rejectWithValue(error);
@@ -53,25 +48,18 @@ export const loginUser = createAsyncThunk(
     }
 );
 
-export const fetchCurrentUser = createAsyncThunk(
-  "auth/refresh",
-  async (_, thunkAPI) => {
-    const state = thunkAPI.getState();
-    const refreshToken = state.auth.token;
-    
-    if (token === null) {
-      return thunkAPI.rejectWithValue();
+export const loggedOut = createAsyncThunk(
+    'auth/logout',
+    async (_, thunkApi) => {
+        try {
+            const { data } = await axios.post('/auth/logout');
+            // console.log(data);
+            token.unset();
+            return data;
+        } catch (error) {
+            return thunkApi.rejectWithValue(error.message);
+        }
     }
-    
-    try {
-      token.set(refreshToken);        
-      const { data } = await axios.get("/users");
-      return data;
-    } catch (error) {
-      token.unset();
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
 );
 
 const initialState = {
@@ -113,22 +101,6 @@ export const authSlice = createSlice({
             state.user = action.payload.user;
         },
         [loginUser.rejected]: (state, action) => {
-            state.isLoading = false;
-            state.status = action.payload.message;
-        },
-        
-
-        [fetchCurrentUser.pending]: state => {
-            state.isLoading = true;
-        },
-        [fetchCurrentUser.fulfilled]: (state, action) => {
-            state.isLoading = false;
-            state.isLoggedIn = true;
-            state.status = action.payload.message;
-            state.token = action.payload.token;
-            state.user = action.payload.user;
-        },
-        [fetchCurrentUser.rejected]: (state, action) => {
             state.isLoading = false;
             state.status = action.payload.message;
         },

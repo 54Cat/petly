@@ -35,7 +35,7 @@ const ModalNotice = id => {
                 <CloseBtn onClick={closeModal}>
                     <StyledIcon />
                 </CloseBtn>
-                <NoticeContent id={id} closeModal={closeModal}></NoticeContent>
+                <NoticeContent id={id.id}></NoticeContent>
             </ModalNoticeStyled>
         </div>
     );

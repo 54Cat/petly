@@ -102,6 +102,8 @@ export const Button = styled.button`
     transition: all 600ms ease;
     &:hover,
     &:focus {
+        border: 1px solid rgba(245, 146, 86, 0.5);
+
         background: white;
         color: #f59256;
     }

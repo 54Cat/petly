@@ -46,7 +46,6 @@ const petsSlice = createSlice({
         },
 
         [deletePetOperation.fulfilled]: (state, { payload }) => {
-            console.log('delete me! oper');
             return {
                 ...state,
                 items: [
