@@ -2,7 +2,7 @@ import { Formik, Form, ErrorMessage } from 'formik';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { loginUser } from 'redux/Auth/AuthSlice';
 import { loginValidationSchema } from '../Login/schemaValidation/SchemaValid';
 
@@ -32,9 +32,7 @@ export const Login = () => {
             resetForm();
 
             navigate('/user');
-        } catch (errors) {
-            console.log(errors);
-        }
+        } catch (errors) {}
     };
     const FormErrors = ({ name }) => {
         return (
