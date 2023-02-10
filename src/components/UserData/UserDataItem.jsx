@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getUserInfo } from 'redux/selectors';
 // import { getUserInfo } from 'redux/selectors';
-import { updateUser } from 'auth/UserAuth/AuthUser';
+import { updateUserOperation } from '../../redux/User/userOperations';
 // import onFocus from 'components/Utils/helpers/changeIcons';
 // import { IconButton } from '@mui/material';
 import { MdCreate } from 'react-icons/md';
@@ -109,7 +109,7 @@ const UserDataItem = () => {
     const submitChenges = e => {
         e.preventDefault();
         dispatch(
-            updateUser({
+            updateUserOperation({
                 _id,
                 newName,
                 newEmail,

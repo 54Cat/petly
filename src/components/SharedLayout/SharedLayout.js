@@ -1,7 +1,7 @@
 // import { MainContainer } from 'components/Utils/Styles/ContainterAllStyled';
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-import { Span, Text } from './SharedLayoutStyle';
+// import { Span, Text } from './SharedLayoutStyle';
 import Header from 'components/Header/Header';
 
 const SharedLayout = () => {
@@ -13,12 +13,12 @@ const SharedLayout = () => {
                     <Outlet />
                 </Suspense>
             </main>
-            <footer>
+            {/* <footer>
                 <Text>
                     Copyrigh<Span>t</Span> &copy; by Bes<Span>t</Span>{' '}
                     <Span>T</Span>eam{' '}
                 </Text>
-            </footer>
+            </footer> */}
         </>
     );
 };
