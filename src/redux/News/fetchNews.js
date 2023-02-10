@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-export const fetchNews = async searchKey => {
+export const fetchNews = async () => {
     const response = await axios.get(
-        `https://petly-backend-23cb.onrender.com/api/news?search=${searchKey}`
+        `https://petly-backend-23cb.onrender.com/api/news`
     );
     return response.data;
 };

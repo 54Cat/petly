@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-// import { useSelector } from 'react-redux'
 import Notiflix from 'notiflix'
 import { fetchNews } from 'redux/News/fetchNews'
 import { PageSection } from 'components/Utils/Styles/basicStyle'
@@ -7,14 +6,13 @@ import { Title } from 'components/Utils/Styles/basicStyle'
 import { SearchBar } from 'components/SearchBar/SearchBar'
 import { CardsList } from 'components/CardsList/CardsList'
 import NewsCard from 'components/NewsCard/NewsCard'
-import lastNews from 'data/news.json'
 import getSortedNews from 'components/Utils/helpers/getSortedNews'
 // import { Loader } from 'components/Utils/Loader/Loader';
 
 const NewsPage = () => {
-    const sortedNews = getSortedNews(lastNews)
     const [filter, setFilter] = useState('')
-    const [news, setNews] = useState(sortedNews)
+    const [news, setNews] = useState([])
+    const [sortedNews, setSortedNews] = useState([])
     // const isLoaders = useSelector(isLoading);
     
     const onFilterChange = e => {
@@ -28,12 +26,13 @@ const NewsPage = () => {
 
     const onFirstRender = async () => {
         try {
-            const results = await fetchNews('pets');
+            const results = await fetchNews();
             if (results.length === 0) {
-                Notiflix.Notify.info(`Please search news.`)
+                Notiflix.Notify.info(`We don't have any news!`)
                 return
             }
             setNews(results);
+            setSortedNews(getSortedNews(results));
         } catch (e) {
             Notiflix.Notify.failure(e.message)
         }
@@ -41,25 +40,31 @@ const NewsPage = () => {
 
     const handleSubmit = async e => {
         e.preventDefault();
-        setNews(sortedNews);
-        try {
-            const results = await fetchNews(filter);
-            if (results.length === 0) {
-                Notiflix.Notify.failure(`No news found for the keyword "${filter}".`)
-                return
+        const newsByFilter = news.filter(oneNew => {
+            let areSimilarWords = false;
+            
+            for (const word of filter.trim().split(' ')) {
+                if (oneNew.title.toLowerCase().includes(word.toLowerCase())) {
+                    areSimilarWords = true;
+                    break
+                }
             }
-            Notiflix.Notify.success(`News found`)
-            setNews(results);
-        } catch (e) {
-            Notiflix.Notify.failure(e.message)
+            
+            return areSimilarWords;
+        })
+        if (newsByFilter.length === 0) {
+            Notiflix.Notify.failure('These news not found!')
         }
+        const sortedNews = getSortedNews(newsByFilter)
+        setSortedNews(sortedNews);
+        
     };
 
     return <PageSection>
         <Title>News</Title>
         <SearchBar handleSubmit={handleSubmit} onFilterChange={onFilterChange} filter={filter} />
 
-        <CardsList cardsArray={news} CardsItem={NewsCard} />
+        <CardsList cardsArray={sortedNews} CardsItem={NewsCard} />
         
         {/* {isLoaders ? <Loader /> : <CardsList cardsArray={news} CardsItem={NewsCard} />} */}
         
