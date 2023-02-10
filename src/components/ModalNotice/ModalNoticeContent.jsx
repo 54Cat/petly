@@ -1,8 +1,9 @@
 import Notiflix from 'notiflix';
 
-import { getNotice, getOwner, changeFavorite } from './fetchSingleNotice';
+import { getNotice, changeFavorite } from './fetchSingleNotice';
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { deleteNotice } from 'redux/Notices/noticesOperations';
 import { getAuth } from 'redux/selectors';
 import {
     NoticeCard,
@@ -25,19 +26,17 @@ import {
     ActionBtn,
 } from './ModalNoticeContent.styled';
 
-const NoticeContent = (id, closeModal) => {
+import * as dayjs from 'dayjs';
+
+const NoticeContent = id => {
     const [error, setError] = useState(null);
-    const [notice, setNotice] = useState('');
-    const [creator, setCreator] = useState(null);
-    const [favorite, setFavorite] = useState();
+    const [notice, setNotice] = useState({ owner: { _id: '' } });
+
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        getNotice(id, setNotice, setError);
+        getNotice(id.id, setNotice, setError);
     }, [id]);
-
-    useEffect(() => {
-        getOwner(notice.owner, setCreator, setError);
-    }, [notice.owner]);
 
     const { isLoggedIn, user } = useSelector(getAuth);
 
@@ -46,39 +45,27 @@ const NoticeContent = (id, closeModal) => {
             Notiflix.Notify.failure('Please, login');
             return;
         }
-        changeFavorite(id, setFavorite, setError).then(
-            Notiflix.Notify.success(favorite)
+        changeFavorite(id.id, setError).then(value =>
+            Notiflix.Notify.success(value)
         );
     };
 
+    const date = dayjs(notice.birthday).format('DD MMM, YYYY');
+
     const onBtnDelete = () => {
-        if (user.id !== notice.owner) {
-            Notiflix.Notify.failure('You can`t do, it`s not your own notice');
+        if (user.id !== notice.owner._id) {
+            Notiflix.Notify.failure(
+                'You can not do it, it`s not your own notice'
+            );
             return;
         }
-        closeModal();
+
+        dispatch(deleteNotice(id.id));
     };
 
-    // const creator = {
-    //     email: 'user@mail.com',
-    //     phone: '+380971234567',
-    // };
-
-    // const notice = {
-    //     title: 'Сute dog looking for a home',
-    //     name: 'Matto',
-    //     birthday: '12/02/2023',
-    //     breed: 'dog',
-    //     location: 'Lviv, Lviv',
-    //     comments:
-    //         'Comments:  Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur  Lorem ipsum dolor sit amet, consectetur Lorem',
-    //     price: '500',
-    //     sex: 'male',
-    //     category: 'cell',
-    //     owner: '25',
-    //     imageURL:
-    //         'https://sobakovod.club/uploads/posts/2021-11/1638064014_3-sobakovod-club-p-sobaki-morda-dovolna-3.jpg',
-    // };
+    const onBtnRedirect = () => {
+        window.location = `tel:${notice.phone}`;
+    };
 
     return (
         <>
@@ -127,7 +114,7 @@ const NoticeContent = (id, closeModal) => {
                                     <ValueText>{notice.name}</ValueText>
                                 </DataItem>
                                 <DataItem>
-                                    <ValueText>{notice.birthday}</ValueText>
+                                    <ValueText>{date}</ValueText>
                                 </DataItem>
                                 <DataItem>
                                     <ValueText>{notice.breed}</ValueText>
@@ -139,10 +126,10 @@ const NoticeContent = (id, closeModal) => {
                                     <ValueText>{notice.sex}</ValueText>
                                 </DataItem>
                                 <DataItem>
-                                    <ValueText>{creator.email}</ValueText>
+                                    <ValueText>{notice.email}</ValueText>
                                 </DataItem>
                                 <DataItem>
-                                    <ValueText>{creator.phone}</ValueText>
+                                    <ValueText>{notice.phone}</ValueText>
                                 </DataItem>
                                 {notice.category === 'cell' && (
                                     <DataItem>
@@ -161,7 +148,7 @@ const NoticeContent = (id, closeModal) => {
                     {isLoggedIn && (
                         <ActionBtn onClick={onBtnDelete}>Delete</ActionBtn>
                     )}
-                    <ActionBtn>Contact</ActionBtn>
+                    <ActionBtn onClick={onBtnRedirect}>Contact</ActionBtn>
                     <ActionBtn onClick={onBtnChangeFav}>Add to </ActionBtn>
                 </Buttons>
             </NoticeCard>
