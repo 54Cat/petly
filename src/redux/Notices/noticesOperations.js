@@ -14,3 +14,16 @@ export const fetchNotices = createAsyncThunk(
         }
     }
 );
+
+export const deleteNotice = createAsyncThunk(
+    'notices/deleteNotice',
+    async noticeId => {
+        try {
+            const response = await axios.delete(`/notices/${noticeId}`);
+            const removedNotice = response.data;
+            return removedNotice;
+        } catch (error) {
+            return error;
+        }
+    }
+);
