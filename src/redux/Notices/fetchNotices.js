@@ -6,3 +6,10 @@ export const fetchFavoriteNotices = async () => {
     );
     return response.data;
 };
+
+export const updateFavoriteNotice = async (noticeId) => {
+    const response = await axios.get(
+        `https://petly-backend-23cb.onrender.com/api/notices/favorite/${noticeId}`
+    );
+    return response.data;
+};
