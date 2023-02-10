@@ -21,10 +21,7 @@ const PetsItem = ({ _id, name, birthday, breed, comments, photoURL }) => {
 
     return (
         <PetsCard>
-            <PetsImg
-                src="https://www.bangaloreagrico.in/wp-content/uploads/2018/11/ORANGE.jpg"
-                alt=""
-            />
+            <PetsImg src={photoURL} alt="" />
             <TextWrapper>
                 <PetsName>
                     <CardTitle>Name:</CardTitle> {name}{' '}
