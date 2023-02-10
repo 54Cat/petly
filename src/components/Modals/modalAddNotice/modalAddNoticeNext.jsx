@@ -1,27 +1,35 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 
 import Modal from 'react-modal';
 import CloseIcon from '@mui/icons-material/Close';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+import { BtnAddFileIcon } from 'components/Modals/ModalAddsPet/AddsPetForm/AddsPetModalStyled';
 
 
 
 import {
     AddNoticeWrapper,
     Textarea,
+    AddNoticeTitle,
+    AddNoticeForm,
     SubmitBtnList,
+    FormLabel,
+    ModalStyle,
+    CloseBtn,
     SubmitBtn,
     FormInput,
     AddFoto,
+    FieldPhoto,
 
 } from './modalAddNoticeStyled';
 
 export const ModalAddNoticeNext = () => {
-    const dispatch = useDispatch();
-    const [sex, setSex] = useState('');
-    const [location, setLocation] = useState('');
-    const [price, setPrice] = useState('');
-    const [breed, setBreed] = useState('');
+    // const dispatch = useDispatch();
+    // const [sex, setSex] = useState('');
+    // const [location, setLocation] = useState('');
+    // const [price, setPrice] = useState('');
+    // const [breed, setBreed] = useState('');
     const [modalIsOpen, setIsOpen] = useState(false);
 
    Modal.setAppElement('#root');
@@ -61,16 +69,16 @@ return (
                   type="text"
                   name="locationInput"
                   placeholder="Type location"                 
-                  onChange={handleChange}
-                  id={locationInputId}
+                //   onChange={handleChange}
+                //   id={locationInputId}
               />
               <FormLabel htmlFor="priceInputId">Price<span>*</span>:</FormLabel>
               <FormInput
                   type="number"
                   name="priceInput"
                   placeholder="Type price"               
-                  onChange={handleChange}
-                  id={priceInputId}
+                //   onChange={handleChange}
+                //   id={priceInputId}
               />
               <FormLabel>Load the pet's image</FormLabel>
               <AddFoto htmlFor="PetsPhoto">

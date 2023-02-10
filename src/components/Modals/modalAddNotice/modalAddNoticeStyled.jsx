@@ -2,7 +2,6 @@ import styled from '@emotion/styled';
 import Modal from 'react-modal';
 import { Button } from 'components/Utils/Styles/basicStyle';
 import { FieldTextarea, AddFile } from 'components/Modals/ModalAddsPet/AddsPetForm/AddsPetModalStyled';
-import { FormLabel } from './modalAddNoticeStyled';
 
 
 
@@ -138,3 +137,7 @@ export const AddFoto = styled(AddFile)`
         height: 140px;
     }  
 `;
+
+// const FieldPhoto = styled.div`
+// display: block;
+// `;
