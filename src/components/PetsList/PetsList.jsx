@@ -6,7 +6,7 @@ import PetsItem from 'components/PetsItem/PetsItem';
 
 const PetsList = function () {
     const pets = useSelector(getPets);
-
+    console.log(pets.items)
     return (
         <>
             {pets.items.map(
@@ -14,7 +14,7 @@ const PetsList = function () {
                     return (
                         <PetsItem
                             key={_id}
-                            _id={_id}
+                            id={_id}
                             name={name}
                             birthday={birthday}
                             breed={breed}

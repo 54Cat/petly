@@ -42,36 +42,27 @@ const StepTwo = ({ data, prev, onClose }) => {
     }
     const dispatch = useDispatch();
     
-     const [file, setFile] = useState(null);
-    const [name, setName] = useState('');
-    const [birthday, setbirthday] = useState('');
-    const [breed, setBreed] = useState('');
-    const [comments, setComments] = useState('');
+     const [file, setFile] = useState(null); 
+    
     const handleChange = (event) => {
        console.log(event.target.files);
        setFile(event.target.files[0]);
     }
-     
-    const getPetFormData = () => {
-       
-    const data = new FormData();
-    data.append('name', name);
-    data.append('birthday', birthday);
-    data.append('breed', breed);
-    data.append('comments', comments);
-    data.append('myPetsPhoto', file);
-    return data;
-  };
 
 
     const handleSubmit = (values, { resetForm }) => {
-        setName(values.name);
-        setbirthday(values.birthday);
-        setBreed(values.breed);
-        setComments(values.comments);
-        const finalData = getPetFormData();
-        console.log(finalData);
-        dispatch(addPetOperation(finalData))
+        let formData = new FormData();
+        for (let value in values) {
+            formData.append(value, values[value]);
+            
+        }
+        formData.append("myPetsPhoto", file)
+        
+        for (let property of formData.entries()) {
+            console.log(property[0], property[1]);
+          }
+        
+         dispatch(addPetOperation(formData))
         
         console.log(values)
         resetForm();
@@ -99,7 +90,7 @@ const StepTwo = ({ data, prev, onClose }) => {
                         <AddFile htmlFor="myPetsPhoto">
                             <BtnAddFileIcon />
 
-                            <FieldPhoto id="myPetsPhoto" type="file" name="myPetsPhoto" onChange={ handleChange} />
+                            <FieldPhoto id="myPetsPhoto" type="file" name="myPetsPhoto" onChange={handleChange} />
 
                             <FormError name="myPetsPhoto" />
                         </AddFile>

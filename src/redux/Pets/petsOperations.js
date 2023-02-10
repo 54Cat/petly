@@ -5,11 +5,11 @@ import { addPet, deletePetById } from 'redux/fetchAPI';
 export const addPetOperation = createAsyncThunk(
     'pets/addPet',
     async (
-        { body },
+        formData,
         { rejectWithValue }
     ) => {
         try {
-            const pet = await addPet(body);
+            const pet = await addPet(formData);
             return pet;
         } catch (error) {
             return rejectWithValue(error);

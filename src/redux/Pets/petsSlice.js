@@ -32,7 +32,7 @@ const petsSlice = createSlice({
             return {
                 ...state,
 
-                items: [...state.pets, payload],
+                items: [state.pets, payload],
 
                 isLoading: false,
                 error: null,
