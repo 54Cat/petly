@@ -1,11 +1,11 @@
 {
   "files": {
     "main.css": "/petly/static/css/main.6c3da877.css",
-    "main.js": "/petly/static/js/main.9acdf094.js",
+    "main.js": "/petly/static/js/main.1dd03b21.js",
     "static/js/598.9d67cd4b.chunk.js": "/petly/static/js/598.9d67cd4b.chunk.js",
     "static/js/944.6f4a44a3.chunk.js": "/petly/static/js/944.6f4a44a3.chunk.js",
     "static/js/544.0e1ed9e7.chunk.js": "/petly/static/js/544.0e1ed9e7.chunk.js",
-    "static/js/438.4fa6f3c3.chunk.js": "/petly/static/js/438.4fa6f3c3.chunk.js",
+    "static/js/438.2ba12de0.chunk.js": "/petly/static/js/438.2ba12de0.chunk.js",
     "static/js/150.29ecc099.chunk.js": "/petly/static/js/150.29ecc099.chunk.js",
     "static/js/501.5aff23f7.chunk.js": "/petly/static/js/501.5aff23f7.chunk.js",
     "static/js/979.1497372d.chunk.js": "/petly/static/js/979.1497372d.chunk.js",
@@ -32,11 +32,11 @@
     "static/media/burger.svg": "/petly/static/media/burger.bae7f4bb473254b8936094c436b34bd1.svg",
     "static/media/closeBurger.svg": "/petly/static/media/closeBurger.73b1d8773d59eabcd477439289b362e4.svg",
     "main.6c3da877.css.map": "/petly/static/css/main.6c3da877.css.map",
-    "main.9acdf094.js.map": "/petly/static/js/main.9acdf094.js.map",
+    "main.1dd03b21.js.map": "/petly/static/js/main.1dd03b21.js.map",
     "598.9d67cd4b.chunk.js.map": "/petly/static/js/598.9d67cd4b.chunk.js.map",
     "944.6f4a44a3.chunk.js.map": "/petly/static/js/944.6f4a44a3.chunk.js.map",
     "544.0e1ed9e7.chunk.js.map": "/petly/static/js/544.0e1ed9e7.chunk.js.map",
-    "438.4fa6f3c3.chunk.js.map": "/petly/static/js/438.4fa6f3c3.chunk.js.map",
+    "438.2ba12de0.chunk.js.map": "/petly/static/js/438.2ba12de0.chunk.js.map",
     "150.29ecc099.chunk.js.map": "/petly/static/js/150.29ecc099.chunk.js.map",
     "501.5aff23f7.chunk.js.map": "/petly/static/js/501.5aff23f7.chunk.js.map",
     "979.1497372d.chunk.js.map": "/petly/static/js/979.1497372d.chunk.js.map",
@@ -47,6 +47,6 @@
   },
   "entrypoints": [
     "static/css/main.6c3da877.css",
-    "static/js/main.9acdf094.js"
+    "static/js/main.1dd03b21.js"
   ]
 }
