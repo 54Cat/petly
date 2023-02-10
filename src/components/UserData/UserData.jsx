@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useRef, useState } from 'react';
 import { getUserInfo } from 'redux/selectors';
 import UserDataItem from './UserDataItem';
-import { updateUser } from 'auth/UserAuth/AuthUser';
+import { getUserOperation, updateUserOperation } from '../../redux/User/userOperations';
 import { IoIosCamera } from 'react-icons/io';
 import { UserLogout } from './UserLogOut';
 import {
@@ -14,12 +14,20 @@ import {
     Input,
     Container,
 } from './UserDataStyle';
+import { useEffect } from 'react';
 
 const UserData = () => {
-    const [image, setImage] = useState();
+
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getUserOperation());
+    }, [dispatch]);
+
+    const [image, setImage] = useState();
     const userInState = useSelector(getUserInfo);
     const { avatarURL } = userInState.user;
+    console.log('UserData:', userInState);
     const ref = useRef(avatarURL);
 
     const onChange = e => {
@@ -37,7 +45,7 @@ const UserData = () => {
             formData.set('imageURL', reader);
             setImage(reader);
             dispatch(
-                updateUser({
+                updateUserOperation({
                     image,
                 })
             );
