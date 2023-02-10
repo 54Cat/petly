@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { getUserOperation } from '../../redux/User/userOperations';
 import { getUser } from 'redux/User/selectors';
 import { NoticesCategoriesNavList, NoticesCategoriesNavButton } from 'components/NoticesCategoriesNav/NoticesCategoriesNavStyled';
-// import { ModalAddNotice } from 'components/Modals/modalAddNotice/modalAddNotice';
+import { ModalAddNotice } from 'components/Modals/modalAddNotice/modalAddNotice';
 
 export const NoticesCategoriesNav = () => {
     const dispatch = useDispatch();
@@ -24,6 +24,6 @@ export const NoticesCategoriesNav = () => {
         {token && <NoticesCategoriesNavButton to={'/notices/favorite'}  style={category === "favorite" ? { color: '#ffffff', backgroundColor: '#F59256', border: 0 } : undefined}>favorite ads</NoticesCategoriesNavButton>} 
         {token && <NoticesCategoriesNavButton to={'/notices/own'}  style={category === "own" ? { color: '#ffffff', backgroundColor: '#F59256', border: 0 } : undefined}>my ads</NoticesCategoriesNavButton>} 
 
-         {/* <ModalAddNotice /> */}
+         <ModalAddNotice />
     </NoticesCategoriesNavList>
 }
