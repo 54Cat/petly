@@ -7,19 +7,17 @@ export const UserNavContainer = styled.div`
     align-items: center;
     justify-content: center;
     padding: 30px 0 60px 0;
-    
+
     @media (min-width: 768px) {
-	// background-color: #147;
-    padding: 0;
+        padding: 0;
     }
-        
+
     @media (min-width: 1280px) {
-        
     }
 `;
 
 export const AccountButton = styled(Link)`
-    padding: 8px 37px;
+    padding: 6px 37px;
     display: flex;
     align-items: center;
     gap: 12px;
@@ -41,13 +39,13 @@ export const AccountButton = styled(Link)`
     }
 
     @media (min-width: 768px) {
-        padding: 11px 28px;
+        padding: 9px 28px;
         font-size: 16px;
     }
 
     div {
-        width: 20px;
-        height: 20px;
+        // width: 10px;
+        // height: 10px;
         border-radius: 50%;
         overflow: hidden;
         @media (min-width: 768px) {
@@ -64,8 +62,8 @@ export const AccountButton = styled(Link)`
 `;
 
 export const CircleIcon = styled(AccountCircleIcon)`
-    width: 20px;
-    height: 20px;
+    width: 17px;
+    height: 17px;
 
     @media (min-width: 768px) {
         width: 23px;
