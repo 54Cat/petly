@@ -18,9 +18,9 @@ export const NoticesCategoriesNav = () => {
     const { category } = useParams();
 
     return <NoticesCategoriesNavList>
+        <NoticesCategoriesNavButton to={'/notices/sell'} style={category === "sell" ? { color: '#ffffff', backgroundColor: '#F59256', border: 0 } : undefined}>sell</NoticesCategoriesNavButton>
         <NoticesCategoriesNavButton to={'/notices/lost-found'}  style={category === "lost-found" ? { color: '#ffffff', backgroundColor: '#F59256', border: 0 } : undefined}>lost/found</NoticesCategoriesNavButton>
         <NoticesCategoriesNavButton to={'/notices/for-free'}  style={category === "for-free" ? { color: '#ffffff', backgroundColor: '#F59256', border: 0 } : undefined}>In good hands</NoticesCategoriesNavButton>
-        <NoticesCategoriesNavButton to={'/notices/sell'} style={category === "sell" ? { color: '#ffffff', backgroundColor: '#F59256', border: 0 } : undefined}>sell</NoticesCategoriesNavButton>
         {token && <NoticesCategoriesNavButton to={'/notices/favorite'}  style={category === "favorite" ? { color: '#ffffff', backgroundColor: '#F59256', border: 0 } : undefined}>favorite ads</NoticesCategoriesNavButton>} 
         {token && <NoticesCategoriesNavButton to={'/notices/own'}  style={category === "own" ? { color: '#ffffff', backgroundColor: '#F59256', border: 0 } : undefined}>my ads</NoticesCategoriesNavButton>} 
 

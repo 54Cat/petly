@@ -67,7 +67,7 @@ const NoticesPage = () => {
                 break;
 
             default:
-                navigate('/notices/lost-found')
+                navigate('/notices/sell')
 } 
     }, [userData.token, category, dispatch, navigate])
 
