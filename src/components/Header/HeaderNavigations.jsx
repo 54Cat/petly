@@ -27,7 +27,7 @@ import { NavContainer, NavList, NavItem, HeaderNavLink } from './HeaderNavigatio
             <HeaderNavLink
               to="/friends"
             >
-              Our friend
+              Our friends
             </HeaderNavLink>
           </NavItem>
         </NavList>
