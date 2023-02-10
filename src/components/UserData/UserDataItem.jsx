@@ -18,7 +18,8 @@ const UserDataItem = () => {
     const dispatch = useDispatch();
     const userInState = useSelector(getUserInfo);
     const { name, city, email, phone, birthday } = userInState.user;
-
+    const { isLoading } = userInState.user;
+    console.log(isLoading);
     const iconCreate = <MdCreate color="#F59256" className="icon" />;
     const iconCriateBlack = <MdCreate color="#111111" className="icon" />;
     const iconConfirm = <BsCheckLg color="#F59256" className="icon" />;
