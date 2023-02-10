@@ -1,9 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-// import { updateUserInfo } from 'redux/fetchAPI';
-
 import axios from 'axios';
 axios.defaults.baseURL = 'https://petly-backend-23cb.onrender.com/api';
-
 const token = {
     set(token) {
         axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -16,8 +13,6 @@ const token = {
 export const getUserOperation = createAsyncThunk(
     'user/getInfo',
   async (_, thunkAPI) => {
-      
-    console.log("function getUserOperation()")
 
     const state = thunkAPI.getState();      
     const persistedToken = state.auth.token;
@@ -41,8 +36,6 @@ export const getUserOperation = createAsyncThunk(
 export const updateUserOperation = createAsyncThunk(
   'user/update',
   async (userId, thunkAPI) => {
-    console.log("function updateUserOperation()")
-    
       const state = thunkAPI.getState();
       const result = {
         email: userId.newEmail,
@@ -51,8 +44,6 @@ export const updateUserOperation = createAsyncThunk(
         city: userId.nweCity,
         phone: userId.newPhone,
       };
-      console.log('result', result);
-    
     const persistedToken = state.auth.token;
     
     if (persistedToken === null) {
@@ -61,13 +52,10 @@ export const updateUserOperation = createAsyncThunk(
     
     try {
       token.set(persistedToken);
-      const { data } = await axios.patch("/user/update", result);
-      console.log('getUserOperation', data);
-
+      const { data } = await axios.patch("/user", result);
       return data;
-    } catch (error) {
-      console.log('error getUserOperation', error);
-
+    }
+    catch (error) {
       token.unset();
       return thunkAPI.rejectWithValue(error.message);
     }
