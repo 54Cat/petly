@@ -1,10 +1,10 @@
 import { Navigate, Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { getAuth } from "redux/selectors";
+import { selectUser } from "redux/Auth/AuthSelectors";
 
 export default function PrivateRoute() {
-    const authSelector = useSelector(getAuth);
+    const authSelector = useSelector(selectUser);
     const token = authSelector.token;
 
-    return token ? <Outlet /> : <Navigate to="/user" />;    
-};
+    return !token ? <Navigate to="login" /> : <Outlet />;
+}
