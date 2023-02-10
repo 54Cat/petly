@@ -40,23 +40,40 @@ const StepTwo = ({ data, prev, onClose }) => {
 
     )
     }
+    const dispatch = useDispatch();
     
-    //FormData
-    const [file, setFile] = useState(null);
+     const [file, setFile] = useState(null);
+    const [name, setName] = useState('');
+    const [birthday, setbirthday] = useState('');
+    const [breed, setBreed] = useState('');
+    const [comments, setComments] = useState('');
     const handleChange = (event) => {
-        console.log(event.target.files);
-        setFile(event.target.files[0]);
+       console.log(event.target.files);
+       setFile(event.target.files[0]);
     }
      
-   
+    const getPetFormData = () => {
+       
+    const data = new FormData();
+    data.append('name', name);
+    data.append('birthday', birthday);
+    data.append('breed', breed);
+    data.append('comments', comments);
+    data.append('myPetsPhoto', file);
+    return data;
+  };
+
+
     const handleSubmit = (values, { resetForm }) => {
-        const formData = new FormData();
-        formData.append("myPetsPhoto", file);
-        formData.append("name", values.name);
-        formData.append("birthday", values.birthday);
-        formData.append("breed", values.breed);
-        formData.append("comments", values.comments);
-        dispatch(addPetOperation(values));
+        setName(values.name);
+        setbirthday(values.birthday);
+        setBreed(values.breed);
+        setComments(values.comments);
+        const finalData = getPetFormData();
+        console.log(finalData);
+        dispatch(addPetOperation(finalData))
+        
+        console.log(values)
         resetForm();
         onClose();    
     }
@@ -65,7 +82,7 @@ const StepTwo = ({ data, prev, onClose }) => {
 
     return (
         <Formik
-            enctype="multipart/form-data"
+            //enctype="multipart/form-data"
             initialValues={data}
             onSubmit={handleSubmit}
             validationSchema={validationSchema}
@@ -82,13 +99,7 @@ const StepTwo = ({ data, prev, onClose }) => {
                         <AddFile htmlFor="myPetsPhoto">
                             <BtnAddFileIcon />
 
-                            <FieldPhoto id="myPetsPhoto" type="file" onChange={handleChange} name="myPetsPhoto" />
-
-                            <FieldPhoto
-                                id="myPetsPhoto"
-                                type="file"
-                                name="myPetsPhoto"
-                            />
+                            <FieldPhoto id="myPetsPhoto" type="file" name="myPetsPhoto" onChange={ handleChange} />
 
                             <FormError name="myPetsPhoto" />
                         </AddFile>
@@ -120,4 +131,5 @@ const StepTwo = ({ data, prev, onClose }) => {
         </Formik>
     );
 };
-export default StepTwo;
+
+      export default StepTwo

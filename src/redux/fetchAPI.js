@@ -15,11 +15,27 @@ export async function updateUserInfo(userId, credentials) {
     return data;
 }
 
-export async function addPet(name, birthday, breed, text, myPetsPhoto) {
-    const newPet = { name, birthday, breed, comments: text, myPetsPhoto };
-    const { data } = await axios.post(`user/pet`, newPet);
+export async function addPet(body) {
+    // const newPet = { name, birthday, breed, comments, myPetsPhoto };
+    const { data } = await axios.post(`user/pet`, body );
     return data;
 }
+// const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZTM2ZTVmZDgzZjQ3ZTJkYmVlMmNkMSIsImlhdCI6MTY3NTk3OTQ2NX0.1OEwW5S81TcxRNrssmEQkS6XxD_7DD8yvmvDd7M21QQ' 
+ 
+// const reqInstance = axios.create({ 
+//     headers: { 
+//         'Authorization' : `Bearer ${token}`, 
+//         'Content-Type': 'multipart/form-data', 
+//      } 
+//    } 
+//  )
+
+ 
+// export async function addPet(body) { 
+
+//     const { data } = await reqInstance.post(`user/pet`, body); 
+//     return data; 
+// }
 
 export async function deletePetById(petId) {
     const { data } = await axios.delete(`user/pets/${petId}`);

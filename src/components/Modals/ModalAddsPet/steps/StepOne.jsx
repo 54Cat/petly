@@ -3,12 +3,6 @@ import { ButtonCloseModal, ButtonCloseIcon, Title, ErrorText, ModalItem, FlexBox
 import * as yup from 'yup';
 
 
-// const initialValues = {
-//     name: "",
-//     birthday: "",
-//     breed: "",        
-// }
-
 const validationSchema = yup.object({
     name: yup.string().min(2).max(16).required(),
     birthday: yup.string().required(),
@@ -35,7 +29,7 @@ const StepOne = (props) => {
     return (
     
     <Formik
-        enctype="multipart/form-data"
+        //enctype="multipart/form-data"
         initialValues={props.data}
         onSubmit={handleSubmit}
         validationSchema={validationSchema}

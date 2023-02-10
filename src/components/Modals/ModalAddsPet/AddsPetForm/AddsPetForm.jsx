@@ -9,7 +9,7 @@ const AddsPetForm = ({onClose}) => {
         name: '',
         birthday: '',
         breed: '',
-        //myPetsPhoto: null,
+        //photoURL: '',
         comments: '',
     });
 
