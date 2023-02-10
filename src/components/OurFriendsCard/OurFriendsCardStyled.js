@@ -96,8 +96,7 @@ export const Info = styled.p`
     }
 `;
 
-export const InfoTime = styled.p`
-
+export const InfoTime = styled.div`
     font-family: 'Manrope';
     font-style: normal;
     font-weight: 500;
@@ -105,14 +104,17 @@ export const InfoTime = styled.p`
     line-height: 1.33;
     //margin-bottom: 4px;
     color: #000000;
+
     @media (min-width: 768px) {
         font-size: 14px;
         line-height: 1.35;
     }
+
     @media (min-width: 1280px) {
         font-size: 16px;
         line-height: 1.37;
     }
+    
     &:hover,
     :focus {
         color: #f59256;

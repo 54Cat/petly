@@ -15,7 +15,10 @@ const token = {
 
 export const getUserOperation = createAsyncThunk(
     'user/getInfo',
-    async (_, thunkAPI) => {
+  async (_, thunkAPI) => {
+      
+    console.log("function getUserOperation()")
+
     const state = thunkAPI.getState();      
     const persistedToken = state.auth.token;
     
@@ -38,6 +41,8 @@ export const getUserOperation = createAsyncThunk(
 export const updateUserOperation = createAsyncThunk(
   'user/update',
   async (userId, thunkAPI) => {
+    console.log("function updateUserOperation()")
+    
       const state = thunkAPI.getState();
       const result = {
         email: userId.newEmail,

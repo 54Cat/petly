@@ -1,17 +1,16 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { loggedOut } from 'redux/Auth/AuthUser';
 
 import axios from 'axios';
 axios.defaults.baseURL = 'https://petly-backend-23cb.onrender.com/api';
 
-// const token = {
-//     set(token) {
-//         axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-//     },
-//     unset() {
-//         axios.defaults.headers.common.Authorization = '';
-//     },
-// };
+const token = {
+    set(token) {
+        axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+    },
+    unset() {
+        axios.defaults.headers.common.Authorization = '';
+    },
+};
 
 export const registerUser = createAsyncThunk(
     'auth/registerUser',
@@ -48,6 +47,21 @@ export const loginUser = createAsyncThunk(
         }
     }
 );
+
+export const loggedOut = createAsyncThunk(
+    'auth/logout',
+    async (_, thunkApi) => {
+        try {
+            const { data } = await axios.post('/auth/logout');
+            // console.log(data);
+            token.unset();
+            return data;
+        } catch (error) {
+            return thunkApi.rejectWithValue(error.message);
+        }
+    }
+);
+
 
 // export const currentUser = createAsyncThunk(
 //   "auth/refresh",
