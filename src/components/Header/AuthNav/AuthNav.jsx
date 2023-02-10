@@ -1,13 +1,14 @@
 import React from 'react';
 import { AuthNavContainer, AuthNavItem, NavButtonLink } from './AuthNav.styled';
 
-const AuthNav = ({active, setActive}) => {
+const AuthNav = ({ active, setActive }) => {
     return (
-        <AuthNavContainer  className={active ? 'active' : ''} onClick={() => setActive(false)}>
+        <AuthNavContainer  className={active ? 'active' : ''} >
             <AuthNavItem>
                 <NavButtonLink
                     to="/login"
                     className={({ isActive }) => (isActive ? 'active' : '')}
+                    onClick={() => setActive(false)}
                 >
                     Login
                 </NavButtonLink>
@@ -16,6 +17,7 @@ const AuthNav = ({active, setActive}) => {
                 <NavButtonLink
                     to="/register"
                     className={({ isActive }) => (isActive ? 'active' : '')}
+                    onClick={() => setActive(false)}
                 >
                     Registration
                 </NavButtonLink>

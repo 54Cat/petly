@@ -1,13 +1,10 @@
 import { Navigate, Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { getAuth } from 'redux/selectors';
+import { selectUser } from "redux/Auth/AuthSelectors";
 
 export default function PublicRoute() {
-    const authSelector = useSelector(getAuth);
+    const authSelector = useSelector(selectUser);
+    const token = authSelector.token;
 
-    if (authSelector.isLoggedIn) {
-        return <Navigate to="/user" />;
-    }
-
-    return <Outlet />;
+    return token ? <Navigate to="/user" /> : <Outlet /> ;
 }

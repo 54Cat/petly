@@ -1,6 +1,8 @@
 import 'react-toastify/dist/ReactToastify.css';
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
+// import { useDispatch } from 'react-redux';
+// import {fetchCurrentUser} from 'redux/Auth/AuthSlice';
 
 import { NoticesCategoriesList } from 'components/NoticesCategoriesList/NoticesCategoriesList';
 
@@ -17,6 +19,12 @@ const NoticesPage = lazy(() => import('pages/Notices/NoticesPage'));
 const UserPage = lazy(() => import('./pages/User/UserPage'));
 
 const App = () => {
+    // const dispatch = useDispatch();
+
+    // useEffect(() => {
+    // dispatch(fetchCurrentUser())
+    // }, [dispatch]);
+
     return (
         <>
             <Suspense>
@@ -25,24 +33,28 @@ const App = () => {
                         <Route path="/" element={<HomePage />} />
 
                         <Route element={<PublicRoute />}>
-                            <Route path="register" element={<RegisterPage />} />
-                            <Route path="login" element={<LoginPage />} />
-                            <Route path="news" element={<NewsPage />} />
-                            <Route path="friends" element={<FriendsPage />} />
-                            <Route path="notices" element={<NoticesPage />}>
-                                <Route
-                                    path=":category"
-                                    element={<NoticesCategoriesList />}
-                                />
-                            </Route>
+                            <Route path="/login" element={<LoginPage />} />
+                            <Route
+                                path="/register"
+                                element={<RegisterPage />}
+                            />
+                        </Route>
+
+                        <Route path="/news" element={<NewsPage />} />
+                        <Route path="/friends" element={<FriendsPage />} />
+                        <Route path="/notices" element={<NoticesPage />}>
+                            <Route
+                                path=":category"
+                                element={<NoticesCategoriesList />}
+                            />
                         </Route>
 
                         <Route element={<PrivateRoute />}>
-                            <Route path="user" element={<UserPage />} />
+                            <Route path="/user" element={<UserPage />} />
                         </Route>
                     </Route>
 
-                    <Route path="*" element={<Navigate to="/" />} />
+                    {/* <Route path="*" element={<Navigate to="/" />} /> */}
                 </Routes>
             </Suspense>
         </>
