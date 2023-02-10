@@ -30,7 +30,7 @@ const petsSlice = createSlice({
 
         [addPetOperation.fulfilled]: (state, { payload }) => {
             return {
-                ...state,
+                state,
 
                 items: [state.pets, payload],
 
