@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useNavigate } from "react-router-dom"
 import { getNotices, getAuth } from 'redux/selectors';
 import { fetchNotices } from 'redux/Notices/noticesOperations';
-import { fetchFavoriteNotices } from 'components/Utils/axios/fetchNotices';
+import { fetchFavoriteNotices } from 'redux/Notices/fetchNotices';
 import { PageSection } from 'components/Utils/Styles/basicStyle';
 import { Title } from 'components/Utils/Styles/basicStyle';
 import { SearchBar } from 'components/SearchBar/SearchBar';

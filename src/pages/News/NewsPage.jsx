@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 // import { useSelector } from 'react-redux'
 import Notiflix from 'notiflix'
-import { fetchNews } from 'components/Utils/axios/fetchNews'
+import { fetchNews } from 'redux/News/fetchNews'
 import { PageSection } from 'components/Utils/Styles/basicStyle'
 import { Title } from 'components/Utils/Styles/basicStyle'
 import { SearchBar } from 'components/SearchBar/SearchBar'
