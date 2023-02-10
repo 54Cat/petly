@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { selectUser } from "redux/Auth/AuthSelectors";
 import Logo from '../HeaderLogo';
@@ -10,20 +11,20 @@ import { Wrapper,  WrapperNav } from '../MenuStyled';
 const MenuDesktop = () => {
 	const userSelector = useSelector(selectUser);
 	const token = userSelector.token;
-	console.log("token", token)
+	const [menuActive, setMenuActive] = useState(false);
    
 	return (
 		<Wrapper>
 
 			<WrapperNav>
 				<Logo />
-				<Navigations/>
+				<Navigations active={menuActive} setActive={setMenuActive} />
 			</WrapperNav>
 
 			{token ? (
-				<UserNav />
+				<UserNav  active={menuActive} setActive={setMenuActive} />
 			) : (
-				<AuthNav />
+				<AuthNav  active={menuActive} setActive={setMenuActive} />
 			)}
 					
 		</Wrapper>

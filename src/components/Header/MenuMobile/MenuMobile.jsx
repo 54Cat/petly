@@ -13,7 +13,6 @@ import { Wrapper, WrapperTop, WrapperBtn, WrapperNav, Btn } from '../MenuStyled'
 const MenuMobile = () => {
 	const userSelector = useSelector(selectUser);
 	const token = userSelector.token;
-	console.log("token", token)
   
 	const [menuActive, setMenuActive] = useState(false);
 

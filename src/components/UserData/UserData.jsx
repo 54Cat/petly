@@ -27,7 +27,6 @@ const UserData = () => {
     const [image, setImage] = useState();
     const userInState = useSelector(getUserInfo);
     const { avatarURL } = userInState.user;
-    console.log('UserData:', userInState);
     const ref = useRef(avatarURL);
 
     const onChange = e => {

@@ -1,9 +1,10 @@
 import { NavContainer, NavList, NavItem, HeaderNavLink } from './HeaderNavigationsStyled';
 
-  const Navigations = ({active, setActive}) => {
+  const Navigations = ({active, setActive}) => {    
     return ( 
         
       <NavContainer className={active ? 'active' : ''} onClick={() => setActive(false)}>
+        
       
         <NavList>
           <NavItem>
