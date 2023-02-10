@@ -6,13 +6,12 @@ export const AuthNavContainer = styled.div`
     align-items: center;
     justify-content: center;
     padding: 30px 0 60px 0;
-    
+
     @media (min-width: 768px) {
         padding: 0;
     }
-        
+
     @media (min-width: 1280px) {
-        
     }
 `;
 
@@ -20,11 +19,11 @@ export const AuthNavItem = styled.li`
     margin-right: 12px;
 
     &:last-child {
-    margin-right: 0;
+        margin-right: 0;
     }
-      
+
     @media (min-width: 1280px) {
-        margin-right: 20px; 
+        margin-right: 20px;
     }
 `;
 
@@ -44,23 +43,22 @@ export const NavButtonLink = styled(Link)`
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
     &:hover {
-    background-color: #f59256;
-    color: #FFFFFF;
+        background-color: #f59256;
+        color: #ffffff;
     }
 
     &:focus {
-    background-color: #f59256;
-    color: #000000;
-    border: 2px solid #000000;
+        background-color: #f59256;
+        color: #000000;
     }
 
     &.active {
-        background-color: #F59256;
-        color: #FFFFFF;
+        background-color: #f59256;
+        color: #ffffff;
         transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
         transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
     }
-    
+
     @media (min-width: 768px) {
         padding: 8.5px 28px;
         font-size: 20px;

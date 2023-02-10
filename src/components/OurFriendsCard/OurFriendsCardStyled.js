@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-const List = styled.ol`
+export const List = styled.ol`
     display: flex;
     flex-wrap: wrap;
     background-color: #fdf7f2;
@@ -10,7 +10,7 @@ const List = styled.ol`
     margin: 0px;
 `;
 
-const Card = styled.li`
+export const Card = styled.li`
     position: relative;
     display: block;
     flex-basis: 100%;
@@ -28,7 +28,7 @@ const Card = styled.li`
     }
 `;
 
-const Title = styled.h3`
+export const Title = styled.h3`
     text-align: center;
     font-family: 'Manrope';
     font-style: normal;
@@ -42,6 +42,8 @@ const Title = styled.h3`
     height: 40px;
     margin-bottom: 10px;
     color: #f59256;
+    text-align: center;
+
     @media (min-width: 768px) {
         font-size: 16px;
         line-height: 1.37;
@@ -57,12 +59,12 @@ const Title = styled.h3`
     }
 `;
 
-const FlexBox = styled.div`
+export const FlexBox = styled.div`
     display: flex;
     align-items: center;
 `;
 
-const Image = styled.img`
+export const Image = styled.img`
     width: 110px;
     height: 78px;
     margin-right: 12px;
@@ -78,7 +80,7 @@ const Image = styled.img`
     }
 `;
 
-const Info = styled.p`
+export const Info = styled.p`
     font-family: 'Manrope';
     font-style: normal;
     font-weight: 500;
@@ -95,8 +97,7 @@ const Info = styled.p`
     }
 `;
 
-const InfoTime = styled.p`
-
+export const InfoTime = styled.div`
     font-family: 'Manrope';
     font-style: normal;
     font-weight: 500;
@@ -104,21 +105,24 @@ const InfoTime = styled.p`
     line-height: 1.33;
     //margin-bottom: 4px;
     color: #000000;
+
     @media (min-width: 768px) {
         font-size: 14px;
         line-height: 1.35;
     }
+
     @media (min-width: 1280px) {
         font-size: 16px;
         line-height: 1.37;
     }
+    
     &:hover,
     :focus {
         color: #f59256;
     }
 `;
 
-const InfoLink = styled.a`
+export const InfoLink = styled.a`
     text-decoration: none;
     font-family: 'Manrope';
     font-style: normal;
@@ -140,7 +144,7 @@ const InfoLink = styled.a`
     }
 `;
 
-const AddressLink = styled.a`
+export const AddressLink = styled.a`
     
     font-family: 'Manrope';
     font-style: normal;
@@ -164,7 +168,7 @@ const AddressLink = styled.a`
     }
 `;
 
-const SpanInfo = styled.span`
+export const SpanInfo = styled.span`
     font-family: 'Manrope';
     font-style: normal;
     font-weight: 500;
@@ -183,7 +187,7 @@ const SpanInfo = styled.span`
     }
 `;
 
-const BoxInfo = styled.div`
+export const BoxInfo = styled.div`
     // margin-bottom: 4px;
     :not(:last-child) {
         margin-bottom: 4px;
@@ -203,18 +207,3 @@ const BoxInfo = styled.div`
     // }
     
 `;
-
-
-export {
-    List,
-    Card,
-    Title,
-    FlexBox,
-    Info,
-    InfoLink,
-    AddressLink,
-    BoxInfo,
-    SpanInfo,
-    Image,
-    InfoTime
-};

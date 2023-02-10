@@ -65,6 +65,8 @@ export const Title = styled.h2`
 `;
 
 export const Input = styled(Field)`
+    font-family: 'Manrope';
+
     :active,
     :hover,
     :focus {
@@ -75,33 +77,46 @@ export const Input = styled(Field)`
     border: 1px solid rgba(245, 146, 86, 0.5);
     border-radius: 40px;
     display: block;
-    ::placeholder {
-        color: rgba(17, 17, 17, 0.6);
-    }
+
     margin: 0 auto;
     @media (min-width: 320px) {
         margin-top: 15px;
+        font-size: 14px;
         width: 256px;
         height: 36px;
         padding-left: 20px;
+        ::placeholder {
+            color: rgba(17, 17, 17, 0.6);
+            font-size: 14px;
+        }
     }
     @media (min-width: 768px) {
         width: 404px;
         height: 48px;
+        font-size: 18px;
         padding-left: 20px;
         margin-top: 16px;
+        ::placeholder {
+            color: rgba(17, 17, 17, 0.6);
+            font-size: 18px;
+        }
     }
     @media (min-width: 1280px) {
         margin-top: 18px;
         padding-left: 20px;
         width: 414px;
         height: 48px;
+        ::placeholder {
+            color: rgba(17, 17, 17, 0.6);
+        }
     }
 `;
 export const Button = styled.button`
     transition: all 600ms ease;
     &:hover,
     &:focus {
+        border: 1px solid rgba(245, 146, 86, 0.5);
+
         background: white;
         color: #f59256;
     }
@@ -172,6 +187,12 @@ export const FormError = styled.p`
     font-size: 14px;
 `;
 export const Link = styled(NavLink)`
+    @media (min-width: 320px) {
+    }
+    @media (min-width: 768px) {
+    }
+    @media (min-width: 1280px) {
+    }
     transition: all 600ms ease;
     &:hover,
     &:focus {
@@ -179,5 +200,6 @@ export const Link = styled(NavLink)`
     }
     color: #3091eb;
     margin-left: 3px;
+    font-size: 12px;
 `;
 // export const Link = styled(Link)``;

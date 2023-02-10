@@ -1,12 +1,20 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { selectUser } from "redux/Auth/AuthSelectors";
+import { useEffect } from 'react';
+import { getUserOperation } from '../../redux/User/userOperations';
+import { getUser } from 'redux/User/selectors';
 import { NoticesCategoriesNavList, NoticesCategoriesNavButton } from 'components/NoticesCategoriesNav/NoticesCategoriesNavStyled';
 // import { ModalAddNotice } from 'components/Modals/modalAddNotice/modalAddNotice';
 
 export const NoticesCategoriesNav = () => {
-    const authSelector = useSelector(selectUser);
-    const token = authSelector.token;
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getUserOperation());
+    }, [dispatch]);
+
+    const userData = useSelector(getUser);
+    const token = userData.token;
     const { category } = useParams();
 
     return <NoticesCategoriesNavList>

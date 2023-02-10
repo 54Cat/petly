@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useRef, useState } from 'react';
-import { getUserInfo } from 'redux/selectors';
+import { useRef, useState, useEffect } from 'react';
+import { getUser } from 'redux/User/selectors';
 import UserDataItem from './UserDataItem';
 import { getUserOperation, updateUserOperation } from '../../redux/User/userOperations';
 import { IoIosCamera } from 'react-icons/io';
@@ -14,7 +14,6 @@ import {
     Input,
     Container,
 } from './UserDataStyle';
-import { useEffect } from 'react';
 
 const UserData = () => {
 
@@ -25,8 +24,8 @@ const UserData = () => {
     }, [dispatch]);
 
     const [image, setImage] = useState();
-    const userInState = useSelector(getUserInfo);
-    const { avatarURL } = userInState.user;
+    const userData = useSelector(getUser);
+    const { avatarURL } = userData.avatarURL;
     const ref = useRef(avatarURL);
 
     const onChange = e => {
