@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchNotices } from './noticesOperations';
+import { fetchNotices, deleteNotice } from './noticesOperations';
 
 const handlePending = state => {
     state.isLoading = true;
@@ -25,6 +25,20 @@ const noticesSlice = createSlice({
             state.items = action.payload;
         },
         [fetchNotices.rejected]: handleRejected,
+
+        [deleteNotice.pending]: handlePending,
+        [deleteNotice.fulfilled](state, action) {
+            console.log('я в операції', state.items, action.payload);
+            state.isLoading = false;
+            state.error = null;
+            state.items = [
+                ...state.items.filter(
+                    ({ _id }) => _id !== action.payload.data._id
+                ),
+            ];
+        },
+
+        [deleteNotice.rejected]: handleRejected,
     },
 });
 

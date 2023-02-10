@@ -1,27 +1,18 @@
 import axios from 'axios';
 
-export async function getNotice(_id, setNotice, setError) {
+export async function getNotice(id, setNotice, setError) {
     try {
-        const { data } = await axios.get(`notices/getOne/${_id}`);
+        const { data } = await axios.get(`notices/getOne/${id}`);
         setNotice(data);
     } catch (error) {
         setError(error.message);
     }
 }
 
-export async function getOwner(id, setCreator, setError) {
-    try {
-        const { data } = await axios.get(`/user/${id}`);
-        setCreator(data);
-    } catch (error) {
-        setError(error.message);
-    }
-}
-
-export async function changeFavorite(noticeId, setFavorite, setError) {
+export async function changeFavorite(noticeId, setError) {
     try {
         const { data } = await axios.get(`/notices/favorite/${noticeId}`);
-        setFavorite(data.message);
+        return data.message;
     } catch (error) {
         setError(error.message);
     }
