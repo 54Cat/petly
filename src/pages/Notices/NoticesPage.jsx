@@ -25,7 +25,8 @@ const NoticesPage = () => {
 
     const fetchFavorite = async () => {
         const results = await fetchFavoriteNotices();
-        setFavorite(results)
+        const resultId = results.map(result => result._id)
+        setFavorite(resultId)
     }
 
     const updateFavorite = async (id) => {
@@ -33,7 +34,7 @@ const NoticesPage = () => {
         setFavorite(results.favorites)
     }
 
-
+    
     useEffect(() => {
         switch (category) {
             case "lost-found":
@@ -62,7 +63,8 @@ const NoticesPage = () => {
                     navigate('/notices/lost-found')
                     return
                 };
-                dispatch( fetchNotices('myFavorite'))
+                dispatch(fetchNotices('myFavorite'))
+                fetchFavorite()
                 break;
         
             case "own":

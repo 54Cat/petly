@@ -11,23 +11,29 @@ import {
     NoticesCardInfoList,
     NoticesCardInfoThumb,
     NoticesCardInfoItem,
-    // BtnLearnMore
+    BtnDelete,
+    Basket,
+    BtnThumb
 } from './NoticesCategoriesItemStyled';
 import ModalNotice from 'components/ModalNotice/ModalNotice';
 import heart from '../../data/icons/heart.svg';
 import heartActive from '../../data/icons/heartActive.svg';
+import basket from '../../data/icons/basket.svg';
+
 
 import { useSelector, useDispatch } from "react-redux";
 import { getAuth } from "../../redux/selectors"
+import { selectUser } from "../../redux/Auth/AuthSelectors"
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import * as dayjs from 'dayjs';
 
 export const NoticesCategoriesItem = ({ notice, favorite, updateFavorite }) => {
     const authSelector = useSelector(getAuth);
+    const auth = useSelector(selectUser);
+
         const dispatch = useDispatch();
 
-    const { _id, imageURL, category, title, breed, location, birthday } =
-        notice;
+    const { _id, imageURL, category, title, breed, location, birthday, owner } = notice;
 
     let isFavorite = false;
 
@@ -83,8 +89,15 @@ export const NoticesCategoriesItem = ({ notice, favorite, updateFavorite }) => {
                         )}
                     </NoticesCardInfoList>
                 </NoticesCardInfoThumb>
+                <BtnThumb>
+                    <ModalNotice id={_id}>Learn more</ModalNotice>
+                    
+                    {(authSelector.isLoggedIn && auth.user.id === owner) ?
+                        <BtnDelete type='button'>Delete
+                        <Basket src={basket} alt="Delete" />
+                    </BtnDelete> : ''}
 
-                <ModalNotice id={_id}>Learn more</ModalNotice>
+                </BtnThumb>
             </NoticesCardThumb>
         </NoticesItem>
     );
