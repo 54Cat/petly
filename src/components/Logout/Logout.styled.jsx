@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
 export const ButtonLogout = styled.button`
     display: flex;
@@ -13,6 +13,11 @@ export const ButtonLogout = styled.button`
     margin-left: auto;
     padding: 0;
     margin-right: 12px;
+    cursor: pointer;
+    :hover,
+    :focus {
+        color: #f59256;
+    }
     @media (min-width: 768px) {
         margin-left: 32px;
     }

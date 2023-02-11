@@ -4,19 +4,18 @@ import loggedOut from '../../components/Utils/axios/fetchLogout';
 import axios from 'axios';
 axios.defaults.baseURL = 'https://petly-backend-23cb.onrender.com/api';
 
-const token = {
-    set(token) {
-        axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-    },
-    unset() {
-        axios.defaults.headers.common.Authorization = '';
-    },
-};
+// const token = {
+//     set(token) {
+//         axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+//     },
+//     unset() {
+//         axios.defaults.headers.common.Authorization = '';
+//     },
+// };
 
 export const registerUser = createAsyncThunk(
     'auth/registerUser',
-    async ({ email, password, phone, city, name }, { rejectWithValue }) => {
-        console.log(email, password, phone, city, name);
+    async ({ email, password, phone, city, name }, { rejectWithValue, dispatch }) => {
         try {
             const { data } = await axios.post('/auth/register', {
                 email,
@@ -25,11 +24,8 @@ export const registerUser = createAsyncThunk(
                 city,
                 name,
             });
-            token.set(data.token);
-            if (data.token) {
-                window.localStorage.setItem('token', data.token);
-            }
-
+            dispatch(loginUser({ email: data.email, password: data.password }));
+            // token.set(data.token);
             return data;
         } catch (error) {
             return rejectWithValue(error);
@@ -45,7 +41,7 @@ export const loginUser = createAsyncThunk(
                 email,
                 password,
             });
-            token.set(data.token);
+            // token.set(data.token);
             return data;
         } catch (error) {
             return rejectWithValue(error);
@@ -53,7 +49,7 @@ export const loginUser = createAsyncThunk(
     }
 );
 
-// export const fetchCurrentUser = createAsyncThunk(
+// export const currentUser = createAsyncThunk(
 //   "auth/refresh",
 //   async (_, thunkAPI) => {
 //     const state = thunkAPI.getState();
@@ -65,8 +61,7 @@ export const loginUser = createAsyncThunk(
     
 //     try {
 //       token.set(persistedToken);
-//         const { data } = await axios.get("/user");
-//         console.log()
+//       const { data } = await axios.get("/user");
 //       return data;
 //     } catch (error) {
 //       token.unset();
@@ -118,15 +113,15 @@ export const authSlice = createSlice({
             state.status = action.payload.message;
         },
         
-        // [fetchCurrentUser.pending](state) {
+        // [currentUser.pending](state) {
         //     state.isLoadingCurrentUser = true;
         // },
-        // [fetchCurrentUser.fulfilled](state, action) {
+        // [currentUser.fulfilled](state, action) {
         //     state.isLoadingCurrentUser = false;
         //     state.user = action.payload;
         //     state.isLoggedIn = true;
         // },
-        // [fetchCurrentUser.rejected](state, action) {
+        // [currentUser.rejected](state, action) {
         //     state.isLoadingCurrentUser = false;
         //     state.error = action.payload;
         // },

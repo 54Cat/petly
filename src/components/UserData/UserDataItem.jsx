@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getUserInfo } from '../../redux/selectors';
+import { getUserInfo } from 'redux/selectors';
 import { updateUserOperation } from '../../redux/User/userOperations';
-// import { updateUserInfo } from '../../redux/fetchAPI';
+
 import { MdCreate } from 'react-icons/md';
 import { BsCheckLg } from 'react-icons/bs';
 
@@ -108,11 +108,11 @@ const UserDataItem = () => {
         e.preventDefault();
         dispatch(
             updateUserOperation({
-                name: newName,
-                email: newEmail,
-                birthday: newBirthday,
-                phone: newPhone,
-                city: newCity,
+                newName,
+                newEmail,
+                newBirthday,
+                newPhone,
+                newCity,
             })
         );
         setIconName(iconCreate);
