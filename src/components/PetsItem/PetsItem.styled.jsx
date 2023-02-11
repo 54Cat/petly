@@ -33,6 +33,7 @@ export const PetsCard = styled.div`
 `;
 
 export const PetsImg = styled.img`
+    object-fit: cover;
     margin-bottom: 20px;
     border-radius: 20px;
 
