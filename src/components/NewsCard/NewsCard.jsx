@@ -32,7 +32,7 @@ const NewsCard = ({ card }) => {
         <NewsItem>
             <DecorLine></DecorLine>
             <TitleNews>{`${title.slice(0, 32)}...,`}</TitleNews>
-            <NewsInfo>{` ${description.slice(0, 100)}...,`}</NewsInfo>
+            <NewsInfo>{` ${description.slice(0, 130)}...,`}</NewsInfo>
             <NewsFooter>
                 <NewsDate>{formatNewsDate(date)}</NewsDate>
                 <NewsLink href={url} target="_blank" rel="noreferrer">
