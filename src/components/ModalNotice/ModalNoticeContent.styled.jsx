@@ -73,7 +73,12 @@ export const PetsImg = styled.img`
     }
 `;
 
-export const TextContent = styled.div``;
+export const TextContent = styled.div`
+    @media (min-width: 768px) {
+        margin-left: 20px;
+    }
+
+`
 
 export const Title = styled.h1`
     font-weight: 700;
@@ -201,4 +206,23 @@ export const ActionBtn = styled(Button)`
             margin-bottom: 0;
         }
     }
+`;
+
+export const HeartWraper = styled.div`
+    width: 16px;
+    height: 16px;
+    margin-left: 8px;
+    align-items: center;
+    justify-content: center;
+`;
+
+export const Heart = styled.svg`
+    align-items: center;
+    justify-content: center;
+    fill: #F59256;
+
+    .btnFav:hover &,
+    .btnFav:focus & {
+        fill: #FFFFFF;
+        }
 `;

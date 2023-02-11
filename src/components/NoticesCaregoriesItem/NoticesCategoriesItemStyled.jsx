@@ -166,10 +166,21 @@ export const BtnDelete = styled(Button)`
     margin-top: 12px;
 `;
 
-export const Basket = styled.img`
+export const BasketWraper = styled.div`
     width: 20px;
     height: 20px;
     align-items: center;
     justify-content: center;
     margin-left: 13px;
 `;
+
+export const Basket = styled.svg`
+    align-items: center;
+    justify-content: center;
+    fill: #F59256;
+
+    .btnDel:hover &,
+    .btnDel:focus & {
+        fill: #FF6101;}
+`;
+
