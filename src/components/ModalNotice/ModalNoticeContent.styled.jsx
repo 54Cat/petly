@@ -58,6 +58,7 @@ export const Category = styled.span`
 export const PetsImg = styled.img`
     margin-bottom: 20px;
     border-radius: 0px 0px 40px 40px;
+    object-fit: cover;
 
     @media (min-width: 320px) {
         width: 240px;
