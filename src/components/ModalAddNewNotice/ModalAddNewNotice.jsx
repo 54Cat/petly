@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import ModalContent from './ModalContent';
-import { useNavigate } from 'react-router-dom';
+import ModalContent from './formAddNotice';
+
 import {
     ModalStyled,
     CloseBtn,
@@ -8,13 +8,10 @@ import {
     OpenBtn,
 } from './ModalAddNewNotice.styled';
 
-const ModalAddNewNotice = id => {
+const ModalAddNewNotice = () => {
     const [modalIsOpen, setIsOpen] = useState(false);
 
-    const navigate = useNavigate();
-
     function openModal() {
-        navigate('./step1');
         setIsOpen(true);
     }
 
@@ -40,7 +37,7 @@ const ModalAddNewNotice = id => {
                     <StyledIcon />
                 </CloseBtn>
 
-                <ModalContent onClose={closeModal}></ModalContent>
+                <ModalContent Close={closeModal}></ModalContent>
             </ModalStyled>
         </div>
     );

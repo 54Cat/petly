@@ -15,7 +15,10 @@ axios.defaults.baseURL = 'https://petly-backend-23cb.onrender.com/api';
 
 export const registerUser = createAsyncThunk(
     'auth/registerUser',
-    async ({ email, password, phone, city, name }, { rejectWithValue, dispatch }) => {
+    async (
+        { email, password, phone, city, name },
+        { rejectWithValue, dispatch }
+    ) => {
         try {
             const { data } = await axios.post('/auth/register', {
                 email,
@@ -54,11 +57,11 @@ export const loginUser = createAsyncThunk(
 //   async (_, thunkAPI) => {
 //     const state = thunkAPI.getState();
 //     const persistedToken = state.auth.token;
-    
+
 //     if (persistedToken === null) {
 //       return thunkAPI.rejectWithValue();
 //     }
-    
+
 //     try {
 //       token.set(persistedToken);
 //       const { data } = await axios.get("/user");
@@ -112,7 +115,7 @@ export const authSlice = createSlice({
             state.isLoading = false;
             state.status = action.payload.message;
         },
-        
+
         // [currentUser.pending](state) {
         //     state.isLoadingCurrentUser = true;
         // },

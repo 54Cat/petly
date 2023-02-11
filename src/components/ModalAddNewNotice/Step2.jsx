@@ -1,72 +1,74 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import { addNoticeOperation } from 'redux/Notices/noticesOperations';
 
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as yup from 'yup';
+// import * as yup from 'yup';
 
-const validationSchema = yup.object({
-    comments: yup.string().min(8).max(120).required(),
-});
-
-const Step2 = ({ data, prev }) => {
-    const FormError = ({ name }) => {
-        return (
-            <ErrorMessage name={name} render={message => <p>{message}</p>} />
-        );
-    };
-
-    const dispatch = useDispatch();
-
-    const handleSubmit = (values, { resetForm }) => {
-        //addMyPet(values);
-        console.log(values);
-        dispatch(addNoticeOperation(values));
-        resetForm();
-    };
-
+const Step2 = ({ category, sex, location, price, comments, updateFields }) => {
     return (
-        <Formik
-            initialValues={data}
-            onSubmit={handleSubmit}
-            validationSchema={validationSchema}
-        >
-            {({ values }) => (
-                <Form>
-                    <h1>Add pet</h1>
-                    <label htmlFor="title">
-                        <Field
-                            type="text"
-                            name="title"
-                            placeholder="Type name pet"
-                        />
-                        <FormError name="birthday" />
-                    </label>
+        <div>
+            <h1>Add pet</h1>
+            <div>
+                <input
+                    type="radio"
+                    id="Choice1"
+                    value="Male"
+                    name={sex}
+                    onChange={e => updateFields({ sex: e.target.value })}
+                />
+                <label htmlFor="Choice1">male</label>
 
-                    <label htmlFor="myPetsPhoto">
-                        <Field
-                            id="myPetsPhoto"
-                            type="file"
-                            name="myPetsPhoto"
-                        />
-                        <FormError name="myPetsPhoto" />
-                    </label>
+                <input
+                    type="radio"
+                    id="Choice2"
+                    value="Female"
+                    name={sex}
+                    onChange={e => updateFields({ sex: e.target.value })}
+                />
+                <label htmlFor="Choice2">female</label>
+            </div>
 
-                    <div>
-                        <label htmlFor="comments">
-                            Comments
-                            <Field
-                                type="text"
-                                name="comments"
-                                placeholder="Type comments"
-                                as="textarea"
-                            />
-                            <FormError name="comments" />
-                        </label>
-                    </div>
-                </Form>
+            <label htmlFor="location">Location*:</label>
+            <input
+                type="text"
+                name="location"
+                placeholder="Type name pet"
+                value={location}
+                onChange={e => updateFields({ location: e.target.value })}
+            />
+
+            {category === 'sell' && (
+                <>
+                    <label htmlFor="price">Price*:</label>
+                    <input
+                        type="text"
+                        name="price"
+                        placeholder="Type name pet"
+                        value={price}
+                        onChange={e => updateFields({ price: e.target.value })}
+                    />
+                </>
             )}
-        </Formik>
+
+            <label htmlFor="myPetsPhoto">
+                Load the pet’s image:
+                <input
+                    id="myPetsPhoto"
+                    type="file"
+                    name="myPetsPhoto"
+                    onChange={e =>
+                        updateFields({ myPetsPhoto: e.target.files[0] })
+                    }
+                />
+            </label>
+
+            <label htmlFor="comments">Comments</label>
+            <input
+                type="text"
+                name="comments"
+                placeholder="Type name pet"
+                value={comments}
+                onChange={e => updateFields({ comments: e.target.value })}
+            />
+        </div>
     );
 };
 export default Step2;

@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const ModalCard = styled.div`
+export const ModalCard = styled.form`
     box-sizing: border-box;
     margin: 0 auto;
     padding: 60px 20px 40px;
