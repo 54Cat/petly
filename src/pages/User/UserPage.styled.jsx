@@ -8,7 +8,7 @@ export const Container = styled.div`
     margin-top: 41px;
 
     @media (min-width: 768px) {
-        margin-top: 68px;
+        margin-top: 88px;
     }
 
     @media (min-width: 1280px) {

@@ -20,19 +20,19 @@ const UserDataItem = () => {
 
     const { name, city, email, phone, birthday } = userInState.user;
 
-    const [newName, setNewName] = useState('');
-    const [newEmail, setNewEmail] = useState('');
-    const [newBirthday, setNewBirthday] = useState('');
-    const [newPhone, setNewPhone] = useState('');
-    const [newCity, setNewCity] = useState('');
-    const ddd = () => {
-        setNewName(name);
-        setNewEmail(email);
-        setNewBirthday(birthday);
-        setNewPhone(phone);
-        setNewCity(city);
-    };
-    ddd();
+    const [newName, setNewName] = useState(name);
+    const [newEmail, setNewEmail] = useState(email);
+    const [newBirthday, setNewBirthday] = useState(birthday);
+    const [newPhone, setNewPhone] = useState(phone);
+    const [newCity, setNewCity] = useState([city]);
+    // const ddd = () => {
+    //     setNewName(name);
+    //     setNewEmail(email);
+    //     setNewBirthday(birthday);
+    //     setNewPhone(phone);
+    //     setNewCity(city);
+    // };
+    // ddd();
 
     const iconCreate = <MdCreate color="#F59256" className="icon" />;
     const iconCriateBlack = <MdCreate color="#111111" className="icon" />;
@@ -43,6 +43,8 @@ const UserDataItem = () => {
     const [iconBirthday, setIconBirthday] = useState(iconCreate);
     const [iconPhone, setIconPhone] = useState(iconCreate);
     const [iconCity, setIconCity] = useState(iconCreate);
+
+    console.log(newName);
 
     const imputChange = e => {
         const { name, value } = e.currentTarget;

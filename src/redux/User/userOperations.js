@@ -2,25 +2,25 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 axios.defaults.baseURL = 'https://petly-backend-23cb.onrender.com/api';
 const token = {
-    set(token) {
-        axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-    },
-    unset() {
-        axios.defaults.headers.common.Authorization = '';
-    },
+  set(token) {
+    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+  },
+  unset() {
+    axios.defaults.headers.common.Authorization = '';
+  },
 };
 
 export const getUserOperation = createAsyncThunk(
-    'user/getInfo',
+  'user/getInfo',
   async (_, thunkAPI) => {
 
-    const state = thunkAPI.getState();      
+    const state = thunkAPI.getState();
     const persistedToken = state.auth.token;
-    
+
     if (persistedToken === null) {
       return thunkAPI.rejectWithValue();
     }
-    
+
     try {
       token.set(persistedToken);
       const { data } = await axios.get("/user");
@@ -36,23 +36,26 @@ export const getUserOperation = createAsyncThunk(
 export const updateUserOperation = createAsyncThunk(
   'user/update',
   async (userId, thunkAPI) => {
-      const state = thunkAPI.getState();
+    const state = thunkAPI.getState();
+   
       const result = {
         email: userId.newEmail,
         name: userId.newName,
         birthday: userId.newBirthday,
-        city: userId.nweCity,
+        city: userId.newCity,
         phone: userId.newPhone,
+        avtarURL: userId.uploadAvatar,
       };
+  console.log(userId.newPhone);
     const persistedToken = state.auth.token;
-    
+
     if (persistedToken === null) {
       return thunkAPI.rejectWithValue();
     }
-    
+
     try {
       token.set(persistedToken);
-      const { data } = await axios.patch("/user", result);
+      const { data } = await axios.patch("/user/update", result);
       return data;
     }
     catch (error) {
