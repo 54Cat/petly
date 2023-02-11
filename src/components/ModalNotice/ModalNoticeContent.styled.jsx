@@ -73,7 +73,8 @@ export const PetsImg = styled.img`
     }
 `;
 
-export const TextContent = styled.div``;
+export const TextContent = styled.div`
+margin-left: 20px;`;
 
 export const Title = styled.h1`
     font-weight: 700;
