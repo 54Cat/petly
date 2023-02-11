@@ -7,13 +7,13 @@ import { SearchBar } from 'components/SearchBar/SearchBar'
 import { CardsList } from 'components/CardsList/CardsList'
 import NewsCard from 'components/NewsCard/NewsCard'
 import getSortedNews from 'components/Utils/helpers/getSortedNews'
-// import { Loader } from 'components/Utils/Loader/Loader';
+import { NewsLoader } from 'components/Utils/Loader/Loader';
 
 const NewsPage = () => {
+    const [isLoading, setIsLoading] = useState(false)
     const [filter, setFilter] = useState('')
     const [news, setNews] = useState([])
     const [sortedNews, setSortedNews] = useState([])
-    // const isLoaders = useSelector(isLoading);
     
     const onFilterChange = e => {
     setFilter(e.currentTarget.value);
@@ -44,6 +44,7 @@ const NewsPage = () => {
 
     const onFirstRender = async () => {
         try {
+            setIsLoading(true)
             const results = await fetchNews();
             if (results.length === 0) {
                 Notiflix.Notify.info(`We don't have any news!`)
@@ -53,6 +54,8 @@ const NewsPage = () => {
             setSortedNews(getSortedNews(results));
         } catch (e) {
             Notiflix.Notify.failure(e.message)
+        } finally {
+            setIsLoading(false)
         }
     }
 
@@ -67,11 +70,7 @@ const NewsPage = () => {
     return <PageSection>
         <Title>News</Title>
         <SearchBar handleSubmit={handleSubmit} onFilterChange={onFilterChange} filter={filter} />
-
-        <CardsList cardsArray={sortedNews} CardsItem={NewsCard} />
-        
-        {/* {isLoaders ? <Loader /> : <CardsList cardsArray={news} CardsItem={NewsCard} />} */}
-        
+        {isLoading ? <NewsLoader /> : <CardsList cardsArray={sortedNews} CardsItem={NewsCard} />}      
     </PageSection>
 }
 
