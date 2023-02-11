@@ -22,6 +22,24 @@ const NewsPage = () => {
     useEffect(() => {
     onFirstRender()  
     }, [])
+
+    useEffect(() => {
+        const newsByFilter = news.filter(oneNew => {
+            let areSimilarWords = false;
+            
+            for (const word of filter.trim().split(' ')) {
+                if (oneNew.title.toLowerCase().includes(word.toLowerCase())) {
+                    areSimilarWords = true;
+                    break
+                }
+            }
+            
+            return areSimilarWords;
+        })
+        const sortedNews = getSortedNews(newsByFilter)
+        setSortedNews(sortedNews);
+   
+    }, [filter, news])
     
 
     const onFirstRender = async () => {
@@ -40,24 +58,10 @@ const NewsPage = () => {
 
     const handleSubmit = async e => {
         e.preventDefault();
-        const newsByFilter = news.filter(oneNew => {
-            let areSimilarWords = false;
-            
-            for (const word of filter.trim().split(' ')) {
-                if (oneNew.title.toLowerCase().includes(word.toLowerCase())) {
-                    areSimilarWords = true;
-                    break
-                }
-            }
-            
-            return areSimilarWords;
-        })
-        if (newsByFilter.length === 0) {
-            Notiflix.Notify.failure('These news not found!')
+        if (filter.trim() === '') {
+            return
         }
-        const sortedNews = getSortedNews(newsByFilter)
-        setSortedNews(sortedNews);
-        
+        setFilter('')
     };
 
     return <PageSection>

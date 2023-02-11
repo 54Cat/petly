@@ -83,18 +83,11 @@ const NoticesPage = () => {
     setNotices(allNoticesByCategory);
     }, [allNoticesByCategory])
     
-
-
-    const onFilterChange = e => {
-        setFilter(e.currentTarget.value);
-    };
-
-    const handleSubmit = e => {
-        e.preventDefault();
-        const filtredNotices = allNoticesByCategory.filter(notice => {
+    useEffect(() => {
+      const filtredNotices = allNoticesByCategory.filter(notice => {
             let areSimilarWords = false;
 
-            for (const word of filter.split(' ')) {
+            for (const word of filter.trim().split(' ')) {
                 if (notice.title.toLowerCase().includes(word.toLowerCase())) {
                     areSimilarWords = true;
                     break
@@ -104,6 +97,23 @@ const NoticesPage = () => {
             return areSimilarWords;
         })
         setNotices(filtredNotices);
+    
+      
+    }, [allNoticesByCategory, filter])
+    
+
+
+    const onFilterChange = e => {
+        setFilter(e.currentTarget.value);
+    };
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        if (filter.trim() === '') {
+            return
+        }
+        setFilter('')
+        
     };
 
     return (
