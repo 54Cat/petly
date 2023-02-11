@@ -6,7 +6,7 @@ import {
     CloseBtn,
     StyledIcon,
     OpenBtn,
-} from './ModalAddNewNotice.styled';
+} from './ModalAddNewNoticeStyled';
 
 const ModalAddNewNotice = () => {
     const [modalIsOpen, setIsOpen] = useState(false);

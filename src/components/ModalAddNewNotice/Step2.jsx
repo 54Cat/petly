@@ -24,7 +24,7 @@ const Step2 = ({ category, sex, location, price, comments, updateFields }) => {
                     <Input
                         type="radio"
                         id="Choice1"
-                        value="Male"
+                        value="male"
                         name={sex}
                         onChange={e => updateFields({ sex: e.target.value })}
                     />
@@ -36,7 +36,7 @@ const Step2 = ({ category, sex, location, price, comments, updateFields }) => {
                     <Input
                         type="radio"
                         id="Choice2"
-                        value="Female"
+                        value="female"
                         name={sex}
                         onChange={e => updateFields({ sex: e.target.value })}
                     />
