@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useNavigate } from "react-router-dom"
-import { getNotices, getAuth } from 'redux/selectors';
+import { getNotices } from 'redux/selectors';
+import { getUser } from 'redux/User/selectors';
 import { fetchNotices } from 'redux/Notices/noticesOperations';
-import { fetchFavoriteNotices } from 'components/Utils/axios/fetchNotices';
+import { fetchFavoriteNotices, fetchDeleteNotice, updateFavoriteNotice} from 'redux/Notices/fetchNotices';
 import { PageSection } from 'components/Utils/Styles/basicStyle';
 import { Title } from 'components/Utils/Styles/basicStyle';
 import { SearchBar } from 'components/SearchBar/SearchBar';
@@ -11,9 +12,8 @@ import { NoticesCategoriesNav } from 'components/NoticesCategoriesNav/NoticesCat
 import { NoticesCategoriesList } from 'components/NoticesCategoriesList/NoticesCategoriesList';
 
 
-
 const NoticesPage = () => {
-    const auth = useSelector(getAuth);
+    const userData = useSelector(getUser);
     const dispatch = useDispatch();
     const allNoticesByCategory = useSelector(getNotices).items;
     const [filter, setFilter] = useState('');
@@ -24,42 +24,56 @@ const NoticesPage = () => {
 
     const fetchFavorite = async () => {
         const results = await fetchFavoriteNotices();
-        setFavorite(results)
+        const resultId = results.map(result => result._id)
+        setFavorite(resultId)
+    }
+
+    const updateFavorite = async (id) => {
+        const results = await updateFavoriteNotice(id);
+        setFavorite(results.favorites)
+    }
+
+    const deleteMyNotices = async (id) => {
+        const results = await fetchDeleteNotice(id);
+        const newNotices = notices.filter(notice =>
+            notice._id !== results.data._id);
+        setNotices(newNotices)
     }
 
     useEffect(() => {
         switch (category) {
             case "lost-found":
                 dispatch(fetchNotices('lost-found'))
-                if (auth.isLoggedIn) {
+                if (userData.token) {
                     fetchFavorite()
                 };
                 break;
 
             case "for-free":
                 dispatch(fetchNotices("for-free"))  
-                if (auth.isLoggedIn) {
+                if (userData.token) {
                     fetchFavorite()
                 };
                 break;
 
             case "sell":
                 dispatch(fetchNotices("sell")) 
-                if (auth.isLoggedIn) {
+                if (userData.token) {
                     fetchFavorite()
                 };
                 break;
         
             case "favorite":
-                if (!auth.isLoggedIn) {
+                if (!userData.token) {
                     navigate('/notices/lost-found')
                     return
                 };
-                dispatch( fetchNotices('myFavorite'))
+                dispatch(fetchNotices('myFavorite'))
+                fetchFavorite()
                 break;
         
             case "own":
-                if (!auth.isLoggedIn) {
+                if (!userData.token) {
                     navigate('/notices/lost-found')
                     return
                 };
@@ -68,9 +82,9 @@ const NoticesPage = () => {
                 break;
 
             default:
-                navigate('/notices/lost-found')
+                navigate('/notices/sell')
 } 
-    }, [auth.isLoggedIn, category, dispatch, navigate])
+    }, [userData.token, category, dispatch, navigate])
 
     useEffect(() => {
     setNotices(allNoticesByCategory);
@@ -110,7 +124,7 @@ const NoticesPage = () => {
             />            
             <NoticesCategoriesNav />
 
-            <NoticesCategoriesList notices={notices} favorite={favorite} />
+            <NoticesCategoriesList notices={notices} favorite={favorite} updateFavorite={updateFavorite} deleteMyNotices={deleteMyNotices} />
 
         </PageSection>
     );

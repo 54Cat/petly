@@ -1,9 +1,10 @@
 import { NavContainer, NavList, NavItem, HeaderNavLink } from './HeaderNavigationsStyled';
 
-  const Navigations = ({active, setActive}) => {
+  const Navigations = ({active, setActive}) => {    
     return ( 
         
       <NavContainer className={active ? 'active' : ''} onClick={() => setActive(false)}>
+        
       
         <NavList>
           <NavItem>
@@ -26,7 +27,7 @@ import { NavContainer, NavList, NavItem, HeaderNavLink } from './HeaderNavigatio
             <HeaderNavLink
               to="/friends"
             >
-              Our friend
+              Our friends
             </HeaderNavLink>
           </NavItem>
         </NavList>

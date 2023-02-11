@@ -1,18 +1,42 @@
-import { useSelector } from 'react-redux';
-import { getAuth } from 'redux/selectors';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { useEffect } from 'react';
+import { getUserOperation } from '../../redux/User/userOperations';
+import { getUser } from 'redux/User/selectors';
+import ModalAddNewNotice from 'components/ModalAddNewNotice/ModalAddNewNotice';
 import {
     NoticesCategoriesNavList,
     NoticesCategoriesNavButton,
 } from 'components/NoticesCategoriesNav/NoticesCategoriesNavStyled';
 // import { ModalAddNotice } from 'components/Modals/modalAddNotice/modalAddNotice';
-import ModalAddNewNotice from 'components/ModalAddNewNotice/ModalAddNewNotice';
+
 export const NoticesCategoriesNav = () => {
-    const auth = useSelector(getAuth);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getUserOperation());
+    }, [dispatch]);
+
+    const userData = useSelector(getUser);
+    const token = userData.token;
     const { category } = useParams();
 
     return (
         <NoticesCategoriesNavList>
+            <NoticesCategoriesNavButton
+                to={'/notices/sell'}
+                style={
+                    category === 'sell'
+                        ? {
+                              color: '#ffffff',
+                              backgroundColor: '#F59256',
+                              border: 0,
+                          }
+                        : undefined
+                }
+            >
+                sell
+            </NoticesCategoriesNavButton>
             <NoticesCategoriesNavButton
                 to={'/notices/lost-found'}
                 style={
@@ -41,21 +65,7 @@ export const NoticesCategoriesNav = () => {
             >
                 In good hands
             </NoticesCategoriesNavButton>
-            <NoticesCategoriesNavButton
-                to={'/notices/sell'}
-                style={
-                    category === 'sell'
-                        ? {
-                              color: '#ffffff',
-                              backgroundColor: '#F59256',
-                              border: 0,
-                          }
-                        : undefined
-                }
-            >
-                sell
-            </NoticesCategoriesNavButton>
-            {auth.isLoggedIn && (
+            {token && (
                 <NoticesCategoriesNavButton
                     to={'/notices/favorite'}
                     style={
@@ -68,10 +78,10 @@ export const NoticesCategoriesNav = () => {
                             : undefined
                     }
                 >
-                    Favorite ads
+                    favorite ads
                 </NoticesCategoriesNavButton>
             )}
-            {auth.isLoggedIn && (
+            {token && (
                 <NoticesCategoriesNavButton
                     to={'/notices/own'}
                     style={
@@ -84,7 +94,7 @@ export const NoticesCategoriesNav = () => {
                             : undefined
                     }
                 >
-                    My ads
+                    my ads
                 </NoticesCategoriesNavButton>
             )}
             <ModalAddNewNotice></ModalAddNewNotice>

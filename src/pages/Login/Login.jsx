@@ -32,9 +32,7 @@ export const Login = () => {
             resetForm();
 
             navigate('/user');
-        } catch (errors) {
-            console.log(errors);
-        }
+        } catch (errors) {}
     };
     const FormErrors = ({ name }) => {
         return (
