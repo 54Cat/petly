@@ -12,7 +12,8 @@ export const UserNavContainer = styled.div`
         padding: 0;
     }
 
-    @media (min-width: 1280px) {
+    @media (min-width: 1280px) { 
+        padding-right: 16px;
     }
 `;
 

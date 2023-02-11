@@ -5,3 +5,7 @@ export const LoaderContainer = styled.div`
     top: 50%;
     transform: translate(-50%, -50%);
 `;
+
+export const NewsLoaderContainer = styled.div`
+    margin: 0 auto;
+`;

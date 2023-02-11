@@ -7,13 +7,13 @@ import { SearchBar } from 'components/SearchBar/SearchBar'
 import { CardsList } from 'components/CardsList/CardsList'
 import NewsCard from 'components/NewsCard/NewsCard'
 import getSortedNews from 'components/Utils/helpers/getSortedNews'
-// import { Loader } from 'components/Utils/Loader/Loader';
+import { NewsLoader } from 'components/Utils/Loader/Loader';
 
 const NewsPage = () => {
+    const [isLoading, setIsLoading] = useState(false)
     const [filter, setFilter] = useState('')
     const [news, setNews] = useState([])
     const [sortedNews, setSortedNews] = useState([])
-    // const isLoaders = useSelector(isLoading);
     
     const onFilterChange = e => {
     setFilter(e.currentTarget.value);
@@ -22,24 +22,8 @@ const NewsPage = () => {
     useEffect(() => {
     onFirstRender()  
     }, [])
-    
 
-    const onFirstRender = async () => {
-        try {
-            const results = await fetchNews();
-            if (results.length === 0) {
-                Notiflix.Notify.info(`We don't have any news!`)
-                return
-            }
-            setNews(results);
-            setSortedNews(getSortedNews(results));
-        } catch (e) {
-            Notiflix.Notify.failure(e.message)
-        }
-    }
-
-    const handleSubmit = async e => {
-        e.preventDefault();
+    useEffect(() => {
         const newsByFilter = news.filter(oneNew => {
             let areSimilarWords = false;
             
@@ -52,22 +36,41 @@ const NewsPage = () => {
             
             return areSimilarWords;
         })
-        if (newsByFilter.length === 0) {
-            Notiflix.Notify.failure('These news not found!')
-        }
         const sortedNews = getSortedNews(newsByFilter)
         setSortedNews(sortedNews);
-        
+   
+    }, [filter, news])
+    
+
+    const onFirstRender = async () => {
+        try {
+            setIsLoading(true)
+            const results = await fetchNews();
+            if (results.length === 0) {
+                Notiflix.Notify.info(`We don't have any news!`)
+                return
+            }
+            setNews(results);
+            setSortedNews(getSortedNews(results));
+        } catch (e) {
+            Notiflix.Notify.failure(e.message)
+        } finally {
+            setIsLoading(false)
+        }
+    }
+
+    const handleSubmit = async e => {
+        e.preventDefault();
+        if (filter.trim() === '') {
+            return
+        }
+        setFilter('')
     };
 
     return <PageSection>
         <Title>News</Title>
         <SearchBar handleSubmit={handleSubmit} onFilterChange={onFilterChange} filter={filter} />
-
-        <CardsList cardsArray={sortedNews} CardsItem={NewsCard} />
-        
-        {/* {isLoaders ? <Loader /> : <CardsList cardsArray={news} CardsItem={NewsCard} />} */}
-        
+        {isLoading ? <NewsLoader /> : <CardsList cardsArray={sortedNews} CardsItem={NewsCard} />}      
     </PageSection>
 }
 

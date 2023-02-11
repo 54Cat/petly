@@ -1,22 +1,23 @@
 import styled from '@emotion/styled';
 
-export const Wrapper = styled.div`
-@media (max-width: 1279px) {	
+export const Wrapper = styled.header`
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
-    height: 88px;
+    z-index: 1;
+    background-color: #FDF7F2;
+    height: 74px;
 
     &.active {
-        height: 100%;
-        z-index: 1;
-	    background-color: #FDF7F2;
+        height: 100vh;
     }
-}
+
+    @media (min-width: 768px) {
+        height: 96px;
+    }
 
     @media (min-width: 1280px) {
-        width: 100%;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -74,6 +75,7 @@ export const WrapperNav = styled.div`
         flex-direction: row;
         flex-wrap: wrap;
         gap: 80px;
+        padding-left: 16px;
         
     }
 `;
