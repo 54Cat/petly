@@ -3,6 +3,7 @@ import * as yup from 'yup';
 import { useState } from 'react';
 
 import {
+    LabelBox,
     TitleItemTwo,
     BtnAddFileIcon,
     ErrorText,
@@ -73,7 +74,7 @@ const StepTwo = ({ data, prev, onClose }) => {
 
     return (
         <Formik
-            //enctype="multipart/form-data"
+            
             initialValues={data}
             onSubmit={handleSubmit}
             validationSchema={validationSchema}
@@ -88,14 +89,12 @@ const StepTwo = ({ data, prev, onClose }) => {
                         <TitleItemTwo>Add photo and some comments</TitleItemTwo>
 
                         <AddFile htmlFor="myPetsPhoto">
-                            <BtnAddFileIcon />
+                            {file ? <p>File added success</p>:<BtnAddFileIcon />}
 
-                            <FieldPhoto id="myPetsPhoto" type="file" name="myPetsPhoto" onChange={handleChange} />
-
-                            <FormError name="myPetsPhoto" />
+                            <FieldPhoto id="myPetsPhoto" type="file" name="myPetsPhoto" onChange={handleChange} />   
                         </AddFile>
-
-                        <div>
+                        <FormError name="myPetsPhoto" />
+                        <LabelBox>
                             <StyledLabel htmlFor="comments">
                                 Comments
                                 <FieldTextarea
@@ -104,9 +103,9 @@ const StepTwo = ({ data, prev, onClose }) => {
                                     placeholder="Type comments"
                                     as="textarea"
                                 />
-                                <FormError name="comments" />
                             </StyledLabel>
-                        </div>
+                        </LabelBox>
+                        <FormError name="comments" />
                         <FlexBox>
                             <NextBtn type="submit">Done</NextBtn>
                             <CancelBtn

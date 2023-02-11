@@ -18,7 +18,6 @@ export const Wrapper = styled.header`
     }
 
     @media (min-width: 1280px) {
-        position: sticky;
         display: flex;
         align-items: center;
         justify-content: space-between;
