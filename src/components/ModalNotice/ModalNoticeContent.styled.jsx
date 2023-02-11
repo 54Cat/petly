@@ -207,3 +207,22 @@ export const ActionBtn = styled(Button)`
         }
     }
 `;
+
+export const HeartWraper = styled.div`
+    width: 16px;
+    height: 16px;
+    margin-left: 8px;
+    align-items: center;
+    justify-content: center;
+`;
+
+export const Heart = styled.svg`
+    align-items: center;
+    justify-content: center;
+    fill: #F59256;
+
+    .btnFav:hover &,
+    .btnFav:focus & {
+        fill: #FFFFFF;
+        }
+`;
