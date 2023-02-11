@@ -15,6 +15,18 @@ export const fetchNotices = createAsyncThunk(
     }
 );
 
+export const addNoticeOperation = createAsyncThunk(
+    'pets/addNotice',
+    async (credentials, { rejectWithValue }) => {
+        try {
+            const response = await axios.post(`/notices`, credentials);
+            return response.data;
+        } catch (error) {
+            return rejectWithValue(error);
+        }
+    }
+);
+
 export const deleteNotice = createAsyncThunk(
     'notices/deleteNotice',
     async noticeId => {

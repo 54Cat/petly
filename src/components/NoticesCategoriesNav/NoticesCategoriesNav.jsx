@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { getUserOperation } from '../../redux/User/userOperations';
 import { getUserInfo } from 'redux/selectors';
+import ModalAddNewNotice from 'components/ModalAddNewNotice/ModalAddNewNotice';
 import {
     NoticesCategoriesNavList,
     NoticesCategoriesNavButton,
@@ -96,7 +97,7 @@ export const NoticesCategoriesNav = () => {
                     my ads
                 </NoticesCategoriesNavButton>
             )}
-
+            <ModalAddNewNotice></ModalAddNewNotice>
             {/* <ModalAddNotice /> */}
         </NoticesCategoriesNavList>
     );
