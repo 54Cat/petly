@@ -148,8 +148,8 @@ const NoticeContent = id => {
                     {isLoggedIn && (
                         <ActionBtn onClick={onBtnDelete}>Delete</ActionBtn>
                     )}
+                    <ActionBtn onClick={onBtnChangeFav}>Add to ❤️️</ActionBtn>
                     <ActionBtn onClick={onBtnRedirect}>Contact</ActionBtn>
-                    <ActionBtn onClick={onBtnChangeFav}>Add to </ActionBtn>
                 </Buttons>
             </NoticeCard>
         </>

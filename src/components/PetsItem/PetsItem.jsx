@@ -20,9 +20,9 @@ const PetsItem = ({ _id, name, birthday, breed, comments, photoURL }) => {
     };
 
     return (
-        <PetsCard>
+        <PetsCard key={_id}>
             <PetsImg
-                src="https://www.bangaloreagrico.in/wp-content/uploads/2018/11/ORANGE.jpg"
+                src={ photoURL}
                 alt=""
             />
             <TextWrapper>

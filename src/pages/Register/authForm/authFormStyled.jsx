@@ -118,25 +118,40 @@ export const Input = styled(Field)`
     }
     margin: 0 auto;
     @media (min-width: 320px) {
+        font-size: 14px;
         margin-bottom: 15px;
         width: 216px;
         height: 36px;
+        ::placeholder {
+            font-size: 14px;
+            color: rgba(17, 17, 17, 0.6);
+        }
         padding-left: 20px;
     }
     @media (min-width: 768px) {
         width: 404px;
+        ::placeholder {
+            font-size: 18px;
+            color: rgba(17, 17, 17, 0.6);
+        }
         height: 48px;
         padding-left: 20px;
         margin-top: 16px;
+        font-size: 18px;
         :not(:last-child) {
             margin-top: 0px;
         }
     }
     @media (min-width: 1280px) {
+        ::placeholder {
+            font-size: 18px;
+            color: rgba(17, 17, 17, 0.6);
+        }
         margin-top: 18px;
         padding-left: 20px;
         width: 414px;
         height: 48px;
+        font-size: 18px;
     }
 `;
 export const Button = styled.button`
@@ -313,6 +328,7 @@ export const FormError = styled.p`
 `;
 export const Link = styled(NavLink)`
     transition: all 600ms ease;
+    font-size: 12px;
     &:hover,
     &:focus {
         opacity: 0.5;

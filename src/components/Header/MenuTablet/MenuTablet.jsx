@@ -13,7 +13,6 @@ import { Wrapper, Container, WrapperTop, WrapperBtn, WrapperNav, Btn } from '../
 const MenuTablet = () => {
 	const userSelector = useSelector(selectUser);
 	const token = userSelector.token;
-	console.log("token", token)
   
 	const [menuActive, setMenuActive] = useState(false);
 
@@ -43,9 +42,9 @@ const MenuTablet = () => {
 					<WrapperNav
 					className={menuActive ? 'active' : ''} >
 					{token ? (
-						<UserNav />
+						<UserNav  active={menuActive} setActive={setMenuActive} />
 					) : (
-						<AuthNav />
+						<AuthNav  active={menuActive} setActive={setMenuActive} />
 					)}
 					</WrapperNav>
 					

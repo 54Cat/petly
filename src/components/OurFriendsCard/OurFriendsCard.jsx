@@ -38,7 +38,7 @@ const OurFriendsCard = ({ card }) => {
                             </BoxInfo>
                             <BoxInfo>
                             <Info>Adress: </Info>
-                            {address ? <AddressLink href={addressUrl}>{`${address.slice(0, 20)}...,`}</AddressLink> : ifEmptyString()}
+                            {address ? <AddressLink target="_blank" href={addressUrl}>{`${address.slice(0, 20)}...,`}</AddressLink> : ifEmptyString()}
                             </BoxInfo>
                             <BoxInfo>
                                 <Info>Email:</Info>

@@ -25,7 +25,7 @@ const FriendsPage = () => {
   });
     
     return <PageSection>
-        <Title style={onTitleStyles(windowSize)}>Our friend</Title>
+        <Title style={onTitleStyles(windowSize)}>Our friends</Title>
         <CardsList styles={onListStyles(windowSize)}  cardsArray={friends} CardsItem={OurFriendsCard} />
     </PageSection>
 }
