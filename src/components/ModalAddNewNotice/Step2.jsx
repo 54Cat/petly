@@ -6,6 +6,8 @@ import {
     Label,
     Input,
     Thumb,
+    Title,
+    TitleColor,
 } from './step2Styled';
 
 // import * as yup from 'yup';
@@ -15,6 +17,9 @@ const Step2 = ({ category, sex, location, price, comments, updateFields }) => {
         <div>
             <h1>Add pet</h1>
             <Thumb>
+                <Title>
+                    The sex<TitleColor>*</TitleColor>:
+                </Title>
                 <Label htmlFor="Choice1">
                     <Input
                         type="radio"
@@ -23,8 +28,8 @@ const Step2 = ({ category, sex, location, price, comments, updateFields }) => {
                         name={sex}
                         onChange={e => updateFields({ sex: e.target.value })}
                     />
+                    <SpanTXT>Male</SpanTXT>
                     <LabelMale></LabelMale>
-                    <SpanTXT>male</SpanTXT>
                 </Label>
 
                 <Label htmlFor="Choice2">
@@ -35,8 +40,8 @@ const Step2 = ({ category, sex, location, price, comments, updateFields }) => {
                         name={sex}
                         onChange={e => updateFields({ sex: e.target.value })}
                     />
+                    <SpanTXT>Female</SpanTXT>
                     <LabelFemale></LabelFemale>
-                    <SpanTXT>female</SpanTXT>
                 </Label>
             </Thumb>
 
