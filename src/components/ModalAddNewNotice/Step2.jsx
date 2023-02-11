@@ -67,14 +67,14 @@ const Step2 = ({ category, sex, location, price, comments, updateFields }) => {
                 </>
             )}
 
-            <label htmlFor="myPetsPhoto">
+            <label htmlFor="petsPhoto">
                 Load the pet’s image:
                 <input
-                    id="myPetsPhoto"
+                    id="petsPhoto"
                     type="file"
-                    name="myPetsPhoto"
+                    name="petsPhoto"
                     onChange={e =>
-                        updateFields({ myPetsPhoto: e.target.files[0] })
+                        updateFields({ petsPhoto: e.target.files[0] })
                     }
                 />
             </label>
