@@ -27,7 +27,7 @@ import { selectUser } from "../../redux/Auth/AuthSelectors"
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import * as dayjs from 'dayjs';
 
-export const NoticesCategoriesItem = ({ notice, favorite, updateFavorite }) => {
+export const NoticesCategoriesItem = ({ notice, favorite, updateFavorite, deleteMyNotices }) => {
     const authSelector = useSelector(getAuth);
     const auth = useSelector(selectUser);
 
@@ -45,6 +45,8 @@ export const NoticesCategoriesItem = ({ notice, favorite, updateFavorite }) => {
         authSelector.isLoggedIn ? dispatch(updateFavorite(_id)) :
             Notify.failure('Oops... please login or register')
 
+    const deleteNotices = async () => dispatch(deleteMyNotices(_id));
+    
     const date1 = dayjs();
     const date2 = dayjs(birthday);
     const age = Math.floor(date1.diff(date2) / 31536000000);
@@ -93,7 +95,7 @@ export const NoticesCategoriesItem = ({ notice, favorite, updateFavorite }) => {
                     <ModalNotice id={_id}>Learn more</ModalNotice>
                     
                     {(authSelector.isLoggedIn && auth.user.id === owner) ?
-                        <BtnDelete type='button'>Delete
+                        <BtnDelete type='button' onClick={deleteNotices}>Delete
                         <Basket src={basket} alt="Delete" />
                     </BtnDelete> : ''}
 
