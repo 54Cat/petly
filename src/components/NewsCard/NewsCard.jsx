@@ -31,7 +31,7 @@ const NewsCard = ({ card }) => {
     return (
         <NewsItem>
             <DecorLine></DecorLine>
-            <TitleNews>{`${title.slice(0, 52)}...,`}</TitleNews>
+            <TitleNews>{`${title.slice(0, 32)}...,`}</TitleNews>
             <NewsInfo>{` ${description.slice(0, 100)}...,`}</NewsInfo>
             <NewsFooter>
                 <NewsDate>{formatNewsDate(date)}</NewsDate>
