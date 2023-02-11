@@ -44,8 +44,6 @@ export const AccountButton = styled(Link)`
     }
 
     div {
-        // width: 10px;
-        // height: 10px;
         border-radius: 50%;
         overflow: hidden;
         @media (min-width: 768px) {
