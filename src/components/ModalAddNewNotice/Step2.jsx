@@ -1,4 +1,12 @@
 import React from 'react';
+import {
+    LabelFemale,
+    LabelMale,
+    SpanTXT,
+    Label,
+    Input,
+    Thumb,
+} from './step2Styled';
 
 // import * as yup from 'yup';
 
@@ -6,25 +14,31 @@ const Step2 = ({ category, sex, location, price, comments, updateFields }) => {
     return (
         <div>
             <h1>Add pet</h1>
-            <div>
-                <input
-                    type="radio"
-                    id="Choice1"
-                    value="Male"
-                    name={sex}
-                    onChange={e => updateFields({ sex: e.target.value })}
-                />
-                <label htmlFor="Choice1">male</label>
+            <Thumb>
+                <Label htmlFor="Choice1">
+                    <Input
+                        type="radio"
+                        id="Choice1"
+                        value="Male"
+                        name={sex}
+                        onChange={e => updateFields({ sex: e.target.value })}
+                    />
+                    <LabelMale></LabelMale>
+                    <SpanTXT>male</SpanTXT>
+                </Label>
 
-                <input
-                    type="radio"
-                    id="Choice2"
-                    value="Female"
-                    name={sex}
-                    onChange={e => updateFields({ sex: e.target.value })}
-                />
-                <label htmlFor="Choice2">female</label>
-            </div>
+                <Label htmlFor="Choice2">
+                    <Input
+                        type="radio"
+                        id="Choice2"
+                        value="Female"
+                        name={sex}
+                        onChange={e => updateFields({ sex: e.target.value })}
+                    />
+                    <LabelFemale></LabelFemale>
+                    <SpanTXT>female</SpanTXT>
+                </Label>
+            </Thumb>
 
             <label htmlFor="location">Location*:</label>
             <input
