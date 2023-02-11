@@ -20,8 +20,11 @@ const PetsItem = ({ _id, name, birthday, breed, comments, photoURL }) => {
     };
 
     return (
-        <PetsCard>
-            <PetsImg src={photoURL} alt="" />
+        <PetsCard key={_id}>
+            <PetsImg
+                src={ photoURL}
+                alt=""
+            />
             <TextWrapper>
                 <PetsName>
                     <CardTitle>Name:</CardTitle> {name}{' '}

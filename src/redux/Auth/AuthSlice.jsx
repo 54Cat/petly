@@ -1,24 +1,20 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { loggedOut } from 'redux/Auth/AuthUser';
 
 import axios from 'axios';
 axios.defaults.baseURL = 'https://petly-backend-23cb.onrender.com/api';
 
-// const token = {
-//     set(token) {
-//         axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-//     },
-//     unset() {
-//         axios.defaults.headers.common.Authorization = '';
-//     },
-// };
+const token = {
+    set(token) {
+        axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+    },
+    unset() {
+        axios.defaults.headers.common.Authorization = '';
+    },
+};
 
 export const registerUser = createAsyncThunk(
     'auth/registerUser',
-    async (
-        { email, password, phone, city, name },
-        { rejectWithValue, dispatch }
-    ) => {
+    async ({ email, password, phone, city, name }, { rejectWithValue, dispatch }) => {
         try {
             const { data } = await axios.post('/auth/register', {
                 email,
@@ -27,7 +23,7 @@ export const registerUser = createAsyncThunk(
                 city,
                 name,
             });
-            dispatch(loginUser({ email: data.email, password: data.password }));
+            dispatch(loginUser({ email, password }));
             // token.set(data.token);
             return data;
         } catch (error) {
@@ -52,26 +48,19 @@ export const loginUser = createAsyncThunk(
     }
 );
 
-// export const currentUser = createAsyncThunk(
-//   "auth/refresh",
-//   async (_, thunkAPI) => {
-//     const state = thunkAPI.getState();
-//     const persistedToken = state.auth.token;
-
-//     if (persistedToken === null) {
-//       return thunkAPI.rejectWithValue();
-//     }
-
-//     try {
-//       token.set(persistedToken);
-//       const { data } = await axios.get("/user");
-//       return data;
-//     } catch (error) {
-//       token.unset();
-//       return thunkAPI.rejectWithValue(error.message);
-//     }
-//   }
-// );
+export const loggedOut = createAsyncThunk(
+    'auth/logout',
+    async (_, thunkApi) => {
+        try {
+            const { data } = await axios.post('/auth/logout');
+            // console.log(data);
+            token.unset();
+            return data;
+        } catch (error) {
+            return thunkApi.rejectWithValue(error.message);
+        }
+    }
+);
 
 const initialState = {
     user: null,
@@ -115,19 +104,6 @@ export const authSlice = createSlice({
             state.isLoading = false;
             state.status = action.payload.message;
         },
-
-        // [currentUser.pending](state) {
-        //     state.isLoadingCurrentUser = true;
-        // },
-        // [currentUser.fulfilled](state, action) {
-        //     state.isLoadingCurrentUser = false;
-        //     state.user = action.payload;
-        //     state.isLoggedIn = true;
-        // },
-        // [currentUser.rejected](state, action) {
-        //     state.isLoadingCurrentUser = false;
-        //     state.error = action.payload;
-        // },
 
         [loggedOut.pending](state) {
             state.isLoading = true;

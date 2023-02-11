@@ -1,19 +1,20 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useNavigate } from "react-router-dom"
-import { getNotices, getAuth } from 'redux/selectors';
+import { getNotices } from 'redux/selectors';
+import { getUser } from 'redux/User/selectors';
 import { fetchNotices } from 'redux/Notices/noticesOperations';
-import { fetchFavoriteNotices } from 'components/Utils/axios/fetchNotices';
+import { fetchFavoriteNotices } from 'redux/Notices/fetchNotices';
 import { PageSection } from 'components/Utils/Styles/basicStyle';
 import { Title } from 'components/Utils/Styles/basicStyle';
 import { SearchBar } from 'components/SearchBar/SearchBar';
 import { NoticesCategoriesNav } from 'components/NoticesCategoriesNav/NoticesCategoriesNav';
 import { NoticesCategoriesList } from 'components/NoticesCategoriesList/NoticesCategoriesList';
-
+import { updateFavoriteNotice } from '../../redux/Notices/fetchNotices'
 
 
 const NoticesPage = () => {
-    const auth = useSelector(getAuth);
+    const userData = useSelector(getUser);
     const dispatch = useDispatch();
     const allNoticesByCategory = useSelector(getNotices).items;
     const [filter, setFilter] = useState('');
@@ -27,31 +28,37 @@ const NoticesPage = () => {
         setFavorite(results)
     }
 
+    const updateFavorite = async (id) => {
+        const results = await updateFavoriteNotice(id);
+        setFavorite(results.favorites)
+    }
+
+
     useEffect(() => {
         switch (category) {
             case "lost-found":
                 dispatch(fetchNotices('lost-found'))
-                if (auth.isLoggedIn) {
+                if (userData.token) {
                     fetchFavorite()
                 };
                 break;
 
             case "for-free":
                 dispatch(fetchNotices("for-free"))  
-                if (auth.isLoggedIn) {
+                if (userData.token) {
                     fetchFavorite()
                 };
                 break;
 
             case "sell":
                 dispatch(fetchNotices("sell")) 
-                if (auth.isLoggedIn) {
+                if (userData.token) {
                     fetchFavorite()
                 };
                 break;
         
             case "favorite":
-                if (!auth.isLoggedIn) {
+                if (!userData.token) {
                     navigate('/notices/lost-found')
                     return
                 };
@@ -59,7 +66,7 @@ const NoticesPage = () => {
                 break;
         
             case "own":
-                if (!auth.isLoggedIn) {
+                if (!userData.token) {
                     navigate('/notices/lost-found')
                     return
                 };
@@ -68,9 +75,9 @@ const NoticesPage = () => {
                 break;
 
             default:
-                navigate('/notices/lost-found')
+                navigate('/notices/sell')
 } 
-    }, [auth.isLoggedIn, category, dispatch, navigate])
+    }, [userData.token, category, dispatch, navigate])
 
     useEffect(() => {
     setNotices(allNoticesByCategory);
@@ -110,7 +117,7 @@ const NoticesPage = () => {
             />            
             <NoticesCategoriesNav />
 
-            <NoticesCategoriesList notices={notices} favorite={favorite} />
+            <NoticesCategoriesList notices={notices} favorite={favorite} updateFavorite={updateFavorite} />
 
         </PageSection>
     );
