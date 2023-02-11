@@ -69,8 +69,8 @@ const NoticeContent = id => {
 
     return (
         <>
-            {error && <h1>Все погано!</h1>}
             <NoticeCard>
+                {error && <h1>Все погано!</h1>}
                 <PetInfo>
                     <ImgWrapper>
                         <PetsImg src={notice.imageURL} alt="" />
