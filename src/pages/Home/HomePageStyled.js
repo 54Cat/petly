@@ -30,7 +30,7 @@ export const Container = styled.div`
   @media (min-width: 1280px) {
     background-image: url(${hero_desktop}), url(${bg_inside_desktop}), url(${bg_outside_desktop}), url(${bg_heart_desktop}), url(${bg_point_desktop});
     background-position: bottom right 16px, bottom left -10px, bottom right -50px, top 170px right 40%, bottom 250px left 520px;    
-    background-size: auto, 96% 350px, 100% 410px, auto, 100%;
+    background-size: auto, 96% 350px, 100% 410px, auto, auto;
   }
 `;
 
