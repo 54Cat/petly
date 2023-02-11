@@ -12,6 +12,7 @@ export const AuthNavContainer = styled.div`
     }
 
     @media (min-width: 1280px) {
+        padding-right: 16px;
     }
 `;
 
