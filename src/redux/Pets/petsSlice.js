@@ -30,9 +30,9 @@ const petsSlice = createSlice({
 
         [addPetOperation.fulfilled]: (state, { payload }) => {
             return {
-                ...state,
+                state,
 
-                items: [...state.pets, payload],
+                items: [state.pets, payload],
 
                 isLoading: false,
                 error: null,
@@ -46,7 +46,6 @@ const petsSlice = createSlice({
         },
 
         [deletePetOperation.fulfilled]: (state, { payload }) => {
-            console.log('delete me! oper');
             return {
                 ...state,
                 items: [

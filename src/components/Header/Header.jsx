@@ -8,19 +8,18 @@ const Header = () => {
 	const isTablet = useMediaQuery({ query: '(min-width: 768px)' });
   	const isDesktop = useMediaQuery({ query: '(min-width: 1280px)' });
   
-  return (
-    <HeaderContainer>
-
-      {isDesktop ? (
-				<MenuDesktop />
-			) : isTablet ? (
-				<MenuTablet />
-			) : (
-				<MenuMobile />
-			)}
-
-  </ HeaderContainer>
-  );
+  	return (
+		<HeaderContainer>
+			{isDesktop ? (
+					<MenuDesktop />
+				) : isTablet ? (
+					<MenuTablet />
+				) : (
+					<MenuMobile />
+				)
+			}
+		</ HeaderContainer>
+	);
 };
 
 export default Header;

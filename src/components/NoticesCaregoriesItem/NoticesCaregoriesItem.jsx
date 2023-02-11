@@ -11,30 +11,34 @@ import {
     NoticesCardInfoList,
     NoticesCardInfoThumb,
     NoticesCardInfoItem,
-    BtnLearnMore,
+    // BtnLearnMore
 } from './NoticesCategoriesItemStyled';
+import ModalNotice from 'components/ModalNotice/ModalNotice';
 import heart from '../../data/icons/heart.svg';
 import heartActive from '../../data/icons/heartActive.svg';
 
-// import { updateFavoriteNotice } from '../../redux/fetchAPI'
-// import { useSelector } from "react-redux";
-// import { getAuth } from "../../redux/selectors"
-// import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { useSelector, useDispatch } from 'react-redux';
+import { getAuth } from '../../redux/selectors';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import * as dayjs from 'dayjs';
 
-export const NoticesCategoriesItem = ({ notice, favorite }) => {
-    // const authSelector = useSelector(getAuth);
+export const NoticesCategoriesItem = ({ notice, favorite, updateFavorite }) => {
+    const authSelector = useSelector(getAuth);
+    const dispatch = useDispatch();
+
     const { _id, imageURL, category, title, breed, location, birthday } =
         notice;
+
     let isFavorite = false;
 
     if (favorite) {
         isFavorite = favorite.includes(_id);
     }
 
-    // const addToFavorite = async() =>
-    //     authSelector.isLoggedIn ? updateFavoriteNotice :
-    //         Notify.failure('Oops... please login or register')
+    const addToFavorite = async () =>
+        authSelector.isLoggedIn
+            ? dispatch(updateFavorite(_id))
+            : Notify.failure('Oops... please login or register');
 
     const date1 = dayjs();
     const date2 = dayjs(birthday);
@@ -48,10 +52,7 @@ export const NoticesCategoriesItem = ({ notice, favorite }) => {
             <NoticesCategoryNameContainer>
                 <NoticesCategoryName>{category}</NoticesCategoryName>
             </NoticesCategoryNameContainer>
-            <NoticesFavoriteBtn
-                type="button"
-                // onClick={addToFavorite}
-            >
+            <NoticesFavoriteBtn type="button" onClick={addToFavorite}>
                 {!isFavorite ? (
                     <Favorite src={heart} alt="Favorite" />
                 ) : (
@@ -81,12 +82,7 @@ export const NoticesCategoriesItem = ({ notice, favorite }) => {
                     </NoticesCardInfoList>
                 </NoticesCardInfoThumb>
 
-                <BtnLearnMore
-                    type="button"
-                    // onClick={() => dispatch()}
-                >
-                    Learn more
-                </BtnLearnMore>
+                <ModalNotice id={_id}>Learn more</ModalNotice>
             </NoticesCardThumb>
         </NoticesItem>
     );

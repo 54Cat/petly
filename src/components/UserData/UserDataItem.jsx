@@ -17,18 +17,26 @@ import {
 const UserDataItem = () => {
     const dispatch = useDispatch();
     const userInState = useSelector(getUserInfo);
+
     const { name, city, email, phone, birthday } = userInState.user;
-    const { isLoading } = userInState.user;
-    console.log(isLoading);
+
+    const [newName, setNewName] = useState('');
+    const [newEmail, setNewEmail] = useState('');
+    const [newBirthday, setNewBirthday] = useState('');
+    const [newPhone, setNewPhone] = useState('');
+    const [newCity, setNewCity] = useState('');
+    const ddd = () => {
+        setNewName(name);
+        setNewEmail(email);
+        setNewBirthday(birthday);
+        setNewPhone(phone);
+        setNewCity(city);
+    };
+    ddd();
+
     const iconCreate = <MdCreate color="#F59256" className="icon" />;
     const iconCriateBlack = <MdCreate color="#111111" className="icon" />;
     const iconConfirm = <BsCheckLg color="#F59256" className="icon" />;
-
-    const [newName, setNewName] = useState(name);
-    const [newEmail, setNewEmail] = useState(email);
-    const [newBirthday, setNewBirthday] = useState(birthday);
-    const [newPhone, setNewPhone] = useState(phone);
-    const [newCity, setNewCity] = useState(city);
 
     const [iconName, setIconName] = useState(iconCreate);
     const [iconEmail, setIconEmail] = useState(iconCreate);

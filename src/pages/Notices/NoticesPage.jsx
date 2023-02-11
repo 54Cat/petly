@@ -1,82 +1,85 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, useNavigate } from "react-router-dom"
-import { getNotices, getAuth } from 'redux/selectors';
+import { useParams, useNavigate } from 'react-router-dom';
+import { getNotices } from 'redux/selectors';
+import { getUserInfo } from 'redux/selectors';
 import { fetchNotices } from 'redux/Notices/noticesOperations';
-import { fetchFavoriteNotices } from 'components/Utils/axios/fetchNotices';
+import { fetchFavoriteNotices } from 'redux/Notices/fetchNotices';
 import { PageSection } from 'components/Utils/Styles/basicStyle';
 import { Title } from 'components/Utils/Styles/basicStyle';
 import { SearchBar } from 'components/SearchBar/SearchBar';
 import { NoticesCategoriesNav } from 'components/NoticesCategoriesNav/NoticesCategoriesNav';
 import { NoticesCategoriesList } from 'components/NoticesCategoriesList/NoticesCategoriesList';
-
-
+import { updateFavoriteNotice } from '../../redux/Notices/fetchNotices';
 
 const NoticesPage = () => {
-    const auth = useSelector(getAuth);
+    const userData = useSelector(getUserInfo);
     const dispatch = useDispatch();
     const allNoticesByCategory = useSelector(getNotices).items;
     const [filter, setFilter] = useState('');
     const [notices, setNotices] = useState([]);
-    const [favorite, setFavorite] = useState([])
+    const [favorite, setFavorite] = useState([]);
     const { category } = useParams();
     const navigate = useNavigate();
 
     const fetchFavorite = async () => {
         const results = await fetchFavoriteNotices();
-        setFavorite(results)
-    }
+        setFavorite(results);
+    };
+
+    const updateFavorite = async id => {
+        const results = await updateFavoriteNotice(id);
+        setFavorite(results.favorites);
+    };
 
     useEffect(() => {
         switch (category) {
-            case "lost-found":
-                dispatch(fetchNotices('lost-found'))
-                if (auth.isLoggedIn) {
-                    fetchFavorite()
-                };
+            case 'lost-found':
+                dispatch(fetchNotices('lost-found'));
+                if (userData.token) {
+                    fetchFavorite();
+                }
                 break;
 
-            case "for-free":
-                dispatch(fetchNotices("for-free"))  
-                if (auth.isLoggedIn) {
-                    fetchFavorite()
-                };
+            case 'for-free':
+                dispatch(fetchNotices('for-free'));
+                if (userData.token) {
+                    fetchFavorite();
+                }
                 break;
 
-            case "sell":
-                dispatch(fetchNotices("sell")) 
-                if (auth.isLoggedIn) {
-                    fetchFavorite()
-                };
+            case 'sell':
+                dispatch(fetchNotices('sell'));
+                if (userData.token) {
+                    fetchFavorite();
+                }
                 break;
-        
-            case "favorite":
-                if (!auth.isLoggedIn) {
-                    navigate('/notices/lost-found')
-                    return
-                };
-                dispatch( fetchNotices('myFavorite'))
+
+            case 'favorite':
+                if (!userData.token) {
+                    navigate('/notices/lost-found');
+                    return;
+                }
+                dispatch(fetchNotices('myFavorite'));
                 break;
-        
-            case "own":
-                if (!auth.isLoggedIn) {
-                    navigate('/notices/lost-found')
-                    return
-                };
-                dispatch(fetchNotices(''))
-                fetchFavorite()
+
+            case 'own':
+                if (!userData.token) {
+                    navigate('/notices/lost-found');
+                    return;
+                }
+                dispatch(fetchNotices(''));
+                fetchFavorite();
                 break;
 
             default:
-                navigate('/notices/lost-found')
-} 
-    }, [auth.isLoggedIn, category, dispatch, navigate])
+                navigate('/notices/sell');
+        }
+    }, [userData.token, category, dispatch, navigate]);
 
     useEffect(() => {
-    setNotices(allNoticesByCategory);
-    }, [allNoticesByCategory])
-    
-
+        setNotices(allNoticesByCategory);
+    }, [allNoticesByCategory]);
 
     const onFilterChange = e => {
         setFilter(e.currentTarget.value);
@@ -90,12 +93,12 @@ const NoticesPage = () => {
             for (const word of filter.split(' ')) {
                 if (notice.title.toLowerCase().includes(word.toLowerCase())) {
                     areSimilarWords = true;
-                    break
+                    break;
                 }
             }
-            
+
             return areSimilarWords;
-        })
+        });
         setNotices(filtredNotices);
     };
 
@@ -107,11 +110,14 @@ const NoticesPage = () => {
                 handleSubmit={handleSubmit}
                 onFilterChange={onFilterChange}
                 filter={filter}
-            />            
+            />
             <NoticesCategoriesNav />
 
-            <NoticesCategoriesList notices={notices} favorite={favorite} />
-
+            <NoticesCategoriesList
+                notices={notices}
+                favorite={favorite}
+                updateFavorite={updateFavorite}
+            />
         </PageSection>
     );
 };

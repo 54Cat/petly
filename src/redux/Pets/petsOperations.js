@@ -1,15 +1,17 @@
 // import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { addPet, deletePetById } from 'redux/fetchAPI';
+import { addPet, deletePetById } from 'redux/Pets/fetchAPI';
 
 export const addPetOperation = createAsyncThunk(
     'pets/addPet',
     async (
-        { name, birthday, breed, text, myPetsPhoto },
+        formData,
         { rejectWithValue }
     ) => {
+        
+    console.log("function addPetOperation()")
         try {
-            const pet = await addPet(name, birthday, breed, text, myPetsPhoto);
+            const pet = await addPet(formData);
             return pet;
         } catch (error) {
             return rejectWithValue(error);

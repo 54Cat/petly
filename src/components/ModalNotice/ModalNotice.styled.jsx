@@ -54,6 +54,10 @@ export const StyledIcon = styled(CloseIcon)`
     width: 28px;
     height: 28px;
 
+    &:hover {
+        fill: rgba(245, 146, 86, 1);
+    }
+
     @media (min-width: 768px) {
         width: 36px;
         height: 36px;
