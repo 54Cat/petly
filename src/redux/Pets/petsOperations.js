@@ -4,12 +4,7 @@ import { addPet, deletePetById } from 'redux/Pets/fetchAPI';
 
 export const addPetOperation = createAsyncThunk(
     'pets/addPet',
-    async (
-        formData,
-        { rejectWithValue }
-    ) => {
-        
-    console.log("function addPetOperation()")
+    async (formData, { rejectWithValue }) => {
         try {
             const pet = await addPet(formData);
             return pet;

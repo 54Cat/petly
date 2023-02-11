@@ -13,12 +13,12 @@ export async function updateUserInfo(userId, credentials) {
 }
 
 export async function addPet(formData) {
-    const { data } = await axios.post(`user/pet`, formData );
+    const { data } = await axios.post(`user/pet`, formData);
     return data;
 }
 
 export async function deletePetById(petId) {
-    const { data } = await axios.delete(`user/pets/${petId}`);
+    const { data } = await axios.delete(`user/${petId}`);
     return data;
 }
 

@@ -39,7 +39,7 @@ export const loginUser = createAsyncThunk(
             const { data } = await axios.post('/auth/login', {
                 email,
                 password,
-            });
+            });            
             // token.set(data.token);
             return data;
         } catch (error) {
