@@ -10,6 +10,8 @@ import { Title } from 'components/Utils/Styles/basicStyle';
 import { SearchBar } from 'components/SearchBar/SearchBar';
 import { NoticesCategoriesNav } from 'components/NoticesCategoriesNav/NoticesCategoriesNav';
 import { NoticesCategoriesList } from 'components/NoticesCategoriesList/NoticesCategoriesList';
+import { updateFavoriteNotice } from '../../redux/Notices/fetchNotices'
+
 
 const NoticesPage = () => {
     const userData = useSelector(getUser);
@@ -25,6 +27,12 @@ const NoticesPage = () => {
         const results = await fetchFavoriteNotices();
         setFavorite(results)
     }
+
+    const updateFavorite = async (id) => {
+        const results = await updateFavoriteNotice(id);
+        setFavorite(results.favorites)
+    }
+
 
     useEffect(() => {
         switch (category) {
@@ -109,7 +117,7 @@ const NoticesPage = () => {
             />            
             <NoticesCategoriesNav />
 
-            <NoticesCategoriesList notices={notices} favorite={favorite} />
+            <NoticesCategoriesList notices={notices} favorite={favorite} updateFavorite={updateFavorite} />
 
         </PageSection>
     );
