@@ -4,13 +4,12 @@ import { useParams, useNavigate } from "react-router-dom"
 import { getNotices } from 'redux/selectors';
 import { getUser } from 'redux/User/selectors';
 import { fetchNotices } from 'redux/Notices/noticesOperations';
-import { fetchFavoriteNotices } from 'redux/Notices/fetchNotices';
+import { fetchFavoriteNotices, fetchDeleteNotice, updateFavoriteNotice} from 'redux/Notices/fetchNotices';
 import { PageSection } from 'components/Utils/Styles/basicStyle';
 import { Title } from 'components/Utils/Styles/basicStyle';
 import { SearchBar } from 'components/SearchBar/SearchBar';
 import { NoticesCategoriesNav } from 'components/NoticesCategoriesNav/NoticesCategoriesNav';
 import { NoticesCategoriesList } from 'components/NoticesCategoriesList/NoticesCategoriesList';
-import { updateFavoriteNotice } from '../../redux/Notices/fetchNotices'
 
 
 const NoticesPage = () => {
@@ -25,7 +24,8 @@ const NoticesPage = () => {
 
     const fetchFavorite = async () => {
         const results = await fetchFavoriteNotices();
-        setFavorite(results)
+        const resultId = results.map(result => result._id)
+        setFavorite(resultId)
     }
 
     const updateFavorite = async (id) => {
@@ -33,6 +33,12 @@ const NoticesPage = () => {
         setFavorite(results.favorites)
     }
 
+    const deleteMyNotices = async (id) => {
+        const results = await fetchDeleteNotice(id);
+        const newNotices = notices.filter(notice =>
+            notice._id !== results.data._id);
+        setNotices(newNotices)
+    }
 
     useEffect(() => {
         switch (category) {
@@ -62,7 +68,8 @@ const NoticesPage = () => {
                     navigate('/notices/lost-found')
                     return
                 };
-                dispatch( fetchNotices('myFavorite'))
+                dispatch(fetchNotices('myFavorite'))
+                fetchFavorite()
                 break;
         
             case "own":
@@ -117,7 +124,7 @@ const NoticesPage = () => {
             />            
             <NoticesCategoriesNav />
 
-            <NoticesCategoriesList notices={notices} favorite={favorite} updateFavorite={updateFavorite} />
+            <NoticesCategoriesList notices={notices} favorite={favorite} updateFavorite={updateFavorite} deleteMyNotices={deleteMyNotices} />
 
         </PageSection>
     );

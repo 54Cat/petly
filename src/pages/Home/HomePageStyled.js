@@ -13,28 +13,26 @@ import bg_inside_desktop from 'data/img_home_page/desktop/bg_inside_desktop.png'
 import bg_outside_desktop from 'data/img_home_page/desktop/bg_outside_desktop.png';
 
 export const Container = styled.div`
-    margin-top: 74px;
-    background: #fdf7f2;
-    width: 100%;
-    background-image: url(${bg_mobile});
-    background-repeat: no-repeat;
-    background-position: bottom center;
-    background-size: 100% 455px;
+  background: #fdf7f2;
+  width: 100%;
+  padding-top: 74px;
+  background-image: url(${bg_mobile});
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: 100% 455px;
 
-    @media (min-width: 768px) {
-        margin-top: 96px;
-        background-image: url(${bg_tablet});
-        background-size: 100% 1100px;
-    }
-
-    @media (min-width: 1280px) {
-        background-image: url(${hero_desktop}), url(${bg_inside_desktop}),
-            url(${bg_outside_desktop}), url(${bg_heart_desktop}),
-            url(${bg_point_desktop});
-        background-position: bottom right 16px, bottom left -10px,
-            bottom right -50px, top 80px right 40%, bottom 250px left 500px;
-        background-size: auto, 96% 350px, 100% 410px, auto, auto;
-    }
+  @media (min-width: 768px) {
+    padding-top: 96px;
+    background-image: url(${bg_tablet});
+    background-size: 100% 1100px;
+  }
+      
+  @media (min-width: 1280px) {
+    padding-top: 0;
+    background-image: url(${hero_desktop}), url(${bg_inside_desktop}), url(${bg_outside_desktop}), url(${bg_heart_desktop}), url(${bg_point_desktop});
+    background-position: bottom right 16px, bottom left -10px, bottom right -50px, top 80px right 40%, bottom 250px left 500px;    
+    background-size: auto, 96% 350px, 100% 410px, auto, auto;
+  }
 `;
 
 export const Hero = styled.div`
