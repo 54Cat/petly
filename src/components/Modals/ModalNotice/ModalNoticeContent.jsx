@@ -105,7 +105,7 @@ const NoticeContent = id => {
                                 <DataItem>
                                     <CategoryText>Phone:</CategoryText>
                                 </DataItem>
-                                {notice.category === 'cell' && (
+                                {notice.category === 'sell' && (
                                     <DataItem>
                                         <CategoryText>Price:</CategoryText>
                                     </DataItem>
@@ -133,7 +133,7 @@ const NoticeContent = id => {
                                 <DataItem>
                                     <ValueText>{notice.phone}</ValueText>
                                 </DataItem>
-                                {notice.category === 'cell' && (
+                                {notice.category === 'sell' && (
                                     <DataItem>
                                         <ValueText>{notice.price}</ValueText>
                                     </DataItem>
