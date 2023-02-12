@@ -116,11 +116,12 @@ export const ModalStyle = styled(Modal)`
   background-color: #FFFFFF;
   margin-right: -50%;
   transform: translate(-50%, -50%);
+
   @media (min-width: 768px) {
     margin-top: 60px;
     column-gap: 32px;
     width: 608px;
     height: 885px;
     padding: 40px;
-    }
-  `;
+  }
+`;

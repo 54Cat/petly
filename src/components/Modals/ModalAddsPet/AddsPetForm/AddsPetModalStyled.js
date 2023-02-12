@@ -4,7 +4,7 @@ import AddIcon from '@mui/icons-material/Add';
 import { Form, Field } from 'formik';
 import { DatePickerField } from 'components/Datapicker/Datapicker';
 
-const StyledPicker = styled(DatePickerField)`
+export const StyledPicker = styled(DatePickerField)`
     display: block;
     font-weight: 400;
     font-size: 14px;
@@ -27,8 +27,8 @@ const StyledPicker = styled(DatePickerField)`
         outline-offset: 0;
         border: 2px solid #ff6101;
     }
+
     &::placeholder {
-        //padding: 11px 14px;
         font-weight: 400;
         font-size: 14px;
         line-height: 1.35;
@@ -40,6 +40,7 @@ const StyledPicker = styled(DatePickerField)`
             color: rgba(17, 17, 17, 0.6);
         }
     }
+    
     @media (min-width: 768px) {
         font-weight: 400;
         font-size: 16px;
@@ -51,7 +52,7 @@ const StyledPicker = styled(DatePickerField)`
     }
 `;
 
-const Overlay = styled.div`
+export const Overlay = styled.div`
     overflow-y: scroll;
     position: fixed;
     top: 0;
@@ -63,20 +64,19 @@ const Overlay = styled.div`
     justify-content: center;
     align-items: center;
     background: rgba(17, 17, 17, 0.6);
-
     z-index: 1200;
 `;
 
-const ModalItem = styled.div`
+export const ModalItem = styled.div`
     position: relative;
     display: block;
     padding: 40px 20px;
     width: 240px;
     height: 470px;
-
     background: #ffffff;
     box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
     border-radius: 40px;
+
     @media (min-width: 768px) {
         padding: 40px 80px;
         width: 448px;
@@ -84,17 +84,17 @@ const ModalItem = styled.div`
     }
 `;
 
-const ModalItemTwo = styled.div`
+export const ModalItemTwo = styled.div`
     position: relative;
     display: flex;
     justify-content: center;
     padding: 40px 20px;
     width: 240px;
     height: 590px;
-
     background: #ffffff;
     box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
     border-radius: 40px;
+
     @media (min-width: 768px) {
         padding: 40px auto;
         width: 608px;
@@ -102,7 +102,7 @@ const ModalItemTwo = styled.div`
     }
 `;
 
-const TitleItemTwo = styled.h4`
+export const TitleItemTwo = styled.h4`
     font-family: 'Inter';
     font-style: normal;
     font-weight: 500;
@@ -110,24 +110,23 @@ const TitleItemTwo = styled.h4`
     line-height: 1.37;
     text-align: center;
     margin-bottom: 20px;
+    color: #111111;
+
     @media (min-width: 768px) {
         font-size: 20px;
         line-height: 1.2;
         letter-spacing: -0.01em;
     }
-    color: #111111;
 `;
 
-const TitleTwo = styled.h3`
+export const TitleTwo = styled.h3`
     margin-bottom: 20px;
-
     text-align: center;
     font-family: 'Manrope';
     font-style: normal;
     font-weight: 500;
     font-size: 24px;
     line-height: 1.37;
-
     color: #111111;
 
     @media (min-width: 768px) {
@@ -136,7 +135,7 @@ const TitleTwo = styled.h3`
     }
 `;
 
-const ButtonCloseIcon = styled(CloseIcon)`
+export const ButtonCloseIcon = styled(CloseIcon)`
     cursor: pointer;
     width: 28px;
     height: 28px;
@@ -145,35 +144,35 @@ const ButtonCloseIcon = styled(CloseIcon)`
     &:hover {
         fill: rgba(245, 146, 86, 1);
     }
+
     @media (min-width: 768px) {
         width: 36px;
         height: 36px;
     }
 `;
 
-const BtnAddFileIcon = styled(AddIcon)`
+export const BtnAddFileIcon = styled(AddIcon)`
     cursor: pointer;
     fill: rgba(17, 17, 17, 0.6);
     width: 48px;
     height: 48px;
 `;
 
-const ButtonCloseModal = styled.button`
+export const ButtonCloseModal = styled.button`
     position: absolute;
     cursor: pointer;
     top: 20px;
     right: 20px;
-
     width: 34px;
     height: 34px;
-
     display: flex;
     justify-content: center;
     align-items: center;
     position: absolute;
     border: none;
-
     color: #111111;
+    background: #fdf7f2;
+    border-radius: 50%;
 
     @media (min-width: 768px) {
         width: 44px;
@@ -181,24 +180,16 @@ const ButtonCloseModal = styled.button`
         top: 25px;
         right: 25px;
     }
-
-    background: #fdf7f2;
-    border-radius: 50%;
-    //border: rgba(0,0,0,0);
-    //outline: rgba(0,0,0,0);
-    //z-index: 99999;
 `;
 
-const Title = styled.h3`
+export const Title = styled.h3`
     margin-bottom: 40px;
-
     text-align: center;
     font-family: 'Manrope';
     font-style: normal;
     font-weight: 500;
     font-size: 24px;
     line-height: 1.37;
-
     color: #111111;
 
     @media (min-width: 768px) {
@@ -207,24 +198,15 @@ const Title = styled.h3`
     }
 `;
 
-const FormStyled = styled(Form)`
-    // position: absolute;
-    // top: 0px;
-    // right: 0px;
-
-    //margin: 0px 20px;
+export const FormStyled = styled(Form)`
     display: block;
-    @media (min-width: 768px) {
-        //margin: 0px 80px;
-    }
 `;
 
-const FieldStyled = styled(Field)`
+export const FieldStyled = styled(Field)`
     display: block;
     font-weight: 400;
     font-size: 14px;
     line-height: 1.35;
-
     cursor: pointer;
     width: 196px;
     height: 18px;
@@ -242,8 +224,8 @@ const FieldStyled = styled(Field)`
         outline-offset: 0;
         border: 2px solid #ff6101;
     }
+
     ::placeholder {
-        //padding: 11px 14px;
         font-weight: 400;
         font-size: 14px;
         line-height: 1.35;
@@ -255,6 +237,7 @@ const FieldStyled = styled(Field)`
             color: rgba(17, 17, 17, 0.6);
         }
     }
+
     @media (min-width: 768px) {
         font-weight: 400;
         font-size: 16px;
@@ -266,12 +249,12 @@ const FieldStyled = styled(Field)`
     }
 `;
 
-const FieldPhoto = styled(Field)`
+export const FieldPhoto = styled(Field)`
     display: none;
     cursor: pointer;
 `;
 
-const AddFile = styled.label`
+export const AddFile = styled.label`
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -284,6 +267,7 @@ const AddFile = styled.label`
     background: #fdf7f2;
     border-radius: 20px;
     margin-bottom: 20px;
+
     @media (min-width: 768px) {
         margin-bottom: 40px;
         width: 184px;
@@ -291,12 +275,11 @@ const AddFile = styled.label`
     }
 `;
 
-const FieldTextarea = styled(Field)`
+export const FieldTextarea = styled(Field)`
     cursor: pointer;
     font-weight: 400;
     font-size: 14px;
     line-height: 1.35;
-
     display: block;
     margin-top: 8px;
     padding: 14px 12px;
@@ -305,6 +288,7 @@ const FieldTextarea = styled(Field)`
     background: #fdf7f2;
     border: 1px solid rgba(245, 146, 86, 0.5);
     border-radius: 20px;
+
     :active,
     :hover,
     :focus {
@@ -312,6 +296,7 @@ const FieldTextarea = styled(Field)`
         outline-offset: 0;
         border: 2px solid #ff6101;
     }
+
     ::placeholder {
         padding: 14px 12px;
         font-weight: 400;
@@ -331,43 +316,44 @@ const FieldTextarea = styled(Field)`
     }
 `;
 
-const LabelBox = styled.div`
+export const LabelBox = styled.div`
     margin-bottom: 16px;
+
     @media (min-width: 768px) {
         margin-bottom: 28px;
     }
 `;
 
-const StyledLabel = styled.label`
+export const StyledLabel = styled.label`
     display: block;
-
     font-family: 'Manrope';
     font-style: normal;
     font-weight: 500;
     font-size: 18px;
     line-height: 1.47;
     color: #111111;
+
     @media (min-width: 768px) {
         font-size: 24px;
         line-height: 1.1;
     }
 `;
 
-const FlexBox = styled.div`
+export const FlexBox = styled.div`
     cursor: pointer;
     justify-content: center;
     text-align: center;
-
     margin-top: 40px;
     margin-left: auto;
     margin-right: auto;
+
     @media (min-width: 768px) {
         flex-direction: row-reverse;
         display: flex;
     }
 `;
 
-const NextBtn = styled.button`
+export const NextBtn = styled.button`
     cursor: pointer;
     display: block;
     width: 240px;
@@ -382,6 +368,7 @@ const NextBtn = styled.button`
     :focus {
         border: 2px solid #ff6101;
     }
+
     @media (min-width: 768px) {
         width: 180px;
         height: 44px;
@@ -389,7 +376,7 @@ const NextBtn = styled.button`
     }
 `;
 
-const CancelBtn = styled.button`
+export const CancelBtn = styled.button`
     cursor: pointer;
     margin-right: 15px;
     display: block;
@@ -398,54 +385,33 @@ const CancelBtn = styled.button`
     background: #ffffff;
     border: 2px solid #f59256;
     border-radius: 40px;
+
     :hover,
     :focus {
         border: 2px solid #ff6101;
     }
+
     @media (min-width: 768px) {
         width: 180px;
         height: 44px;
     }
 `;
 
-const ErrorText = styled.p`
+export const ErrorText = styled.p`
     font-family: 'Manrope';
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 1.6;
+    color: #f59256;
+    margin-top: -20px;
+    position: absolute;
 
     @media (min-width: 320px) {
         margin-left: 10px;
     }
+
     @media (min-width: 768px) {
         margin-top: -25px;
     }
-    color: #f59256;
-    margin-top: -20px;
-    position: absolute;
 `;
-
-export {
-    Title,
-    Overlay,
-    ModalItem,
-    ButtonCloseModal,
-    FlexBox,
-    ErrorText,
-    ButtonCloseIcon,
-    StyledLabel,
-    FormStyled,
-    FieldStyled,
-    NextBtn,
-    CancelBtn,
-    LabelBox,
-    ModalItemTwo,
-    TitleTwo,
-    FieldPhoto,
-    FieldTextarea,
-    AddFile,
-    BtnAddFileIcon,
-    TitleItemTwo,
-    StyledPicker,
-};

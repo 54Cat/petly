@@ -1,7 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import axios from 'axios';
-axios.defaults.baseURL = 'https://petly-backend-23cb.onrender.com/api';
+axios.defaults.baseURL = 'http://localhost:4000/api';
+// axios.defaults.baseURL = 'https://petly-backend-23cb.onrender.com/api';
 
 const token = {
     set(token) {
@@ -27,7 +28,7 @@ export const registerUser = createAsyncThunk(
                 name,
             });
             dispatch(loginUser({ email, password }));
-            // token.set(data.token);
+            token.set(data.token);
             return data;
         } catch (error) {
             return rejectWithValue(error);
@@ -43,7 +44,7 @@ export const loginUser = createAsyncThunk(
                 email,
                 password,
             });
-            // token.set(data.token);
+            token.set(data.token);
             return data;
         } catch (error) {
             return rejectWithValue(error);
@@ -56,7 +57,6 @@ export const loggedOut = createAsyncThunk(
     async (_, thunkApi) => {
         try {
             const { data } = await axios.post('/auth/logout');
-            // console.log(data);
             token.unset();
             return data;
         } catch (error) {
@@ -74,7 +74,6 @@ export const authCurrentUser = createAsyncThunk(
         if (persistorToken === null) {
             return thunkAPI.rejectWithValue();
         }
-
         token.set(persistorToken);
         try {
             const { data } = await axios.get('/user');

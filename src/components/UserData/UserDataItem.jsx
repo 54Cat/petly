@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectUser } from 'redux/Auth/AuthSelectors';
-
 import { updateUserOperation } from '../../redux/User/userOperations';
 import { MdCreate } from 'react-icons/md';
 import { BsCheckLg } from 'react-icons/bs';
@@ -17,8 +16,12 @@ import {
 const UserDataItem = () => {
     const dispatch = useDispatch();
     const userInState = useSelector(selectUser);
+    console.log("user data from auth state", userInState.user);
+
+    // const userInState = useSelector(getUserInfo);
 
     const { name, city, email, phone, birthday } = userInState.user;
+    // console.log("user data", userInState.user);
 
     const [newName, setNewName] = useState(name);
     const [newEmail, setNewEmail] = useState(email);
@@ -35,8 +38,6 @@ const UserDataItem = () => {
     const [iconBirthday, setIconBirthday] = useState(iconCreate);
     const [iconPhone, setIconPhone] = useState(iconCreate);
     const [iconCity, setIconCity] = useState(iconCreate);
-
-    console.log(newName);
 
     const imputChange = e => {
         const { name, value } = e.currentTarget;

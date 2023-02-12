@@ -21,13 +21,16 @@ export const Container = styled.div`
 `;
 
 export const ButtonContainer = styled.div`
+
     position: absolute;
     right: 20px;
     top: 815px;
+
     @media (min-width: 768px) {
         right: 32px;
         top: 625px;
     }
+
     @media (min-width: 1280px) {
         top: 170px;
     }
