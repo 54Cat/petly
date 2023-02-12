@@ -112,3 +112,14 @@ export const DelBtn = styled.button`
 export const CardTitle = styled.span`
     font-weight: bold;
 `;
+
+export const NoPetsTitle = styled.p`
+color: #111111;
+font-size: 24px;
+font-weight: 500;
+    text-align: center;
+    @media (min-width: 768px) {
+
+        font-size: 48px;
+    }
+`
