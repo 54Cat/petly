@@ -4,6 +4,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 export const PetsCard = styled.div`
     box-sizing: border-box;
     margin: 0 auto;
+    /* margin-left: 20px; */
     padding: 16px 20px 40px;
     background: #ffffff;
     box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
@@ -22,9 +23,11 @@ export const PetsCard = styled.div`
         width: 704px;
         display: flex;
         border-radius: 40px;
+        margin-left: 32px;
     }
 
     @media (min-width: 1280px) {
+        margin-left: 0;
         width: 821px;
         &:not(:last-child) {
             margin-bottom: 22px;
