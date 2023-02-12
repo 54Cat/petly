@@ -7,7 +7,7 @@ import { addNoticeOperation } from 'redux/Notices/noticesOperations';
 
 // import * as yup from 'yup';
 
-import { ModalCard } from './formAddNotice.styled';
+import { ModalCard } from './formAddNoticeStyled';
 
 const INITIAL_DATA = {
     category: 'sell',
