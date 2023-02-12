@@ -7,10 +7,13 @@ import {
     Input,
     Thumb,
     Title,
-    TitleColor,
-    NoticeInputPhoto,
+    TitleColor, 
+    InputFile,
+    NoticeAddFile,
 } from './step2Styled';
 import {AddNoticeTitle, FormLabel, NoticeFormInput, AddNoticeForm} from 'components/ModalAddNewNotice/Step1.styled';
+// import { BtnAddFileIcon } from 'components/Modals/ModalAddsPet/AddsPetForm/AddsPetModalStyled';
+
 
 // import * as yup from 'yup';
 
@@ -70,17 +73,23 @@ const Step2 = ({ category, sex, location, price, comments, updateFields }) => {
                 </>
             )}
 
-            <FormLabel htmlFor="myPetsPhoto">
-                Load the pet’s image:
-                <NoticeInputPhoto
+            {/* <FormLabel htmlFor="myPetsPhoto"> */}
+                    
+                <NoticeAddFile htmlFor="myPetsPhoto">
+                    
+                    Load the pet’s image:
+                        {/* {updateFields ? <p>File added success</p>:<BtnAddFileIcon />} */}
+                <InputFile
                     id="myPetsPhoto"
                     type="file"
                     name="myPetsPhoto"
                     onChange={e =>
                         updateFields({ myPetsPhoto: e.target.files[0] })
                     }
-                />
-            </FormLabel>
+                            
+                        />
+                </NoticeAddFile>        
+            {/* </FormLabel> */}
 
             <FormLabel htmlFor="comments">Comments</FormLabel>
             <NoticeFormInput

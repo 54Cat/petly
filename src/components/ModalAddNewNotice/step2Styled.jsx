@@ -1,6 +1,16 @@
 import imgF from './img/female.png';
 import imgM from './img/male.png';
 import styled from '@emotion/styled';
+import { AddFile } from 'components/Modals/ModalAddsPet/AddsPetForm/AddsPetModalStyled';
+
+export const NoticeAddFile = styled(AddFile)`
+    margin-top: 20px;
+`
+
+export const InputFile = styled.input`
+    display: none;
+    cursor: pointer;
+`
 
 
 export const Input = styled.input`
@@ -75,8 +85,6 @@ export const TitleColor = styled.span`
     color: #f59256;
 `;
 
-export const NoticeInputPhoto = styled.span`
-    display: none;
-`;
+
 
 
