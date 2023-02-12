@@ -7,15 +7,16 @@ import {
     Input,
     Thumb,
     Title,
-    TitleColor,
+    TitleColor,    
 } from './step2Styled';
+import {AddNoticeTitle, FormLabel, NoticeFormInput, AddNoticeForm} from 'components/ModalAddNewNotice/Step1.styled';
 
 // import * as yup from 'yup';
 
 const Step2 = ({ category, sex, location, price, comments, updateFields }) => {
     return (
         <div>
-            <h1>Add pet</h1>
+            <AddNoticeTitle>Add pet</AddNoticeTitle>
             <Thumb>
                 <Title>
                     The sex<TitleColor>*</TitleColor>:
@@ -45,8 +46,9 @@ const Step2 = ({ category, sex, location, price, comments, updateFields }) => {
                 </Label>
             </Thumb>
 
-            <label htmlFor="location">Location*:</label>
-            <input
+            <AddNoticeForm>
+            <FormLabel htmlFor="location">Location<TitleColor>*</TitleColor>:</FormLabel>
+            <NoticeFormInput
                 type="text"
                 name="location"
                 placeholder="Type name pet"
@@ -56,8 +58,8 @@ const Step2 = ({ category, sex, location, price, comments, updateFields }) => {
 
             {category === 'sell' && (
                 <>
-                    <label htmlFor="price">Price*:</label>
-                    <input
+                    <FormLabel htmlFor="price">Price<TitleColor>*</TitleColor>:</FormLabel>
+                    <NoticeFormInput
                         type="text"
                         name="price"
                         placeholder="Type name pet"
@@ -67,7 +69,7 @@ const Step2 = ({ category, sex, location, price, comments, updateFields }) => {
                 </>
             )}
 
-            <label htmlFor="myPetsPhoto">
+            <FormLabel htmlFor="myPetsPhoto">
                 Load the pet’s image:
                 <input
                     id="myPetsPhoto"
@@ -77,16 +79,17 @@ const Step2 = ({ category, sex, location, price, comments, updateFields }) => {
                         updateFields({ myPetsPhoto: e.target.files[0] })
                     }
                 />
-            </label>
+            </FormLabel>
 
-            <label htmlFor="comments">Comments</label>
-            <input
+            <FormLabel htmlFor="comments">Comments</FormLabel>
+            <NoticeFormInput
                 type="text"
                 name="comments"
                 placeholder="Type name pet"
                 value={comments}
                 onChange={e => updateFields({ comments: e.target.value })}
-            />
+                />
+            </AddNoticeForm>
         </div>
     );
 };

@@ -1,6 +1,8 @@
 import imgF from './img/female.png';
 import imgM from './img/male.png';
 import styled from '@emotion/styled';
+
+
 export const Input = styled.input`
     width: 0;
     height: 0;
@@ -72,3 +74,5 @@ export const Title = styled.legend`
 export const TitleColor = styled.span`
     color: #f59256;
 `;
+
+
