@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 import { authCurrentUser } from 'redux/Auth/AuthOperations';
 import { isLoading } from 'redux/Auth/AuthSelectors'
 
-import { NoticesCategoriesList } from 'components/NoticesCategoriesList/NoticesCategoriesList';
+import { NoticesCategoriesList } from 'components/Notices/NoticesCategoriesList/NoticesCategoriesList';
 
 import PublicRoute from './components/Routes/PublicRoute';
 import PrivateRoute from './components/Routes/PrivateRoute';

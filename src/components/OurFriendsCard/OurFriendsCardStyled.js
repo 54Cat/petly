@@ -23,6 +23,7 @@ export const Card = styled.li`
         flex-basis: calc((100% - 32px - 16px) / 2);
         padding: 16px 4px;
     }
+
     @media (min-width: 1280px) {
         flex-basis: calc((100% - 64px - 24px) / 3);
     }
@@ -49,10 +50,12 @@ export const Title = styled.h3`
         line-height: 1.37;
         margin-bottom: 16px;
     }
+
     @media (min-width: 1280px) {
         font-size: 20px;
         line-height: 1.35;
     }
+
     &:hover,
     :focus {
         color: #ff6101;
@@ -68,11 +71,13 @@ export const Image = styled.img`
     width: 110px;
     height: 78px;
     margin-right: 12px;
+
     @media (min-width: 768px) {
         width: 120px;
         height: 85px;
         margin-right: 14px;
     }
+
     @media (min-width: 1280px) {
         width: 158px;
         height: 112px;
@@ -87,10 +92,12 @@ export const Info = styled.p`
     font-size: 12px;
     line-height: 1.33;
     color: #000000;
+
     @media (min-width: 768px) {
         font-size: 14px;
         line-height: 1.35;
     }
+
     @media (min-width: 1280px) {
         font-size: 16px;
         line-height: 1.37;
@@ -103,7 +110,6 @@ export const InfoTime = styled.div`
     font-weight: 500;
     font-size: 12px;
     line-height: 1.33;
-    //margin-bottom: 4px;
     color: #000000;
 
     @media (min-width: 768px) {
@@ -130,14 +136,17 @@ export const InfoLink = styled.a`
     font-size: 12px;
     line-height: 1.33;
     color: #000000;
+
     @media (min-width: 768px) {
         font-size: 14px;
         line-height: 1.35;
     }
+
     @media (min-width: 1280px) {
         font-size: 16px;
         line-height: 1.37;
     }
+
     &:hover,
     :focus {
         color: #f59256;
@@ -150,18 +159,20 @@ export const AddressLink = styled.a`
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
-    //line-height: 16px;
     line-height: 1.33;
     color: #000000;
     text-decoration-line: underline;
+
     @media (min-width: 768px) {
         font-size: 14px;
         line-height: 19px;
     }
+
     @media (min-width: 1280px) {
         font-size: 16px;
         line-height: 22px;
     }
+
     &:hover,
     :focus {
         color: #f59256;
@@ -181,6 +192,7 @@ export const SpanInfo = styled.span`
         font-size: 14px;
         line-height: 1.35;
     }
+
     @media (min-width: 1280px) {
         font-size: 16px;
         line-height: 1.37;
@@ -188,22 +200,19 @@ export const SpanInfo = styled.span`
 `;
 
 export const BoxInfo = styled.div`
-    // margin-bottom: 4px;
     :not(:last-child) {
         margin-bottom: 4px;
     }
+
     @media (min-width: 768px) {
         :not(:last-child) {
-        margin-bottom: 8px;
+            margin-bottom: 8px;
+        }
     }
-    }
+
     @media (min-width: 1280px) {
         :not(:last-child) {
-        margin-bottom: 12px;
-    }
-    }
-    // &:last-child {
-    //     margin-bottom: 0px;
-    // }
-    
+            margin-bottom: 12px;
+        }
+    }    
 `;

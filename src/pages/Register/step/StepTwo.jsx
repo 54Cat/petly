@@ -27,9 +27,6 @@ export const StepTwo = ({ data, prev }) => {
         } catch (error) {
             console.log(error);
         }
-
-        // console.log(data);
-        // console.log(values);
     };
     return (
         <Formik

@@ -18,6 +18,7 @@ export const Button = styled.button`
     margin-right: auto;
     padding: 8px 28px;
     cursor: pointer;
+
     &:hover,
     &:focus {
         color: #ff6101;
@@ -37,12 +38,10 @@ export const Title = styled.h1`
     font-style: normal;
     font-weight: 700;
     font-size: 24px;
-
     text-align: center;
 
     @media (min-width: 768px) {
         padding-top: 160px;
-
         font-size: 48px;
     }
 
@@ -67,10 +66,12 @@ export const InputSearch = styled.input`
     border-radius: 40px;
     border: none;
     outline: none;
+
     &:hover,
     &:focus {
         border: 1px solid rgba(245, 146, 86, 0.5);
     }
+
     @media (min-width: 768px) {
         width: 608px;
         height: 44px;
@@ -82,23 +83,14 @@ export const PageSection = styled.section`
     width: 280px;
     padding: 0 5px;
     margin: 0 auto;
+
     @media (min-width: 768px) {
         width: 704px;
         padding: 0 17px;
     }
+
     @media (min-width: 1280px) {
         width: 1248px;
         padding: 0 1px;
     }
 `;
-
-//examples for adaptive App. How use see above.
-// @media (min-width: 320px) {
-//         width: 380px;
-//     }
-//     @media (min-width: 768px) {
-//         width: 608px;
-//     }
-// @media (min-width: 1280px) {
-//         width: 608px;
-//     }

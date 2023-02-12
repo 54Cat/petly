@@ -1,7 +1,5 @@
 import StepOne from '../steps/StepOne';
 import StepTwo from '../steps/stepTwo';
-// import { useSelector } from 'react-redux';
-// import { toast } from 'react-toastify';
 import React, { useState } from 'react';
 
 const AddsPetForm = ({ onClose }) => {
@@ -9,7 +7,6 @@ const AddsPetForm = ({ onClose }) => {
         name: '',
         birthday: '',
         breed: '',
-        //myPetsPhoto: '',
         comments: '',
     });
 
@@ -23,10 +20,12 @@ const AddsPetForm = ({ onClose }) => {
 
         setCurrentStep(prev => prev + 1);
     };
+
     const handlePrevStep = newData => {
         setData(prev => ({ ...prev, ...newData }));
         setCurrentStep(prev => prev - 1);
     };
+    
     const steps = [
         <StepOne next={handleNextStep} data={data} onClose={onClose} />,
         <StepTwo prev={handlePrevStep} data={data} onClose={onClose} />,
