@@ -11,8 +11,8 @@ import {
 import { PageSection } from 'components/Utils/Styles/basicStyle';
 import { Title } from 'components/Utils/Styles/basicStyle';
 import { SearchBar } from 'components/SearchBar/SearchBar';
-import { NoticesCategoriesNav } from 'components/NoticesCategoriesNav/NoticesCategoriesNav';
-import { NoticesCategoriesList } from 'components/NoticesCategoriesList/NoticesCategoriesList';
+import { NoticesCategoriesNav } from 'components/Notices/NoticesCategoriesNav/NoticesCategoriesNav';
+import { NoticesCategoriesList } from 'components/Notices/NoticesCategoriesList/NoticesCategoriesList';
 
 const NoticesPage = () => {
     const { isLoggedIn } = useSelector(getAuth);

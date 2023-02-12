@@ -4,8 +4,6 @@ import image from './defaultImage.jpg'
 import WorkWeekTable from "components/WorkWeekTable/WorkWeekTable"
 import { useState } from "react"
 
-
-
 const OurFriendsCard = ({ card }) => {
     const [visible, setVisible] = useState(false);
 

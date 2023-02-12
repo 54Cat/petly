@@ -35,38 +35,38 @@ export const Container = styled.div`
 `;
 
 export const Hero = styled.div`
-    height: 337px;
-    background-image: url(${hero_mobile});
-    background-repeat: no-repeat;
-    background-position: bottom center;
-    background-size: contain;
+  height: 337px;
+  background-image: url(${hero_mobile});
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: contain;
 
-    @media (min-width: 768px) {
-        height: 715px;
-        background-image: url(${hero_tablet});
-    }
+  @media (min-width: 768px) {
+      height: 715px;
+      background-image: url(${hero_tablet});
+  }
 
-    @media (min-width: 1280px) {
-        background-image: none;
-        height: 420px;
-    }
+  @media (min-width: 1280px) {
+      background-image: none;
+      height: 420px;
+  }
 `;
 
 export const Title = styled.p`
-    padding: 42px 0 58px 20px;
-    font-weight: 700;
-    font-size: 32px;
-    line-height: 44px;
-    max-width: 280px;
+  padding: 42px 0 58px 20px;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 44px;
+  max-width: 280px;
 
-    @media (min-width: 768px) {
-        padding: 68px 0 118px 32px;
-        font-size: 68px;
-        line-height: 100px;
-        max-width: 588px;
-    }
+  @media (min-width: 768px) {
+      padding: 68px 0 118px 32px;
+      font-size: 68px;
+      line-height: 100px;
+      max-width: 588px;
+  }
 
-    @media (min-width: 1280px) {
-        padding: 72px 0 0 16px;
-    }
+  @media (min-width: 1280px) {
+      padding: 72px 0 0 16px;
+  }
 `;

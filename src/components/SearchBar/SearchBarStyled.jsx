@@ -1,11 +1,12 @@
 import styled from '@emotion/styled';
 
 export const SearchForm = styled.form`
-width: 280px;
-position: relative;
-margin: 0 auto;
-margin-top: 28px;
+    width: 280px;
+    position: relative;
+    margin: 0 auto;
+    margin-top: 28px;
     margin-bottom: 40px;
+    
     @media (min-width: 768px) {
         width: 652px;
         margin-top: 40px;

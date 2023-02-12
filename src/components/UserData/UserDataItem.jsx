@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectUser } from 'redux/Auth/AuthSelectors';
-
 import { updateUserOperation } from '../../redux/User/userOperations';
 import { MdCreate } from 'react-icons/md';
 import { BsCheckLg } from 'react-icons/bs';

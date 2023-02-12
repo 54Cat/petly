@@ -1,7 +1,7 @@
 import { useMediaQuery } from 'react-responsive';
-import MenuMobile from './MenuMobile/MenuMobile';
-import MenuTablet from './MenuTablet/MenuTablet';
-import MenuDesktop from './MenuDesktop/MenuDesktop';
+import HeaderMobile from './HeaderMobile';
+import HeaderTablet from './HeaderTablet';
+import HeaderDesktop from './HeaderDesktop';
 
 const Header = () => {
 	const isTablet = useMediaQuery({ query: '(min-width: 768px)' });
@@ -10,11 +10,11 @@ const Header = () => {
   	return (
 		<>
 			{isDesktop ? (
-					<MenuDesktop />
+					<HeaderDesktop />
 				) : isTablet ? (
-					<MenuTablet />
+					<HeaderTablet />
 				) : (
-					<MenuMobile />
+					<HeaderMobile />
 				)
 			}
 		</>
