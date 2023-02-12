@@ -1,5 +1,5 @@
 import UserData from 'components/UserData/UserData';
-import PetsData from 'components/PetsData/PetsData';
+import PetsData from 'components/Pets/PetsData/PetsData';
 import { Container, ButtonContainer } from './UserPageStyled';
 import ButtonAddsPet from 'components/ButtonAddsPet/ButtonAddsPet';
 import { useDispatch } from 'react-redux';

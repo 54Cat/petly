@@ -5,7 +5,6 @@ import Modal from 'components/Modals/ModalAddsPet/AddsPetForm/Modal';
 import { useState } from 'react';
 
 const ButtonAddsPet = () => {
-    //modal
     const [modalOpen, setModalOpen] = useState(false);
     const openModal = () => {
         setModalOpen(true);

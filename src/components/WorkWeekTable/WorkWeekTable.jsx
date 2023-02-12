@@ -2,8 +2,6 @@ import WorkWeekItem from "./workWeekItem";
 import { nanoid } from "nanoid";
 import { ScheduleBox } from "./WorkWeekTableStyled";
 
-
-
 const WorkWeekTable = ({items}) => {
    
     return (
