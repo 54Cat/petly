@@ -34,11 +34,6 @@ export const ModalAddNotice = () => {
         setIsOpen(true);
     }
 
-    // function afterOpenModal() {
-    //     // references are now sync'd and can be accessed.
-    //     color = '#f00';
-    // }
-
     function closeModal() {
         setIsOpen(false);
     }
@@ -75,7 +70,6 @@ export const ModalAddNotice = () => {
         setNamePet('');
         setBirth('');
         setBreed('');
-        // должна очищаться и открывать следующую форму
     };
 
     const titleInputId = useMemo(() => nanoid(), []);
@@ -90,10 +84,9 @@ export const ModalAddNotice = () => {
           </div>
           <ModalStyle
             isOpen={modalIsOpen}
-            // onAfterOpen={afterOpenModal}
-          onRequestClose={closeModal}
-          style={{ overlay: { background: 'rgba(17, 17, 17, 0.6' } }}
-          contentLabel="Modal add notice"          
+            onRequestClose={closeModal}
+            style={{ overlay: { background: 'rgba(17, 17, 17, 0.6' } }}
+            contentLabel="Modal add notice"          
           >              
             <CloseBtn
                 type="submit"

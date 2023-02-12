@@ -12,7 +12,7 @@ import {
     DivFormTwo,
     ButtonTwoReg,
 } from '../authForm/authFormStyled';
-import { registerUser } from '../../../redux/Auth/AuthSlice';
+import { registerUser } from '../../../redux/Auth/AuthOperations';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
@@ -27,9 +27,6 @@ export const StepTwo = ({ data, prev }) => {
         } catch (error) {
             console.log(error);
         }
-
-        // console.log(data);
-        // console.log(values);
     };
     return (
         <Formik
