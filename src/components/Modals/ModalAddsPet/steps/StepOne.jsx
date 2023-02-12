@@ -18,14 +18,14 @@ import * as yup from 'yup';
 //import { DatePickerField } from 'components/Datapicker/Datapicker';
 const cyrillic = /[A-Za-z]/;
 const validationSchema = yup.object({
-    names: yup
+    name: yup
         .string()
         .min(2)
         .max(16)
         .required()
         .matches(cyrillic, 'only Latin letters'),
-    birthdays: yup.string().required(),
-    breeds: yup
+    birthday: yup.string().required(),
+    breed: yup
         .string()
         .min(2)
         .max(16)
@@ -64,39 +64,39 @@ const StepOne = props => {
                     <FormStyled>
                         <Title>Add pet</Title>
                         <LabelBox>
-                            <StyledLabel htmlFor="names">
+                            <StyledLabel htmlFor="name">
                                 Name pet
                                 <FieldStyled
                                     type="text"
-                                    name="names"
+                                    name="name"
                                     placeholder="Type name pet"
                                 />
                             </StyledLabel>
                         </LabelBox>
-                        <FormError name="names" />
+                        <FormError name="name" />
                         <LabelBox>
-                            <StyledLabel htmlFor="birthdays">
+                            <StyledLabel htmlFor="birthday">
                                 Date of birth
                                 <StyledPicker
                                     type="text"
-                                    name="birthdays"
+                                    name="birthday"
                                     placeholder="Type date of birth"
                                 />
                             </StyledLabel>
                         </LabelBox>
-                        <FormError name="birthdays" />
+                        <FormError name="birthday" />
 
                         <LabelBox>
-                            <StyledLabel htmlFor="breeds">
+                            <StyledLabel htmlFor="breed">
                                 Breed
                                 <FieldStyled
                                     type="text"
-                                    name="breeds"
+                                    name="breed"
                                     placeholder="Type breed"
                                 />
                             </StyledLabel>
                         </LabelBox>
-                        <FormError name="breeds" />
+                        <FormError name="breed" />
                         <FlexBox>
                             <NextBtn type="submit">Next</NextBtn>
                             <CancelBtn type="button" onClick={() => onClose()}>
