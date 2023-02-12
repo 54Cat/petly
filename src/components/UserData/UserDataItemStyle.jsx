@@ -36,6 +36,7 @@ export const Lable = styled.label`
         font-size: 18px;
         line-height: 1.39;
         letter-spacing: 0.04em;
+        margin-right: 20px;
     }
 `;
 

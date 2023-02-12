@@ -3,7 +3,6 @@ import { updateUserOperation } from '../../redux/User/userOperations';
 import { useRef, useState } from 'react';
 import { BsCheckLg } from 'react-icons/bs';
 
-// import { Image } from 'cloudinary-react';
 import { IoIosCamera } from 'react-icons/io';
 import { getUserInfo } from '../../redux/selectors';
 import { Image, Label, Container, Input, Button } from './UserAvatarStyle';
@@ -20,11 +19,10 @@ export const UserAvatar = () => {
 
     const addAvatar = e => {
         e.preventDefault();
-        dispatch(
-            updateUserOperation({
-                uploadAvatar,
-            })
-        );
+        console.log(uploadAvatar);
+
+        dispatch(updateUserOperation({ uploadAvatar }));
+
         setAddButton(false);
     };
 
@@ -45,8 +43,11 @@ export const UserAvatar = () => {
 
         for (const [key, value] of formData) {
             console.log({ key, value });
-            setUploadAvatar({ value });
+            setUploadAvatar({ key, value });
         }
+
+        dispatch(updateUserOperation({ uploadAvatar }));
+
         setAddButton(true);
     };
 

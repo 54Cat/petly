@@ -36,16 +36,26 @@ export const getUserOperation = createAsyncThunk(
 export const updateUserOperation = createAsyncThunk(
   'user/update',
   async (userId, thunkAPI) => {
-      const state = thunkAPI.getState();
+    const cityString = userId.newCity;
+    const cityUpdate = cityString.toString();
+    const state = thunkAPI.getState();
+
+    console.log(userId);
+    console.log(cityUpdate);
+    console.log(state);
+
+
+    
       const result = {
         email: userId.newEmail,
         name: userId.newName,
         birthday: userId.newBirthday,
-        city: userId.newCity,
+        city: cityUpdate,
         phone: userId.newPhone,
-        avatar: userId.uploadAvatar,
+        avatarURL: userId.uploadAvatar,
       };
-    console.log(result)
+    console.log(userId.uploadAvatar);
+
     const persistedToken = state.auth.token;
     
     if (persistedToken === null) {

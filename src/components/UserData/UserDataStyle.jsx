@@ -28,12 +28,13 @@ export const Text = styled.p`
 `;
 
 export const FormContainer = styled.div`
-@media (min-width: 768px) {
+    @media (min-width: 768px) {
         padding-left: 32px;
     }
     @media (min-width: 1280px) {
         padding: 16px;
-    }`
+    }
+`;
 
 export const Wrapper = styled.div`
     background: #ffffff;
@@ -47,7 +48,7 @@ export const Wrapper = styled.div`
     }
     @media (min-width: 768px) {
         position: relative;
-        left: -32px;
+        /* left: -32px; */
         display: flex;
         flex-direction: row-reverse;
         justify-content: space-between;
@@ -141,5 +142,4 @@ export const ButtonLogout = styled.button`
     @media (min-width: 1280px) {
         padding-left: 16px;
     }
-
 `;

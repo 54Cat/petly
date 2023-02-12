@@ -36,7 +36,7 @@ const UserDataItem = () => {
     const [iconPhone, setIconPhone] = useState(iconCreate);
     const [iconCity, setIconCity] = useState(iconCreate);
 
-    console.log(newCity);
+    // console.log(newCity);
 
     const imputChange = e => {
         const { name, value } = e.currentTarget;
