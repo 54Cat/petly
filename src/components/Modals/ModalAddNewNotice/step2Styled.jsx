@@ -1,5 +1,5 @@
-import imgF from './img/female.png';
-import imgM from './img/male.png';
+import imgF from '../../../data/img_ModalAddNewNotice/female.png';
+import imgM from '../../../data/img_ModalAddNewNotice/male.png';
 import styled from '@emotion/styled';
 import { AddFile } from 'components/Modals/ModalAddsPet/AddsPetForm/AddsPetModalStyled';
 

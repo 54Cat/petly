@@ -11,7 +11,8 @@ import {
     InputFile,
     NoticeAddFile,
 } from './step2Styled';
-import {AddNoticeTitle, FormLabel, NoticeFormInput, AddNoticeForm} from 'components/ModalAddNewNotice/Step1.styled';
+
+import {AddNoticeTitle, FormLabel, NoticeFormInput, AddNoticeForm} from './Step1Styled';
 // import { BtnAddFileIcon } from 'components/Modals/ModalAddsPet/AddsPetForm/AddsPetModalStyled';
 
 

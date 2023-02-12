@@ -2,7 +2,7 @@ import { AddNoticeForm } from 'components/Modals/modalAddNotice/modalAddNoticeSt
 import React from 'react';
 
 
-import { NavButton, AddNoticeTitle, Text, CategorierList, FormLabel, NoticeFormInput } from './Step1.styled';
+import { NavButton, AddNoticeTitle, Text, CategorierList, FormLabel, NoticeFormInput } from './Step1Styled';
 
 const Step1 = ({ category, title, name, birthday, breed, updateFields }) => {
     return (

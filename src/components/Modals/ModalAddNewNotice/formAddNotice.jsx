@@ -4,7 +4,7 @@ import Step2 from './Step2';
 import { useMultistepForm } from './useMultistepForm';
 import { useDispatch } from 'react-redux';
 import { addNoticeOperation } from 'redux/Notices/noticesOperations';
-import { ModalCard, NoticeBtn, NoticeBtnList } from './formAddNotice.styled';
+import { ModalCard, NoticeBtn, NoticeBtnList } from './formAddNoticeStyled';
 
 const INITIAL_DATA = {
     category: 'sell',
