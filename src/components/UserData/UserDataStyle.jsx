@@ -2,10 +2,7 @@ import styled from '@emotion/styled';
 
 export const UserCard = styled.div`
     width: 100%;
-    @media (min-width: 320px) {
-    }
-    @media (min-width: 768px) {
-    }
+
     @media (min-width: 1280px) {
         width: 411px;
     }
@@ -33,6 +30,7 @@ export const FormContainer = styled.div`
     @media (min-width: 768px) {
         padding-left: 32px;
     }
+
     @media (min-width: 1280px) {
         padding: 16px;
     }
@@ -45,9 +43,11 @@ export const Wrapper = styled.div`
     padding: 20px 0;
     margin-right: auto;
     margin-left: auto;
+
     @media (min-width: 320px) {
         width: 280px;
     }
+
     @media (min-width: 768px) {
         position: relative;
         /* left: -32px; */
@@ -60,6 +60,7 @@ export const Wrapper = styled.div`
         padding: 0;
         margin-left: 0;
     }
+
     @media (min-width: 1280px) {
         flex-direction: column;
         width: 411px;
@@ -69,9 +70,11 @@ export const Wrapper = styled.div`
 
 export const Container = styled.div`
     margin-bottom: 32px;
+
     @media (min-width: 768px) {
         margin: 24px 40px 24px 52px;
     }
+
     @media (min-width: 1280px) {
         width: 100%;
         margin: 0;
@@ -84,9 +87,11 @@ export const Image = styled.img`
     margin: 0 auto 12px auto;
     border-radius: 50%;
     object-fit: contain;
+
     @media (min-width: 768px) {
         margin-bottom: 8px;
     }
+
     @media (min-width: 1280px) {
         margin: 20px auto 0 auto;
     }
@@ -106,9 +111,11 @@ export const Label = styled.label`
     margin-right: 24px;
     padding: 0;
     cursor: pointer;
+
     @media (min-width: 768px) {
         margin-right: 0;
     }
+
     @media (min-width: 1280px) {
         margin-right: 16px;
         margin-top: -24px;
@@ -133,14 +140,17 @@ export const ButtonLogout = styled.button`
     padding: 0;
     margin-right: 12px;
     cursor: pointer;
+
     :hover,
     :focus {
         color: #f59256;
     }
+
     @media (min-width: 768px) {
         margin: 0;
         padding-left: 32px;
     }
+
     @media (min-width: 1280px) {
         padding-left: 16px;
     }

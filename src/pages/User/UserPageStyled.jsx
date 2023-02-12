@@ -8,8 +8,13 @@ export const Container = styled.div`
     margin-top: 70px;
 
     @media (min-width: 768px) {
+// <<<<<<< HEAD
         display: block;
         margin-top: 88px;
+// =======
+//         padding-top: 160px;
+//         row-gap: 20px;
+// >>>>>>> main
     }
 
     @media (min-width: 1280px) {
@@ -20,17 +25,20 @@ export const Container = styled.div`
 `;
 
 export const ButtonContainer = styled.div`
-    position: absolute;
-    right: 20px;
+    position: absolute; 
+    right: 20px; 
     top: 815px;
+
     @media (min-width: 768px) {
         right: 32px;
-        top: 207px;
+        top: 625px;
     }
+
     @media (min-width: 1280px) {
         top: 170px;
     }
 `;
+
 export const ErrorMessage = styled.p`
     color: #ff0505;
     font-size: 30px;
