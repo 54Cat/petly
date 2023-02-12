@@ -1,63 +1,46 @@
 import styled from '@emotion/styled';
 
-const ScheduleBox = styled.div`
-position: absolute;
-z-index: 2;
-left: 178px;
-top: 114px;
-bottom: 20px;
-width: 120px;
-height: 140px;
-padding: 12px;
+export const ScheduleBox = styled.div`
+    position: absolute;
+    z-index: 2;
+    left: 178px;
+    top: 114px;
+    bottom: 20px;
+    width: 120px;
+    height: 140px;
+    padding: 12px;
 
-background: #FFFFFF;
-border: 1px solid #F59256;
-box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
-border-radius: 8px;
+    background: #FFFFFF;
+    border: 1px solid #F59256;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
 `
 
-// const CurrentBoxItem = styled.div`
-// display: flex;
-// //padding: 4px;
-// justify-content: space-between;
-// text-align: center;
-// margin-bottom: 4px;
-// //border: 1px solid #F59256;
-// &:last-child{
-//     margin-bottom: 0px;
-// }
-// `
+export const ScheduleBoxItem = styled.div`
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    margin-bottom: 4px;
 
-const ScheduleBoxItem = styled.div`
-
-display: flex;
-justify-content: space-between;
-text-align: center;
-margin-bottom: 4px;
-&:last-child{
-    margin-bottom: 0px;
-}
+    &:last-child{
+        margin-bottom: 0px;
+    }
 `
 
-const ScheduleInfo = styled.p`
-font-family: 'Manrope';
-font-style: normal;
-font-weight: 500;
-font-size: 12px;
-line-height: 1.33;
-color: #000000;
+export const ScheduleInfo = styled.p`
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+    color: #000000;
 `
-const CurrentInfo = styled.p`
-font-family: 'Manrope';
-font-style: normal;
-font-weight: 500;
-font-size: 12px;
-line-height: 1.33;
-color: #F59256;
+
+export const CurrentInfo = styled.p`
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+    color: #F59256;
 `
-export {
-    ScheduleBox,
-    ScheduleInfo,
-    ScheduleBoxItem,
-    CurrentInfo
-}

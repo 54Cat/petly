@@ -1,11 +1,7 @@
 import { useState } from 'react';
-// import { useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getUserInfo } from 'redux/selectors';
-// import { getUserInfo } from 'redux/selectors';
 import { updateUserOperation } from '../../redux/User/userOperations';
-// import onFocus from 'components/Utils/helpers/changeIcons';
-// import { IconButton } from '@mui/material';
 import { MdCreate } from 'react-icons/md';
 import { BsCheckLg } from 'react-icons/bs';
 
