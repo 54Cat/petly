@@ -33,19 +33,21 @@ export const Text = styled.p`
 `;
 
 export const Title = styled.h1`
+    padding-top: 100px;
     font-style: normal;
     font-weight: 700;
     font-size: 24px;
-    padding-top: 40px;
+
     text-align: center;
 
     @media (min-width: 768px) {
-        padding-top: 90px;
+        padding-top: 160px;
+
         font-size: 48px;
     }
 
     @media (min-width: 1280px) {
-        padding-top: 60px;
+        padding-top: 125px;
     }
 `;
 

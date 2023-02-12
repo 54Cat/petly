@@ -1,8 +1,53 @@
 import styled from '@emotion/styled';
-//import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import CloseIcon from '@mui/icons-material/Close';
 import AddIcon from '@mui/icons-material/Add';
-import { Form, Field} from 'formik';
+import { Form, Field } from 'formik';
+import { DatePickerField } from 'components/Datapicker/Datapicker';
+
+const StyledPicker = styled(DatePickerField)`
+display: block;
+font-weight: 400;
+font-size: 14px;
+line-height: 1.35;
+
+cursor: pointer;
+width: 196px;
+height: 18px; 
+color: rgba(17, 17, 17, 0.6);
+margin-top: 8px;
+padding: 11px 14px;  
+background: #FDF7F2;
+border: 1px solid rgba(245, 146, 86, 0.5);
+border-radius: 40px;
+
+:active, :hover, :focus {
+    outline: 0;
+    outline-offset: 0;
+    border: 2px solid #FF6101;
+}
+    ::placeholder {
+        //padding: 11px 14px;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 1.35;
+        color: rgba(27, 27, 27, 0.6);
+        
+        @media(min-width: 768px) {
+            font-size: 16px;
+            line-height: 1.62;
+            color: rgba(17, 17, 17, 0.6);
+        }
+    }
+@media(min-width: 768px) {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.6;
+    padding: 16px 10px; 
+    width: 416px;
+    height: 22px; 
+    margin-top: 12px;
+}
+`;
 
 const Overlay = styled.div`
     overflow-y: scroll;
@@ -25,7 +70,7 @@ position: relative;
 display: block;
 padding: 40px 20px;
 width: 240px;
-height: 510px;
+height: 470px;
 
 background: #FFFFFF;
 box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
@@ -43,7 +88,7 @@ display: flex;
 justify-content: center;
 padding: 40px 20px;
 width: 240px;
-height: 610px;
+height: 590px;
 
 background: #FFFFFF;
 box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
@@ -51,7 +96,7 @@ border-radius: 40px;
 @media(min-width: 768px) {
     padding: 40px auto;
     width: 608px;
-    height: 612px;
+    height: 590px;
 }
 `;
 
@@ -90,7 +135,7 @@ line-height: 1.36;
 `;
 
 const ButtonCloseIcon = styled(CloseIcon)`
-
+cursor: pointer;
 width: 28px;
 height: 28px;
 fill: rgba(17, 17, 17, 0.6);
@@ -105,6 +150,7 @@ fill: rgba(17, 17, 17, 0.6);
 `;
 
 const BtnAddFileIcon = styled(AddIcon)`
+cursor: pointer;
 fill: rgba(17, 17, 17, 0.6);
 width: 48px;
 height: 48px;
@@ -112,7 +158,7 @@ height: 48px;
 
 const ButtonCloseModal = styled.button`
 position: absolute;
-
+cursor: pointer;
 top: 20px;
 right: 20px;
 
@@ -173,7 +219,11 @@ display: block;
 
 const FieldStyled = styled(Field)`
 display: block;
+font-weight: 400;
+font-size: 14px;
+line-height: 1.35;
 
+cursor: pointer;
 width: 196px;
 height: 18px; 
 color: rgba(17, 17, 17, 0.6);
@@ -202,6 +252,9 @@ border-radius: 40px;
         }
     }
 @media(min-width: 768px) {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.6;
     padding: 16px 10px; 
     width: 416px;
     height: 22px; 
@@ -211,9 +264,11 @@ border-radius: 40px;
 
 const FieldPhoto = styled(Field)`
 display: none;
+cursor: pointer;
 `;
 
 const AddFile = styled.label`
+    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -233,6 +288,11 @@ const AddFile = styled.label`
 `;
 
 const FieldTextarea = styled(Field)`
+cursor: pointer;
+font-weight: 400;
+font-size: 14px;
+line-height: 1.35;
+
 display: block;
 margin-top: 8px;
 padding: 14px 12px;
@@ -255,6 +315,9 @@ border-radius: 20px;
     }
 
 @media(min-width: 768px) {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.6;
     margin-top: 20px;
     padding: 16px;
     width: 362px;
@@ -269,6 +332,8 @@ margin-bottom: 16px;
     margin-bottom: 28px;
 }
 `;
+
+
 
 const StyledLabel = styled.label`
 display: block;
@@ -286,7 +351,7 @@ color: #111111;
 `;
 
 const FlexBox = styled.div`
-    
+    cursor: pointer;
     justify-content: center;
     text-align: center;
     
@@ -300,6 +365,7 @@ const FlexBox = styled.div`
 `;
 
 const NextBtn = styled.button`
+cursor: pointer;
 display: block;
 width: 240px;
 height: 40px;
@@ -308,17 +374,20 @@ color: #FFFFFF;
 background: #F59256;
 border-radius: 40px;
 border: none;
-: hover, :focus {
+
+:hover, :focus {
     border: 2px solid #FF6101;
 }
 @media(min-width: 768px) {
     width: 180px;
     height: 44px;
     margin-right: 20px;
+    
 }
 `;
 
 const CancelBtn = styled.button`
+cursor: pointer;
 margin-right: 15px;
 display: block;
 width: 240px;
@@ -326,7 +395,7 @@ height: 40px;
 background: #FFFFFF;
 border: 2px solid #F59256;
 border-radius: 40px;
-: hover, :focus {
+:hover, :focus {
     border: 2px solid #FF6101;
 }
 @media(min-width: 768px) {
@@ -347,14 +416,11 @@ const ErrorText = styled.p`
         margin-left: 10px;
     }
     @media (min-width: 768px) {
-        margin-left: 90px;
+        margin-top: -25px;
     }
     color: #f59256;
-    margin-left: 90px;
-    margin-top: -25px;
-
+    margin-top: -20px;
     position: absolute;
-    
 `;
 
 
@@ -378,5 +444,6 @@ export {
     FieldTextarea,
     AddFile,
     BtnAddFileIcon,
-    TitleItemTwo
+    TitleItemTwo,
+    StyledPicker
 }

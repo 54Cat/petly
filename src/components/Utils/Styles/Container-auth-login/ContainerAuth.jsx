@@ -6,6 +6,7 @@ import imgTablex2 from './bg-table2x.png';
 import imgPhone from './bg-phone.png';
 import imgPhonex2 from './bg-phone2x.png';
 export const Container = styled.section`
+    margin-top: 74px;
     padding-top: 40px;
     padding-bottom: 40px;
     background: #fdf7f2;
@@ -24,6 +25,7 @@ export const Container = styled.section`
     }
 
     @media (min-width: 768px) {
+        margin-top: 96px;
         padding-top: 100px;
         padding-bottom: 100px;
         display: flex;

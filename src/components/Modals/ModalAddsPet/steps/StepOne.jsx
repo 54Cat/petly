@@ -1,13 +1,7 @@
 import { Formik, ErrorMessage } from 'formik';
-import { ButtonCloseModal, ButtonCloseIcon, Title, ErrorText, ModalItem, FlexBox, StyledLabel, FormStyled, FieldStyled, CancelBtn, NextBtn, LabelBox } from '../AddsPetForm/AddsPetModalStyled';
+import {StyledPicker, ButtonCloseModal, ButtonCloseIcon, Title, ErrorText, ModalItem, FlexBox, StyledLabel, FormStyled, FieldStyled, CancelBtn, NextBtn, LabelBox } from '../AddsPetForm/AddsPetModalStyled';
 import * as yup from 'yup';
-
-
-// const initialValues = {
-//     name: "",
-//     birthday: "",
-//     breed: "",        
-// }
+//import { DatePickerField } from 'components/Datapicker/Datapicker';
 
 const validationSchema = yup.object({
     name: yup.string().min(2).max(16).required(),
@@ -35,6 +29,7 @@ const StepOne = (props) => {
     return (
     
     <Formik
+        //enctype="multipart/form-data"
         initialValues={props.data}
         onSubmit={handleSubmit}
         validationSchema={validationSchema}
@@ -49,27 +44,26 @@ const StepOne = (props) => {
             <LabelBox>
                 <StyledLabel htmlFor='name'>
                 Name pet 
-                    <FieldStyled type="text" name="name" placeholder="Type name pet" /> 
-                    <FormError name="name" />
-                </StyledLabel>
+                    <FieldStyled type="text" name="name" placeholder="Type name pet" />     
+                </StyledLabel>                
             </LabelBox>
-
+            <FormError name="name" />
             <LabelBox>
                 <StyledLabel htmlFor='birthday'>
                 Date of birth
-                    <FieldStyled type="text" name="birthday" placeholder="Type date of birth" />
-                    <FormError name="birthday" />
+                    <StyledPicker type="text" name="birthday" placeholder="Type date of birth" />               
                 </StyledLabel>
+                            
             </LabelBox>
+            <FormError name="birthday" />
 
-            <div>
+            <LabelBox>
                 <StyledLabel htmlFor='breed'>
                 Breed    
-                    <FieldStyled type="text" name="breed" placeholder="Type breed" />
-                    <FormError name="breed" />
+                    <FieldStyled type="text" name="breed" placeholder="Type breed" />    
                 </StyledLabel>
-            </div>
-
+            </LabelBox>
+            <FormError name="breed" />
             <FlexBox>
                 <NextBtn type="submit">Next</NextBtn>
                 <CancelBtn type="button" onClick={() => onClose()} >Cancel</CancelBtn>

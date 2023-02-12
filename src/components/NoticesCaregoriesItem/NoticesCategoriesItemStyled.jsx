@@ -99,7 +99,7 @@ export const NoticesCardThumb = styled.div`
     padding-top: 20px;
     padding-left: 20px;
     padding-right: 20px;
-    padding-bottom: 32px;
+    padding-bottom: 12px;
 
     color: #111111;
 `;
@@ -119,7 +119,7 @@ export const NoticesCardInfoThumb = styled.div`
     margin-top: 20px;
     display: flex;
 
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 `;
 
 export const NoticesCardInfoList = styled.ul`
@@ -153,7 +153,34 @@ export const NoticesCardInfoItem = styled.li`
     }
 `;
 
-export const BtnLearnMore = styled(Button)`
-    margin-top: 50px;
-    margin-bottom: 32px;
+export const BtnThumb = styled.div`
+    height: 87px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 `;
+
+
+export const BtnDelete = styled(Button)`
+    margin-top: 12px;
+`;
+
+export const BasketWraper = styled.div`
+    width: 20px;
+    height: 20px;
+    align-items: center;
+    justify-content: center;
+    margin-left: 13px;
+`;
+
+export const Basket = styled.svg`
+    align-items: center;
+    justify-content: center;
+    fill: #F59256;
+
+    .btnDel:hover &,
+    .btnDel:focus & {
+        fill: #FF6101;}
+`;
+

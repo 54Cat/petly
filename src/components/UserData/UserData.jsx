@@ -13,6 +13,7 @@ import {
     Label,
     Input,
     Container,
+    FormContainer
 } from './UserDataStyle';
 
 const UserData = () => {
@@ -74,10 +75,10 @@ const UserData = () => {
                         />
                     </Label>
                 </Container>
-                <div>
+                <FormContainer>
                     <UserDataItem />
                     <UserLogout />
-                </div>
+                </FormContainer>
             </Wrapper>
         </UserCard>
     );

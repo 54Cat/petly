@@ -1,6 +1,9 @@
 import { Formik, ErrorMessage } from 'formik';
 import * as yup from 'yup';
+import { useState } from 'react';
+
 import {
+    LabelBox,
     TitleItemTwo,
     BtnAddFileIcon,
     ErrorText,
@@ -19,33 +22,59 @@ import {
 } from '../AddsPetForm/AddsPetModalStyled';
 import { useDispatch } from 'react-redux';
 import { addPetOperation } from 'redux/Pets/petsOperations';
+
 //import AddIcon from '@mui/icons-material/Add';
 
 const validationSchema = yup.object({
     comments: yup.string().min(8).max(120).required(),
 });
 
+
 const StepTwo = ({ data, prev, onClose }) => {
+    
     const FormError = ({ name }) => {
         return (
             <ErrorMessage
                 name={name}
                 render={message => <ErrorText>{message}</ErrorText>}
             />
-        );
-    };
 
+    )
+    }
     const dispatch = useDispatch();
+    
+     const [file, setFile] = useState(null); 
+    
+    const handleChange = (event) => {
+       console.log(event.target.files);
+       setFile(event.target.files[0]);
+    }
+
 
     const handleSubmit = (values, { resetForm }) => {
-        //addMyPet(values);
-        console.log(values);
-        dispatch(addPetOperation(values));
+        let formData = new FormData();
+        for (let value in values) {
+            formData.append(value, values[value]);
+            
+        }
+        formData.append("myPetsPhoto", file)
+        
+        for (let property of formData.entries()) {
+            console.log(property[0], property[1]);
+          }
+        
+         dispatch(addPetOperation(formData))
+        
+        console.log(values)
         resetForm();
-    };
+        onClose();    
+    }
+
+
 
     return (
         <Formik
+            
             initialValues={data}
             onSubmit={handleSubmit}
             validationSchema={validationSchema}
@@ -60,16 +89,12 @@ const StepTwo = ({ data, prev, onClose }) => {
                         <TitleItemTwo>Add photo and some comments</TitleItemTwo>
 
                         <AddFile htmlFor="myPetsPhoto">
-                            <BtnAddFileIcon />
-                            <FieldPhoto
-                                id="myPetsPhoto"
-                                type="file"
-                                name="myPetsPhoto"
-                            />
-                            <FormError name="myPetsPhoto" />
-                        </AddFile>
+                            {file ? <p>File added success</p>:<BtnAddFileIcon />}
 
-                        <div>
+                            <FieldPhoto id="myPetsPhoto" type="file" name="myPetsPhoto" onChange={handleChange} />   
+                        </AddFile>
+                        <FormError name="myPetsPhoto" />
+                        <LabelBox>
                             <StyledLabel htmlFor="comments">
                                 Comments
                                 <FieldTextarea
@@ -78,9 +103,9 @@ const StepTwo = ({ data, prev, onClose }) => {
                                     placeholder="Type comments"
                                     as="textarea"
                                 />
-                                <FormError name="comments" />
                             </StyledLabel>
-                        </div>
+                        </LabelBox>
+                        <FormError name="comments" />
                         <FlexBox>
                             <NextBtn type="submit">Done</NextBtn>
                             <CancelBtn
@@ -96,4 +121,5 @@ const StepTwo = ({ data, prev, onClose }) => {
         </Formik>
     );
 };
-export default StepTwo;
+
+      export default StepTwo
