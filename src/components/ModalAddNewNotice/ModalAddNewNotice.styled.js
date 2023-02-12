@@ -2,6 +2,12 @@ import styled from '@emotion/styled';
 import Modal from 'react-modal';
 import CloseIcon from '@mui/icons-material/Close';
 
+export const WrapAddPet = styled.div`
+    position: fixed;
+    z-index: 1;
+    right: 0;
+`;
+
 export const ModalStyled = styled(Modal)`
     position: absolute;
     top: 50%;
@@ -21,6 +27,12 @@ export const ModalStyled = styled(Modal)`
 `;
 
 export const OpenBtn = styled.button`
+   width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    color: #FFFFFF;
+    background-color:#F59256;
+    border: 1px solid transparent; 
     line-height: 22px;
     letter-spacing: 0.04em;
 `;

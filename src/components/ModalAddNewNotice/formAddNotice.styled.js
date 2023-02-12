@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { Button } from 'components/Utils/Styles/basicStyle';
 
 export const ModalCard = styled.form`
     box-sizing: border-box;
@@ -20,3 +21,16 @@ export const ModalCard = styled.form`
         border-radius: 40px;
     }
 `;
+
+export const NoticeBtnList = styled.div`  
+  display: flex;  
+`;
+
+export const NoticeBtn = styled(Button)` 
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  width: 180px; 
+  height: 44px;
+`;
+

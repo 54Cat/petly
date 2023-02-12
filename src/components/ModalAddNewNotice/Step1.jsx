@@ -1,11 +1,15 @@
+import { AddNoticeForm } from 'components/Modals/modalAddNotice/modalAddNoticeStyled';
 import React from 'react';
-import { NavButton } from './Step1.styled';
+import { NavButton, AddNoticeTitle, Text, CategorierList, FormLabel, NoticeFormInput } from './Step1.styled';
 
 const Step1 = ({ category, title, name, birthday, breed, updateFields }) => {
     return (
         <div>
-            <h1>Add pet</h1>
-            <div>
+            <AddNoticeTitle>Add pet</AddNoticeTitle>
+            <Text>Lorem ipsum dolor sit amet, consectetur Lorem ipsum
+                dolor sit amet, consectetur
+            </Text>
+            <CategorierList>
                 <NavButton
                     type="button"
                     value="lost-found"
@@ -54,9 +58,10 @@ const Step1 = ({ category, title, name, birthday, breed, updateFields }) => {
                 >
                     sell
                 </NavButton>
-            </div>
-            <label htmlFor="title">Title of ad</label>
-            <input
+            </CategorierList>
+            <AddNoticeForm>
+            <FormLabel htmlFor="title">Title of ad</FormLabel>
+            <NoticeFormInput
                 type="text"
                 placeholder="Type name pet"
                 name="title"
@@ -64,8 +69,8 @@ const Step1 = ({ category, title, name, birthday, breed, updateFields }) => {
                 onChange={e => updateFields({ title: e.target.value })}
             />
 
-            <label htmlFor="name">Name pet</label>
-            <input
+            <FormLabel htmlFor="name">Name pet</FormLabel>
+            <NoticeFormInput
                 type="text"
                 placeholder="Type name pet"
                 name="name"
@@ -73,8 +78,8 @@ const Step1 = ({ category, title, name, birthday, breed, updateFields }) => {
                 onChange={e => updateFields({ name: e.target.value })}
             />
 
-            <label htmlFor="birthday">Date of birth</label>
-            <input
+            <FormLabel htmlFor="birthday">Date of birth</FormLabel>
+            <NoticeFormInput
                 type="text"
                 placeholder="Type name pet"
                 name="birthday"
@@ -82,14 +87,15 @@ const Step1 = ({ category, title, name, birthday, breed, updateFields }) => {
                 onChange={e => updateFields({ birthday: e.target.value })}
             />
 
-            <label htmlFor="breed">Breed</label>
-            <input
+            <FormLabel htmlFor="breed">Breed</FormLabel>
+            <NoticeFormInput
                 type="text"
                 placeholder="Type name pet"
                 name="breed"
                 value={breed}
                 onChange={e => updateFields({ breed: e.target.value })}
-            />
+                />
+        </AddNoticeForm>
         </div>
     );
 };

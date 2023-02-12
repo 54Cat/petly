@@ -7,7 +7,7 @@ import { addNoticeOperation } from 'redux/Notices/noticesOperations';
 
 // import * as yup from 'yup';
 
-import { ModalCard } from './formAddNotice.styled';
+import { ModalCard, NoticeBtn, NoticeBtnList } from './formAddNotice.styled';
 
 const INITIAL_DATA = {
     category: 'sell',
@@ -64,18 +64,18 @@ const ModalContent = ({ Close }) => {
     return (
         <ModalCard onSubmit={onSubmit}>
             {step}
-            <div>
+            <NoticeBtnList>
                 {!isFirstStep ? (
-                    <button type="button" onClick={back}>
+                    <NoticeBtn type="button" onClick={back}>
                         Back
-                    </button>
+                    </NoticeBtn>
                 ) : (
-                    <button type="button" onClick={Close}>
+                    <NoticeBtn type="button" onClick={Close}>
                         Cancel
-                    </button>
+                    </NoticeBtn>
                 )}
-                <button type="submit">{isLastStep ? 'Done' : 'Next'}</button>
-            </div>
+                <NoticeBtn type="submit">{isLastStep ? 'Done' : 'Next'}</NoticeBtn>
+            </NoticeBtnList>
         </ModalCard>
     );
 };
