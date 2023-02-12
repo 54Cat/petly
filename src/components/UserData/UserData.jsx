@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState } from 'react';
 import { getUser } from 'redux/User/selectors';
 import UserDataItem from './UserDataItem';
-import { getUserOperation, updateUserOperation } from '../../redux/User/userOperations';
+import { updateUserOperation } from '../../redux/User/userOperations';
 import { IoIosCamera } from 'react-icons/io';
 import { UserLogout } from './UserLogOut';
 import {
@@ -13,20 +13,19 @@ import {
     Label,
     Input,
     Container,
-    FormContainer
+    FormContainer,
 } from './UserDataStyle';
 
 const UserData = () => {
-
     const dispatch = useDispatch();
 
-    useEffect(() => {
-        dispatch(getUserOperation());
-    }, [dispatch]);
+    // useEffect(() => {
+    //     dispatch(getUserOperation());
+    // }, [dispatch]);
 
     const [image, setImage] = useState();
     const userData = useSelector(getUser);
-    const { avatarURL } = userData.avatarURL;
+    const { avatarURL } = userData;
     const ref = useRef(avatarURL);
 
     const onChange = e => {

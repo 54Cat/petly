@@ -24,6 +24,7 @@ const ModalNotice = id => {
             <ModalNoticeStyled
                 isOpen={modalIsOpen}
                 onRequestClose={closeModal}
+                ariaHideApp={false}
                 contentLabel="Example Modal"
                 shouldCloseOnOverlayClick={true}
                 style={{

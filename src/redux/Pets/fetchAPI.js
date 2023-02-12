@@ -20,7 +20,7 @@ export async function addPet(formData) {
 }
 
 export async function deletePetById(petId) {
-    const { data } = await axios.delete(`user/pets/${petId}`);
+    const { data } = await axios.delete(`user/pet/${petId}`);
     return data;
 }
 
