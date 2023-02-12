@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getUserInfo } from 'redux/selectors';
-import { updateUserOperation } from '../../redux/User/userOperations';
+import { selectUser } from 'redux/Auth/AuthSelectors';
 
+import { updateUserOperation } from '../../redux/User/userOperations';
 import { MdCreate } from 'react-icons/md';
 import { BsCheckLg } from 'react-icons/bs';
 
@@ -16,11 +16,9 @@ import {
 
 const UserDataItem = () => {
     const dispatch = useDispatch();
-    const userInState = useSelector(getUserInfo);
+    const userInState = useSelector(selectUser);
 
     const { name, city, email, phone, birthday } = userInState.user;
-    // const { isLoading } = userInState;
-    // console.log(isLoading);
 
     const [newName, setNewName] = useState(name);
     const [newEmail, setNewEmail] = useState(email);

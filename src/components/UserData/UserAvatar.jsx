@@ -2,13 +2,13 @@ import { useSelector, useDispatch } from 'react-redux';
 import { updateUserOperation } from '../../redux/User/userOperations';
 import { useRef, useState } from 'react';
 import { BsCheckLg } from 'react-icons/bs';
+import { selectUser } from 'redux/Auth/AuthSelectors';
 
 import { IoIosCamera } from 'react-icons/io';
-import { getUserInfo } from '../../redux/selectors';
 import { Image, Label, Container, Input, Button } from './UserAvatarStyle';
 
 export const UserAvatar = () => {
-    const userInState = useSelector(getUserInfo);
+    const userInState = useSelector(selectUser);
     const dispatch = useDispatch();
     const ref = useRef();
 
