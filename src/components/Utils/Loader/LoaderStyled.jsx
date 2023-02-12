@@ -6,6 +6,6 @@ export const LoaderContainer = styled.div`
     transform: translate(-50%, -50%);
 `;
 
-export const NewsLoaderContainer = styled.div`
+export const CardsLoaderContainer = styled.div`
     margin: 0 auto;
 `;

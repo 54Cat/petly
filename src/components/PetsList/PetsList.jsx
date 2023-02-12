@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 // import { getUserOperation } from 'redux/User/userOperations';
 import { getPets } from 'redux/selectors';
 import PetsItem from 'components/PetsItem/PetsItem';
+import { NoPetsTitle } from 'components/PetsItem/PetsItem.styled';
 
 const PetsList = function () {
     const pets = useSelector(getPets);
@@ -25,7 +26,7 @@ const PetsList = function () {
                 }
             )}
 
-            {pets.items.length === 0 && <p>There`s no pets yet</p>}
+            {pets.items.length === 0 && <NoPetsTitle>Therу are no pets yet! </NoPetsTitle>}
         </>
     );
 };
