@@ -1,10 +1,10 @@
 import styled from '@emotion/styled';
-import imgDesc from '../../../../components/images/BackgroundAuth/bg-desc.png';
-import imgDesc2x from '../../../../components/images/BackgroundAuth/bg-desc2x.png';
-import imgTable from '../../../../components/images/BackgroundAuth/bg-table.png';
-import imgTablex2 from '../../../../components/images/BackgroundAuth/bg-table2x.png';
-import imgPhone from '../../../../components/images/BackgroundAuth/bg-phone.png';
-import imgPhonex2 from '../../../../components/images/BackgroundAuth/bg-phone2x.png';
+import imgDesc from '../../../../data/img_BackgroundAauth/bg-desc.png';
+import imgDesc2x from '../../../../data/img_BackgroundAauth/bg-desc2x.png';
+import imgTable from '../../../../data/img_BackgroundAauth/bg-table.png';
+import imgTablex2 from '../../../../data/img_BackgroundAauth/bg-table2x.png';
+import imgPhone from '../../../../data/img_BackgroundAauth/bg-phone.png';
+import imgPhonex2 from '../../../../data/img_BackgroundAauth/bg-phone2x.png';
 
 export const Container = styled.section`
     margin-top: 74px;
