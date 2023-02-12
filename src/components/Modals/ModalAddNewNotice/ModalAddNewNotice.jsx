@@ -6,6 +6,7 @@ import {
     CloseBtn,
     StyledIcon,
     OpenBtn,
+    WrapAddPet,
 } from './ModalAddNewNoticeStyled';
 
 const ModalAddNewNotice = () => {
@@ -20,8 +21,8 @@ const ModalAddNewNotice = () => {
     }
 
     return (
-        <div>
-            <OpenBtn onClick={openModal}>Learn more</OpenBtn>
+        <WrapAddPet>
+            <OpenBtn onClick={openModal}>Add pet</OpenBtn>
             <ModalStyled
                 isOpen={modalIsOpen}
                 onRequestClose={closeModal}
@@ -29,7 +30,9 @@ const ModalAddNewNotice = () => {
                 shouldCloseOnOverlayClick={true}
                 style={{
                     overlay: {
-                        backgroundColor: 'rgba(17, 17, 17, 0.6)',
+                    zIndex: '2',
+                    overflowY: 'scroll',
+                    backgroundColor: 'rgba(17, 17, 17, 0.6)',
                     },
                 }}
             >
@@ -39,7 +42,7 @@ const ModalAddNewNotice = () => {
 
                 <ModalContent Close={closeModal}></ModalContent>
             </ModalStyled>
-        </div>
+        </WrapAddPet>
     );
 };
 
