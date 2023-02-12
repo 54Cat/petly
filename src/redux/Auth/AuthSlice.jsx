@@ -24,7 +24,7 @@ export const registerUser = createAsyncThunk(
                 name,
             });
             dispatch(loginUser({ email, password }));
-            // token.set(data.token);
+            token.set(data.token);
             return data;
         } catch (error) {
             return rejectWithValue(error);
@@ -40,7 +40,7 @@ export const loginUser = createAsyncThunk(
                 email,
                 password,
             });
-            // token.set(data.token);
+            token.set(data.token);
             return data;
         } catch (error) {
             return rejectWithValue(error);
@@ -53,11 +53,30 @@ export const loggedOut = createAsyncThunk(
     async (_, thunkApi) => {
         try {
             const { data } = await axios.post('/auth/logout');
-            // console.log(data);
             token.unset();
             return data;
         } catch (error) {
             return thunkApi.rejectWithValue(error.message);
+        }
+    }
+);
+
+export const authCurrentUser = createAsyncThunk(
+    'auth/refresh',
+    async (_, thunkAPI) => {
+        const state = thunkAPI.getState();
+        const persistorToken = state.auth.token;
+
+        if (persistorToken === null) {
+            return thunkAPI.rejectWithValue();
+        }
+
+        token.set(persistorToken);
+        try {
+            const { data } = await axios.get('/user');
+            return data;
+        } catch (error) {
+            return thunkAPI.rejectWithValue(error);
         }
     }
 );
@@ -118,6 +137,21 @@ export const authSlice = createSlice({
             state.isLoading = false;
             state.error = action.payload;
         },
+
+        [authCurrentUser.pending](state, action) {
+            state.isLoading = true;
+        },
+        [authCurrentUser.fulfilled](state, action) {
+            state.isLoading = false;
+            state.isLoggedIn = true;
+            state.user = action.payload.user;
+        },
+        [authCurrentUser.rejected](state, action) {
+            state.isLoading = false;
+            state.user = null;
+            state.token = '';
+        },
+
     },
 });
 
