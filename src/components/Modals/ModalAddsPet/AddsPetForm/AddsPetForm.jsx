@@ -6,9 +6,9 @@ import React, { useState } from 'react';
 
 const AddsPetForm = ({ onClose }) => {
     const [data, setData] = useState({
-        names: '',
-        birthdays: '',
-        breeds: '',
+        name: '',
+        birthday: '',
+        breed: '',
         //myPetsPhoto: '',
         comments: '',
     });
