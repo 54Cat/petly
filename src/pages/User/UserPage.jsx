@@ -3,6 +3,8 @@ import { useEffect } from 'react';
 import { getUserOperation } from 'redux/User/userOperations';
 import { getUserInfo } from 'redux/selectors';
 // import { Loader } from 'components/Utils/Loader/Loader';
+// import { Suspense } from 'react';
+// import { Outlet } from 'react-router-dom';
 
 import UserData from 'components/UserData/UserData';
 import PetsData from 'components/PetsData/PetsData';
@@ -22,7 +24,7 @@ const UserPage = () => {
 
     return (
         <>
-            {/* {!isLoading ? ( */}
+            {/* <Suspense fallback={<Loader />}> */}
             <Container>
                 <ButtonContainer>
                     <ButtonAddsPet />
@@ -30,9 +32,8 @@ const UserPage = () => {
                 <UserData />
                 <PetsData />
             </Container>
-            {/* ) : (
-                <Loader />
-            )} */}
+            {/* <Outlet /> */}
+            {/* </Suspense> */}
         </>
     );
 };

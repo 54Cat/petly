@@ -17,9 +17,11 @@ export const Text = styled.p`
     line-height: 1.35;
     letter-spacing: 0.04em;
     margin-bottom: 18px;
+    margin-left: 20px;
 
     @media (min-width: 768px) {
         font-size: 28px;
+        margin-left: 0;
         margin-bottom: 40px;
         padding-left: 32px;
     }
