@@ -16,28 +16,36 @@ export const Text = styled.p`
 `;
 
 export const NavButton = styled(Button)`
-    width:fit-content; 
-  display: flex;
-  flex-direction: row; 
+  width:fit-content; 
+  display: flex;  
+  flex-wrap: wrap;
+  gap: 8px;
+  align-content: center;
+  justify-content: center;
+  font-weight: 500; 
+  font-size: 14px;
   @media (min-width: 768px) {
-         font-size: 20px;
-        padding: 10px 28px;
+    font-size: 20px;
+    margin-right: 6px;
+    margin-left: 6px;
+
+       
      }
 `;
 
 export const CategorierList = styled.ul`
 display: flex;
 flex-wrap: wrap;
-row-gap: 32px;
-margin-top: 30px;
+/* row-gap: 32px;
+margin-top: 30px; */
 @media (min-width: 768px) {
-    margin-top: 60px;
-    column-gap: 32px;        
+    margin-top: 28px;   
+    justify-content: center;        
     }
 `;
 
 export const FormLabel = styled.label`
-  margin-top: 38px;
+  margin-top: 16px;
   margin-bottom: 12px;  
   font-weight: 500px;
   font-size: 24px;

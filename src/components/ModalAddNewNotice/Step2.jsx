@@ -7,7 +7,8 @@ import {
     Input,
     Thumb,
     Title,
-    TitleColor,    
+    TitleColor,
+    NoticeInputPhoto,
 } from './step2Styled';
 import {AddNoticeTitle, FormLabel, NoticeFormInput, AddNoticeForm} from 'components/ModalAddNewNotice/Step1.styled';
 
@@ -71,7 +72,7 @@ const Step2 = ({ category, sex, location, price, comments, updateFields }) => {
 
             <FormLabel htmlFor="myPetsPhoto">
                 Load the pet’s image:
-                <input
+                <NoticeInputPhoto
                     id="myPetsPhoto"
                     type="file"
                     name="myPetsPhoto"

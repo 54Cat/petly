@@ -10,19 +10,20 @@ export const WrapAddPet = styled.div`
 
 export const ModalStyled = styled(Modal)`
     position: absolute;
+    width: 280px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1);
     border-radius: 40px;
     border-color: white;
-    background-color: red;
+    /* background-color: red; */
 
-    @media (min-width: 320px) {
+    /* @media (min-width: 320px) {
         width: 280px;
-    }
+    } */
 
     @media (min-width: 768px) {
-        width: 704px;
+        width: 608px;
     }
 `;
 

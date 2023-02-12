@@ -75,4 +75,8 @@ export const TitleColor = styled.span`
     color: #f59256;
 `;
 
+export const NoticeInputPhoto = styled.span`
+    display: none;
+`;
+
 
