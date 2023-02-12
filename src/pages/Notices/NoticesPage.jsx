@@ -4,13 +4,16 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { getNotices } from 'redux/selectors';
 import { getUserInfo } from 'redux/selectors';
 import { fetchNotices } from 'redux/Notices/noticesOperations';
-import { fetchFavoriteNotices } from 'redux/Notices/fetchNotices';
+import {
+    fetchFavoriteNotices,
+    fetchDeleteNotice,
+    updateFavoriteNotice,
+} from 'redux/Notices/fetchNotices';
 import { PageSection } from 'components/Utils/Styles/basicStyle';
 import { Title } from 'components/Utils/Styles/basicStyle';
 import { SearchBar } from 'components/SearchBar/SearchBar';
 import { NoticesCategoriesNav } from 'components/NoticesCategoriesNav/NoticesCategoriesNav';
 import { NoticesCategoriesList } from 'components/NoticesCategoriesList/NoticesCategoriesList';
-import { updateFavoriteNotice } from '../../redux/Notices/fetchNotices';
 
 const NoticesPage = () => {
     const userData = useSelector(getUserInfo);
@@ -24,12 +27,21 @@ const NoticesPage = () => {
 
     const fetchFavorite = async () => {
         const results = await fetchFavoriteNotices();
-        setFavorite(results);
+        const resultId = results.map(result => result._id);
+        setFavorite(resultId);
     };
 
     const updateFavorite = async id => {
         const results = await updateFavoriteNotice(id);
         setFavorite(results.favorites);
+    };
+
+    const deleteMyNotices = async id => {
+        const results = await fetchDeleteNotice(id);
+        const newNotices = notices.filter(
+            notice => notice._id !== results.data._id
+        );
+        setNotices(newNotices);
     };
 
     useEffect(() => {
@@ -61,6 +73,7 @@ const NoticesPage = () => {
                     return;
                 }
                 dispatch(fetchNotices('myFavorite'));
+                fetchFavorite();
                 break;
 
             case 'own':
@@ -81,16 +94,11 @@ const NoticesPage = () => {
         setNotices(allNoticesByCategory);
     }, [allNoticesByCategory]);
 
-    const onFilterChange = e => {
-        setFilter(e.currentTarget.value);
-    };
-
-    const handleSubmit = e => {
-        e.preventDefault();
+    useEffect(() => {
         const filtredNotices = allNoticesByCategory.filter(notice => {
             let areSimilarWords = false;
 
-            for (const word of filter.split(' ')) {
+            for (const word of filter.trim().split(' ')) {
                 if (notice.title.toLowerCase().includes(word.toLowerCase())) {
                     areSimilarWords = true;
                     break;
@@ -100,6 +108,18 @@ const NoticesPage = () => {
             return areSimilarWords;
         });
         setNotices(filtredNotices);
+    }, [allNoticesByCategory, filter]);
+
+    const onFilterChange = e => {
+        setFilter(e.currentTarget.value);
+    };
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        if (filter.trim() === '') {
+            return;
+        }
+        setFilter('');
     };
 
     return (
@@ -117,6 +137,7 @@ const NoticesPage = () => {
                 notices={notices}
                 favorite={favorite}
                 updateFavorite={updateFavorite}
+                deleteMyNotices={deleteMyNotices}
             />
         </PageSection>
     );

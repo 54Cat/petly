@@ -1,16 +1,12 @@
 import PetsList from 'components/PetsList/PetsList';
-import ButtonAddsPet from 'components/ButtonAddsPet/ButtonAddsPet';
 
-import { PetsWrapper, PetsTitle, InfoWrapper } from './PetsData.styled';
+
+import { PetsWrapper, PetsTitle} from './PetsDataStyled';
 
 const PetsData = function () {
     return (
         <PetsWrapper>
-            <InfoWrapper>
-                <ButtonAddsPet></ButtonAddsPet>
-                <PetsTitle>My pets:</PetsTitle>
-            </InfoWrapper>
-
+            <PetsTitle>My pets:</PetsTitle>
             <PetsList />
         </PetsWrapper>
     );
