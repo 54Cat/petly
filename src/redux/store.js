@@ -12,17 +12,17 @@ import storage from 'redux-persist/lib/storage';
 import { combineReducers } from 'redux';
 
 import { configureStore } from '@reduxjs/toolkit';
-import { authSlices } from './Auth/AuthSlice';
-import  {userReducer} from './User/userSlice';
+import { authReducer } from './Auth/AuthSlice';
+import { userReducer } from './User/userSlice';
 import { petsReducer } from './Pets/petsSlice';
 import { noticesReducer } from './Notices/noticesSlice';
 const persistConfig = {
-    key: 'root',
+    key: 'auth',
     version: 1,
     storage,
     whitelist: ['token'],
 };
-const persistedReducer = persistReducer(persistConfig, authSlices);
+const persistedReducer = persistReducer(persistConfig, authReducer);
 
 const rootReducer = combineReducers({
     auth: persistedReducer,

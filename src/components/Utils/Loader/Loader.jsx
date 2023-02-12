@@ -1,5 +1,5 @@
 import { Rings } from 'react-loader-spinner';
-import { LoaderContainer, NewsLoaderContainer } from './LoaderStyled';
+import { LoaderContainer, CardsLoaderContainer } from './LoaderStyled';
 export const Loader = () => {
     return (
         <LoaderContainer>
@@ -16,9 +16,9 @@ export const Loader = () => {
     );
 };
 
-export const NewsLoader = () => {
+export const CardsLoader = () => {
     return (
-        <NewsLoaderContainer >
+        <CardsLoaderContainer >
             <Rings
                 height="180"
                 width="180"
@@ -28,6 +28,6 @@ export const NewsLoader = () => {
                 wrapperClass="loading"
                 visible={true}
             />
-        </NewsLoaderContainer>
+        </CardsLoaderContainer>
     );
 };

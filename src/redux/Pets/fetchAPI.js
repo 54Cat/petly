@@ -3,10 +3,12 @@ axios.defaults.baseURL = 'https://petly-backend-23cb.onrender.com/api';
 
 export async function getUserInfo() {
     const { data } = await axios.get(`/user`);
+    // ТУТ ВОПРОС НЕ ЗАДЕЙСТВОВАНАЯ ФУНКЦ
     return data;
 }
 
-export async function updateUserInfo( credentials) {
+export async function updateUserInfo(userId, credentials) {
+    // ТУТ ВОПРОС НЕ ЗАДЕЙСТВОВАНАЯ ФУНКЦ
     const userUpdates = { ...credentials };
     const { data } = await axios.patch('/user', userUpdates);
     console.log(data)
@@ -14,7 +16,7 @@ export async function updateUserInfo( credentials) {
 }
 
 export async function addPet(formData) {
-    const { data } = await axios.post(`user/pet`, formData );
+    const { data } = await axios.post(`user/pet`, formData);
     return data;
 }
 
@@ -24,6 +26,7 @@ export async function deletePetById(petId) {
 }
 
 export async function updateFavoriteNotice(noticeId) {
+    // ТУТ ВОПРОС НЕ ЗАДЕЙСТВОВАНАЯ ФУНКЦ
     const { data } = await axios.get(`/favorite/${noticeId}`);
     return data;
 }

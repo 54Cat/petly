@@ -1,7 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { selectUser } from "redux/Auth/AuthSelectors";
+import { getAuth } from "../../../redux/selectors"
+
 import Logo from '../HeaderLogo';
 import Navigations  from '../HeaderNavigations';
 import {UserNav} from '../UserNav/UserNav';
@@ -9,8 +10,8 @@ import AuthNav from '../AuthNav/AuthNav';
 import { Wrapper,  WrapperNav } from '../MenuStyled';
 
 const MenuDesktop = () => {
-	const userSelector = useSelector(selectUser);
-	const token = userSelector.token;
+	const { isLoggedIn } = useSelector(getAuth);
+
 	const [menuActive, setMenuActive] = useState(false);
    
 	return (
@@ -21,7 +22,8 @@ const MenuDesktop = () => {
 				<Navigations active={menuActive} setActive={setMenuActive} />
 			</WrapperNav>
 
-			{token ? (
+			{isLoggedIn
+			? (
 				<UserNav  active={menuActive} setActive={setMenuActive} />
 			) : (
 				<AuthNav  active={menuActive} setActive={setMenuActive} />

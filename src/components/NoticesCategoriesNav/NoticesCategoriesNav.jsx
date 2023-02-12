@@ -2,7 +2,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { getUserOperation } from '../../redux/User/userOperations';
-import { getUserInfo } from 'redux/selectors';
+import { getAuth } from 'redux/selectors';
+
 import ModalAddNewNotice from 'components/ModalAddNewNotice/ModalAddNewNotice';
 import {
     NoticesCategoriesNavList,
@@ -12,13 +13,13 @@ import {
 
 export const NoticesCategoriesNav = () => {
     const dispatch = useDispatch();
+    const { isLoggedIn } = useSelector(getAuth);
+
 
     useEffect(() => {
         dispatch(getUserOperation());
     }, [dispatch]);
 
-    const userData = useSelector(getUserInfo);
-    const token = userData.token;
     const { category } = useParams();
 
     return (
@@ -65,7 +66,7 @@ export const NoticesCategoriesNav = () => {
             >
                 In good hands
             </NoticesCategoriesNavButton>
-            {token && (
+            {isLoggedIn && (
                 <NoticesCategoriesNavButton
                     to={'/notices/favorite'}
                     style={
@@ -81,7 +82,7 @@ export const NoticesCategoriesNav = () => {
                     favorite ads
                 </NoticesCategoriesNavButton>
             )}
-            {token && (
+            {isLoggedIn && (
                 <NoticesCategoriesNavButton
                     to={'/notices/own'}
                     style={

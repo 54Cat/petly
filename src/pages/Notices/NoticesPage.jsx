@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useNavigate } from 'react-router-dom';
-import { getNotices } from 'redux/selectors';
-import { getUserInfo } from 'redux/selectors';
+import { getNotices, getAuth } from 'redux/selectors';
 import { fetchNotices } from 'redux/Notices/noticesOperations';
 import {
     fetchFavoriteNotices,
@@ -16,7 +15,8 @@ import { NoticesCategoriesNav } from 'components/NoticesCategoriesNav/NoticesCat
 import { NoticesCategoriesList } from 'components/NoticesCategoriesList/NoticesCategoriesList';
 
 const NoticesPage = () => {
-    const userData = useSelector(getUserInfo);
+    const { isLoggedIn } = useSelector(getAuth);
+
     const dispatch = useDispatch();
     const allNoticesByCategory = useSelector(getNotices).items;
     const [filter, setFilter] = useState('');
@@ -25,7 +25,12 @@ const NoticesPage = () => {
     const { category } = useParams();
     const navigate = useNavigate();
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     const fetchFavorite = async () => {
+        if (!isLoggedIn) {
+            setFavorite([]);
+            return;
+        }
         const results = await fetchFavoriteNotices();
         const resultId = results.map(result => result._id);
         setFavorite(resultId);
@@ -48,27 +53,27 @@ const NoticesPage = () => {
         switch (category) {
             case 'lost-found':
                 dispatch(fetchNotices('lost-found'));
-                if (userData.token) {
+                if (isLoggedIn) {
                     fetchFavorite();
                 }
                 break;
 
             case 'for-free':
                 dispatch(fetchNotices('for-free'));
-                if (userData.token) {
+                if (isLoggedIn) {
                     fetchFavorite();
                 }
                 break;
 
             case 'sell':
                 dispatch(fetchNotices('sell'));
-                if (userData.token) {
+                if (isLoggedIn) {
                     fetchFavorite();
                 }
                 break;
 
             case 'favorite':
-                if (!userData.token) {
+                if (!isLoggedIn) {
                     navigate('/notices/lost-found');
                     return;
                 }
@@ -77,7 +82,7 @@ const NoticesPage = () => {
                 break;
 
             case 'own':
-                if (!userData.token) {
+                if (!isLoggedIn) {
                     navigate('/notices/lost-found');
                     return;
                 }
@@ -88,7 +93,8 @@ const NoticesPage = () => {
             default:
                 navigate('/notices/sell');
         }
-    }, [userData.token, category, dispatch, navigate]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [isLoggedIn, category, dispatch, navigate]);
 
     useEffect(() => {
         setNotices(allNoticesByCategory);
