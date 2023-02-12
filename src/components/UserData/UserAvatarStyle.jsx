@@ -27,6 +27,11 @@ export const Image = styled.img`
     }
 `;
 
+export const Button = styled.button`
+    background-color: transparent;
+    border: none;
+`;
+
 export const Label = styled.label`
     display: flex;
     align-items: center;

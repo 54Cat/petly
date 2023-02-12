@@ -25,14 +25,6 @@ const UserDataItem = () => {
     const [newBirthday, setNewBirthday] = useState(birthday);
     const [newPhone, setNewPhone] = useState(phone);
     const [newCity, setNewCity] = useState([city]);
-    // const ddd = () => {
-    //     setNewName(name);
-    //     setNewEmail(email);
-    //     setNewBirthday(birthday);
-    //     setNewPhone(phone);
-    //     setNewCity(city);
-    // };
-    // ddd();
 
     const iconCreate = <MdCreate color="#F59256" className="icon" />;
     const iconCriateBlack = <MdCreate color="#111111" className="icon" />;
@@ -44,7 +36,7 @@ const UserDataItem = () => {
     const [iconPhone, setIconPhone] = useState(iconCreate);
     const [iconCity, setIconCity] = useState(iconCreate);
 
-    console.log(newName);
+    console.log(newCity);
 
     const imputChange = e => {
         const { name, value } = e.currentTarget;

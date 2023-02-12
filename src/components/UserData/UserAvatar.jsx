@@ -6,7 +6,7 @@ import { BsCheckLg } from 'react-icons/bs';
 // import { Image } from 'cloudinary-react';
 import { IoIosCamera } from 'react-icons/io';
 import { getUserInfo } from '../../redux/selectors';
-import { Image, Label, Container, Input } from './UserAvatarStyle';
+import { Image, Label, Container, Input, Button } from './UserAvatarStyle';
 
 export const UserAvatar = () => {
     const userInState = useSelector(getUserInfo);
@@ -39,23 +39,14 @@ export const UserAvatar = () => {
             };
             reader.readAsDataURL(file);
         }
-        // const form = document.getElementById('id');
-        const formData = new FormData();
+        const form = document.getElementById('id');
+        const formData = new FormData(form);
         formData.append('avatar', file.name);
 
         for (const [key, value] of formData) {
             console.log({ key, value });
             setUploadAvatar({ value });
         }
-        // setUploadAvatar(formData);
-        // dispatch(
-        //     updateUserOperation({
-        //         uploadAvatar,
-        //     })
-        // );
-        // dd();
-        // console.log(uploadAvatar);
-        //http://res.cloudinary.com/dukz65bwt/image/upload/v1676142811/main/picture.png
         setAddButton(true);
     };
 
@@ -70,11 +61,11 @@ export const UserAvatar = () => {
             />
             <form id="id" onChange={onChange}>
                 {addButton && (
-                    <button onClick={addAvatar}>
+                    <Button onClick={addAvatar}>
                         {' '}
                         <BsCheckLg color="#F59256" className="icon" />
                         add
-                    </button>
+                    </Button>
                 )}
                 <Label htmlFor="avatar">
                     <IoIosCamera fill="#F59256" className="icon-edit" />
