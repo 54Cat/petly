@@ -8,6 +8,8 @@ import {
     NoticesCategoriesNavList,
     NoticesCategoriesNavButton,
 } from 'components/NoticesCategoriesNav/NoticesCategoriesNavStyled';
+
+
 // import { ModalAddNotice } from 'components/Modals/modalAddNotice/modalAddNotice';
 
 export const NoticesCategoriesNav = () => {
@@ -21,8 +23,7 @@ export const NoticesCategoriesNav = () => {
     const token = userData.token;
     const { category } = useParams();
 
-    return (
-        <>
+    return (       
         <NoticesCategoriesNavList>
             <NoticesCategoriesNavButton
                 to={'/notices/sell'}
@@ -97,11 +98,10 @@ export const NoticesCategoriesNav = () => {
                 >
                     my ads
                 </NoticesCategoriesNavButton>
-            )}
-            
-            {/* <ModalAddNotice /> */}
-            </NoticesCategoriesNavList>
-            <ModalAddNewNotice/>
-        </>
+            )}            
+            <ModalAddNewNotice />
+        </NoticesCategoriesNavList>
+       
+          
     );
 };

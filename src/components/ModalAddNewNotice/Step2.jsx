@@ -13,7 +13,7 @@ import {
     AddNoticeForm,
     FormLabel,
     Textarea,
-   
+  
 } from './step2Styled';
 
 // import * as yup from 'yup';
@@ -74,8 +74,8 @@ const Step2 = ({ category, sex, location, price, comments, updateFields }) => {
             )}
 
              <FormLabel htmlFor="myPetsPhoto">
-                Load the pets image:
-                <NoticeFormInput
+                Load the pet’s image:
+                <input
                     id="myPetsPhoto"
                     type="file"
                     name="myPetsPhoto"
@@ -83,8 +83,20 @@ const Step2 = ({ category, sex, location, price, comments, updateFields }) => {
                         updateFields({ myPetsPhoto: e.target.files[0] })
                     }
                 />
-            </FormLabel>         
-          
+            </FormLabel>   
+
+            
+            <FormLabel htmlFor="myPetsPhoto">Load the pet’s image:                
+            <input
+                id="myPetsPhoto"
+                type="file"
+                name="myPetsPhoto"
+                onChange={e =>
+                    updateFields({ myPetsPhoto: e.target.files[0] })
+                }
+            />            
+            </FormLabel>
+
             <FormLabel htmlFor="comments">Comments</FormLabel>
             <Textarea
                 type="text"

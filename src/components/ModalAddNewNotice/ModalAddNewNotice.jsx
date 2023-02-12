@@ -34,7 +34,8 @@ const ModalAddNewNotice = () => {
                 contentLabel="Example Modal"
                 shouldCloseOnOverlayClick={true}
                 style={{
-                    overlay: {
+                    overlay: { 
+                        overflowY: 'scroll',
                         backgroundColor: 'rgba(17, 17, 17, 0.6)',
                     },
                 }}
