@@ -17,7 +17,7 @@ import { userReducer } from './User/userSlice';
 import { petsReducer } from './Pets/petsSlice';
 import { noticesReducer } from './Notices/noticesSlice';
 const persistConfig = {
-    key: 'root',
+    key: 'auth',
     version: 1,
     storage,
     whitelist: ['token'],

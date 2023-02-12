@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { NavLink as Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export const AuthNavContainer = styled.div`
     display: flex;
@@ -28,7 +28,7 @@ export const AuthNavItem = styled.li`
     }
 `;
 
-export const NavButtonLink = styled(Link)`
+export const NavButtonLink = styled(NavLink)`
     display: inline-block;
     cursor: pointer;
     padding: 8px 28px;
