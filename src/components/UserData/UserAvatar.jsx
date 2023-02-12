@@ -19,7 +19,6 @@ export const UserAvatar = () => {
 
     const addAvatar = e => {
         e.preventDefault();
-        console.log(uploadAvatar);
 
         dispatch(updateUserOperation({ uploadAvatar }));
 
