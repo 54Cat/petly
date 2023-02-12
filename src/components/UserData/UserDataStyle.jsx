@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 export const UserCard = styled.div`
-width: 100%;
+    width: 100%;
     @media (min-width: 320px) {
     }
     @media (min-width: 768px) {

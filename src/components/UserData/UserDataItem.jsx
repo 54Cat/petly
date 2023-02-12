@@ -19,12 +19,14 @@ const UserDataItem = () => {
     const userInState = useSelector(getUserInfo);
 
     const { name, city, email, phone, birthday } = userInState.user;
+    // const { isLoading } = userInState;
+    // console.log(isLoading);
 
     const [newName, setNewName] = useState(name);
     const [newEmail, setNewEmail] = useState(email);
     const [newBirthday, setNewBirthday] = useState(birthday);
     const [newPhone, setNewPhone] = useState(phone);
-    const [newCity, setNewCity] = useState([city]);
+    const [newCity, setNewCity] = useState(city);
 
     const iconCreate = <MdCreate color="#F59256" className="icon" />;
     const iconCriateBlack = <MdCreate color="#111111" className="icon" />;
@@ -36,7 +38,7 @@ const UserDataItem = () => {
     const [iconPhone, setIconPhone] = useState(iconCreate);
     const [iconCity, setIconCity] = useState(iconCreate);
 
-    // console.log(newCity);
+    console.log(newName);
 
     const imputChange = e => {
         const { name, value } = e.currentTarget;
