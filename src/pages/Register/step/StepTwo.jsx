@@ -12,7 +12,7 @@ import {
     DivFormTwo,
     ButtonTwoReg,
 } from '../authForm/authFormStyled';
-import { registerUser } from '../../../redux/Auth/AuthSlice';
+import { registerUser } from '../../../redux/Auth/AuthOperations';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 

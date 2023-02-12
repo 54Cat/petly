@@ -1,13 +1,17 @@
 import 'react-toastify/dist/ReactToastify.css';
 import { Route, Routes } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
-// import { useDispatch } from 'react-redux';
-// import {fetchCurrentUser} from 'redux/Auth/AuthSlice';
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { authCurrentUser } from 'redux/Auth/AuthOperations';
+import { isLoading } from 'redux/Auth/AuthSelectors'
 
 import { NoticesCategoriesList } from 'components/NoticesCategoriesList/NoticesCategoriesList';
 
 import PublicRoute from './components/Routes/PublicRoute';
 import PrivateRoute from './components/Routes/PrivateRoute';
+// import * as authOpetations from 'redux/auth/authOperations'
+
 
 import SharedLayout from './components/SharedLayout/SharedLayout';
 const HomePage = lazy(() => import('pages/Home/HomePage'));
@@ -19,13 +23,12 @@ const NoticesPage = lazy(() => import('pages/Notices/NoticesPage'));
 const UserPage = lazy(() => import('./pages/User/UserPage'));
 
 const App = () => {
-    // const dispatch = useDispatch();
-
-    // useEffect(() => {
-    // dispatch(fetchCurrentUser())
-    // }, [dispatch]);
+    const dispatch = useDispatch();
+  useEffect(() => { dispatch(authCurrentUser()) }, [dispatch]);
+  const isFetchingCurrentUser = useSelector(isLoading);
 
     return (
+        !isFetchingCurrentUser && (
         <>
             <Suspense>
                 <Routes>
@@ -58,7 +61,7 @@ const App = () => {
                 </Routes>
             </Suspense>
         </>
-    );
+    ))
 };
 
 export default App;
