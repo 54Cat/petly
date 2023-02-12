@@ -51,6 +51,9 @@ const ModalContent = ({ Close }) => {
         entries.forEach(entry => {
             formData.append(entry[0], entry[1]);
         });
+        for (let property of formData.entries()) {
+            console.log(property[0], property[1]);
+          }
         dispatch(addNoticeOperation(formData));
 
         Close();
