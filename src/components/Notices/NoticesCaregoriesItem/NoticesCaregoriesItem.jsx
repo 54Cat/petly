@@ -33,7 +33,7 @@ export const NoticesCategoriesItem = ({ notice, favorite, updateFavorite, delete
 
         const dispatch = useDispatch();
 
-    const { _id, imageURL, category, title, breed, location, birthday, owner } = notice;
+    const { _id, imageURL, category, title, breed, location, birthday, owner, price } = notice;
 
     let isFavorite = false;
 
@@ -76,6 +76,7 @@ export const NoticesCategoriesItem = ({ notice, favorite, updateFavorite, delete
                         <NoticesCardInfoItem>Breed:</NoticesCardInfoItem>
                         <NoticesCardInfoItem>Location:</NoticesCardInfoItem>
                         <NoticesCardInfoItem>Age:</NoticesCardInfoItem>
+                        {category === 'sell' ? <NoticesCardInfoItem>Price:</NoticesCardInfoItem> : ''}
                     </NoticesCardInfoList>
                     <NoticesCardInfoList>
                         <NoticesCardInfoItem>{breed}</NoticesCardInfoItem>
@@ -89,6 +90,8 @@ export const NoticesCategoriesItem = ({ notice, favorite, updateFavorite, delete
                                 {age} year
                             </NoticesCardInfoItem>
                         )}
+                        {category === 'sell' ? <NoticesCardInfoItem>{price}$</NoticesCardInfoItem> : ''}
+
                     </NoticesCardInfoList>
                 </NoticesCardInfoThumb>
                 <BtnThumb>
