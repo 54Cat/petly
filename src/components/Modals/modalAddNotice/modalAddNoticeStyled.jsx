@@ -1,7 +1,7 @@
-import styled from '@emotion/styled';
+// import styled from '@emotion/styled';
 // import Modal from 'react-modal';
 // import { Button } from 'components/Utils/Styles/basicStyle';
-import { FieldTextarea, AddFile } from 'components/Modals/ModalAddsPet/AddsPetForm/AddsPetModalStyled';
+// import { FieldTextarea, AddFile } from 'components/Modals/ModalAddsPet/AddsPetForm/AddsPetModalStyled';
 
 
 
@@ -14,12 +14,12 @@ import { FieldTextarea, AddFile } from 'components/Modals/ModalAddsPet/AddsPetFo
  
 // `;
 
-export const AddNoticeForm = styled.form`
- display: flex;
- flex-direction: column; 
- padding: 10px;
- margin-bottom: 40px;
-`;
+// export const AddNoticeForm = styled.form`
+//  display: flex;
+//  flex-direction: column; 
+//  padding: 10px;
+//  margin-bottom: 40px;
+// `;
 
 // export const AddNoticeWrapper = styled.div` 
 //   padding: 40px;
@@ -27,20 +27,21 @@ export const AddNoticeForm = styled.form`
 //   background-color: #FFFFFF;
 // `;
 
-export const CloseBtn = styled.button`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width:34px;    
-    height: 34px;
-    padding: 0;   
-    margin-left: auto;   
-    top: 3px;
-    right: 0;
-    border: none;
-    background-color: transparent;
-    transition: transform .25s cubic-bezier(.4,0,.2,1);
-`;
+// export const CloseBtn = styled.button`
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     min-width:34px;    
+//     height: 34px;
+//     padding: 0;   
+//     margin-left: auto;   
+//     top: 3px;
+//     right: 0;
+//     border: none;
+//     background-color: transparent;
+//     transition: transform .25s cubic-bezier(.4,0,.2,1);
+// `;
+
 // export const AddNoticeTitle = styled.h1`
 //   margin-bottom: 20px;
 //   font-size: 36px;
@@ -55,16 +56,16 @@ export const CloseBtn = styled.button`
 //   text-align: center;
 // `;
 
-export const CategorierList = styled.ul`
-display: flex;
-flex-wrap: wrap;
-row-gap: 32px;
-margin-top: 30px;
-@media (min-width: 768px) {
-    margin-top: 60px;
-    column-gap: 32px;        
-    }
-`;
+// export const CategorierList = styled.ul`
+// display: flex;
+// flex-wrap: wrap;
+// row-gap: 32px;
+// margin-top: 30px;
+// @media (min-width: 768px) {
+//     margin-top: 60px;
+//     column-gap: 32px;        
+//     }
+// `;
 
 // export const FormLabel = styled.label`
 //   margin-top: 38px;
@@ -122,21 +123,21 @@ margin-top: 30px;
 //     }
 //   `;
 
-export const Textarea = styled(FieldTextarea)`
-   width:fit-content; 
+// export const Textarea = styled(FieldTextarea)`
+//    width:fit-content; 
    
-`;
+// `;
 
-export const AddFoto = styled(AddFile)` 
-  margin-right: auto;
-  width: 140px;
-  height: 140px;
-   @media(min-width: 768px) {
-        margin-bottom: 28px;
-        width: 140px;
-        height: 140px;
-    }  
-`;
+// export const AddFoto = styled(AddFile)` 
+//   margin-right: auto;
+//   width: 140px;
+//   height: 140px;
+//    @media(min-width: 768px) {
+//         margin-bottom: 28px;
+//         width: 140px;
+//         height: 140px;
+//     }  
+// `;
 
 // const FieldPhoto = styled.div`
 // display: block;

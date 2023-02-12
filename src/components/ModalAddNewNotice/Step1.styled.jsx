@@ -31,7 +31,10 @@ export const CategoriesBtn = styled(Button)`
   width:fit-content; 
   display: flex;
   flex-direction: row; 
- 
+  @media (min-width: 768px) {
+         font-size: 20px;
+        padding: 10px 28px;
+     }
 `;
 
 
@@ -50,6 +53,14 @@ export const CategoriesBtn = styled(Button)`
 //         padding: 10px 28px;
 //     }
 // `;
+
+export const AddNoticeForm = styled.form`
+ display: flex;
+ flex-direction: column; 
+ padding: 10px;
+ margin-bottom: 40px;
+`;
+
 
 export const FormLabel = styled.label`
   margin-top: 38px;

@@ -1,7 +1,7 @@
 import React from 'react';
-import { AddNoticeTitle, Text, CategorierList, CategoriesBtn, FormLabel, NoticeFormInput } from './Step1.styled';
+import { AddNoticeTitle, Text, CategorierList, CategoriesBtn, TitleColor, AddNoticeForm,FormLabel, NoticeFormInput } from './Step1.styled';
 
-const Step1 = ({ category, title, TitleColor, name, birthday, breed, updateFields }) => {
+const Step1 = ({ category, title, name, birthday, breed, updateFields }) => {
     return (
         <div>
             <AddNoticeTitle>Add pet</AddNoticeTitle>
@@ -59,6 +59,7 @@ const Step1 = ({ category, title, TitleColor, name, birthday, breed, updateField
                     sell
                 </CategoriesBtn>
             </CategorierList>
+        <AddNoticeForm>
             <FormLabel htmlFor="title">Title of ad<TitleColor>*</TitleColor></FormLabel>
             <NoticeFormInput
                 type="text"
@@ -93,7 +94,8 @@ const Step1 = ({ category, title, TitleColor, name, birthday, breed, updateField
                 name="breed"
                 value={breed}
                 onChange={e => updateFields({ breed: e.target.value })}
-            />
+                />
+        </AddNoticeForm>
         </div>
     );
 };

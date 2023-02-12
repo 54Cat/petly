@@ -1,12 +1,21 @@
 import imgF from './img/female.png';
 import imgM from './img/male.png';
 import styled from '@emotion/styled';
+import { FieldTextarea } from 'components/Modals/ModalAddsPet/AddsPetForm/AddsPetModalStyled';
 
 export const AddNoticeTitle = styled.h1`
   margin-bottom: 20px;
   font-size: 36px;
   line-height: 1.36;
   text-align: center;
+`;
+
+export const FormLabel = styled.label`
+  margin-top: 38px;
+  margin-bottom: 12px;  
+  font-weight: 500px;
+  font-size: 24px;
+  line-height: 1.08;   
 `;
 
 export const Input = styled.input`
@@ -81,6 +90,13 @@ export const TitleColor = styled.span`
     color: #f59256;
 `;
 
+export const AddNoticeForm = styled.form`
+ display: flex;
+ flex-direction: column; 
+ padding: 10px;
+ margin-bottom: 40px;
+`;
+
 export const NoticeFormInput = styled.input`
   display:block;
   margin: 0;
@@ -95,5 +111,18 @@ export const NoticeFormInput = styled.input`
         color: rgba(17, 17, 17, 0.6);
     }
 `;
+export const Textarea = styled(FieldTextarea)`
+   width:fit-content; 
+   
+`;
 
-
+// export const AddFoto = styled(File)` 
+//   margin-right: auto;
+//   width: 140px;
+//   height: 140px;
+//    @media(min-width: 768px) {
+//         margin-bottom: 28px;
+//         width: 140px;
+//         height: 140px;
+//     }  
+// `;

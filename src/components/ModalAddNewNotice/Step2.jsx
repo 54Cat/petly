@@ -9,7 +9,11 @@ import {
     Thumb,
     Title,
     TitleColor,
-    AddNoticeTitle,    
+    AddNoticeTitle,
+    AddNoticeForm,
+    FormLabel,
+    Textarea,
+   
 } from './step2Styled';
 
 // import * as yup from 'yup';
@@ -46,8 +50,8 @@ const Step2 = ({ category, sex, location, price, comments, updateFields }) => {
                     <LabelFemale></LabelFemale>
                 </Label>
             </Thumb>
-
-            <label htmlFor="location">Location*:</label>
+        <AddNoticeForm>
+            <FormLabel htmlFor="location">Location*:</FormLabel>
             <NoticeFormInput
                 type="text"
                 name="location"
@@ -58,19 +62,19 @@ const Step2 = ({ category, sex, location, price, comments, updateFields }) => {
 
             {category === 'sell' && (
                 <>
-                    <label htmlFor="price">Price*:</label>
-                    <NoticeFormInput
-                        type="text"
-                        name="price"
-                        placeholder="Type name pet"
-                        value={price}
-                        onChange={e => updateFields({ price: e.target.value })}
-                    />
+            <FormLabel htmlFor="price">Price*:</FormLabel>
+            <NoticeFormInput
+                type="text"
+                name="price"
+                placeholder="Type name pet"
+                value={price}
+                onChange={e => updateFields({ price: e.target.value })}
+            />
                 </>
             )}
 
-            <label htmlFor="myPetsPhoto">
-                Load the pet’s image:
+             <FormLabel htmlFor="myPetsPhoto">
+                Load the pets image:
                 <NoticeFormInput
                     id="myPetsPhoto"
                     type="file"
@@ -79,16 +83,18 @@ const Step2 = ({ category, sex, location, price, comments, updateFields }) => {
                         updateFields({ myPetsPhoto: e.target.files[0] })
                     }
                 />
-            </label>
-
-            <label htmlFor="comments">Comments</label>
-            <NoticeFormInput
+            </FormLabel>         
+          
+            <FormLabel htmlFor="comments">Comments</FormLabel>
+            <Textarea
                 type="text"
                 name="comments"
-                placeholder="Type name pet"
+                placeholder="Type comment"
+                as="textarea"   
                 value={comments}
                 onChange={e => updateFields({ comments: e.target.value })}
-            />
+                />
+            </AddNoticeForm>
         </div>
     );
 };
