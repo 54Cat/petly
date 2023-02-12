@@ -73,15 +73,13 @@ export const authCurrentUser = createAsyncThunk(
 
         token.set(persistorToken);
         try {
-            const { data } = await axios.get('http://localhost:4000/api/user');
-            console.log(data);
+            const { data } = await axios.get('/user');
             return data;
         } catch (error) {
             return thunkAPI.rejectWithValue(error);
         }
     }
 );
-
 
 const initialState = {
     user: null,
@@ -139,6 +137,7 @@ export const authSlice = createSlice({
             state.isLoading = false;
             state.error = action.payload;
         },
+
         [authCurrentUser.pending](state, action) {
             state.isLoading = true;
         },
@@ -149,7 +148,6 @@ export const authSlice = createSlice({
         },
         [authCurrentUser.rejected](state, action) {
             state.isLoading = false;
-            state.isLoggedIn = false;
             state.user = null;
             state.token = '';
         },
