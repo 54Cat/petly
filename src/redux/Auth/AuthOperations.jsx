@@ -27,7 +27,7 @@ export const registerUser = createAsyncThunk(
                 name,
             });
             dispatch(loginUser({ email, password }));
-            // token.set(data.token);
+            token.set(data.token);
             return data;
         } catch (error) {
             return rejectWithValue(error);
@@ -43,7 +43,7 @@ export const loginUser = createAsyncThunk(
                 email,
                 password,
             });
-            // token.set(data.token);
+            token.set(data.token);
             return data;
         } catch (error) {
             return rejectWithValue(error);
@@ -56,7 +56,6 @@ export const loggedOut = createAsyncThunk(
     async (_, thunkApi) => {
         try {
             const { data } = await axios.post('/auth/logout');
-            // console.log(data);
             token.unset();
             return data;
         } catch (error) {
