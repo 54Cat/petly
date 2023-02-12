@@ -1,6 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-axios.defaults.baseURL = 'https://petly-backend-23cb.onrender.com/api';
+axios.defaults.baseURL = 'http://localhost:4000/api';
+// axios.defaults.baseURL = 'https://petly-backend-23cb.onrender.com/api';
 const token = {
     set(token) {
         axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -13,16 +14,9 @@ const token = {
 export const getUserOperation = createAsyncThunk(
     'user/getInfo',
   async (_, thunkAPI) => {
+    console.log("getUserOperation")
 
-    const state = thunkAPI.getState();      
-    const persistedToken = state.auth.token;
-    
-    if (persistedToken === null) {
-      return thunkAPI.rejectWithValue();
-    }
-    
     try {
-      token.set(persistedToken);
       const { data } = await axios.get("/user");
       return data;
     }
@@ -40,12 +34,10 @@ export const updateUserOperation = createAsyncThunk(
     const cityUpdate = cityString.toString();
     const state = thunkAPI.getState();
 
-    console.log(userId);
-    console.log(cityUpdate);
-    console.log(state);
-
-
-    
+    // console.log(userId);
+    // console.log(cityUpdate);
+    // console.log(state);
+ 
       const result = {
         email: userId.newEmail,
         name: userId.newName,
@@ -54,7 +46,7 @@ export const updateUserOperation = createAsyncThunk(
         phone: userId.newPhone,
         avatarURL: userId.uploadAvatar,
       };
-    console.log(userId.uploadAvatar);
+    // console.log(userId.uploadAvatar);
 
     const persistedToken = state.auth.token;
     
