@@ -15,7 +15,7 @@ const INITIAL_DATA = {
     sex: '',
     location: '',
     price: '',
-    myPetsPhoto: '',
+    petsPhoto: '',
     comments: '',
 };
 

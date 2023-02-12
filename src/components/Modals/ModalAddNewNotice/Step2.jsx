@@ -74,16 +74,16 @@ const Step2 = ({ category, sex, location, price, comments, updateFields }) => {
 
             {/* <FormLabel htmlFor="myPetsPhoto"> */}
                     
-                <NoticeAddFile htmlFor="myPetsPhoto">
+                <NoticeAddFile htmlFor="petsPhoto">
                     
                     Load the pet’s image:
                         {/* {updateFields ? <p>File added success</p>:<BtnAddFileIcon />} */}
                 <InputFile
-                    id="myPetsPhoto"
+                    id="petsPhoto"
                     type="file"
-                    name="myPetsPhoto"
+                    name="petsPhoto"
                     onChange={e =>
-                        updateFields({ myPetsPhoto: e.target.files[0] })
+                        updateFields({ petsPhoto: e.target.files[0] })
                     }
                             
                         />
