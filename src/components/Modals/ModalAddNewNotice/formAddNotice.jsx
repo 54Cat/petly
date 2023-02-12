@@ -4,7 +4,7 @@ import Step2 from './Step2';
 import { useMultistepForm } from './useMultistepForm';
 import { useDispatch } from 'react-redux';
 import { addNoticeOperation } from 'redux/Notices/noticesOperations';
-import { ModalCard } from './formAddNoticeStyled';
+import { ModalCard, NoticeBtn, NoticeBtnList } from './formAddNoticeStyled';
 
 const INITIAL_DATA = {
     category: 'sell',
@@ -15,7 +15,7 @@ const INITIAL_DATA = {
     sex: '',
     location: '',
     price: '',
-    myPetsPhoto: '',
+    petsPhoto: '',
     comments: '',
 };
 
@@ -51,6 +51,9 @@ const ModalContent = ({ Close }) => {
         entries.forEach(entry => {
             formData.append(entry[0], entry[1]);
         });
+        for (let property of formData.entries()) {
+            console.log(property[0], property[1]);
+          }
         dispatch(addNoticeOperation(formData));
 
         Close();
@@ -59,18 +62,18 @@ const ModalContent = ({ Close }) => {
     return (
         <ModalCard onSubmit={onSubmit}>
             {step}
-            <div>
+            <NoticeBtnList>
                 {!isFirstStep ? (
-                    <button type="button" onClick={back}>
+                    <NoticeBtn type="button" onClick={back}>
                         Back
-                    </button>
+                    </NoticeBtn>
                 ) : (
-                    <button type="button" onClick={Close}>
+                    <NoticeBtn type="button" onClick={Close}>
                         Cancel
-                    </button>
+                    </NoticeBtn>
                 )}
-                <button type="submit">{isLastStep ? 'Done' : 'Next'}</button>
-            </div>
+                <NoticeBtn type="submit">{isLastStep ? 'Done' : 'Next'}</NoticeBtn>
+            </NoticeBtnList>
         </ModalCard>
     );
 };
