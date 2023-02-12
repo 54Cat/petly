@@ -1,10 +1,10 @@
 import styled from '@emotion/styled';
-import imgDesc from './bg-desc.png';
-import imgDesc2x from './bg-desc2x.png';
-import imgTable from './bg-table.png';
-import imgTablex2 from './bg-table2x.png';
-import imgPhone from './bg-phone.png';
-import imgPhonex2 from './bg-phone2x.png';
+import imgDesc from '../../../../components/images/BackgroundAuth/bg-desc.png';
+import imgDesc2x from '../../../../components/images/BackgroundAuth/bg-desc2x.png';
+import imgTable from '../../../../components/images/BackgroundAuth/bg-table.png';
+import imgTablex2 from '../../../../components/images/BackgroundAuth/bg-table2x.png';
+import imgPhone from '../../../../components/images/BackgroundAuth/bg-phone.png';
+import imgPhonex2 from '../../../../components/images/BackgroundAuth/bg-phone2x.png';
 export const Container = styled.section`
     margin-top: 74px;
     padding-top: 40px;
@@ -54,27 +54,3 @@ export const Container = styled.section`
         }
     }
 `;
-// export const Div = styled.div`
-//     height: calc(100vh - 54px);
-//     background-image: url(${imgPhone});
-//     background-position: bottom;
-//     background-repeat: no-repeat;
-//     margin: 0 auto;
-
-//     @media (min-width: 768px) {
-//         width: 768px;
-//         height: 1024px;
-//         background-image: url(${imgTable});
-//         background-position: bottom;
-//         background-repeat: no-repeat;
-//         margin: 0 auto;
-//     }
-//     @media (min-width: 1280px) {
-//         width: 1280px;
-//         height: 768px;
-//         background-image: url(${imgDesc});
-//         background-position: bottom;
-//         background-repeat: no-repeat;
-//         margin: 0 auto;
-//     }
-// `;
