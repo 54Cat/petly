@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
 
 export const UserCard = styled.div`
-    margin-bottom: 46px;
     @media (min-width: 320px) {
     }
     @media (min-width: 768px) {
@@ -11,24 +10,30 @@ export const UserCard = styled.div`
 `;
 
 export const Text = styled.p`
-    font-style: normal;
     font-weight: 500;
     font-size: 20px;
+    line-height: 1.35;
     letter-spacing: 0.04em;
-    //margin-bottom: 18px;
+    margin-bottom: 20px;
 
     @media (min-width: 768px) {
         font-size: 28px;
-
-        line-height: 1.35;
-        padding-left: 15px;
         margin-bottom: 40px;
+        padding-left: 32px;
     }
 
     @media (min-width: 1280px) {
         margin-bottom: 24px;
     }
 `;
+
+export const FormContainer = styled.div`
+@media (min-width: 768px) {
+        padding-left: 32px;
+    }
+    @media (min-width: 1280px) {
+        padding: 16px;
+    }`
 
 export const Wrapper = styled.div`
     background: #ffffff;
@@ -41,11 +46,13 @@ export const Wrapper = styled.div`
         width: 280px;
     }
     @media (min-width: 768px) {
+        position: relative;
+        left: -32px;
         display: flex;
         flex-direction: row-reverse;
         justify-content: space-between;
         align-items: flex-start;
-        width: 736px;
+        width: 768px;
         border-radius: 0px 40px 40px 0px;
         padding: 0;
         margin-left: 0;
@@ -53,7 +60,7 @@ export const Wrapper = styled.div`
     @media (min-width: 1280px) {
         flex-direction: column;
         width: 411px;
-        margin-right: 32px;
+        left: 0;
     }
 `;
 
@@ -129,10 +136,11 @@ export const ButtonLogout = styled.button`
         color: #f59256;
     }
     @media (min-width: 768px) {
-        margin-left: 32px;
+        margin: 0;
+        padding-left: 32px;
     }
-    @media (min-width: 768px) {
-        margin-bottom: 18px;
-        margin-left: 15px;
+    @media (min-width: 1280px) {
+        padding-left: 16px;
     }
+
 `;

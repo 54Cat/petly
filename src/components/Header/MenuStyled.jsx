@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 export const Wrapper = styled.header`
     position: fixed;
-    width: 100vw;
+    width: 100%;
     top: 0;
     left: 0;
     z-index: 1;
@@ -18,7 +18,6 @@ export const Wrapper = styled.header`
     }
 
     @media (min-width: 1280px) {
-        position: sticky;
         display: flex;
         align-items: center;
         justify-content: space-between;

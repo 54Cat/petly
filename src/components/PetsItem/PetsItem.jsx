@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { deletePetOperation } from 'redux/Pets/petsOperations';
+import formatNewsDate from 'components/Utils/helpers/formatNewsDate';
 
 import {
     PetsCard,
@@ -33,7 +34,7 @@ const PetsItem = ({ _id, name, birthday, breed, comments, photoURL }) => {
                     </DelBtn>
                 </PetsName>
                 <CardText>
-                    <CardTitle>Date of birth:</CardTitle> {birthday}
+                    <CardTitle>Date of birth:</CardTitle> {formatNewsDate(birthday) }
                 </CardText>
                 <CardText>
                     <CardTitle>Breed:</CardTitle> {breed}
