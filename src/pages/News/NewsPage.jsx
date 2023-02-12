@@ -7,7 +7,7 @@ import { SearchBar } from 'components/SearchBar/SearchBar'
 import { CardsList } from 'components/CardsList/CardsList'
 import NewsCard from 'components/NewsCard/NewsCard'
 import getSortedNews from 'components/Utils/helpers/getSortedNews'
-import { NewsLoader } from 'components/Utils/Loader/Loader';
+import { CardsLoader } from 'components/Utils/Loader/Loader';
 
 const NewsPage = () => {
     const [isLoading, setIsLoading] = useState(false)
@@ -70,7 +70,7 @@ const NewsPage = () => {
     return <PageSection>
         <Title>News</Title>
         <SearchBar handleSubmit={handleSubmit} onFilterChange={onFilterChange} filter={filter} />
-        {isLoading ? <NewsLoader /> : <CardsList cardsArray={sortedNews} CardsItem={NewsCard} />}      
+        {isLoading ? <CardsLoader /> : <CardsList cardsArray={sortedNews} CardsItem={NewsCard} />}      
     </PageSection>
 }
 

@@ -1,11 +1,13 @@
 import styled from '@emotion/styled';
 
 export const UserCard = styled.div`
+width: 100%;
     @media (min-width: 320px) {
     }
     @media (min-width: 768px) {
     }
-    @media (min-width: 1200px) {
+    @media (min-width: 1280px) {
+        width: 411px;
     }
 `;
 

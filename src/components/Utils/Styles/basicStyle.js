@@ -71,11 +71,9 @@ export const InputSearch = styled.input`
     &:focus {
         border: 1px solid rgba(245, 146, 86, 0.5);
     }
-
-    @media (min-width: 480px) {
-    }
     @media (min-width: 768px) {
         width: 608px;
+        height: 44px;
     }
 `;
 
