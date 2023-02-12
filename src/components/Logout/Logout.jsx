@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { TbLogout } from 'react-icons/tb';
-import { ButtonLogout } from './UserDataStyle';
+import { ButtonLogout } from './Logout.styled';
 import { loggedOut } from '../../redux/Auth/AuthOperations';
 
 export const UserLogout = () => {

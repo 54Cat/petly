@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getUserInfo } from 'redux/selectors';
+import { selectUser } from 'redux/Auth/AuthSelectors';
 import { updateUserOperation } from '../../redux/User/userOperations';
 import { MdCreate } from 'react-icons/md';
 import { BsCheckLg } from 'react-icons/bs';
@@ -15,18 +15,23 @@ import {
 
 const UserDataItem = () => {
     const dispatch = useDispatch();
-    const userInState = useSelector(getUserInfo);
-    const { _id, name, city, email, phone, birthday } = userInState.user;
+    const userInState = useSelector(selectUser);
+    console.log("user data from auth state", userInState.user);
 
-    const iconCreate = <MdCreate color="#F59256" className="icon" />;
-    const iconCriateBlack = <MdCreate color="#111111" className="icon" />;
-    const iconConfirm = <BsCheckLg color="#F59256" className="icon" />;
+    // const userInState = useSelector(getUserInfo);
+
+    const { name, city, email, phone, birthday } = userInState.user;
+    // console.log("user data", userInState.user);
 
     const [newName, setNewName] = useState(name);
     const [newEmail, setNewEmail] = useState(email);
     const [newBirthday, setNewBirthday] = useState(birthday);
     const [newPhone, setNewPhone] = useState(phone);
     const [newCity, setNewCity] = useState(city);
+
+    const iconCreate = <MdCreate color="#F59256" className="icon" />;
+    const iconCriateBlack = <MdCreate color="#111111" className="icon" />;
+    const iconConfirm = <BsCheckLg color="#F59256" className="icon" />;
 
     const [iconName, setIconName] = useState(iconCreate);
     const [iconEmail, setIconEmail] = useState(iconCreate);
@@ -106,7 +111,6 @@ const UserDataItem = () => {
         e.preventDefault();
         dispatch(
             updateUserOperation({
-                _id,
                 newName,
                 newEmail,
                 newBirthday,
@@ -114,6 +118,11 @@ const UserDataItem = () => {
                 newCity,
             })
         );
+        setIconName(iconCreate);
+        setIconEmail(iconCreate);
+        setIconBirthday(iconCreate);
+        setIconPhone(iconCreate);
+        setIconCity(iconCreate);
     };
 
     return (
