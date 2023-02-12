@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { authCurrentUser } from 'redux/Auth/AuthSlice';
+import { authCurrentUser } from 'redux/Auth/AuthOperations';
 import { isLoading } from 'redux/Auth/AuthSelectors'
 
 import { NoticesCategoriesList } from 'components/NoticesCategoriesList/NoticesCategoriesList';
