@@ -1,6 +1,4 @@
 import { useSelector } from 'react-redux';
-// import { useEffect } from 'react';
-// import { getUserOperation } from 'redux/User/userOperations';
 import { getPets } from 'redux/selectors';
 import PetsItem from 'components/PetsItem/PetsItem';
 
