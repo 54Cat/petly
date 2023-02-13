@@ -30,15 +30,15 @@ import {
 
 import * as dayjs from 'dayjs';
 
-const NoticeContent = id => {
+const NoticeContent = (id) => {
     const [error, setError] = useState(null);
-    const [notice, setNotice] = useState({ owner: { _id: '' } });
-
+    const [notice, setNotice] = useState({ owner: '' });
+    
     const dispatch = useDispatch();
 
     useEffect(() => {
         getNotice(id.id, setNotice, setError);
-    }, [id]);
+    }, [id.id]);
 
     const { isLoggedIn, user } = useSelector(getAuth);
 
@@ -47,7 +47,7 @@ const NoticeContent = id => {
             Notiflix.Notify.failure('Please, login');
             return;
         }
-        changeFavorite(id.id, setError).then(value =>
+        changeFavorite(id, setError).then(value =>
             Notiflix.Notify.success(value)
         );
     };
@@ -55,13 +55,6 @@ const NoticeContent = id => {
     const date = dayjs(notice.birthday).format('DD MMM, YYYY');
 
     const onBtnDelete = () => {
-        if (user.id !== notice.owner._id) {
-            Notiflix.Notify.failure(
-                'You can not do it, it`s not your own notice'
-            );
-            return;
-        }
-
         dispatch(deleteNotice(id.id));
     };
 
@@ -147,7 +140,7 @@ const NoticeContent = id => {
                     {notice.comments}
                 </Comments>
                 <Buttons>
-                    {isLoggedIn && (
+                    {(isLoggedIn && user._id === notice.owner._id) &&  (
                         <ActionBtn onClick={onBtnDelete}>Delete</ActionBtn>
                     )}
                     <ActionBtn className='btnFav' onClick={onBtnChangeFav}>Add to

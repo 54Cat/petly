@@ -7,7 +7,7 @@ import {
 } from './ModalNotice.styled';
 import NoticeContent from './ModalNoticeContent';
 
-const ModalNotice = id => {
+const ModalNotice = ({id}) => {
     const [modalIsOpen, setIsOpen] = useState(false);
 
     function openModal() {
@@ -36,7 +36,7 @@ const ModalNotice = id => {
                 <CloseBtn onClick={closeModal}>
                     <StyledIcon />
                 </CloseBtn>
-                <NoticeContent id={id.id}></NoticeContent>
+                <NoticeContent id={id}></NoticeContent>
             </ModalNoticeStyled>
         </div>
     );
