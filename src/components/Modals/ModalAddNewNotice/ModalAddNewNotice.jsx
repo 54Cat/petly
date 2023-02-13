@@ -7,6 +7,8 @@ import {
     StyledIcon,
     OpenBtn,
     WrapAddPet,
+    BtnBox,
+    TextBtn,
 } from './ModalAddNewNoticeStyled';
 
 const ModalAddNewNotice = () => {
@@ -22,7 +24,10 @@ const ModalAddNewNotice = () => {
 
     return (
         <WrapAddPet>
-            <OpenBtn onClick={openModal}>Add pet</OpenBtn>
+            <BtnBox>               
+            <TextBtn>Add pet</TextBtn>
+            <OpenBtn onClick={openModal}>+</OpenBtn>
+            </BtnBox>
             <ModalStyled
                 isOpen={modalIsOpen}
                 onRequestClose={closeModal}
