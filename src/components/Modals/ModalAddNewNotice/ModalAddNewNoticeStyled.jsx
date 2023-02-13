@@ -6,6 +6,10 @@ export const WrapAddPet = styled.div`
     position: fixed;
     z-index: 1;
     right: 0;
+    @media (min-width: 768px) {
+        position:unset;
+        margin-left: auto;
+    }
 `;
 
 export const ModalStyled = styled(Modal)`
@@ -32,6 +36,10 @@ export const OpenBtn = styled.button`
     border: 1px solid transparent; 
     line-height: 22px;
     letter-spacing: 0.04em;
+    &:hover {
+        background-color: #daad93;
+        border: 1px solid #F59256;
+    }
     @media (min-width: 768px) {  
         width: 44px;
         height:44px;   
@@ -43,25 +51,24 @@ export const BtnBox = styled.div`
    position: fixed; 
    justify-content: center;
    align-items: center;     
-   left: 66%;
+   left: 70%;
    top: 419px; 
    /* & > button {
     content: "Add pet";
   }   */
  @media (min-width: 768px) {  
-   width: 129px;
+   position: unset;
+    width: 129px;
    height:44px;
    top: 350px;
-   left: 74%;
+   left: 77%;
    } 
  @media (min-width: 1280px) {
    top: 320px;
    left: 86%;
-   }
- /* @media (max-width: 1281px) {  
-   left: 82%;
-   }   */
+   } 
 `;
+
 export const TextBtn = styled.h2`
    display: none; 
   @media (min-width: 768px) {        
@@ -70,9 +77,7 @@ export const TextBtn = styled.h2`
      font-weight: 500;
      font-size: 20px;
      line-height: 1.35;
-   }
-  
- 
+   } 
 `;
 
 export const CloseBtn = styled.button`
@@ -104,7 +109,6 @@ export const StyledIcon = styled(CloseIcon)`
     &:hover {
         fill: rgba(245, 146, 86, 1);
     }
-
     @media (min-width: 768px) {
         width: 36px;
         height: 36px;

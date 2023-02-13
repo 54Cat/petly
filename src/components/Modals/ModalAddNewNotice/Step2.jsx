@@ -78,8 +78,7 @@ const Step2 = ({ category, sex, location, price, comments, updateFields }) => {
                     name="petsPhoto"
                     onChange={e =>
                         updateFields({ petsPhoto: e.target.files[0] })
-                    }
-                            
+                    }                           
                         />
                 </NoticeAddFile>        
 
