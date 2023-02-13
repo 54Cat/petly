@@ -39,10 +39,18 @@ export const StepOne = props => {
                         <Input name="email" placeholder="Email" />
                         <FormErrors name="email" />
 
-                        <Input name="password" placeholder="Password" />
+                        <Input
+                            name="password"
+                            type="password"
+                            placeholder="Password"
+                        />
                         <FormErrors name="password" />
 
-                        <Input name="confirm" placeholder="Confirm password" />
+                        <Input
+                            name="confirm"
+                            type="password"
+                            placeholder="Confirm password"
+                        />
                         <FormErrors name="confirm" />
 
                         <Button type="submit">Next</Button>

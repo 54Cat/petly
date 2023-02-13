@@ -1,5 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { registerUser, loginUser, loggedOut, authCurrentUser } from './AuthOperations';
+import {
+    registerUser,
+    loginUser,
+    loggedOut,
+    authCurrentUser,
+} from './AuthOperations';
 
 const initialState = {
     user: null,
@@ -7,6 +12,7 @@ const initialState = {
     isLoading: false,
     isLoggedIn: false,
     status: null,
+    error: null,
 };
 
 export const authSlice = createSlice({
@@ -16,6 +22,7 @@ export const authSlice = createSlice({
     extraReducers: {
         [registerUser.pending]: state => {
             state.isLoading = true;
+            state.error = null;
         },
         [registerUser.fulfilled]: (state, action) => {
             state.isLoading = false;
@@ -27,10 +34,12 @@ export const authSlice = createSlice({
         [registerUser.rejected]: (state, action) => {
             state.isLoading = false;
             state.status = action.payload.message;
+            state.error = action.payload;
         },
 
         [loginUser.pending]: state => {
             state.isLoading = true;
+            state.error = null;
         },
         [loginUser.fulfilled]: (state, action) => {
             state.isLoading = false;
@@ -42,6 +51,7 @@ export const authSlice = createSlice({
         [loginUser.rejected]: (state, action) => {
             state.isLoading = false;
             state.status = action.payload.message;
+            state.error = action.payload;
         },
 
         [loggedOut.pending](state) {

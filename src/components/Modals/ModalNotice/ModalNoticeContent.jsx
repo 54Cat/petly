@@ -53,6 +53,21 @@ const NoticeContent = (id) => {
     };
 
     const date = dayjs(notice.birthday).format('DD MMM, YYYY');
+    
+    let categoryName 
+
+    switch (notice.category) {
+        case 'lost-found':
+            categoryName = 'lost/found';
+            break;
+
+        case 'for-free':
+            categoryName = 'in good hands';
+            break;
+
+        default:
+            categoryName = 'sell';
+    }
 
     const onBtnDelete = () => {
         dispatch(deleteNotice(id.id));
@@ -70,7 +85,7 @@ const NoticeContent = (id) => {
                     <ImgWrapper>
                         <PetsImg src={notice.imageURL} alt="" />
                         <Category>
-                            <CategoryName>{notice.category}</CategoryName>
+                            <CategoryName>{categoryName}</CategoryName>
                         </Category>
                     </ImgWrapper>
                     <TextContent>

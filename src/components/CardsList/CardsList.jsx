@@ -1,9 +1,14 @@
 import { nanoid } from "nanoid"
-import { List } from "./CardsListStyled"
+import { List, IfEmptyList } from "./CardsListStyled"
 export const CardsList = ({cardsArray, CardsItem, styles}) => {
-    return <List style={styles}> 
+    return <>
+    {cardsArray.length === 0 ? <IfEmptyList>Ops... Nothing found!</IfEmptyList> : <List style={styles}> 
+        
         {cardsArray && cardsArray.map(card => {
             return <CardsItem key={card._id?? nanoid()} card={card} />
         })}
-    </List>
+        </List>}
+    </>
+    
+    
 }

@@ -1,10 +1,10 @@
 import SearchIcon from '@mui/icons-material/Search';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
-import { SearchButton, SearchForm } from './SearchBarStyled'
+import { SearchButton, Search } from './SearchBarStyled'
 import { InputSearch  } from 'components/Utils/Styles/basicStyle'
-export const SearchBar = ({handleSubmit, filter, onFilterChange, styles}) => {
-    return <SearchForm style={styles} onSubmit={handleSubmit}>
+export const SearchBar = ({onCleanFilter, filter, onFilterChange, styles}) => {
+    return <Search style={styles} >
         <InputSearch value={filter} onChange={onFilterChange} placeholder={'Search'}></InputSearch>
-        <SearchButton type="submit" >{filter.trim() === '' ? <SearchIcon  sx={{ fontSize: 20 }} /> : <HighlightOffIcon sx={{ fontSize: 20 }} />  }</SearchButton>
-    </SearchForm>
+        <SearchButton type="button" onClick={onCleanFilter} >{filter.trim() === '' ? <SearchIcon  sx={{ fontSize: 20 }} /> : <HighlightOffIcon sx={{ fontSize: 20 }} />  }</SearchButton>
+    </Search>
 }
