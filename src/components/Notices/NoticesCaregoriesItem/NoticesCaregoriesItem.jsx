@@ -20,24 +20,30 @@ import ModalNotice from 'components/Modals/ModalNotice/ModalNotice';
 import heart from '../../../data/icons/heart.svg';
 import heartActive from '../../../data/icons/heartActive.svg';
 import { deleteNotice } from '../../../redux/Notices/noticesOperations';
-import { useSelector, useDispatch } from "react-redux";
-import { getAuth } from "../../../redux/selectors";
-import { selectUser } from "../../../redux/Auth/AuthSelectors"
+import { useSelector, useDispatch } from 'react-redux';
+import { getAuth } from '../../../redux/selectors';
+import { selectUser } from '../../../redux/Auth/AuthSelectors';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import * as dayjs from 'dayjs';
 
-export const NoticesCategoriesItem = ({
-    notice,
-    favorite,
-    updateFavorite,
-}) => {
+export const NoticesCategoriesItem = ({ notice, favorite, updateFavorite }) => {
     const { isLoggedIn } = useSelector(getAuth);
     const auth = useSelector(selectUser);
 
     const dispatch = useDispatch();
-    const { _id, imageURL, category, title, breed, location, birthday, owner, price } = notice;
+    const {
+        _id,
+        imageURL,
+        category,
+        title,
+        breed,
+        location,
+        birthday,
+        owner,
+        price,
+    } = notice;
 
-    let categoryName 
+    let categoryName;
 
     switch (category) {
         case 'lost-found':
@@ -91,7 +97,11 @@ export const NoticesCategoriesItem = ({
                         <NoticesCardInfoItem>Breed:</NoticesCardInfoItem>
                         <NoticesCardInfoItem>Location:</NoticesCardInfoItem>
                         <NoticesCardInfoItem>Age:</NoticesCardInfoItem>
-                        {category === 'sell' ? <NoticesCardInfoItem>Price:</NoticesCardInfoItem> : ''}
+                        {category === 'sell' ? (
+                            <NoticesCardInfoItem>Price:</NoticesCardInfoItem>
+                        ) : (
+                            ''
+                        )}
                     </NoticesCardInfoList>
                     <NoticesCardInfoList>
                         <NoticesCardInfoItem>{breed}</NoticesCardInfoItem>
@@ -105,8 +115,11 @@ export const NoticesCategoriesItem = ({
                                 {age} year
                             </NoticesCardInfoItem>
                         )}
-                        {category === 'sell' ? <NoticesCardInfoItem>{price}$</NoticesCardInfoItem> : ''}
-
+                        {category === 'sell' ? (
+                            <NoticesCardInfoItem>{price}$</NoticesCardInfoItem>
+                        ) : (
+                            ''
+                        )}
                     </NoticesCardInfoList>
                 </NoticesCardInfoThumb>
                 <BtnThumb>
