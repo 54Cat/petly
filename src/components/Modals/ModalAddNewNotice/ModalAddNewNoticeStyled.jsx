@@ -43,7 +43,7 @@ export const BtnBox = styled.div`
    position: fixed; 
    justify-content: center;
    align-items: center;     
-   left: 220px;
+   left: 66%;
    top: 419px; 
    /* & > button {
     content: "Add pet";
@@ -52,12 +52,15 @@ export const BtnBox = styled.div`
    width: 129px;
    height:44px;
    top: 350px;
-   left: 607px;
+   left: 74%;
    } 
  @media (min-width: 1280px) {
    top: 320px;
-   left: 1170px;
+   left: 86%;
    }
+ /* @media (max-width: 1281px) {  
+   left: 82%;
+   }   */
 `;
 export const TextBtn = styled.h2`
    display: none; 
