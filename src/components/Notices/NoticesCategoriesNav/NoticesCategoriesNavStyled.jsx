@@ -9,7 +9,6 @@ export const NoticesCategoriesNavList = styled.ul`
 
     @media (min-width: 768px) {
         margin-top: 40px;
-        max-width: 500px;
     }
 `
 

@@ -1,5 +1,14 @@
 import React from 'react';
-import { AddNoticeForm, NavButton, AddNoticeTitle, Text, CategorierList, FormLabel, NoticeFormInput } from './Step1Styled';
+import {
+    AddNoticeForm,
+    NavButton,
+    AddNoticeTitle,
+    Text,
+    CategorierList,
+    FormLabel,
+    NoticeFormInput,
+} from './Step1Styled';
+import { TitleColor } from './step2Styled';
 
 const Step1 = ({ category, title, name, birthday, breed, updateFields }) => {
     return (
@@ -58,7 +67,7 @@ const Step1 = ({ category, title, name, birthday, breed, updateFields }) => {
                 </NavButton>
             </CategorierList>
             <AddNoticeForm >
-                <FormLabel htmlFor="title">Title of ad</FormLabel>
+                <FormLabel htmlFor="title">Title of ad<TitleColor>*</TitleColor></FormLabel>
                 <NoticeFormInput
                     type="text"
                     placeholder="Type name pet"

@@ -22,21 +22,23 @@ export const ModalCard = styled.form`
 `;
 
 export const NoticeBtnList = styled.div`  
-    display: grid;
-    gap: 40px;
-  
+    display: block;
+    align-items: center;  
     @media (min-width: 768px) {
       display: flex;
-      align-self: center;
+      /* align-self: center; */
+      place-self: center;
     }  
 `;
 
 export const NoticeBtn = styled(Button)` 
     margin-left: 10px;
     margin-right: 10px;
-    
+    margin-bottom: 12px;
+    color: black;
     @media (min-width: 768px) {      
         align-self: center;
-    }  
+    }
+      
 `;
 
