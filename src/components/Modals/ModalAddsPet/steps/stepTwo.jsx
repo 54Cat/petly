@@ -42,7 +42,6 @@ const StepTwo = ({ data, prev, onClose }) => {
     const [file, setFile] = useState(null); 
     
     const handleChange = (event) => {
-       console.log(event.target.files);
        setFile(event.target.files[0]);
     }
 
