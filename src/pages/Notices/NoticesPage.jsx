@@ -13,6 +13,7 @@ import { Title } from 'components/Utils/Styles/basicStyle';
 import { SearchBar } from 'components/SearchBar/SearchBar';
 import { NoticesCategoriesNav } from 'components/Notices/NoticesCategoriesNav/NoticesCategoriesNav';
 import { NoticesCategoriesList } from 'components/Notices/NoticesCategoriesList/NoticesCategoriesList';
+import { IfEmptyList } from "components/CardsList/CardsListStyled"
 
 const NoticesPage = () => {
     const { isLoggedIn } = useSelector(getAuth);
@@ -137,12 +138,14 @@ const NoticesPage = () => {
             />
             <NoticesCategoriesNav />
 
-            <NoticesCategoriesList
+            {notices.length === 0 ? <IfEmptyList>Ops... Nothing found!</IfEmptyList> : <NoticesCategoriesList
                 notices={notices}
                 favorite={favorite}
                 updateFavorite={updateFavorite}
                 deleteMyNotices={deleteMyNotices}
-            />
+            />}
+
+            
         </PageSection>
     );
 };

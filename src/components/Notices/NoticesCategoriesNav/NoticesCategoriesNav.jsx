@@ -28,7 +28,7 @@ export const NoticesCategoriesNav = () => {
                         ? {
                               color: '#ffffff',
                               backgroundColor: '#F59256',
-                              border: 0,
+                              outline: 0,
                           }
                         : undefined
                 }
@@ -42,7 +42,7 @@ export const NoticesCategoriesNav = () => {
                         ? {
                               color: '#ffffff',
                               backgroundColor: '#F59256',
-                              border: 0,
+                              outline: 0,
                           }
                         : undefined
                 }
@@ -56,7 +56,7 @@ export const NoticesCategoriesNav = () => {
                         ? {
                               color: '#ffffff',
                               backgroundColor: '#F59256',
-                              border: 0,
+                              outline: 0,
                           }
                         : undefined
                 }
@@ -71,7 +71,7 @@ export const NoticesCategoriesNav = () => {
                             ? {
                                   color: '#ffffff',
                                   backgroundColor: '#F59256',
-                                  border: 0,
+                                  outline: 0,
                               }
                             : undefined
                     }
@@ -87,7 +87,7 @@ export const NoticesCategoriesNav = () => {
                             ? {
                                   color: '#ffffff',
                                   backgroundColor: '#F59256',
-                                  border: 0,
+                                  outline: 0,
                               }
                             : undefined
                     }
