@@ -22,6 +22,7 @@ export const NavButton = styled(Button)`
   gap: 8px;
   align-content: center;
   justify-content: center;
+  color: black;
   font-weight: 500; 
   font-size: 14px;
 
@@ -73,9 +74,3 @@ export const AddNoticeForm = styled.div`
   margin-bottom: 40px;
 `;
 
-// export const AddNoticeForm = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   padding: 10px;
-//   margin-bottom: 40px;
-// `;

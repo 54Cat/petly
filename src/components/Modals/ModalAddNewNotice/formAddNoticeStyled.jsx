@@ -34,9 +34,10 @@ export const NoticeBtnList = styled.div`
 export const NoticeBtn = styled(Button)` 
     margin-left: 10px;
     margin-right: 10px;
-    
+    color: black;
     @media (min-width: 768px) {      
         align-self: center;
-    }  
+    }
+      
 `;
 

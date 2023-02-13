@@ -23,33 +23,38 @@ export const ModalStyled = styled(Modal)`
 `;
 // кнопка добавления нотисов
 export const OpenBtn = styled.button`
-   width: 80px;
+    width: 80px;
     height: 80px;
     border-radius: 50%;
+    font-size: 30px;
     color: #FFFFFF;
     background-color:#F59256;
     border: 1px solid transparent; 
     line-height: 22px;
     letter-spacing: 0.04em;
+    @media (min-width: 768px) {  
+   width: 44px;
+   height:44px;   
+   } 
 `;
 
 export const BtnBox = styled.div`
    display: flex;
-   position: fixed;
-   width: 80px;
-   height: 80px;
+   position: fixed; 
    justify-content: center;
-   align-items: center;
-    
-   left: auto;
-   top: 419px;
-   right: 20px;
+   align-items: center;     
+   left: 220px;
+   top: 419px;   
  @media (min-width: 768px) {  
    width: 129px;
    height:44px;
    top: 350px;
-   right: 32px;
+   left: 607px;
    } 
+ @media (min-width: 1280px) {
+   top: 320px;
+   left: 1506px;
+   }
 `;
 export const TextBtn = styled.h2`
    display: none; 
@@ -60,10 +65,7 @@ export const TextBtn = styled.h2`
      font-size: 20px;
      line-height: 1.35;
    }
-   @media (min-width: 1280px) {
-   
-    
-   }
+  
  
 `;
 
