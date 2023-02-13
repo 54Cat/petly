@@ -5,7 +5,7 @@ import { loggedOut } from '../Auth/AuthOperations';
 const userSlice = createSlice({
     name: 'user',
     initialState: {
-        user: { },
+        user: { avatarURL: ''},
         isLoading: false,
         error: null,
     },
