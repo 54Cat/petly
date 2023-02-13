@@ -36,6 +36,10 @@ export const OpenBtn = styled.button`
     border: 1px solid transparent; 
     line-height: 22px;
     letter-spacing: 0.04em;
+    &:hover {
+        background-color: #daad93;
+        border: 1px solid #F59256;
+    }
     @media (min-width: 768px) {  
         width: 44px;
         height:44px;   
