@@ -14,16 +14,13 @@ import {
 } from '../authForm/authFormStyled';
 import { registerUser } from '../../../redux/Auth/AuthOperations';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 
 export const StepTwo = ({ data, prev }) => {
-    const navigate = useNavigate();
     const dispatch = useDispatch();
     const handleSubmit = (values, { resetForm }) => {
         try {
             dispatch(registerUser(values));
             resetForm();
-            navigate('/user');
         } catch (error) {
             console.log(error);
         }
