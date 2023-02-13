@@ -37,6 +37,20 @@ export const NoticesCategoriesItem = ({
     const dispatch = useDispatch();
     const { _id, imageURL, category, title, breed, location, birthday, owner, price } = notice;
 
+    let categoryName 
+
+    switch (category) {
+        case 'lost-found':
+            categoryName = 'lost/found';
+            break;
+
+        case 'for-free':
+            categoryName = 'in good hands';
+            break;
+
+        default:
+            categoryName = 'sell';
+    }
 
     let isFavorite = false;
 
@@ -61,7 +75,7 @@ export const NoticesCategoriesItem = ({
                 <NoticesImage src={imageURL} alt="Photo_notices" />
             </NoticesImageThumb>
             <NoticesCategoryNameContainer>
-                <NoticesCategoryName>{category}</NoticesCategoryName>
+                <NoticesCategoryName>{categoryName}</NoticesCategoryName>
             </NoticesCategoryNameContainer>
             <NoticesFavoriteBtn type="button" onClick={addToFavorite}>
                 {!isFavorite ? (
