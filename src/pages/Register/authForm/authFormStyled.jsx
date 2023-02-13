@@ -35,34 +35,28 @@ export const DivForm = styled.div`
 
 export const DivFormTwo = styled.div`
     @media (min-width: 320px) {
-        position: absolute;
         background: transparent;
-        top: 50%;
-        left: 50%;
-        margin-right: -50%;
-        transform: translate(-50%, -50%);
+        margin-right: auto;
+        margin-left: auto;
     }
 
     @media (min-width: 768px) {
-        width: 608px;
-        height: 517px;
+        width: 568px;
+        height: 477px;
         background: #ffffff;
-        top: 50%;
-        left: 50%;
-        margin-right: -50%;
-        transform: translate(-50%, -50%);
+        margin-right: auto;
+        margin-left: auto;
+        padding: 20px;
         box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
         border-radius: 40px;
     }
 
     @media (min-width: 1280px) {
-        width: 618px;
-        height: 605px;
+        width: 578px;
+        height: 501px;
         background: #ffffff;
-        top: 50%;
-        left: 50%;
-        margin-right: -50%;
-        transform: translate(-50%, -50%);
+        margin-right: auto;
+        margin-left: auto;
         box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
         border-radius: 40px;
     }
@@ -118,11 +112,11 @@ export const Input = styled(Field)`
         outline: 0;
         outline-offset: 0;
     }
-    
+
     ::placeholder {
         color: rgba(17, 17, 17, 0.6);
     }
-    
+
     @media (min-width: 320px) {
         font-size: 14px;
         margin-bottom: 15px;
@@ -208,7 +202,7 @@ export const Button = styled.button`
         width: 438px;
         height: 48px;
         display: block;
-    } 
+    }
 `;
 
 export const ButtonTwoReg = styled.button`
@@ -336,7 +330,7 @@ export const Link = styled(NavLink)`
     font-size: 12px;
     color: #3091eb;
     margin-left: 3px;
-    
+
     &:hover,
     &:focus {
         opacity: 0.5;

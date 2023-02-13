@@ -55,7 +55,11 @@ export const Login = () => {
                     <Form>
                         <Input name="email" placeholder="Email" />
                         <FormErrors name="email" />
-                        <Input name="password" placeholder="Password" />
+                        <Input
+                            name="password"
+                            type="password"
+                            placeholder="Password"
+                        />
                         <FormErrors name="password" />
 
                         <Button type="submit">Login</Button>
