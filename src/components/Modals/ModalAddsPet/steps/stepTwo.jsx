@@ -57,9 +57,7 @@ const StepTwo = ({ data, prev, onClose }) => {
         for (let property of formData.entries()) {
             console.log(property[0], property[1]);
         }
-        
-        dispatch(addPetOperation(formData))
-        
+        dispatch(addPetOperation(formData));
         resetForm();
         onClose();    
     }
