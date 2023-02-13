@@ -13,6 +13,7 @@ import { Title } from 'components/Utils/Styles/basicStyle';
 import { SearchBar } from 'components/SearchBar/SearchBar';
 import { NoticesCategoriesNav } from 'components/Notices/NoticesCategoriesNav/NoticesCategoriesNav';
 import { NoticesCategoriesList } from 'components/Notices/NoticesCategoriesList/NoticesCategoriesList';
+import { IfEmptyList } from "components/CardsList/CardsListStyled"
 
 const NoticesPage = () => {
     const { isLoggedIn } = useSelector(getAuth);
@@ -119,12 +120,11 @@ const NoticesPage = () => {
         setFilter(e.currentTarget.value);
     };
 
-    const handleSubmit = e => {
-        e.preventDefault();
+    const onCleanFilter = () => {
         if (filter.trim() === '') {
-            return;
+            return
         }
-        setFilter('');
+        setFilter('')
     };
 
     return (
@@ -132,18 +132,20 @@ const NoticesPage = () => {
             <Title>Find your favorite pet</Title>
             <SearchBar
                 styles={{ marginBottom: 0 }}
-                handleSubmit={handleSubmit}
+                onCleanFilter={onCleanFilter}
                 onFilterChange={onFilterChange}
                 filter={filter}
             />
             <NoticesCategoriesNav />
 
-            <NoticesCategoriesList
+            {notices.length === 0 ? <IfEmptyList>Ops... Nothing found!</IfEmptyList> : <NoticesCategoriesList
                 notices={notices}
                 favorite={favorite}
                 updateFavorite={updateFavorite}
                 deleteMyNotices={deleteMyNotices}
-            />
+            />}
+
+            
         </PageSection>
     );
 };

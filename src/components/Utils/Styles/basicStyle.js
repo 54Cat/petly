@@ -69,7 +69,7 @@ export const InputSearch = styled.input`
 
     &:hover,
     &:focus {
-        border: 1px solid rgba(245, 146, 86, 0.5);
+        outline: 1px solid rgba(245, 146, 86, 0.5);
     }
 
     @media (min-width: 768px) {

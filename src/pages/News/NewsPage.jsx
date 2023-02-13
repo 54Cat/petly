@@ -59,8 +59,7 @@ const NewsPage = () => {
         }
     }
 
-    const handleSubmit = async e => {
-        e.preventDefault();
+    const onCleanFilter = () => {
         if (filter.trim() === '') {
             return
         }
@@ -69,7 +68,7 @@ const NewsPage = () => {
 
     return <PageSection>
         <Title>News</Title>
-        <SearchBar handleSubmit={handleSubmit} onFilterChange={onFilterChange} filter={filter} />
+        <SearchBar onCleanFilter={onCleanFilter} onFilterChange={onFilterChange} filter={filter} />
         {isLoading ? <CardsLoader /> : <CardsList cardsArray={sortedNews} CardsItem={NewsCard} />}      
     </PageSection>
 }

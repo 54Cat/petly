@@ -30,4 +30,11 @@ export const NoticesCategoriesNavButton = styled(NavLink)`
        font-size: 20px;
        padding: 10px 28px;
     }
+
+    &:hover,
+    &:focus {
+        color: #ffffff;
+        background-color: #F59256;
+        outline: 0;
+    }
 `

@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const SearchForm = styled.form`
+export const Search = styled.div`
     width: 280px;
     position: relative;
     margin: 0 auto;
@@ -20,6 +20,6 @@ export const SearchButton = styled.button`
     height: 40px;
     padding: 0;
     position: absolute;
-    top: 3px;
-    right: 0;
+    top: 4px;
+    right: 3px;
 `
