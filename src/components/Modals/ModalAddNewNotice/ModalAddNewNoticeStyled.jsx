@@ -4,7 +4,6 @@ import CloseIcon from '@mui/icons-material/Close';
 
 export const WrapAddPet = styled.div`
     position: fixed;
-    z-index: 1;
     right: 0;
 
     @media (min-width: 768px) {
