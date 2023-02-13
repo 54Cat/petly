@@ -6,7 +6,7 @@ export const fetchNotices = createAsyncThunk(
     async (category, thunkAPI) => {
         try {
             const response = await axios.get(
-                `https://petly-backend-23cb.onrender.com/api/notices/${category}`
+                `/notices/${category}`
             );
             return response.data;
         } catch (e) {
