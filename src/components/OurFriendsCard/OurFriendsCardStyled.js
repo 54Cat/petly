@@ -105,6 +105,7 @@ export const Info = styled.p`
 `;
 
 export const InfoTime = styled.div`
+    cursor: pointer;
     font-family: 'Manrope';
     font-style: normal;
     font-weight: 500;

@@ -27,12 +27,12 @@ const OurFriendsCard = ({ card }) => {
                         </div>
                         <div>
                             <BoxInfo onClick={toggle}>
-                            <InfoTime>
-                            {workDays ? <>
+                            
+                            {workDays ? <InfoTime>
                                 Time:<br></br>
                                 {workDaysFrom[0]} - {workDaysTo[0]}
-                                {visible && <WorkWeekTable items={workDays} ></WorkWeekTable>}</> : <Info>Time:<br></br>{ifEmptyString()}</Info>}
-                            </InfoTime>
+                                {visible && <WorkWeekTable items={workDays} ></WorkWeekTable>}</InfoTime> : <Info>Time:<br></br>{ifEmptyString()}</Info>}
+                            
                             </BoxInfo>
                             <BoxInfo>
                             <Info>Adress: </Info>
@@ -40,11 +40,11 @@ const OurFriendsCard = ({ card }) => {
                             </BoxInfo>
                             <BoxInfo>
                                 <Info>Email:</Info>
-                                <InfoLink href={`mailto:${email}`} target="_blank" rel="noreferrer">{email ? email : ifEmptyString()}</InfoLink>
+                            {email ? <InfoLink href={`mailto:${email}`} target="_blank" rel="noreferrer">{email} </InfoLink> : <Info>{ifEmptyString()}</Info>}
                             </BoxInfo>
                             <BoxInfo>
-                                <Info>Phone:</Info>
-                                <InfoLink href={`tel:${phone}`} target="_blank" rel="noreferrer">{ phone? phone : ifEmptyString()}</InfoLink>
+                            <Info>Phone:</Info>
+                            {phone ? <InfoLink href={`tel:${phone}`} target="_blank" rel="noreferrer">{phone}</InfoLink> : <Info>{ifEmptyString()}</Info>}
                             </BoxInfo>       
                         </div>
                     </FlexBox>

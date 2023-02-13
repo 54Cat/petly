@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 
 export const ScheduleBox = styled.div`
+    cursor: pointer;
     position: absolute;
     z-index: 2;
     left: 178px;
