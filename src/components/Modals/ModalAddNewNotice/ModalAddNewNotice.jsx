@@ -8,12 +8,20 @@ import {
     OpenBtn,
     WrapAddPet,
 } from './ModalAddNewNoticeStyled';
+import { getAuth } from "../../../redux/selectors";
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { useSelector } from "react-redux";
+
 
 const ModalAddNewNotice = () => {
     const [modalIsOpen, setIsOpen] = useState(false);
+    const { isLoggedIn } = useSelector(getAuth);
+
 
     function openModal() {
-        setIsOpen(true);
+        isLoggedIn
+            ? setIsOpen(true)
+            : Notify.failure('Oops... please login or register');
     }
 
     function closeModal() {
