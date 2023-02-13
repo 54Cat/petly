@@ -28,20 +28,14 @@ const ModalContent = ({ Close }) => {
         });
     }
 
-    const {
-        step,
-        isFirstStep,
-        isLastStep,
-        back,
-        next,
-    } = useMultistepForm([
+    const { step, isFirstStep, isLastStep, back, next } = useMultistepForm([
         <Step1 {...data} updateFields={updateFields} />,
         <Step2 {...data} updateFields={updateFields} />,
     ]);
 
     const dispatch = useDispatch();
 
-    const entries = Object.entries(data).filter(entry => entry[0] !== 'files');
+    const entries = Object.entries(data).filter(entry => entry[0] !== 'price');
 
     function onSubmit(e) {
         e.preventDefault();
@@ -51,9 +45,26 @@ const ModalContent = ({ Close }) => {
         entries.forEach(entry => {
             formData.append(entry[0], entry[1]);
         });
+
+        if (!data.price) {
+            for (let property of formData.entries()) {
+                console.log('без прайс', property[0], property[1]);
+            }
+            dispatch(addNoticeOperation(formData));
+
+            Close();
+            return;
+        }
+
+        const keyPrice = Object.entries(data).filter(
+            entry => entry[0] === 'price'
+        );
+
+        formData.append(keyPrice[0], keyPrice[1]);
+
         for (let property of formData.entries()) {
             console.log(property[0], property[1]);
-          }
+        }
         dispatch(addNoticeOperation(formData));
 
         Close();
@@ -72,7 +83,9 @@ const ModalContent = ({ Close }) => {
                         Cancel
                     </NoticeBtn>
                 )}
-                <NoticeBtn type="submit">{isLastStep ? 'Done' : 'Next'}</NoticeBtn>
+                <NoticeBtn type="submit">
+                    {isLastStep ? 'Done' : 'Next'}
+                </NoticeBtn>
             </NoticeBtnList>
         </ModalCard>
     );
