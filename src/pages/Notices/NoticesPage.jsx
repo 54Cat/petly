@@ -93,7 +93,7 @@ const NoticesPage = () => {
                 navigate('/notices/sell');
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [isLoggedIn, category, dispatch, navigate]);
+    }, [isLoggedIn, category, dispatch, navigate, favorite]);
 
     useEffect(() => {
         setNotices(allNoticesByCategory);
