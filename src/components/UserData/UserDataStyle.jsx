@@ -50,7 +50,7 @@ export const Wrapper = styled.div`
 
     @media (min-width: 768px) {
         position: relative;
-        left: -32px;
+        // left: -32px;
         display: flex;
         flex-direction: row-reverse;
         justify-content: space-between;
