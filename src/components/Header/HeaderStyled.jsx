@@ -33,10 +33,6 @@ export const WrapperTop = styled.div`
     @media (min-width: 768px) {
         padding: 24px 32px;
     }
-
-    @media (min-width: 1280px) {
-        
-    }
 `;
 
 export const Container = styled.div`
@@ -52,7 +48,6 @@ export const WrapperBtn = styled.div`
 export const WrapperNav = styled.div`
     display: flex;
     flex-direction: column;
-    
     transform: translateX(100%);
     transition: all 0.3s;
 
@@ -76,7 +71,6 @@ export const WrapperNav = styled.div`
         flex-wrap: wrap;
         gap: 80px;
         padding-left: 16px;
-        
     }
 `;
 

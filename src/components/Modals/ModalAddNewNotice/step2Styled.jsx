@@ -1,11 +1,22 @@
 import imgF from '../../../data/img_ModalAddNewNotice/female.png';
 import imgM from '../../../data/img_ModalAddNewNotice/male.png';
 import styled from '@emotion/styled';
+import { AddFile } from 'components/Modals/ModalAddsPet/AddsPetForm/AddsPetModalStyled';
+
+export const NoticeAddFile = styled(AddFile)`
+    margin-top: 20px;
+`;
+
+export const InputFile = styled.input`
+    display: none;
+    cursor: pointer;
+`;
 
 export const Input = styled.input`
     width: 0;
     height: 0;
     position: absolute;
+
     &:checked + span,
     :hover + span,
     :focus + span {
@@ -16,12 +27,14 @@ export const Input = styled.input`
 export const Label = styled.label`
     display: flex;
     flex-direction: column-reverse;
-    @media (min-width: 768px) {
-        margin-right: 80px;
-    }
     margin-right: 40px;
+    
     :last-child {
         margin-right: 0px;
+    }
+
+    @media (min-width: 768px) {
+        margin-right: 80px;
     }
 `;
 

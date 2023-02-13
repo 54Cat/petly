@@ -5,6 +5,7 @@ import {
     loggedOut,
     authCurrentUser,
 } from './AuthOperations';
+
 const initialState = {
     user: null,
     token: '',
@@ -74,6 +75,7 @@ export const authSlice = createSlice({
             state.isLoading = false;
             state.isLoggedIn = true;
             state.user = action.payload.user;
+            state.token = action.payload.user.token;
         },
         [authCurrentUser.rejected](state, action) {
             state.isLoading = false;

@@ -27,14 +27,16 @@ export const Lable = styled.label`
     display: flex;
     align-items: center;
     justify-content: space-between;
-
+    
     :not(:last-child) {
         margin-bottom: 4px;
     }
+    
     @media (min-width: 768px) {
         font-size: 18px;
         line-height: 1.39;
         letter-spacing: 0.04em;
+        margin-right: 20px;
     }
 `;
 

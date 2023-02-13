@@ -86,7 +86,6 @@ export const authCurrentUser = createAsyncThunk(
         if (persistorToken === null) {
             return thunkAPI.rejectWithValue();
         }
-
         token.set(persistorToken);
         try {
             const { data } = await axios.get('/user');

@@ -6,7 +6,7 @@ export const fetchNotices = createAsyncThunk(
     async (category, thunkAPI) => {
         try {
             const response = await axios.get(
-                `https://petly-backend-23cb.onrender.com/api/notices/${category}`
+                `/notices/${category}`
             );
             return response.data;
         } catch (e) {
@@ -21,7 +21,7 @@ export const addNoticeOperation = createAsyncThunk(
         { rejectWithValue }) => {
         try {
             const response = await axios.post(`/notices`, formData);
-            return response;
+            return response.data;
         } catch (error) {
             return rejectWithValue(error);
         }
@@ -32,6 +32,7 @@ export const deleteNotice = createAsyncThunk(
     'notices/deleteNotice',
     async noticeId => {
         try {
+            
             const response = await axios.delete(`/notices/${noticeId}`);
             const removedNotice = response.data;
             return removedNotice;

@@ -1,15 +1,18 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, useNavigate } from "react-router-dom"
+import { useParams, useNavigate } from 'react-router-dom';
 import { getNotices, getAuth } from 'redux/selectors';
 import { fetchNotices } from 'redux/Notices/noticesOperations';
-import { fetchFavoriteNotices, fetchDeleteNotice, updateFavoriteNotice} from 'redux/Notices/fetchNotices';
+import {
+    fetchFavoriteNotices,
+    fetchDeleteNotice,
+    updateFavoriteNotice,
+} from 'redux/Notices/fetchNotices';
 import { PageSection } from 'components/Utils/Styles/basicStyle';
 import { Title } from 'components/Utils/Styles/basicStyle';
 import { SearchBar } from 'components/SearchBar/SearchBar';
 import { NoticesCategoriesNav } from 'components/Notices/NoticesCategoriesNav/NoticesCategoriesNav';
 import { NoticesCategoriesList } from 'components/Notices/NoticesCategoriesList/NoticesCategoriesList';
-
 
 const NoticesPage = () => {
     const { isLoggedIn } = useSelector(getAuth);
@@ -18,102 +21,99 @@ const NoticesPage = () => {
     const allNoticesByCategory = useSelector(getNotices).items;
     const [filter, setFilter] = useState('');
     const [notices, setNotices] = useState([]);
-    const [favorite, setFavorite] = useState([])
+    const [favorite, setFavorite] = useState([]);
     const { category } = useParams();
     const navigate = useNavigate();
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     const fetchFavorite = async () => {
         if (!isLoggedIn) {
             setFavorite([]);
-            return}
+            return;
+        }
         const results = await fetchFavoriteNotices();
-        const resultId = results.map(result => result._id)
-        setFavorite(resultId)
-    }
+        const resultId = results.map(result => result._id);
+        setFavorite(resultId);
+    };
 
-    const updateFavorite = async (id) => {
+    const updateFavorite = async id => {
         const results = await updateFavoriteNotice(id);
-        setFavorite(results.favorites)
-    }
+        setFavorite(results.favorites);
+    };
 
-    const deleteMyNotices = async (id) => {
+    const deleteMyNotices = async id => {
         const results = await fetchDeleteNotice(id);
-        const newNotices = notices.filter(notice =>
-            notice._id !== results.data._id);
-        setNotices(newNotices)
-    }
+        const newNotices = notices.filter(
+            notice => notice._id !== results.data._id
+        );
+        setNotices(newNotices);
+    };
 
     useEffect(() => {
         switch (category) {
-            case "lost-found":
-                dispatch(fetchNotices('lost-found'))
+            case 'lost-found':
+                dispatch(fetchNotices('lost-found'));
                 if (isLoggedIn) {
-                    fetchFavorite()
-                };
+                    fetchFavorite();
+                }
                 break;
 
-            case "for-free":
-                dispatch(fetchNotices("for-free"))  
+            case 'for-free':
+                dispatch(fetchNotices('for-free'));
                 if (isLoggedIn) {
-                    fetchFavorite()
-                };
+                    fetchFavorite();
+                }
                 break;
 
-            case "sell":
-                dispatch(fetchNotices("sell")) 
+            case 'sell':
+                dispatch(fetchNotices('sell'));
                 if (isLoggedIn) {
-                    fetchFavorite()
-                };
+                    fetchFavorite();
+                }
                 break;
-        
-            case "favorite":
+
+            case 'favorite':
                 if (!isLoggedIn) {
-                    navigate('/notices/lost-found')
-                    return
-                };
-                dispatch(fetchNotices('myFavorite'))
-                fetchFavorite()
+                    navigate('/notices/lost-found');
+                    return;
+                }
+                dispatch(fetchNotices('myFavorite'));
+                fetchFavorite();
                 break;
-        
-            case "own":
+
+            case 'own':
                 if (!isLoggedIn) {
-                    navigate('/notices/lost-found')
-                    return
-                };
-                dispatch(fetchNotices(''))
-                fetchFavorite()
+                    navigate('/notices/lost-found');
+                    return;
+                }
+                dispatch(fetchNotices(''));
+                fetchFavorite();
                 break;
 
             default:
-                navigate('/notices/sell')
-} 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [isLoggedIn, category, dispatch, navigate])
+                navigate('/notices/sell');
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [isLoggedIn, category, dispatch, navigate]);
 
     useEffect(() => {
-    setNotices(allNoticesByCategory);
-    }, [allNoticesByCategory])
-    
+        setNotices(allNoticesByCategory);
+    }, [allNoticesByCategory]);
+
     useEffect(() => {
-      const filtredNotices = allNoticesByCategory.filter(notice => {
+        const filtredNotices = allNoticesByCategory.filter(notice => {
             let areSimilarWords = false;
 
             for (const word of filter.trim().split(' ')) {
                 if (notice.title.toLowerCase().includes(word.toLowerCase())) {
                     areSimilarWords = true;
-                    break
+                    break;
                 }
             }
-            
-            return areSimilarWords;
-        })
-        setNotices(filtredNotices);
-    
-      
-    }, [allNoticesByCategory, filter])
-    
 
+            return areSimilarWords;
+        });
+        setNotices(filtredNotices);
+    }, [allNoticesByCategory, filter]);
 
     const onFilterChange = e => {
         setFilter(e.currentTarget.value);
@@ -122,10 +122,9 @@ const NoticesPage = () => {
     const handleSubmit = e => {
         e.preventDefault();
         if (filter.trim() === '') {
-            return
+            return;
         }
-        setFilter('')
-        
+        setFilter('');
     };
 
     return (
@@ -136,11 +135,15 @@ const NoticesPage = () => {
                 handleSubmit={handleSubmit}
                 onFilterChange={onFilterChange}
                 filter={filter}
-            />            
+            />
             <NoticesCategoriesNav />
 
-            <NoticesCategoriesList notices={notices} favorite={favorite} updateFavorite={updateFavorite} deleteMyNotices={deleteMyNotices} />
-
+            <NoticesCategoriesList
+                notices={notices}
+                favorite={favorite}
+                updateFavorite={updateFavorite}
+                deleteMyNotices={deleteMyNotices}
+            />
         </PageSection>
     );
 };

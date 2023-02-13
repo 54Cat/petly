@@ -1,12 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { addPetOperation, deletePetOperation } from './petsOperations';
-import { getUserOperation } from 'redux/User/userOperations';
+import {getUserOperation} from '../User/userOperations'
 
 const petsSlice = createSlice({
     name: 'pets',
     initialState: {
         items: [],
-
         isLoading: false,
         error: null,
     },
@@ -14,9 +13,7 @@ const petsSlice = createSlice({
         [getUserOperation.fulfilled]: (state, { payload }) => {
             return {
                 ...state,
-
                 items: [...payload.pets],
-
                 isLoading: false,
                 error: null,
             };
@@ -30,10 +27,7 @@ const petsSlice = createSlice({
 
         [addPetOperation.fulfilled]: (state, { payload }) => {
             return {
-                state,
-
-                items: [state.pets, payload],
-
+                items: [...state.items, payload],
                 isLoading: false,
                 error: null,
             };

@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { Button } from 'components/Utils/Styles/basicStyle';
 
 export const ModalCard = styled.form`
     box-sizing: border-box;
@@ -6,7 +7,6 @@ export const ModalCard = styled.form`
     padding: 60px 20px 40px;
     background-color: #ffffff;
     border-radius: 20px;
-
     display: flex;
     flex-direction: column;
 
@@ -16,7 +16,27 @@ export const ModalCard = styled.form`
 
     @media (min-width: 768px) {
         padding: 32px 24px 32px 20px;
-        width: 704px;
+        width: 608px;
         border-radius: 40px;
     }
 `;
+
+export const NoticeBtnList = styled.div`  
+    display: grid;
+    gap: 40px;
+  
+    @media (min-width: 768px) {
+      display: flex;
+      align-self: center;
+    }  
+`;
+
+export const NoticeBtn = styled(Button)` 
+    margin-left: 10px;
+    margin-right: 10px;
+    
+    @media (min-width: 768px) {      
+        align-self: center;
+    }  
+`;
+

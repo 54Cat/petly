@@ -35,7 +35,6 @@ export const CloseBtn = styled.button`
     border-radius: 50%;
     border-color: transparent;
     cursor: pointer;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,7 +42,6 @@ export const CloseBtn = styled.button`
     @media (min-width: 768px) {
         width: 44px;
         height: 44px;
-
         top: 12px;
         right: 20px;
     }

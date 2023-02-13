@@ -23,8 +23,8 @@ export const Container = styled.div`
 `;
 
 export const ButtonContainer = styled.div`
-    position: absolute; 
-    right: 20px; 
+    position: absolute;
+    right: 20px;
     top: 815px;
 
     @media (min-width: 768px) {

@@ -1,11 +1,13 @@
 import React from 'react';
-import { NavButton } from './Step1.styled';
+import { AddNoticeForm, NavButton, AddNoticeTitle, Text, CategorierList, FormLabel, NoticeFormInput } from './Step1Styled';
 
 const Step1 = ({ category, title, name, birthday, breed, updateFields }) => {
     return (
         <div>
-            <h1>Add pet</h1>
-            <div>
+            <AddNoticeTitle>Add pet</AddNoticeTitle>
+            <Text>Pets are not our whole life, but they make our lives whole. Roger Caras
+            </Text>
+            <CategorierList>
                 <NavButton
                     type="button"
                     value="lost-found"
@@ -54,42 +56,44 @@ const Step1 = ({ category, title, name, birthday, breed, updateFields }) => {
                 >
                     sell
                 </NavButton>
-            </div>
-            <label htmlFor="title">Title of ad</label>
-            <input
-                type="text"
-                placeholder="Type name pet"
-                name="title"
-                value={title}
-                onChange={e => updateFields({ title: e.target.value })}
-            />
+            </CategorierList>
+            <AddNoticeForm >
+                <FormLabel htmlFor="title">Title of ad</FormLabel>
+                <NoticeFormInput
+                    type="text"
+                    placeholder="Type name pet"
+                    name="title"
+                    value={title}
+                    onChange={e => updateFields({ title: e.target.value })}
+                />
 
-            <label htmlFor="name">Name pet</label>
-            <input
-                type="text"
-                placeholder="Type name pet"
-                name="name"
-                value={name}
-                onChange={e => updateFields({ name: e.target.value })}
-            />
+                <FormLabel htmlFor="name">Name pet</FormLabel>
+                <NoticeFormInput
+                    type="text"
+                    placeholder="Type name pet"
+                    name="name"
+                    value={name}
+                    onChange={e => updateFields({ name: e.target.value })}
+                />
 
-            <label htmlFor="birthday">Date of birth</label>
-            <input
-                type="text"
-                placeholder="Type name pet"
-                name="birthday"
-                value={birthday}
-                onChange={e => updateFields({ birthday: e.target.value })}
-            />
+                <FormLabel htmlFor="birthday">Date of birth</FormLabel>
+                <NoticeFormInput
+                    type="text"
+                    placeholder="Type name pet"
+                    name="birthday"
+                    value={birthday}
+                    onChange={e => updateFields({ birthday: e.target.value })}
+                />
 
-            <label htmlFor="breed">Breed</label>
-            <input
-                type="text"
-                placeholder="Type name pet"
-                name="breed"
-                value={breed}
-                onChange={e => updateFields({ breed: e.target.value })}
-            />
+                <FormLabel htmlFor="breed">Breed</FormLabel>
+                <NoticeFormInput
+                    type="text"
+                    placeholder="Type name pet"
+                    name="breed"
+                    value={breed}
+                    onChange={e => updateFields({ breed: e.target.value })}
+                    />
+        </AddNoticeForm>
         </div>
     );
 };

@@ -1,7 +1,7 @@
 function getWeekDay(date) {
-            let days = ['SU', 'MN', 'TU', 'WE', 'TH', 'FR', 'SA'];
+    let days = ['SU', 'MN', 'TU', 'WE', 'TH', 'FR', 'SA'];
 
-            return days[date.getDay()];
+    return days[date.getDay()];
 }
 
 export default getWeekDay
