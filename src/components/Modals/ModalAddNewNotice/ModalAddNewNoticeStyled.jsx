@@ -1,6 +1,8 @@
 import styled from '@emotion/styled';
 import Modal from 'react-modal';
 import CloseIcon from '@mui/icons-material/Close';
+import { BtnBox } from '../../ButtonAddsPet/BtnAddsPetStyled';
+
 
 export const WrapAddPet = styled.div`
     position: fixed;
@@ -66,5 +68,24 @@ export const StyledIcon = styled(CloseIcon)`
     @media (min-width: 768px) {
         width: 36px;
         height: 36px;
+    }
+`;
+
+export const BtnBox1 = styled(BtnBox)`
+    position: absolute;
+    right: 0;
+    bottom: 16px;
+    width: 128px;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (min-width: 768px) {
+        bottom: 444px;
+    }
+
+    @media (min-width: 768px) {
+        bottom: 8px;
     }
 `;

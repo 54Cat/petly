@@ -11,6 +11,12 @@ export const NoticesCategoriesNavList = styled.ul`
         margin-top: 40px;
         max-width: 500px;
     }
+
+    @media (min-width: 1280px) {
+        margin-top: 40px;
+        max-width: 1000px;
+    }
+
 `
 
 export const NoticesCategoriesNavButton = styled(NavLink)`
