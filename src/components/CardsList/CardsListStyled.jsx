@@ -12,3 +12,13 @@ export const List = styled.ul`
     }
 `
 
+export const IfEmptyList = styled.div`
+margin: 0 auto;
+    color: #111111;
+    font-size: 24px;
+    font-weight: 500;
+    text-align: center;
+
+    @media (min-width: 768px) {
+        font-size: 48px;
+    }`

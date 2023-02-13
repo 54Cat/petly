@@ -119,12 +119,11 @@ const NoticesPage = () => {
         setFilter(e.currentTarget.value);
     };
 
-    const handleSubmit = e => {
-        e.preventDefault();
+    const onCleanFilter = () => {
         if (filter.trim() === '') {
-            return;
+            return
         }
-        setFilter('');
+        setFilter('')
     };
 
     return (
@@ -132,7 +131,7 @@ const NoticesPage = () => {
             <Title>Find your favorite pet</Title>
             <SearchBar
                 styles={{ marginBottom: 0 }}
-                handleSubmit={handleSubmit}
+                onCleanFilter={onCleanFilter}
                 onFilterChange={onFilterChange}
                 filter={filter}
             />

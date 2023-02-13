@@ -23,7 +23,7 @@ const PetsList = function () {
                 }
             )}
 
-            {pets.items.length === 0 && <NoPetsTitle>Therу are no pets yet! </NoPetsTitle>}
+            {pets.items.length === 0 && <NoPetsTitle>There are no pets yet! </NoPetsTitle>}
         </>
     );
 };
