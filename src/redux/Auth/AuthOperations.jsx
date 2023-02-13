@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
+import { toast } from 'react-toastify';
 import axios from 'axios';
 axios.defaults.baseURL = 'https://petly-backend-23cb.onrender.com/api';
 
@@ -19,6 +20,7 @@ export const registerUser = createAsyncThunk(
         { rejectWithValue, dispatch }
     ) => {
         try {
+            toast.success('You have successfully registered');
             const { data } = await axios.post('/auth/register', {
                 email,
                 password,
@@ -29,8 +31,13 @@ export const registerUser = createAsyncThunk(
             dispatch(loginUser({ email, password }));
             token.set(data.token);
             return data;
-        } catch (error) {
-            return rejectWithValue(error);
+        } catch ({ response }) {
+            const error = {
+                status: response.status,
+                message: response.data.message,
+            };
+            toast.error(error.message);
+            return rejectWithValue(error.message);
         }
     }
 );
@@ -43,10 +50,16 @@ export const loginUser = createAsyncThunk(
                 email,
                 password,
             });
+            toast.success('Successful authorization');
             token.set(data.token);
             return data;
-        } catch (error) {
-            return rejectWithValue(error);
+        } catch ({ response }) {
+            const error = {
+                status: response.status,
+                message: response.data.message,
+            };
+            toast.error(error.message);
+            return rejectWithValue(error.message);
         }
     }
 );
