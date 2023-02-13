@@ -59,8 +59,10 @@ const ModalContent = ({ Close }) => {
         const keyPrice = Object.entries(data).filter(
             entry => entry[0] === 'price'
         );
+        const keyPriceNew = keyPrice[0]
+        console.log('keyPriceNew', keyPriceNew)
 
-        formData.append(keyPrice[0], keyPrice[1]);
+        formData.append(keyPriceNew[0], keyPriceNew[1]);
 
         for (let property of formData.entries()) {
             console.log(property[0], property[1]);
