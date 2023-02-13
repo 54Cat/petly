@@ -5,9 +5,14 @@ import {
     ModalStyled,
     CloseBtn,
     StyledIcon,
-    OpenBtn,
+    // OpenBtn,
     WrapAddPet,
+    BtnBox1
 } from './ModalAddNewNoticeStyled';
+import {
+    // BtnBox,
+    TextBtn, BtnAddPet
+} from '../../ButtonAddsPet/BtnAddsPetStyled';
 import { getAuth } from "../../../redux/selectors";
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { useSelector } from "react-redux";
@@ -30,7 +35,13 @@ const ModalAddNewNotice = () => {
 
     return (
         <WrapAddPet>
-            <OpenBtn onClick={openModal}>Add pet</OpenBtn>
+            <BtnBox1>
+                <TextBtn>Add pet</TextBtn>
+                <BtnAddPet type="button" onClick={openModal}>
+                    +
+                </BtnAddPet>
+            </BtnBox1>
+            {/* <OpenBtn onClick={openModal}>Add pet</OpenBtn> */}
             <ModalStyled
                 isOpen={modalIsOpen}
                 onRequestClose={closeModal}
