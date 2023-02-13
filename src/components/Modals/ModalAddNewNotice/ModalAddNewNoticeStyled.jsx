@@ -56,7 +56,7 @@ export const BtnBox = styled.div`
    } 
  @media (min-width: 1280px) {
    top: 320px;
-   left: 82%;
+   left: 86%;
    }
  /* @media (max-width: 1281px) {  
    left: 82%;
