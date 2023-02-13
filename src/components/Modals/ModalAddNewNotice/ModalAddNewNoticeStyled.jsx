@@ -33,8 +33,8 @@ export const OpenBtn = styled.button`
     line-height: 22px;
     letter-spacing: 0.04em;
     @media (min-width: 768px) {  
-   width: 44px;
-   height:44px;   
+        width: 44px;
+        height:44px;   
    } 
 `;
 
@@ -44,7 +44,10 @@ export const BtnBox = styled.div`
    justify-content: center;
    align-items: center;     
    left: 220px;
-   top: 419px;   
+   top: 419px; 
+   /* & > button {
+    content: "Add pet";
+  }   */
  @media (min-width: 768px) {  
    width: 129px;
    height:44px;
@@ -53,7 +56,7 @@ export const BtnBox = styled.div`
    } 
  @media (min-width: 1280px) {
    top: 320px;
-   left: 1506px;
+   left: 1170px;
    }
 `;
 export const TextBtn = styled.h2`
