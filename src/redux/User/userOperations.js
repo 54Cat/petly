@@ -34,7 +34,7 @@ export const updateUserOperation = createAsyncThunk(
     const cityUpdate = cityString.toString();
     const state = thunkAPI.getState();
 
-    // console.log(userId);
+    console.log("updateUserOperation");
     // console.log(cityUpdate);
     // console.log(state);
  
@@ -57,6 +57,8 @@ export const updateUserOperation = createAsyncThunk(
     try {
       token.set(persistedToken);
       const { data } = await axios.patch("/user/update", result);
+    console.log("data", data);
+
       return data;
     }
     catch (error) {

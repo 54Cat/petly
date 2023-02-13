@@ -14,7 +14,9 @@ export const updateFavoriteNotice = async (noticeId) => {
     return response.data;
 };
 
+
 export const fetchDeleteNotice = async (noticeId) => {
+    console.log("fetchDeleteNotice")
     const response = await axios.delete(
         `https://petly-backend-23cb.onrender.com/api/notices/${noticeId}`
     );

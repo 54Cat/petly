@@ -22,6 +22,7 @@ import heartActive from '../../../data/icons/heartActive.svg';
 
 // import { getAuth } from '../../redux/selectors';
 // import { selectUser } from '../../redux/Auth/AuthSelectors';
+import { deleteNotice } from '../../../redux/Notices/noticesOperations';
 
 import { useSelector, useDispatch } from "react-redux";
 import { getAuth } from "../../../redux/selectors";
@@ -34,7 +35,7 @@ export const NoticesCategoriesItem = ({
     notice,
     favorite,
     updateFavorite,
-    deleteMyNotices,
+    // deleteMyNotices,
 }) => {
     const { isLoggedIn } = useSelector(getAuth);
     const auth = useSelector(selectUser);
@@ -55,7 +56,7 @@ export const NoticesCategoriesItem = ({
             ? dispatch(updateFavorite(_id))
             : Notify.failure('Oops... please login or register');
 
-    const deleteNotices = async () => dispatch(deleteMyNotices(_id));
+    const deleteNotices = async () => dispatch(deleteNotice(_id));
 
     const date1 = dayjs();
     const date2 = dayjs(birthday);

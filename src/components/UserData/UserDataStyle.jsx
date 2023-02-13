@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 export const UserCard = styled.div`
     width: 100%;
-
+    
     @media (min-width: 1280px) {
         width: 411px;
     }
@@ -13,12 +13,10 @@ export const Text = styled.p`
     font-size: 20px;
     line-height: 1.35;
     letter-spacing: 0.04em;
-    margin-bottom: 18px;
-    margin-left: 20px;
+    margin-bottom: 20px;
 
     @media (min-width: 768px) {
         font-size: 28px;
-        margin-left: 0;
         margin-bottom: 40px;
         padding-left: 32px;
     }
@@ -36,7 +34,7 @@ export const FormContainer = styled.div`
     @media (min-width: 1280px) {
         padding: 16px;
     }
-`;
+`
 
 export const Wrapper = styled.div`
     background: #ffffff;
@@ -52,7 +50,7 @@ export const Wrapper = styled.div`
 
     @media (min-width: 768px) {
         position: relative;
-        /* left: -32px; */
+        // left: -32px;
         display: flex;
         flex-direction: row-reverse;
         justify-content: space-between;

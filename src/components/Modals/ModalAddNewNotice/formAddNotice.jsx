@@ -48,6 +48,8 @@ const ModalContent = ({ Close }) => {
         if (!isLastStep) return next();
 
         const formData = new FormData();
+        // console.log("onSubmit formData", formData)
+        // console.log("onSubmit formData.price", formData.price)
         entries.forEach(entry => {
             formData.append(entry[0], entry[1]);
         });

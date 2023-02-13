@@ -46,6 +46,7 @@ const NoticesPage = () => {
         const newNotices = notices.filter(
             notice => notice._id !== results.data._id
         );
+        console.log("deleteMyNotices results.data._id", results.data._id)
         setNotices(newNotices);
     };
 

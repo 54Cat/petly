@@ -1,8 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import axios from 'axios';
-axios.defaults.baseURL = 'http://localhost:4000/api';
-// axios.defaults.baseURL = 'https://petly-backend-23cb.onrender.com/api';
+// axios.defaults.baseURL = 'http://localhost:4000/api';
+axios.defaults.baseURL = 'https://petly-backend-23cb.onrender.com/api';
 
 const token = {
     set(token) {
