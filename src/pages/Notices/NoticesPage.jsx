@@ -25,7 +25,6 @@ const NoticesPage = () => {
     const { category } = useParams();
     const navigate = useNavigate();
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     const fetchFavorite = async () => {
         if (!isLoggedIn) {
             setFavorite([]);
@@ -46,7 +45,6 @@ const NoticesPage = () => {
         const newNotices = notices.filter(
             notice => notice._id !== results.data._id
         );
-        console.log("deleteMyNotices results.data._id", results.data._id)
         setNotices(newNotices);
     };
 

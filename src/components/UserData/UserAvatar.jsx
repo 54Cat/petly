@@ -1,10 +1,9 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { updateUserOperation } from '../../redux/User/userOperations';
 import { useRef, useState } from 'react';
 import { BsCheckLg } from 'react-icons/bs';
-import { selectUser } from 'redux/Auth/AuthSelectors';
-
 import { IoIosCamera } from 'react-icons/io';
+import { selectUser } from 'redux/Auth/AuthSelectors';
+import { updateUserOperation } from '../../redux/User/userOperations';
 import { Image, Label, Container, Input, Button } from './UserAvatarStyle';
 
 export const UserAvatar = () => {
@@ -41,7 +40,6 @@ export const UserAvatar = () => {
         formData.append('avatar', file.name);
 
         for (const [key, value] of formData) {
-            console.log({ key, value });
             setUploadAvatar({ key, value });
         }
 
@@ -75,7 +73,6 @@ export const UserAvatar = () => {
                         type="file"
                         accept="image/*"
                         multiple={false}
-                        // onChange={onChange}
                     />
                 </Label>
             </form>

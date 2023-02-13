@@ -15,7 +15,6 @@ import {
     LabelBox,
 } from '../AddsPetForm/AddsPetModalStyled';
 import * as yup from 'yup';
-//import { DatePickerField } from 'components/Datapicker/Datapicker';
 const cyrillic = /[A-Za-z]/;
 const validationSchema = yup.object({
     name: yup
@@ -51,7 +50,6 @@ const StepOne = props => {
     const { onClose } = props;
     return (
         <Formik
-            //enctype="multipart/form-data"
             initialValues={props.data}
             onSubmit={handleSubmit}
             validationSchema={validationSchema}

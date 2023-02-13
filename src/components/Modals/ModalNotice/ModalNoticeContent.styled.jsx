@@ -7,7 +7,6 @@ export const NoticeCard = styled.div`
     padding: 60px 20px 40px;
     background: #ffffff;
     border-radius: 20px;
-
     display: flex;
     flex-direction: column;
 
@@ -47,8 +46,8 @@ export const Category = styled.span`
     display: flex;
     justify-content: center;
     align-items: center;
-
     border-radius: 0px 20px 20px 0;
+
     @media (min-width: 320px) {
         width: 158px;
         height: 28px;
@@ -85,9 +84,7 @@ export const Title = styled.h1`
     font-size: 24px;
     line-height: 33px;
     letter-spacing: -0.01em;
-
     color: #000000;
-
     margin-bottom: 16px;
 
     @media (min-width: 768px) {
@@ -154,7 +151,6 @@ export const Comments = styled.p`
     font-weight: 500;
     font-size: 14px;
     line-height: 19px;
-
     margin-bottom: 40px;
 
     @media (min-width: 768px) {

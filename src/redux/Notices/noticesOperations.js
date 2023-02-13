@@ -31,8 +31,6 @@ export const addNoticeOperation = createAsyncThunk(
 export const deleteNotice = createAsyncThunk(
     'notices/deleteNotice',
     async noticeId => {
-    console.log("deleteNotice")
-
         try {
             
             const response = await axios.delete(`/notices/${noticeId}`);

@@ -16,7 +16,6 @@ export const updateFavoriteNotice = async (noticeId) => {
 
 
 export const fetchDeleteNotice = async (noticeId) => {
-    console.log("fetchDeleteNotice")
     const response = await axios.delete(
         `/notices/${noticeId}`
     );

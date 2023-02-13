@@ -20,9 +20,9 @@ export const DecorLine = styled.div`
     border-radius: 40px;
     display: block;
     flex-basis: 100%;
-    
     height: 4px;
     margin-bottom: 4px;
+
     @media (min-width: 768px) {
         flex-basis: calc((100% - 32px) / 2);
         height: 8px;
@@ -50,6 +50,7 @@ export const TitleNews = styled.h3`
     margin-bottom: 16px;
     color: #111111;
 `;
+
 export const NewsInfo = styled.p`
     font-family: 'Manrope';
     font-style: normal;
@@ -63,6 +64,7 @@ export const NewsInfo = styled.p`
         margin-bottom: 40px;
     }
 `;
+
 export const NewsDate = styled.p`
     font-family: 'Manrope';
     font-style: normal;

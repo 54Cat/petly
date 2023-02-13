@@ -13,8 +13,6 @@ import {
 } from './step2Styled';
 
 import {AddNoticeTitle, FormLabel, NoticeFormInput, AddNoticeForm} from './Step1Styled';
-// import { BtnAddFileIcon } from 'components/Modals/ModalAddsPet/AddsPetForm/AddsPetModalStyled';
-
 
 const Step2 = ({ category, sex, location, price, comments, updateFields }) => {
     return (
@@ -71,13 +69,9 @@ const Step2 = ({ category, sex, location, price, comments, updateFields }) => {
                     />
                 </>
             )}
-
-            {/* <FormLabel htmlFor="myPetsPhoto"> */}
-                    
-                <NoticeAddFile htmlFor="petsPhoto">
-                    
+    
+                <NoticeAddFile htmlFor="petsPhoto">      
                     Load the pet’s image:
-                        {/* {updateFields ? <p>File added success</p>:<BtnAddFileIcon />} */}
                 <InputFile
                     id="petsPhoto"
                     type="file"
@@ -88,7 +82,6 @@ const Step2 = ({ category, sex, location, price, comments, updateFields }) => {
                             
                         />
                 </NoticeAddFile>        
-            {/* </FormLabel> */}
 
             <FormLabel htmlFor="comments">Comments</FormLabel>
             <NoticeFormInput

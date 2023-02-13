@@ -24,24 +24,22 @@ export const NavButton = styled(Button)`
   justify-content: center;
   font-weight: 500; 
   font-size: 14px;
+
   @media (min-width: 768px) {
     font-size: 20px;
     margin-right: 6px;
-    margin-left: 6px;
-
-       
-     }
+    margin-left: 6px; 
+  }
 `;
 
 export const CategorierList = styled.ul`
-display: flex;
-flex-wrap: wrap;
-/* row-gap: 32px;
-margin-top: 30px; */
-@media (min-width: 768px) {
+  display: flex;
+  flex-wrap: wrap;
+
+  @media (min-width: 768px) {
     margin-top: 28px;   
     justify-content: center;        
-    }
+  }
 `;
 
 export const FormLabel = styled.label`
@@ -62,14 +60,22 @@ export const NoticeFormInput = styled.input`
   border-radius: 40px;
   border: 1px solid rgba(245, 146, 86, 0.5);
   background-color: #FDF7F2;
-   ::placeholder {
-        color: rgba(17, 17, 17, 0.6);
-    }
+
+  ::placeholder {
+      color: rgba(17, 17, 17, 0.6);
+  }
 `;
 
-export const AddNoticeForm = styled.label`
- display: flex;
- flex-direction: column; 
- padding: 10px;
- margin-bottom: 40px;
+export const AddNoticeForm = styled.div`
+  display: flex;
+  flex-direction: column; 
+  padding: 10px;
+  margin-bottom: 40px;
 `;
+
+// export const AddNoticeForm = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   padding: 10px;
+//   margin-bottom: 40px;
+// `;

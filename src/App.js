@@ -5,13 +5,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { authCurrentUser } from 'redux/Auth/AuthOperations';
 import { isLoading } from 'redux/Auth/AuthSelectors'
-
 import { NoticesCategoriesList } from 'components/Notices/NoticesCategoriesList/NoticesCategoriesList';
 
 import PublicRoute from './components/Routes/PublicRoute';
 import PrivateRoute from './components/Routes/PrivateRoute';
-// import * as authOpetations from 'redux/auth/authOperations'
-
 
 import SharedLayout from './components/SharedLayout/SharedLayout';
 const HomePage = lazy(() => import('pages/Home/HomePage'));

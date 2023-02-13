@@ -14,13 +14,16 @@ export const ButtonLogout = styled.button`
     padding: 0;
     margin-right: 12px;
     cursor: pointer;
+
     :hover,
     :focus {
         color: #f59256;
     }
+
     @media (min-width: 768px) {
         margin-left: 32px;
     }
+    
     @media (min-width: 768px) {
         margin-bottom: 18px;
         margin-left: 15px;

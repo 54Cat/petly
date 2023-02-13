@@ -16,12 +16,8 @@ import {
 const UserDataItem = () => {
     const dispatch = useDispatch();
     const userInState = useSelector(selectUser);
-    console.log("user data from auth state", userInState.user);
-
-    // const userInState = useSelector(getUserInfo);
 
     const { name, city, email, phone, birthday } = userInState.user;
-    // console.log("user data", userInState.user);
 
     useEffect(() => {
         if (!name) {

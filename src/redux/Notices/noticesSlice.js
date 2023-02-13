@@ -32,7 +32,6 @@ const noticesSlice = createSlice({
 
         [addNoticeOperation.pending]: handlePending,
         [addNoticeOperation.fulfilled](state, action) {
-            console.log('я в операції', state.items, action.payload);
             state.isLoading = false;
             state.error = null;
             state.items = [...state.items, action.payload];
@@ -42,7 +41,6 @@ const noticesSlice = createSlice({
 
         [deleteNotice.pending]: handlePending,
         [deleteNotice.fulfilled](state, action) {
-            console.log('я в операції', state.items, action.payload);
             state.isLoading = false;
             state.error = null;
             state.items = [

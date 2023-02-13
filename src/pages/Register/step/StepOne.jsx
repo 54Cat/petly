@@ -24,9 +24,8 @@ export const StepOne = props => {
 
     const handleSubmit = data => {
         props.next(data);
-
-        console.log(props);
     };
+    
     return (
         <Formik
             validationSchema={stepOneValidationSchema}

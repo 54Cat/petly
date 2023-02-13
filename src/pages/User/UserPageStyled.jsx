@@ -7,10 +7,12 @@ export const Container = styled.div`
     align-items: center;
     padding-top: 120px;
     row-gap: 45px;
+
     @media (min-width: 768px) {
         padding-top: 160px;
         row-gap: 20px;
     }
+
     @media (min-width: 1280px) {
         flex-direction: row;
         align-items: start;
@@ -21,7 +23,6 @@ export const Container = styled.div`
 `;
 
 export const ButtonContainer = styled.div`
-
     position: absolute;
     right: 20px;
     top: 815px;

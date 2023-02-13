@@ -4,8 +4,6 @@ import { NavContainer, NavList, NavItem, HeaderNavLink } from './HeaderNavigatio
     return ( 
         
       <NavContainer className={active ? 'active' : ''} onClick={() => setActive(false)}>
-        
-      
         <NavList>
           <NavItem>
             <HeaderNavLink

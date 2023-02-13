@@ -1,15 +1,11 @@
-import { AddNoticeForm } from 'components/Modals/modalAddNotice/modalAddNoticeStyled';
 import React from 'react';
-
-
-import { NavButton, AddNoticeTitle, Text, CategorierList, FormLabel, NoticeFormInput } from './Step1Styled';
+import { AddNoticeForm, NavButton, AddNoticeTitle, Text, CategorierList, FormLabel, NoticeFormInput } from './Step1Styled';
 
 const Step1 = ({ category, title, name, birthday, breed, updateFields }) => {
     return (
         <div>
             <AddNoticeTitle>Add pet</AddNoticeTitle>
             <Text>Lorem ipsum dolor sit amet, consectetur Lorem ipsum
-                dolor sit amet, consectetur
             </Text>
             <CategorierList>
                 <NavButton

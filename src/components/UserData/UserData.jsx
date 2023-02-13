@@ -5,8 +5,6 @@ import { UserLogout } from '../Logout/Logout';
 import { Wrapper, Text, UserCard } from './UserDataStyle';
 
 const UserData = () => {
-    // console.log("UserData");
-
     return (
         <>
             <UserCard>

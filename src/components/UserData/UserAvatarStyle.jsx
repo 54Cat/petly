@@ -2,9 +2,11 @@ import styled from '@emotion/styled';
 
 export const Container = styled.div`
     margin-bottom: 32px;
+    
     @media (min-width: 768px) {
         margin: 24px 40px 24px 52px;
     }
+
     @media (min-width: 1280px) {
         width: 100%;
         margin: 0;
@@ -19,9 +21,11 @@ export const Image = styled.img`
     width: 233px;
     height: 233px;
     object-fit: cover;
+
     @media (min-width: 768px) {
         margin-bottom: 8px;
     }
+
     @media (min-width: 1200px) {
         margin: 20px auto 0 auto;
     }
@@ -46,14 +50,17 @@ export const Label = styled.label`
     margin-right: 24px;
     padding: 0;
     cursor: pointer;
+
     @media (min-width: 768px) {
         margin-right: 0;
     }
+
     @media (min-width: 1280px) {
         margin-right: 16px;
         margin-top: -24px;
     }
 `;
+
 export const Input = styled.input`
     display: none;
 `;
