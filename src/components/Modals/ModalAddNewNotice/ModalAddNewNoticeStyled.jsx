@@ -6,6 +6,7 @@ export const WrapAddPet = styled.div`
     position: fixed;
     z-index: 1;
     right: 0;
+
     @media (min-width: 768px) {
         position:unset;
         margin-left: auto;
@@ -25,7 +26,7 @@ export const ModalStyled = styled(Modal)`
         width: 608px;
     }
 `;
-// кнопка добавления нотисов
+
 export const OpenBtn = styled.button`
     width: 80px;
     height: 80px;
@@ -36,10 +37,13 @@ export const OpenBtn = styled.button`
     border: 1px solid transparent; 
     line-height: 22px;
     letter-spacing: 0.04em;
+
     &:hover {
-        background-color: #daad93;
-        border: 1px solid #F59256;
+        color: #111111;
+        background-color: #FFFFFF;
+        border: 2px solid #F59256;
     }
+
     @media (min-width: 768px) {  
         width: 44px;
         height:44px;   
@@ -52,21 +56,20 @@ export const BtnBox = styled.div`
    justify-content: center;
    align-items: center;     
    left: 70%;
-   top: 419px; 
-   /* & > button {
-    content: "Add pet";
-  }   */
- @media (min-width: 768px) {  
-   position: unset;
-    width: 129px;
-   height:44px;
-   top: 350px;
-   left: 77%;
-   } 
- @media (min-width: 1280px) {
-   top: 320px;
-   left: 86%;
-   } 
+   top: 470px; 
+
+    @media (min-width: 768px) {  
+        position: unset;
+        width: 129px;
+        height:44px;
+        top: 350px;
+        left: 77%;
+    } 
+
+    @media (min-width: 1280px) {
+        top: 320px;
+        left: 86%;
+    } 
 `;
 
 export const TextBtn = styled.h2`
