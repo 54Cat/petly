@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { addPetOperation, deletePetOperation } from './petsOperations';
-import { getUserOperation } from 'redux/User/userOperations';
+import {getUserOperation} from '../User/userOperations'
 
 const petsSlice = createSlice({
     name: 'pets',

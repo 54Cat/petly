@@ -21,7 +21,7 @@ export const addNoticeOperation = createAsyncThunk(
         { rejectWithValue }) => {
         try {
             const response = await axios.post(`/notices`, formData);
-            return response;
+            return response.data;
         } catch (error) {
             return rejectWithValue(error);
         }
@@ -31,7 +31,10 @@ export const addNoticeOperation = createAsyncThunk(
 export const deleteNotice = createAsyncThunk(
     'notices/deleteNotice',
     async noticeId => {
+    console.log("deleteNotice")
+
         try {
+            
             const response = await axios.delete(`/notices/${noticeId}`);
             const removedNotice = response.data;
             return removedNotice;

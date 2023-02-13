@@ -67,7 +67,7 @@ export const NoticeFormInput = styled.input`
     }
 `;
 
-export const AddNoticeForm = styled.form`
+export const AddNoticeForm = styled.label`
  display: flex;
  flex-direction: column; 
  padding: 10px;

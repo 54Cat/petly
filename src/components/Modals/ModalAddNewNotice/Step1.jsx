@@ -61,7 +61,7 @@ const Step1 = ({ category, title, name, birthday, breed, updateFields }) => {
                     sell
                 </NavButton>
             </CategorierList>
-            <AddNoticeForm>
+            <AddNoticeForm >
                 <FormLabel htmlFor="title">Title of ad</FormLabel>
                 <NoticeFormInput
                     type="text"

@@ -12,7 +12,7 @@ export const CategoriesBtn = styled(Button)`
 `;
 
 
-export const AddNoticeForm = styled.form`
+export const AddNoticeForm = styled.div`
  display: flex;
  flex-direction: column;
  

@@ -24,8 +24,8 @@ const UserPage = lazy(() => import('./pages/User/UserPage'));
 
 const App = () => {
     const dispatch = useDispatch();
-  useEffect(() => { dispatch(authCurrentUser()) }, [dispatch]);
-  const isFetchingCurrentUser = useSelector(isLoading);
+    useEffect(() => { dispatch(authCurrentUser()) }, [dispatch]);
+    const isFetchingCurrentUser = useSelector(isLoading);
 
     return (
         !isFetchingCurrentUser && (

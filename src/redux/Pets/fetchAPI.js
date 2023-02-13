@@ -10,7 +10,8 @@ export async function getUserInfo() {
 export async function updateUserInfo(userId, credentials) {
     // ТУТ ВОПРОС НЕ ЗАДЕЙСТВОВАНАЯ ФУНКЦ
     const userUpdates = { ...credentials };
-    const { data } = await axios.patch(`/user/${userId}`, userUpdates);
+    const { data } = await axios.patch('/user', userUpdates);
+    console.log(data)
     return data;
 }
 
