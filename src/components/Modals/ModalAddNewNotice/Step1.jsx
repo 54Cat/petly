@@ -5,7 +5,7 @@ const Step1 = ({ category, title, name, birthday, breed, updateFields }) => {
     return (
         <div>
             <AddNoticeTitle>Add pet</AddNoticeTitle>
-            <Text>Lorem ipsum dolor sit amet, consectetur Lorem ipsum
+            <Text>Pets are not our whole life, but they make our lives whole. Roger Caras
             </Text>
             <CategorierList>
                 <NavButton
