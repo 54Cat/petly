@@ -1,5 +1,5 @@
 import { Container, Title, Hero } from './NotFoundPageStyled';
-import { NavButtonLink } from '../../components/Header/AuthNav/AuthNav.styled';
+import { NavButtonLink } from '../../components/Header/AuthNav/AuthNavStyled';
 
 const NotFound = () => {
   return (

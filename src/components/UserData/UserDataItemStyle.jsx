@@ -60,7 +60,7 @@ export const Input = styled.input`
     :focus,
     :hover {
         background: #fdf7f2;
-        border: 1px solid rgba(245, 146, 86, 0.5);
+        outline: 1px solid rgba(245, 146, 86, 0.5);
     }
 
     @media (min-width: 768px) {

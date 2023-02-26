@@ -13,16 +13,15 @@ export const Text = styled.p`
     font-size: 20px;
     line-height: 1.35;
     letter-spacing: 0.04em;
-    margin-bottom: 20px;
+    padding: 0 0 18px 20px;
 
     @media (min-width: 768px) {
         font-size: 28px;
-        margin-bottom: 40px;
-        padding-left: 32px;
+        padding: 0 0 40px 32px;
     }
 
     @media (min-width: 1280px) {
-        margin-bottom: 24px;
+        padding: 0 0 24px 18px;
     }
 `;
 

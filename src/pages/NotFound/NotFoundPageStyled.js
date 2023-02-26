@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import not_found from 'data/404-page-not-found.png';
+import not_found from 'data/img_not_found/404-page-not-found.png';
 
 export const Container = styled.div`
   background-color: #fdf7f2;

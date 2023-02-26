@@ -1,5 +1,5 @@
 import React from 'react';
-import { AuthNavContainer, AuthNavItem, NavButtonLink } from './AuthNav.styled';
+import { AuthNavContainer, AuthNavItem, NavButtonLink } from './AuthNavStyled';
 
 const AuthNav = ({ active, setActive }) => {
     return (
