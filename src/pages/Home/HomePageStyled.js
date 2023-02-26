@@ -29,7 +29,7 @@ export const Container = styled.div`
     padding-top: 96px;
     background-image: url(${bg_tablet});
     background-position: center bottom 96px;
-    background-size: 100% 85%;
+    background-size: 100% 75%;
   }
       
   @media (min-width: 1280px) {
@@ -51,7 +51,6 @@ export const Hero = styled.div`
   background-size: contain;
 
   @media (min-width: 768px) {
-    height: 60%;
     background-image: url(${hero_tablet});
   }
 
